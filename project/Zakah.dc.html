@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Give zakah to Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<a class="back" href="OrgProfile.dc.html"><span aria-hidden="true">←</span> Crescent House Masjid</a>
+<div class="stack g12"><p class="eyebrow">Zakah · Crescent House Masjid</p><h1 class="d2">Zakah, kept<br><em>where it belongs.</em></h1><p class="lede">Zakah given here goes into its own fund, apart from every other donation, and reaches only people eligible to receive it. The masjid’s zakah committee decides who.</p></div>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12" role="group" aria-labelledby="zk-kind">
+<h2 class="t1" id="zk-kind">1. What are you giving?</h2>
+<div class="cols" style="gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr))">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="2"><button type="button" class="pick {{k.cls}}" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">{{k.name}}</span><span class="sm mut">{{k.note}}</span></span></button></sc-for>
+</div>
+</div>
+
+<sc-if value="{{isZakah}}" hint-placeholder-val="{{true}}">
+<div class="stack g12">
+<h2 class="t1">2. Amount</h2>
+<div class="field" style="max-width: 280px"><label class="label" for="zk-amt">Your zakah, in dollars</label><input class="input" id="zk-amt" type="text" inputMode="decimal" value="{{amountVal}}" onInput="{{onAmount}}" style="font-size: 20px"><span class="{{amtCls}}" role="status">{{amtHint}}</span></div>
+<div class="note"><span><span class="b ink">Working out what you owe.</span> Husna does not calculate zakah. [ZAKAH GUIDANCE SUPPLIED BY THE ORGANIZATION] For a question about your own situation, <a class="link" href="ContactOrg.dc.html">ask the masjid</a>.</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isFitr}}" hint-placeholder-val="{{false}}">
+<div class="stack g12">
+<h2 class="t1">2. For how many people?</h2>
+<div class="row g20">
+<div class="qty" role="group" aria-label="Number of people"><button type="button" class="ibtn sq {{lessCls}}" onClick="{{less}}" aria-label="One fewer"><span aria-hidden="true">−</span></button><b>{{people}}</b><button type="button" class="ibtn sq" onClick="{{more}}" aria-label="One more"><span aria-hidden="true">+</span></button></div>
+<span class="mut">{{peopleText}} × $12.00 = <span class="b ink">{{amountText}}</span></span>
+</div>
+<p class="hint">Crescent House has set Zakat al-Fitr at $12.00 a person for 1448, and asks that it be given for each member of the household before the Eid prayer.</p>
+</div>
+</sc-if>
+
+<div class="stack g12">
+<h2 class="t1">3. Your details</h2>
+<div class="form">
+<div class="field"><label class="label" for="zk-name">Full name</label><input class="input" id="zk-name" type="text" autoComplete="name" placeholder="Name for the receipt"></div>
+<div class="field"><label class="label" for="zk-email">Email</label><input class="input" id="zk-email" type="email" autoComplete="email" placeholder="you@example.com"><span class="hint">Your receipt is sent here.</span></div>
+</div>
+<label class="check"><input type="checkbox"><span>Give anonymously. The masjid sees the zakah but not my name.</span></label>
+<p class="sm sub">No account needed. <a class="link" href="SignIn.dc.html">Sign in</a> to keep every receipt in one place.</p>
+</div>
+</div>
+
+<aside class="col-side w card stack g16">
+<p class="eyebrow">{{kindName}}</p>
+<p class="serif" style="font-size: 68px; line-height: 1">{{amountText}}</p>
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)">
+<dt>To</dt><dd>Crescent House Masjid</dd>
+<dt>Fund</dt><dd>Zakah, kept apart from other gifts</dd>
+<dt>How often</dt><dd>One time</dd>
+<dt>Husna keeps</dt><dd>$0.00. All of it goes to the zakah fund</dd>
+<dt>Charged today</dt><dd class="b">{{amountText}}</dd>
+</dl>
+<a class="btn pri xl block {{goCls}}" href="Stripe.dc.html#checkout">Continue to secure payment <span aria-hidden="true">→</span></a>
+<p class="xs sub">You enter your card or bank details on Stripe’s payment page, not on Husna. Your receipt says Zakah. For an ordinary gift, <a class="link" href="Donate.dc.html">donate instead</a>.</p>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
+class Component extends DCLogic {
+  state = { kind: 'zakah', amount: '250.00', people: 4 };
+  renderVals() {
+    const s = this.state, t = (on) => (on ? 'true' : 'false');
+    const K = [['zakah', 'Zakah', 'The yearly zakah on your wealth'], ['fitr', 'Zakat al-Fitr', 'For each person in your household, before the Eid prayer']];
+    const isFitr = s.kind === 'fitr', raw = Number(String(s.amount).replace(/[^0-9.]/g, '')) || 0;
+    const value = isFitr ? s.people * 12 : raw, ok = value >= 1;
+    return {
+      kinds: K.map(([id, name, note]) => ({ name, note, cls: s.kind === id ? 'on' : '', pressed: t(s.kind === id), pick: () => this.setState({ kind: id }) })),
+      isZakah: !isFitr, isFitr, kindName: isFitr ? 'Your Zakat al-Fitr' : 'Your zakah',
+      amountVal: s.amount, onAmount: (ev) => this.setState({ amount: ev.target.value }),
+      amtHint: ok || isFitr ? 'The amount is yours to set.' : 'Enter an amount of $1 or more.', amtCls: ok || isFitr ? 'hint' : 'err',
+      people: String(s.people), peopleText: s.people === 1 ? '1 person' : s.people + ' people',
+      less: () => this.setState({ people: Math.max(1, s.people - 1) }), more: () => this.setState({ people: Math.min(30, s.people + 1) }), lessCls: s.people === 1 ? 'off' : '',
+      amountText: '$' + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','), goCls: ok ? '' : 'off'
+    };
+  }
+}
+</script>
+</body>
+</html>

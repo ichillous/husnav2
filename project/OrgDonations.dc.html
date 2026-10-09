@@ -24,7 +24,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <a href="OrgHome.dc.html">Overview</a>
 <p class="grp">Publish</p>
 <a href="OrgEvents.dc.html">Events</a>
-<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgFriday.dc.html">Friday and Eid</a>
 <a href="OrgPrayerTimes.dc.html">Prayer times</a>
 <a href="OrgAnnouncements.dc.html">Announcements</a>
 <a href="OrgProfileEdit.dc.html">Public profile</a>
@@ -65,7 +65,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <thead><tr><th>Date</th><th>Donor</th><th>Fund</th><th>Type</th><th class="num">Amount</th></tr></thead>
 <tbody>
 <tr><td class="nw">Oct 8</td><td class="b">Amina Farah</td><td>General fund</td><td>One time</td><td class="num">$50.00</td></tr>
-<tr><td class="nw">Oct 8</td><td class="sub">Anonymous</td><td>Zakat</td><td>One time</td><td class="num">$100.00</td></tr>
+<tr><td class="nw">Oct 8</td><td class="sub">Anonymous</td><td>Zakah</td><td>One time</td><td class="num">$100.00</td></tr>
 <tr><td class="nw">Oct 7</td><td class="b">Tariq Abdi</td><td>Weekend school scholarships</td><td>Monthly</td><td class="num">$25.00</td></tr>
 <tr><td class="nw">Oct 6</td><td class="b">Leila Haddad</td><td>Building and maintenance</td><td>One time</td><td class="num">$150.00</td></tr>
 <tr><td class="nw">Oct 5</td><td class="b">Mustafa Karim</td><td>General fund</td><td>Monthly</td><td class="num">$50.00</td></tr>
@@ -81,7 +81,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="stack g8"><div class="row between sm"><span class="b">General fund</span><span class="tnum">$640</span></div><div class="meter" aria-hidden="true"><i style="width: 52%"></i></div></div>
 <div class="stack g8"><div class="row between sm"><span class="b">Weekend school scholarships</span><span class="tnum">$350</span></div><div class="meter" aria-hidden="true"><i style="width: 28%"></i></div></div>
 <div class="stack g8"><div class="row between sm"><span class="b">Building and maintenance</span><span class="tnum">$150</span></div><div class="meter" aria-hidden="true"><i style="width: 12%"></i></div></div>
-<div class="stack g8"><div class="row between sm"><span class="b">Zakat</span><span class="tnum">$100</span></div><div class="meter" aria-hidden="true"><i style="width: 8%"></i></div></div>
+<div class="stack g8"><div class="row between sm"><span class="b">Zakah <span class="badge" style="margin-left: 6px">Kept apart</span></span><span class="tnum">$100</span></div><div class="meter" aria-hidden="true"><i style="width: 8%"></i></div></div>
 </div>
 <sc-if value="{{fundOpen}}" hint-placeholder-val="{{false}}">
 <div class="stack g12" style="padding-top: 16px; border-top: 1px solid rgba(232,249,229,.13)">
@@ -92,6 +92,13 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </div>
 </sc-if>
 </div>
+<div class="card stack g4" id="zakah">
+<div class="row between"><p class="eyebrow">Zakah</p><a class="link sm" href="Zakah.dc.html">See the Zakah page ↗</a></div>
+<div class="set"><div class="stack g4"><span class="b">Accept zakah</span><span class="sm mut">Puts a Zakah button on your profile and giving page. It goes into its own fund and is never mixed with other gifts</span></div><input class="sw" type="checkbox" checked aria-label="Accept zakah"></div>
+<div class="set"><div class="stack g4"><span class="b">Zakat al-Fitr, for each person</span><span class="sm mut">Offered from the first day of Ramadan until your Eid prayer</span></div><input class="input" type="text" inputMode="decimal" defaultValue="$12.00" aria-label="Zakat al-Fitr amount for each person" style="width: 110px; min-height: 44px; padding-block: 8px"></div>
+<div class="field" style="padding-top: 12px"><label class="label" for="dn-zk">How your masjid gives zakah <i>(shown to givers)</i></label><textarea class="textarea" id="dn-zk" style="min-height: 84px" placeholder="Who decides, who receives it, and how soon it is given out"></textarea></div>
+<div class="row end" style="padding-top: 12px"><button type="button" class="btn sm" onClick="{{saveZk}}">{{zkLabel}}</button></div>
+</div>
 <div class="card stack g12"><p class="eyebrow">Your giving page</p><p class="sm mut">husna.app/crescent-house/give. Share it in announcements, on a poster, or as a QR code at the door.</p><div class="row g8"><a class="btn sm" href="Donate.dc.html">Open giving page ↗</a><button type="button" class="btn sm" onClick="{{qr}}">{{qrLabel}}</button></div></div>
 <div class="card stack g8"><p class="eyebrow q">Receipts and year end</p><p class="sm mut">Every donor gets a receipt by email. In January, each donor can download a statement of the year’s gifts with your EIN on it.</p><a class="link sm" href="OrgSettings.dc.html">Check your EIN and legal name →</a></div>
 </aside>
@@ -100,9 +107,9 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1260}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1680}}'>
 class Component extends DCLogic {
-  state = { exported: false, copied: false, fund: false, qr: false };
+  state = { exported: false, copied: false, fund: false, qr: false, zk: false };
   renderVals() {
     const s = this.state;
     return {
@@ -112,6 +119,7 @@ class Component extends DCLogic {
       copy: () => this.setState({ copied: true }),
       fundOpen: s.fund, fundBtn: s.fund ? 'Cancel' : 'Add a fund',
       toggleFund: () => this.setState({ fund: !s.fund }),
+      zkLabel: s.zk ? 'Saved' : 'Save zakah settings', saveZk: () => this.setState({ zk: true }),
       qrLabel: s.qr ? 'QR code downloaded' : 'Download QR code',
       qr: () => this.setState({ qr: true })
     };

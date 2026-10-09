@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Edit a Friday service</title>
+<title>Edit a Jumu’ah</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./husna.css">
 </head>
@@ -18,16 +18,18 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="scrim">
 <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sv-title">
 <div class="sheet-h">
-<div class="stack g8"><p class="eyebrow">Friday, October 9</p><h1 class="d3" id="sv-title">Edit <em>a service.</em></h1></div>
+<div class="stack g8"><p class="eyebrow">Friday, October 9 · 2nd of 3</p><h1 class="d3" id="sv-title">Edit <em>a Jumu’ah.</em></h1></div>
 <a class="ibtn" href="OrgFriday.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
 </div>
 <div class="stack g20">
 <div class="form">
-<div class="field"><label class="label" for="sv-time">Khutbah starts</label><input class="input" id="sv-time" type="text" defaultValue="2:30 PM"><span class="hint">The time the khutbah begins, not the adhan.</span></div>
-<div class="field"><label class="label" for="sv-where">Where</label><select class="select" id="sv-where"><option selected="">Main hall</option><option>Community hall</option><option>Outdoor courtyard</option></select></div>
+<div class="field"><label class="label" for="sv-time">Khutbah starts</label><input class="input" id="sv-time" type="text" value="{{khutbah}}" onInput="{{onKhutbah}}"><span class="hint">When the khateeb begins.</span></div>
+<div class="field"><label class="label" for="sv-iq">Iqamah</label><input class="input" id="sv-iq" type="text" value="{{iqamah}}" onInput="{{onIqamah}}"><span class="{{iqCls}}" role="status">{{iqHint}}</span></div>
 <div class="field full"><label class="label" for="sv-who">Khateeb</label><input class="input" id="sv-who" type="text" defaultValue="Shaykh Yusuf Ali"></div>
 <div class="field full"><label class="label" for="sv-topic">Khutbah topic <i>(optional)</i></label><input class="input" id="sv-topic" type="text" maxLength="90" defaultValue="Finding Patience in a Noisy World"><span class="hint">Leave empty to show “Topic to be announced”.</span></div>
+<div class="field"><label class="label" for="sv-where">Where</label><select class="select" id="sv-where"><option selected="">Main hall</option><option>Community hall</option><option>Outdoor courtyard</option></select></div>
 </div>
+<sc-if value="{{early}}" hint-placeholder-val="{{false}}"><div class="note warn" role="status"><span>Dhuhr begins at 1:21 PM this Friday, and this khutbah starts before it. You can still save. This is only a reminder.</span></div></sc-if>
 <fieldset class="stack g4" style="border: 0; padding: 0; margin: 0">
 <legend class="label" style="padding: 0; margin-bottom: 4px">Language of the khutbah</legend>
 <div class="row g20">
@@ -37,22 +39,32 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <label class="check"><input type="checkbox"><span>Urdu</span></label>
 </div>
 </fieldset>
-<div class="set" style="padding: 0; border: 0"><div class="stack g4"><span class="b">Sisters’ prayer area open</span><span class="sm mut">Shown as a small note beside this service</span></div><input class="sw" type="checkbox" checked="" aria-label="Sisters’ prayer area open"></div>
+<div class="set" style="padding: 0; border: 0"><div class="stack g4"><span class="b">Sisters’ prayer area open</span><span class="sm mut">Shown as a small note beside this Jumu’ah</span></div><input class="sw" type="checkbox" checked="" aria-label="Sisters’ prayer area open"></div>
 <div class="row between g8">
-<sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><button type="button" class="btn danger" onClick="{{ask}}">Remove this service</button></sc-if>
+<sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><button type="button" class="btn danger" onClick="{{ask}}">Remove this Jumu’ah</button></sc-if>
 <sc-if value="{{asking}}" hint-placeholder-val="{{false}}"><div class="row g8"><a class="btn danger" href="OrgFriday.dc.html">Yes, remove it</a><button type="button" class="btn" onClick="{{keep}}">Keep it</button></div></sc-if>
-<div class="row g8"><a class="btn" href="OrgFriday.dc.html">Cancel</a><a class="btn pri" href="OrgFriday.dc.html">Save service</a></div>
+<div class="row g8"><a class="btn" href="OrgFriday.dc.html">Cancel</a><a class="btn pri {{saveCls}}" href="OrgFriday.dc.html">Save Jumu’ah</a></div>
 </div>
-<p class="xs sub">Saving updates your public profile at once. Followers are not notified of small edits.</p>
+<p class="xs sub">Saving updates your profile and your TV displays at once. Followers are not notified of small edits. A masjid with one Jumu’ah has only this one to keep; a second or third is for when the hall is full.</p>
 </div>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":780}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":920}}'>
 class Component extends DCLogic {
-  state = { asking: false };
+  state = { asking: false, khutbah: '2:30 PM', iqamah: '3:00 PM' };
   renderVals() {
-    return { idle: !this.state.asking, asking: this.state.asking, ask: () => this.setState({ asking: true }), keep: () => this.setState({ asking: false }) };
+    const s = this.state;
+    const mins = (t) => { const m = /^\s*(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m?\.?\s*$/i.exec(t || ''); if (!m) return null; return (Number(m[1]) % 12 + (/p/i.test(m[3]) ? 12 : 0)) * 60 + Number(m[2] || 0); };
+    const k = mins(s.khutbah), q = mins(s.iqamah), ok = k !== null && q !== null && q > k;
+    return {
+      idle: !s.asking, asking: s.asking, ask: () => this.setState({ asking: true }), keep: () => this.setState({ asking: false }),
+      khutbah: s.khutbah, iqamah: s.iqamah,
+      onKhutbah: (ev) => this.setState({ khutbah: ev.target.value }), onIqamah: (ev) => this.setState({ iqamah: ev.target.value }),
+      iqHint: k === null || q === null ? 'Write both times like 3:00 PM.' : q <= k ? 'The iqamah comes after the khutbah starts.' : 'The prayer begins ' + (q - k) + ' minutes after the khutbah starts.',
+      iqCls: ok ? 'hint' : 'err', saveCls: ok ? '' : 'off',
+      early: k !== null && k < 13 * 60 + 21
+    };
   }
 }
 </script>

@@ -9,11 +9,11 @@ ROWS = [
  ("A", "A · Public site: home, discover, events, organizations", [
    ("Main", "A1 · Home", P, "page"), ("Discover", "A2 · Discover", P, "page"), ("Event", "A3 · Event", P, "page"), ("Gate", "A4 · Sign-in gate", S, "sheet"),
    ("Organizations", "A5 · Organizations", P, "page"), ("OrgProfile", "A6 · Organization profile", P, "page"), ("ContactOrg", "A7 · Message an organization", S, "sheet")]),
- ("A2", "A · Public site: Qur’an school, giving, for organizations, help, a coffee for the developer", [
+ ("A2", "A · Public site: Qur’an school, giving and zakah, for organizations, help, a coffee for the developer", [
    ("Program", "A8 · Weekend Qur’an School", P, "page"), ("Donate", "A9 · Donate", P, "page"), ("DonateDone", "A10 · Donation receipt", S, "sheet"),
-   ("ForOrgs", "A11 · For organizations", P, "page"), ("Help", "A12 · Help", P, "page"), ("Coffee", "A18 · Buy the developer a coffee", S, "sheet")]),
- ("A3", "A · Public site: Friday prayers, payment links, terms and privacy", [
-   ("Friday", "A13 · Friday prayers", P, "page"), ("PayLink", "A14 · Payment link", P, "page"),
+   ("ForOrgs", "A11 · For organizations", P, "page"), ("Help", "A12 · Help", P, "page"), ("Zakah", "A20 · Give zakah", P, "page"), ("Coffee", "A18 · Buy the developer a coffee", S, "sheet")]),
+ ("A3", "A · Public site: Friday prayers, Eid prayer, payment links, terms and privacy", [
+   ("Friday", "A13 · Friday prayers", P, "page"), ("Eid", "A19 · Eid prayer", P, "page"), ("PayLink", "A14 · Payment link", P, "page"),
    ("Terms", "A15 · Terms of Service", P, "page"), ("Privacy", "A16 · Privacy Policy", P, "page"), ("OrgTerms", "A17 · Organization Terms", P, "page")]),
  ("B", "B · Accounts: sign in, recover, create a member account", [
    ("SignIn", "B1 · Sign in", P, "page"), ("CheckEmail", "B2 · Check your email", S, "sheet"), ("Workspaces", "B3 · Choose a space", S, "sheet"), ("Forgot", "B4 · Forgot password", S, "sheet"),
@@ -34,9 +34,9 @@ ROWS = [
    ("Child", "C13 · Child: class, attendance, progress", P, "page"), ("AbsenceSheet", "C14 · Report an absence", S, "sheet"), ("WithdrawSheet", "C15 · Withdraw from a class", S, "sheet"),
    ("Payments", "C16 · Payments and receipts", P, "page"), ("Account", "C17 · Account settings", P, "page"),
    ("Messages", "C18 · Messages", P, "page"), ("WaitlistOffer", "C19 · Waitlist place offered", S, "sheet")]),
- ("D", "D · Organization workspace: setup, overview, events, Friday prayers", [
+ ("D", "D · Organization workspace: setup, overview, events, Friday and Eid prayers", [
    ("OrgSetup", "D1 · Setup guide", P, "page"), ("OrgHome", "D2 · Overview", P, "page"), ("OrgEvents", "D3 · Events", P, "page"), ("OrgEventEdit", "D4 · Create event", P, "page"),
-   ("OrgEventManage", "D5 · Event RSVPs", P, "page"), ("OrgFriday", "D6 · Friday prayers", P, "page"), ("OrgServiceSheet", "D7 · Edit a service", S, "sheet")]),
+   ("OrgEventManage", "D5 · Event RSVPs", P, "page"), ("OrgFriday", "D6 · Friday and Eid prayers", P, "page"), ("OrgServiceSheet", "D7 · Edit a Jumu’ah", S, "sheet"), ("OrgEidEdit", "D39 · Plan an Eid prayer", P, "page")]),
  ("D2", "D · Organization workspace: school programs, applications, rosters, attendance, teacher’s view", [
    ("OrgPrograms", "D8 · Programs", P, "page"), ("OrgNewTermSheet", "D24 · Start the next term", S, "sheet"), ("OrgProgramEdit", "D9 · Program setup", P, "page"),
    ("UnsavedSheet", "D23 · Leave without saving?", S, "sheet"), ("OrgApplications", "D10 · Applications", P, "page"), ("OrgDecisionSheet", "D11 · Decline or ask for info", S, "sheet"),
@@ -66,15 +66,15 @@ ROWS = [
  ("G", "G · On a phone: visitor and parent", [
    ("PhoneMain", "G1 · Home", PH, "phone"), ("MenuVisitor", "G2 · Visitor menu", PH, "menu"), ("PhoneEvent", "G3 · Event", PH, "phone"), ("PhoneSignIn", "G4 · Sign in", PH, "phone"),
    ("PhoneMyHusna", "G5 · My week", PH, "phone"), ("MenuMember", "G6 · Member menu", PH, "menu"), ("PhoneEnroll2", "G7 · Enroll: classes", PH, "phone"), ("PhoneEnroll5", "G8 · Enroll: tuition", PH, "phone"),
-   ("PhoneChild", "G9 · Child", PH, "phone"), ("PhoneAbsence", "G10 · Report an absence", PH, "phone"), ("PhoneMessages", "G11 · Messages", PH, "phone"), ("PhoneDonate", "G12 · Donate", PH, "phone"), ("PhonePrayerBar", "G17 · Home masjid banner, moving", PH, "strip")]),
+   ("PhoneChild", "G9 · Child", PH, "phone"), ("PhoneAbsence", "G10 · Report an absence", PH, "phone"), ("PhoneMessages", "G11 · Messages", PH, "phone"), ("PhoneDonate", "G12 · Donate", PH, "phone"), ("PhoneEid", "G18 · Eid prayer", PH, "phone"), ("PhonePrayerBar", "G17 · Home masjid banner, moving", PH, "strip")]),
  ("G2", "G · On a phone: teacher and organization", [
    ("PhoneTeacher", "G13 · Teacher’s workspace", PH, "phone"), ("PhoneAttendance", "G14 · Take attendance", PH, "phone"), ("PhoneOrgHome", "G15 · Workspace overview", PH, "phone"), ("MenuOrg", "G16 · Workspace menu", PH, "menu")]),
  ("H", "H · On a TV in the masjid: pairing, the three layouts, and the minutes around a prayer", [
    ("TvPair", "H1 · A new TV: pairing code", TV, "tv"), ("TvMain", "H2 · Timetable layout", TV, "tv"), ("TvSlides", "H3 · Slides-first layout", TV, "tv"), ("TvFocus", "H4 · Focus layout", TV, "tv"),
    ("TvAdhan", "H5 · At the adhan", TV, "tv"), ("TvIqamah", "H6 · Countdown to the iqamah", TV, "tv"), ("TvPrayer", "H7 · During the prayer", TV, "tv")]),
- ("H2", "H · On a TV in the masjid: Fridays, Ramadan, a message from the office, no connection, a screen on its side", [
+ ("H2", "H · On a TV in the masjid: Fridays, Ramadan, Eid, a message from the office, no connection, a screen on its side", [
    ("TvFriday", "H8 · Friday board", TV, "tv"), ("TvRamadan", "H9 · Ramadan: countdown to iftar", TV, "tv"), ("TvMessage", "H10 · A message from the office", TV, "tv"),
-   ("TvOffline", "H11 · No connection", TV, "tv"), ("TvPortrait", "H12 · Portrait screen", 1080, "tv")]),
+   ("TvOffline", "H11 · No connection", TV, "tv"), ("TvEid", "H13 · Eid prayer, somewhere else", TV, "tv"), ("TvPortrait", "H12 · Portrait screen", 1080, "tv")]),
 ]
 GROUPS = [("S", "Start here"), ("A", "Public site"), ("B", "Accounts"), ("C", "Member and family"), ("D", "Organization workspace"), ("E", "Founder console"), ("F", "System"), ("G", "On a phone"), ("H", "On a TV")]
 

@@ -20,7 +20,7 @@ then open <http://localhost:4173>. Nothing to install; it needs only Node.
 Settings → Pages → Deploy from a branch → `main`, folder `/ (root)`. It then lives at
 <https://ichillous.github.io/husnav2/>.
 
-The first page lists all 150 screens. Open one and click through: links inside a screen lead to the next
+The first page lists all 155 screens. Open one and click through: links inside a screen lead to the next
 screen, as they will in the product. Start with **S1, the map**, which shows every screen, what can be
 pressed on it and where each press leads.
 
@@ -29,20 +29,23 @@ pressed on it and where each press leads.
 | Group | Screens | What |
 | --- | --- | --- |
 | S · Start here | 2 | The map of every screen and click, and the design system |
-| A · Public site | 18 | Home, discover, events, organizations, Qur'an school, giving, help, legal |
+| A · Public site | 20 | Home, discover, events, organizations, Friday and Eid prayers, Qur'an school, giving and zakah, help, legal |
 | B · Accounts | 18 | Sign in, sign up, organization application, invitations |
 | C · Member and family | 20 | My week, family, enrolling children, payments, messages, the home masjid banner |
-| D · Organization workspace | 38 | Events, Friday prayers, prayer times, TV displays, school, money, team, settings |
+| D · Organization workspace | 39 | Events, Friday and Eid prayers, prayer times, TV displays, school, money, team, settings |
 | E · Founder console | 18 | Approvals, organizations, users, moderation, support, payments and coffee, audit |
 | F · System | 7 | Empty and error states, every email and text, hand-offs to Stripe, printed documents |
-| G · On a phone | 17 | The same screens at 390px, and the menus |
-| H · On a TV | 12 | What a masjid's TV shows through the day |
+| G · On a phone | 18 | The same screens at 390px, and the menus |
+| H · On a TV | 13 | What a masjid's TV shows through the day |
 
 A few things the design settles:
 
 - **Husna is free.** No plans and no platform fee; nothing is taken from donations or tuition. Members and
   organizations can buy the developer a coffee, and that is the only way money reaches Husna.
 - **Home masjid.** A member chooses one masjid, and its prayer times sit at the top of every page they open.
+- **Fridays and Eid.** A masjid holds one Jumu'ah or several, each with a khutbah start and an iqamah. Eid is
+  its own occasion, with its place, prayer times, details and parking, because it is often not at the masjid.
+- **Zakah** has its own button, page and fund.
 - **TV displays.** A masjid opens `husna.app/tv` on any screen with a browser, types the code into its
   workspace, and the screen follows the day by itself.
 - **Open decisions** are written `[IN BRACKETS, IN CAPITALS]` on the screens; AGENTS.md lists them.

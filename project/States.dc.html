@@ -54,6 +54,9 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <tr><td class="b">Applications, none to review</td><td class="mut">You are up to date. New applications arrive here and by email each morning.</td><td><a class="link" href="OrgRoster.dc.html">Open the roster</a></td></tr>
 <tr><td class="b">Home masjid, none chosen</td><td class="mut">No banner is shown at the top of the page. My week invites the member once: “Choose a home masjid to keep its prayer times in view.”</td><td><a class="link" href="Account.dc.html">Home masjid in Account</a></td></tr>
 <tr><td class="b">Prayer times, organization is not a masjid</td><td class="mut">Prayer times is not in the sidebar and cannot be opened. A school or nonprofit can still pair a TV; it shows slides, events and a clock, without a timetable.</td><td><a class="link" href="OrgApply2.dc.html">Where the kind is chosen</a></td></tr>
+<tr><td class="b">Friday, one Jumu’ah only</td><td class="mut">The profile shows one khutbah time and one iqamah, with no “1st”, “2nd” or “3rd”. Nothing more has to be filled in.</td><td><a class="link" href="OrgFriday.dc.html">Friday and Eid</a></td></tr>
+<tr><td class="b">Eid, the day not yet confirmed</td><td class="mut">The Eid page shows both possible days and says the day is confirmed the evening before. Followers are told the moment the masjid confirms.</td><td><a class="link" href="Eid.dc.html">The Eid page</a></td></tr>
+<tr><td class="b">Zakah, not accepted by this organization</td><td class="mut">No Zakah button on its profile or giving page. Other donations work as usual.</td><td><a class="link" href="OrgDonations.dc.html">Zakah settings</a></td></tr>
 <tr><td class="b">Prayer times, not set</td><td class="mut">Choose how your adhan times are worked out and set each iqamah. It takes about three minutes.</td><td><a class="link" href="OrgPrayerTimes.dc.html">Set prayer times</a></td></tr>
 <tr><td class="b">TV displays, none paired</td><td class="mut">No screens yet. Open husna.app/tv on a TV and type the code it shows.</td><td><a class="link" href="OrgDisplayPairSheet.dc.html">Pair a TV</a></td></tr>
 <tr><td class="b">Payouts, not connected</td><td class="mut">Connect payouts to receive donations and tuition.</td><td><a class="link" href="OrgPayouts.dc.html">Connect with Stripe</a></td></tr>
@@ -107,7 +110,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
 class Component extends DCLogic {
   state = { retry: false, online: false };
   renderVals() {

@@ -86,7 +86,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="card stack g16">
 <p class="eyebrow">This Friday · October 9</p>
 <h2 class="d3">Know your <em>Jumu’ah.</em></h2>
-<p class="sm mut">Three services at Crescent House Masjid. Pick the time that works.</p>
+<p class="sm mut">Three Jumu’ahs at Crescent House Masjid. Go to whichever suits you.</p>
 <ul class="list">
 <li class="li" style="padding: 12px 0"><span class="serif nw" style="font-size: 24px; flex: 0 0 96px">1:30 PM</span><span class="sm mut">Imam Adam Rahman</span></li>
 <li class="li" style="padding: 12px 0"><span class="serif nw" style="font-size: 24px; flex: 0 0 96px">2:30 PM</span><span class="sm mut">Shaykh Yusuf Ali</span></li>
@@ -121,7 +121,7 @@ class Component extends DCLogic {
     const s = this.state;
     const member = (this.props.viewer ?? 'Visitor') === 'Member';
     const all = [
-      { d: 9, day: '09', dow: 'Fri · Oct', cat: 'Prayer', time: '1:30 PM', title: 'Friday Prayer: Showing Up for One Another', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'ج', tint: 'p-mint' },
+      { d: 9, day: '09', dow: 'Fri · Oct', cat: 'Prayer', time: '1:30 PM', title: 'Friday Prayer: On Being There for One Another', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'ج', tint: 'p-mint' },
       { d: 9, day: '09', dow: 'Fri · Oct', cat: 'Community', time: '6:30 PM', title: 'Newcomers & Neighbors Night', org: 'Mosaic Muslim Collective', where: 'At the community hub', glyph: 'م', tint: 'p-lilac' },
       { d: 10, day: '10', dow: 'Sat · Oct', cat: 'Learning', time: '10:00 AM', title: 'Qur’an & Coffee: Saturday Reflections', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'ق', tint: 'p-sand' },
       { d: 11, day: '11', dow: 'Sun · Oct', cat: 'Family', time: '11:00 AM', title: 'Families in Nature: Autumn Walk', org: 'Mosaic Muslim Collective', where: 'Offsite, metro park meeting point', glyph: 'أ', tint: 'p-blue' },

@@ -25,7 +25,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
 <p class="grp">Publish</p>
 <a href="OrgEvents.dc.html">Events</a>
-<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgFriday.dc.html">Friday and Eid</a>
 <a class="on" href="OrgPrayerTimes.dc.html" aria-current="page">Prayer times</a>
 <a href="OrgAnnouncements.dc.html">Announcements</a>
 <a href="OrgProfileEdit.dc.html">Public profile</a>
@@ -70,7 +70,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="row between"><h2 class="t1">Changes coming up</h2><button type="button" class="btn sm" onClick="{{toggleAdd}}">{{addBtn}}</button></div>
 <div class="list">
 <div class="li wrap start" style="padding: 12px 0"><span class="date"><b>18</b><span>Sun · Oct</span></span><div class="grow stack g4"><p class="b">Isha iqamah becomes 8:15 PM</p><p class="sm mut">It is 8:30 PM now. The Isha adhan that night is 8:03 PM.</p></div><span class="badge info">Announced from October 11</span></div>
-<div class="li wrap start" style="padding: 12px 0"><span class="date"><b>01</b><span>Sun · Nov</span></span><div class="grow stack g4"><p class="b">Clocks go back one hour</p><p class="sm mut">Dhuhr iqamah becomes 12:45 PM and Isha 7:15 PM. Friday services move to 12:30, 1:30 and 2:30 PM.</p></div><span class="badge info">Announced from October 25</span></div>
+<div class="li wrap start" style="padding: 12px 0"><span class="date"><b>01</b><span>Sun · Nov</span></span><div class="grow stack g4"><p class="b">Clocks go back one hour</p><p class="sm mut">Dhuhr iqamah becomes 12:45 PM and Isha 7:15 PM. Friday khutbahs move to 12:30, 1:30 and 2:30 PM, each with its iqamah half an hour later.</p></div><span class="badge info">Announced from October 25</span></div>
 <sc-if value="{{added}}" hint-placeholder-val="{{false}}"><div class="li wrap start" style="padding: 12px 0"><span class="date"><b>25</b><span>Sun · Oct</span></span><div class="grow stack g4"><p class="b">Fajr iqamah becomes 7:00 AM</p><p class="sm mut">Added just now. It is saved with the rest of this page.</p></div><button type="button" class="btn sm" onClick="{{removeAdded}}">Remove</button></div></sc-if>
 </div>
 <sc-if value="{{adding}}" hint-placeholder-val="{{false}}">
@@ -118,7 +118,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </div>
 
 <section class="card stack g16" style="margin-top: 20px">
-<div class="row between bottom"><div class="stack g4"><h2 class="t1">{{monthName}}</h2><p class="sm mut">Each adhan, with the iqamah in green beside it. On Fridays the Dhuhr column shows your three services.</p></div><div class="row g8"><button type="button" class="btn sm" onClick="{{dl}}">{{dlLabel}}</button><button type="button" class="btn sm" onClick="{{month}}">{{monthLabel}}</button></div></div>
+<div class="row between bottom"><div class="stack g4"><h2 class="t1">{{monthName}}</h2><p class="sm mut">Each adhan, with the iqamah in green beside it. On Fridays the Dhuhr column shows when each khutbah starts.</p></div><div class="row g8"><button type="button" class="btn sm" onClick="{{dl}}">{{dlLabel}}</button><button type="button" class="btn sm" onClick="{{month}}">{{monthLabel}}</button></div></div>
 <sc-if value="{{oct}}" hint-placeholder-val="{{true}}">
 <div class="tbl-wrap" style="background: none"><table class="tbl cmp" style="min-width: 800px">
 <thead><tr><th>Day</th><th>Hijri</th><th>Fajr</th><th>Sunrise</th><th>Dhuhr</th><th>Asr</th><th>Maghrib</th><th>Isha</th></tr></thead>

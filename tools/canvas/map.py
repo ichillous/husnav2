@@ -13,11 +13,11 @@ for key, rtitle, items in ROWS:
         c, n = title.split(' · ', 1)
         CODE[stem] = c; NAME[stem] = n; KIND[stem] = kind; ORDER.append(stem); GROUP[stem] = c[0]
 PHONE_SRC = {'PhoneMain': 'Main', 'PhoneEvent': 'Event', 'PhoneSignIn': 'SignIn', 'PhoneMyHusna': 'MyHusna', 'PhoneEnroll2': 'Enroll2', 'PhoneEnroll5': 'Enroll5', 'PhoneChild': 'Child',
-             'PhoneAbsence': 'AbsenceSheet', 'PhoneMessages': 'Messages', 'PhoneDonate': 'Donate', 'PhonePrayerBar': 'PrayerBar', 'PhoneTeacher': 'TeacherHome', 'PhoneAttendance': 'OrgAttendance', 'PhoneOrgHome': 'OrgHome'}
+             'PhoneAbsence': 'AbsenceSheet', 'PhoneMessages': 'Messages', 'PhoneDonate': 'Donate', 'PhonePrayerBar': 'PrayerBar', 'PhoneEid': 'Eid', 'PhoneTeacher': 'TeacherHome', 'PhoneAttendance': 'OrgAttendance', 'PhoneOrgHome': 'OrgHome'}
 TVNOTE = {'TvPair': 'Shown until someone types this code on D34.', 'TvMain': 'The clock and the countdown run.', 'TvSlides': 'Slides change by themselves.', 'TvFocus': 'The countdown runs.',
           'TvAdhan': 'Appears at the adhan time for as long as D35 says.', 'TvIqamah': 'Counts down to zero, then gives way to H7.', 'TvPrayer': 'Nothing moves until the prayer is over.',
           'TvFriday': 'From Thursday’s Maghrib until the last service ends.', 'TvRamadan': 'For the whole month, when D35 has it switched on.', 'TvMessage': 'Sent from D37 and cleared from there, or by its timer.',
-          'TvOffline': 'What a screen shows by itself when the connection drops.', 'TvPortrait': 'The timetable layout on a screen turned on its side.'}
+          'TvOffline': 'What a screen shows by itself when the connection drops.', 'TvEid': 'From three days before an Eid prayer, when D39 has the notice switched on.', 'TvPortrait': 'The timetable layout on a screen turned on its side.'}
 e = lambda s: H.escape(s, quote=True)
 def short(s, n=44):
     s = ' '.join(s.split())
@@ -154,6 +154,8 @@ journeys = ''.join([
  J('A masjid puts its prayer times on the wall', 'The times are set once. A screen is paired with a code, and from then on it follows the day with no one touching it.',
    ['OrgHome', 'OrgPrayerTimes', 'OrgDisplays', 'OrgDisplayPairSheet', 'TvPair', V('the code is typed, the screen is paired'), 'OrgDisplayEdit', 'OrgSlideSheet', V('on the TV, most of the day'), 'TvMain', V('at the adhan'), 'TvAdhan',
     V('five minutes before the iqamah'), 'TvIqamah', V('during the prayer'), 'TvPrayer', V('from Thursday evening'), 'TvFriday', V('something urgent'), 'OrgDisplays', 'OrgDisplayMessageSheet', V('shown on every screen'), 'TvMessage']),
+ J('Fridays, and an Eid held somewhere else', 'One Jumu’ah or three, each with its khutbah and its iqamah. Eid gets its own page, because it is often not at the masjid at all.',
+   ['OrgHome', 'OrgFriday', 'OrgServiceSheet', V('saved, and on the masjid’s page'), 'OrgProfile', V('Eid, planned months ahead'), 'OrgFriday', 'OrgEidEdit', V('published; the day is confirmed the evening before'), 'Emails', 'Eid', V('before the prayer'), 'Zakah', 'Stripe', V('meanwhile, on the TVs at the masjid'), 'TvEid']),
 ])
 
 # ---------- navigation that is on every screen of a space

@@ -25,7 +25,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
 <p class="grp">Publish</p>
 <a href="OrgEvents.dc.html">Events</a>
-<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgFriday.dc.html">Friday and Eid</a>
 <a href="OrgPrayerTimes.dc.html">Prayer times</a>
 <a href="OrgAnnouncements.dc.html">Announcements</a>
 <a href="OrgProfileEdit.dc.html">Public profile</a>
@@ -126,9 +126,10 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="set"><div class="stack g4"><span class="b">Adhkar after the prayer</span><span class="sm mut">Your own slides, for a few minutes after each prayer. Add them as pictures and mark them “After prayer”</span></div><input class="sw" type="checkbox" aria-label="Adhkar after the prayer"></div>
 </section>
 
-<section class="card stack g4" data-sec="Fridays and Ramadan">
-<h2 class="t1">5. Fridays and Ramadan</h2>
-<div class="set"><div class="stack g4"><span class="b">Friday board</span><span class="sm mut">Each khutbah, its khateeb and topic, from Thursday’s Maghrib until the last service ends</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvFriday.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Friday board"></div></div>
+<section class="card stack g4" data-sec="Fridays, Ramadan and Eid">
+<h2 class="t1">5. Fridays, Ramadan and Eid</h2>
+<div class="set"><div class="stack g4"><span class="b">Friday board</span><span class="sm mut">Each Jumu’ah with its khutbah and iqamah times, khateeb and topic, from Thursday’s Maghrib until the last one ends</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvFriday.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Friday board"></div></div>
+<div class="set"><div class="stack g4"><span class="b">Eid notice</span><span class="sm mut">In the days before Eid: where the prayer is, when, and where to park. Says so plainly when it is not at the masjid</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvEid.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Eid notice"></div></div>
 <div class="set"><div class="stack g4"><span class="b">Ramadan layout</span><span class="sm mut">Counts down to iftar and shows suhoor and taraweeh, for the whole month</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvRamadan.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Ramadan layout"></div></div>
 </section>
 
@@ -161,7 +162,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2560}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2660}}'>
 class Component extends DCLogic {
 state = { changed: {}, justSaved: false, moment: 0, layout: 'a', off: {}, dur: {}, order: [0, 1, 2, 3, 4] };
   renderVals() {

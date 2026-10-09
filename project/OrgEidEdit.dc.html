@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Plan an Eid prayer</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a class="on" href="OrgFriday.dc.html" aria-current="page">Friday and Eid</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgFriday.dc.html">Friday and Eid</a><span aria-hidden="true">/</span><span>Eid al-Fitr 1448</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div onInput="{{touch}}" onChange="{{touch}}">
+<div class="ph"><div><div class="row g12"><p class="eyebrow">Eid prayer</p><span class="badge {{statusCls}}">{{statusText}}</span></div><h1>Eid al-Fitr, <em>1448.</em></h1><p>Eid is often prayed somewhere larger than the masjid: a hall, a field, a stadium. Set the place, the prayer times, what people should know and where to park. This one page carries all of it to your profile, your TV displays and the people who follow you.</p></div>
+<div class="row g16"><span class="state {{stateCls}}" role="status">{{stateText}}</span><a class="btn" href="Eid.dc.html">See the public page ↗</a><button type="button" class="btn pri" onClick="{{publish}}">{{publishLabel}}</button></div></div>
+
+<div class="cols c2w" style="gap: 16px">
+<div class="stack g16">
+
+<section class="card stack g16" data-sec="When">
+<h2 class="t1">1. Which Eid, and when</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="ei-which">Eid</label><select class="select" id="ei-which"><option selected>Eid al-Fitr 1448</option><option>Eid al-Adha 1448</option></select></div>
+<div class="field"><label class="label" for="ei-d1">If the month has 29 days</label><input class="input" id="ei-d1" type="text" defaultValue="Tuesday, March 9, 2027"></div>
+<div class="field"><label class="label" for="ei-d2">If it has 30 days</label><input class="input" id="ei-d2" type="text" defaultValue="Wednesday, March 10, 2027"></div>
+</div>
+<sc-if value="{{unconfirmed}}" hint-placeholder-val="{{true}}">
+<div class="set-sub" style="margin: 0"><label for="ei-day">Once the moon is sighted</label><select class="select" id="ei-day"><option selected>Tuesday, March 9</option><option>Wednesday, March 10</option></select><button type="button" class="btn sm" onClick="{{confirm}}">Confirm the day and tell everyone</button></div>
+</sc-if>
+<sc-if value="{{confirmed}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g8"><span><span class="b ink">Confirmed: Eid is Tuesday, March 9.</span> Your profile, your TV displays and everyone who follows you were told just now.</span><div><button type="button" class="btn sm" onClick="{{unconfirm}}">Undo</button></div></div></div>
+</sc-if>
+<p class="hint">Until you confirm, people see both possible days. Confirming takes one press, the evening before.</p>
+</section>
+
+<section class="card stack g16" data-sec="Where">
+<h2 class="t1">2. Where</h2>
+<div class="cols" style="gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr))" role="radiogroup" aria-label="Where the prayer is held">
+<label class="pick"><input type="radio" name="where" aria-label="At our masjid" checked="{{atMasjid}}" onChange="{{pickMasjid}}"><span class="stack g4"><span class="b">At our masjid</span><span class="sm mut">1200 Sample Avenue</span></span></label>
+<label class="pick"><input type="radio" name="where" aria-label="Somewhere else" checked="{{elsewhere}}" onChange="{{pickElsewhere}}"><span class="stack g4"><span class="b">Somewhere else</span><span class="sm mut">A hall, a field, a stadium</span></span></label>
+</div>
+<sc-if value="{{elsewhere}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="form">
+<div class="field"><label class="label" for="ei-place">Name of the place</label><input class="input" id="ei-place" type="text" defaultValue="Riverbend Fairgrounds"></div>
+<div class="field"><label class="label" for="ei-hall">Hall, gate or field</label><input class="input" id="ei-hall" type="text" defaultValue="Exhibition Hall, enter at Gate 2"></div>
+<div class="field full"><label class="label" for="ei-addr">Address</label><input class="input" id="ei-addr" type="text" defaultValue="800 Sample Parkway, Columbus, OH 43219"><span class="hint">People open this in their maps app. Check that it leads to the right entrance.</span></div>
+<div class="field"><label class="label" for="ei-in">Indoors or outdoors</label><select class="select" id="ei-in"><option selected>Indoors</option><option>Outdoors</option><option>Outdoors, indoors if it rains</option></select></div>
+<div class="field"><label class="label" for="ei-rain">If the weather turns <i>(optional)</i></label><input class="input" id="ei-rain" type="text" placeholder="For example: we move to Hall C"></div>
+</div>
+<div class="set" style="padding-bottom: 0"><div class="stack g4"><span class="b">Say plainly that it is not at the masjid</span><span class="sm mut">On the Eid page, in the reminder, and across your TV displays from three days before</span></div><input class="sw" type="checkbox" checked aria-label="Say plainly that it is not at the masjid"></div>
+</div>
+</sc-if>
+<sc-if value="{{atMasjid}}" hint-placeholder-val="{{false}}">
+<p class="sm mut">People will be sent to 1200 Sample Avenue, as on any Friday. Parking below still matters: Eid brings more cars than a Jumu’ah.</p>
+</sc-if>
+</section>
+
+<section class="card stack g16" data-sec="Prayer times">
+<div class="row between"><div class="stack g4"><h2 class="t1">3. Prayer times</h2><p class="sm mut">One prayer or several. Each has the time the takbir begins and the time of the prayer.</p></div><button type="button" class="btn sm {{addCls}}" onClick="{{addPrayer}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add a prayer</button></div>
+<sc-for list="{{prayers}}" as="p" hint-placeholder-count="2">
+<div class="stack g12" style="padding: 14px 16px 16px; border: 1px solid rgba(232,249,229,.13); border-radius: 14px; background: #0f1715">
+<div class="row between"><span class="jm-n" style="flex: 0 0 auto">{{p.ord}} prayer</span><button type="button" class="btn quiet sm {{p.rmCls}}" onClick="{{p.remove}}" aria-label="{{p.rmAria}}">Remove</button></div>
+<div class="form tight" style="gap: 12px 16px">
+<div class="field"><label class="label" for="{{p.idT}}">Takbir from</label><input class="input" id="{{p.idT}}" type="text" defaultValue="{{p.takbir}}"></div>
+<div class="field"><label class="label" for="{{p.idP}}">Prayer</label><input class="input" id="{{p.idP}}" type="text" defaultValue="{{p.prayer}}"></div>
+<div class="field"><label class="label" for="{{p.idW}}">Khateeb</label><input class="input" id="{{p.idW}}" type="text" defaultValue="{{p.who}}" placeholder="Name"></div>
+<div class="field"><label class="label" for="{{p.idL}}">Khutbah in</label><input class="input" id="{{p.idL}}" type="text" defaultValue="{{p.lang}}" placeholder="Language"></div>
+</div>
+</div>
+</sc-for>
+<p class="hint">The khutbah follows the Eid prayer. Leave time between prayers for one crowd to leave and the next to park.</p>
+</section>
+</div>
+
+<div class="stack g16">
+<section class="card stack g16" data-sec="Details">
+<h2 class="t1">4. Details</h2>
+<div class="field"><label class="label" for="ei-details">What people should know</label><textarea class="textarea" id="ei-details" style="min-height: 132px" maxLength="600" defaultValue="Come with wudu and bring a prayer mat; the hall floor is bare. Doors open at 6:30 AM. A festival for children follows the second prayer, 10:30 AM to 1:00 PM, free."></textarea><span class="hint">Up to 600 characters.</span></div>
+<div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 0 20px">
+<label class="check"><input type="checkbox" checked><span>Sisters’ section</span></label>
+<label class="check"><input type="checkbox" checked><span>Step-free entrance</span></label>
+<label class="check"><input type="checkbox" checked><span>Wudu area on site</span></label>
+<label class="check"><input type="checkbox"><span>Childcare during the prayer</span></label>
+</div>
+<div class="set" style="padding-bottom: 0"><div class="stack g4"><span class="b">Remind people about Zakat al-Fitr</span><span class="sm mut">Adds a Zakah button to the Eid page, at $12.00 a person from your <a class="link" href="OrgDonations.dc.html">zakah settings</a></span></div><input class="sw" type="checkbox" checked aria-label="Remind people about Zakat al-Fitr"></div>
+</section>
+
+<section class="card stack g16" data-sec="Parking">
+<h2 class="t1">5. Parking</h2>
+<div class="field"><label class="label" for="ei-park">Where to park</label><textarea class="textarea" id="ei-park" style="min-height: 108px" maxLength="400" defaultValue="Lots A and B, free, entered from Gate 2 on Sample Parkway. Lot A fills about 20 minutes before each prayer. Overflow is the north field, a six-minute walk."></textarea><span class="hint">Lots, gates, what fills first, where the overflow is.</span></div>
+<div class="form">
+<div class="field"><label class="label" for="ei-shut">Shuttle from the masjid <i>(optional)</i></label><input class="input" id="ei-shut" type="text" defaultValue="6:30 AM and 8:30 AM, back after each prayer"></div>
+<div class="field"><label class="label" for="ei-drop">Drop-off for elders <i>(optional)</i></label><input class="input" id="ei-drop" type="text" defaultValue="The lane at Gate 2"></div>
+</div>
+<div class="stack">
+<label class="check"><input type="checkbox" checked><span>Volunteers will direct cars. Say so, so that drivers look for them.</span></label>
+<label class="check"><input type="checkbox" checked><span>Ask people to share rides.</span></label>
+</div>
+</section>
+
+<section class="card stack g4" data-sec="Where it is announced">
+<h2 class="t1">6. Where it is announced</h2>
+<div class="set"><div class="stack g4"><span class="b">Your profile and the Friday page</span><span class="sm mut">At the top, from three weeks before</span></div><input class="sw" type="checkbox" checked aria-label="Announce on the profile and the Friday page"></div>
+<div class="set"><div class="stack g4"><span class="b">Members who made you their home masjid</span><span class="sm mut">In the banner at the top of their pages, from a week before</span></div><input class="sw" type="checkbox" checked aria-label="Announce in the home masjid banner"></div>
+<div class="set"><div class="stack g4"><span class="b">TV displays</span><span class="sm mut">A notice that fills the screen between prayers, from three days before</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvEid.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Announce on TV displays"></div></div>
+<div class="set"><div class="stack g4"><span class="b">People who follow you</span><span class="sm mut">An announcement and an email when you publish, and again when you confirm the day</span></div><input class="sw" type="checkbox" checked aria-label="Announce to followers"></div>
+<div class="set"><div class="stack g4"><span class="b">The evening before</span><span class="sm mut">A reminder with the place, the times and the parking</span></div><input class="sw" type="checkbox" checked aria-label="Send a reminder the evening before"></div>
+</section>
+</div>
+</div>
+<sc-if value="{{dirty}}" hint-placeholder-val="{{false}}">
+<div class="savebar" role="region" aria-label="Unsaved changes">
+<p><b>{{dirtyText}}</b> {{dirtyWhere}}. People keep seeing the saved version until you save.</p>
+<div class="row g8"><button type="button" class="btn" onClick="{{discard}}">Discard</button><button type="button" class="btn pri" onClick="{{save}}">Save changes</button></div>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2240}}'>
+class Component extends DCLogic {
+  state = { changed: {}, justSaved: false, published: false, confirmed: false, where: 'else', prayers: [0, 1] };
+  renderVals() {
+    const s = this.state;
+    const changed = s.changed, keys = Object.keys(changed), secs = [...new Set(keys.map((k) => changed[k]))], dirty = keys.length > 0;
+    const join = (xs) => (xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1]);
+    const mark = (key, sec, more) => this.setState(Object.assign({ changed: Object.assign({}, changed, { [key]: sec }), justSaved: false }, more || {}));
+    const ROWS = [['7:00 AM', '7:30 AM', 'Imam Adam Rahman', 'English'], ['9:00 AM', '9:30 AM', 'Shaykh Yusuf Ali', 'Arabic and English'], ['11:00 AM', '11:30 AM', '', '']];
+    const ORD = ['1st', '2nd', '3rd'];
+    const prayers = s.prayers.map((k, pos) => ({
+      ord: ORD[pos], takbir: ROWS[k][0], prayer: ROWS[k][1], who: ROWS[k][2], lang: ROWS[k][3],
+      idT: 'ei-t' + k, idP: 'ei-p' + k, idW: 'ei-w' + k, idL: 'ei-l' + k,
+      rmCls: s.prayers.length === 1 ? 'off' : '', rmAria: 'Remove the ' + ORD[pos] + ' prayer',
+      remove: () => { if (s.prayers.length > 1) mark('prayers', 'Prayer times', { prayers: s.prayers.filter((x) => x !== k) }); }
+    }));
+    return {
+      touch: (ev) => { const t = ev.target; if (!t || !t.closest) return; const sec = t.closest('[data-sec]'); if (!sec) return; mark(t.name || t.id || t.getAttribute('aria-label') || 'field', sec.getAttribute('data-sec')); },
+      dirty, dirtyText: keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes', dirtyWhere: 'in ' + join(secs),
+      stateCls: dirty ? 'dirty' : '', stateText: dirty ? (keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes') : (s.justSaved ? 'Saved just now' : 'All changes saved'),
+      save: () => this.setState({ changed: {}, justSaved: true }), discard: () => this.setState({ changed: {}, justSaved: false, where: 'else', prayers: [0, 1] }),
+      statusText: s.published ? 'Published' : 'Draft, not public yet', statusCls: s.published ? 'ok' : 'warn',
+      publishLabel: s.published ? 'Published. Take it down' : 'Publish the Eid page', publish: () => this.setState({ published: !s.published }),
+      unconfirmed: !s.confirmed, confirmed: s.confirmed, confirm: () => this.setState({ confirmed: true }), unconfirm: () => this.setState({ confirmed: false }),
+      atMasjid: s.where === 'masjid', elsewhere: s.where === 'else',
+      pickMasjid: () => this.setState({ where: 'masjid' }), pickElsewhere: () => this.setState({ where: 'else' }),
+      prayers, addCls: s.prayers.length >= 3 ? 'off' : '',
+      addPrayer: () => { const next = [0, 1, 2].find((x) => !s.prayers.includes(x)); if (next !== undefined) mark('prayers', 'Prayer times', { prayers: s.prayers.concat([next]) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

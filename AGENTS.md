@@ -1,7 +1,7 @@
 # Husna redesign: instructions for coding agents
 
 This repository is the high-fidelity design of Husna, a free platform for Islamic organizations and the
-people they serve, starting in Columbus, Ohio. It is a clickable prototype: 150 screens of HTML, one file
+people they serve, starting in Columbus, Ohio. It is a clickable prototype: 155 screens of HTML, one file
 per screen, with sample data. It is not the production app and has no backend.
 
 Your job here is to change the design: add screens, rework screens, fix copy, keep everything consistent
@@ -159,6 +159,16 @@ The markup inside `<x-dc>` is a template. The class supplies its values.
   Its adhan and iqamah times then sit in a banner (`PrayerBar.dc.html`) at the top of every member page.
   On a wide screen all five prayers are visible and only the countdown changes; when they cannot fit, the
   line moves. No home masjid, no banner.
+- **Jumu'ah.** A masjid holds one Jumu'ah or several (several is for when one hall cannot hold everyone).
+  Each has two times: when the **khutbah starts** and the **iqamah**. Show both wherever a Jumu'ah is listed.
+  With one Jumu'ah, show no "1st", "2nd", "3rd", and ask the admin for nothing more.
+- **Eid prayers** are their own occasion (`OrgEidEdit.dc.html`, public page `Eid.dc.html`, TV notice
+  `TvEid.dc.html`), because they are often held away from the masjid. An Eid prayer has a place, one or more
+  prayer times (takbir from, prayer), details and parking. The day may stay open between two dates until the
+  masjid confirms it. When the prayer is not at the masjid, say so plainly everywhere it appears.
+- **Zakah** has its own button and page (`Zakah.dc.html`) and its own fund, never mixed with other gifts.
+  It appears only for organizations that accept zakah. Zakat al-Fitr is offered there at the amount the masjid
+  sets. Husna does not calculate zakah and gives no rulings; guidance is the organization's own text.
 - **TV displays.** On the TV: open `husna.app/tv`. In the workspace: TV displays, Pair a TV, type the code.
   Then choose what it shows. The TV keeps itself up to date; no computer or phone needs to stay connected.
 - **Anything not yet decided is written `[IN BRACKETS, IN CAPITALS]`** on the screen. Do not invent a value
@@ -176,8 +186,13 @@ The markup inside `<x-dc>` is a template. The class supplies its values.
 - **Weekend Qur'an School.** Fall term October 24 to December 20. $240.00 a child; $444.00 for two after
   the sibling discount, in two payments of $222.00 (October 20 and November 24).
 - **Prayer times on October 8.** Fajr 6:21 (iqamah 6:45), Sunrise 7:36, Dhuhr 1:21 (1:45), Asr 4:32 (4:50),
-  Maghrib 7:04 (7:09), Isha 8:17 (8:30). Friday services at 1:30, 2:30 and 3:30 PM. Isha iqamah moves to
-  8:15 on October 18; the clocks go back on November 1.
+  Maghrib 7:04 (7:09), Isha 8:17 (8:30). Isha iqamah moves to 8:15 on October 18; the clocks go back on
+  November 1.
+- **Fridays.** Three Jumu'ahs: khutbah 1:30, 2:30 and 3:30 PM, iqamah 2:00, 3:00 and 4:00 PM (Imam Adam Rahman,
+  Shaykh Yusuf Ali, Ustadh Hamza Malik). From November 1: khutbah 12:30, 1:30, 2:30; iqamah half an hour later.
+- **Eid al-Fitr 1448.** Tuesday, March 9, 2027 (or Wednesday, March 10) at Riverbend Fairgrounds, Exhibition
+  Hall, 800 Sample Parkway, Columbus, OH 43219. Prayers at 7:30 and 9:30 AM, takbir from 7:00 and 9:00.
+  Zakat al-Fitr $12.00 a person.
 - Everything is fictional. Use `example` domains and 555 phone numbers. Never put a real person's details
   on a screen.
 
@@ -220,6 +235,7 @@ and the legal text itself (needs counsel); `[REVIEW TIME]`, `[SUPPORT RESPONSE T
 `[SENDER ADDRESS]`, `[ALERT EMAIL AND PHONE]`, `[TEXT SENDER NUMBER]`; `[RETENTION PERIOD]`,
 `[ACCOUNT RECOVERY WINDOW]`, `[DATA REQUEST DEADLINE]`; `[COMPANY NAME AND MAILING ADDRESS]`;
 `[STATEMENT DESCRIPTOR]`, `[STRIPE REFUND RULE]`; `[TESTED TV DEVICES]`, `[VIDEO SIZE LIMIT]`.
+`[ZAKAH GUIDANCE SUPPLIED BY THE ORGANIZATION]` is each masjid's own text, not Husna's.
 
 ## Do not
 

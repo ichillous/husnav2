@@ -53,7 +53,8 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="stack g12" role="group" aria-labelledby="dn-fund">
 <h2 class="t1" id="dn-fund">3. Where it goes</h2>
 <div class="cols c2" style="gap: 12px">
-<sc-for list="{{funds}}" as="f" hint-placeholder-count="4"><button type="button" class="pick {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">{{f.name}}</span><span class="sm mut">{{f.note}}</span></span></button></sc-for>
+<sc-for list="{{funds}}" as="f" hint-placeholder-count="3"><button type="button" class="pick {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">{{f.name}}</span><span class="sm mut">{{f.note}}</span></span></button></sc-for>
+<a class="pick" href="Zakah.dc.html"><span class="grow stack g4"><span class="b">Zakah</span><span class="sm mut">Kept in its own fund, so it is given on its own page</span></span><span class="go" aria-hidden="true">→</span></a>
 </div>
 </div>
 
@@ -105,8 +106,7 @@ class Component extends DCLogic {
     const fundList = [
       ['general', 'General fund', 'Prayer space, utilities and daily running costs'],
       ['school', 'Weekend school scholarships', 'Covers tuition for families who ask for help'],
-      ['building', 'Building and maintenance', 'Repairs, heating and the new wudu area'],
-      ['zakat', 'Zakat', 'Distributed to eligible recipients by the zakat committee']
+      ['building', 'Building and maintenance', 'Repairs, heating and the new wudu area']
     ];
     return {
       amounts: [25, 50, 100, 250, 'other'].map((a) => ({

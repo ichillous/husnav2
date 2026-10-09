@@ -97,6 +97,11 @@ notes['sFree'] = dict(notes.get('sFree', {}), w=640, x=-760, y=3000, fill='green
     'It is one time, paid on Stripe’s page to Husna’s own account, and never interrupts anyone. The founder console shows what comes in on E12. '
     'Home masjid: a member chooses one masjid, from its page (A6), from Welcome (B9) or in Account (C17), and its adhan and iqamah times sit across the top of every page they open (C20). '
     'On a wide screen all five prayers are in view and only the countdown changes; on a phone, where they cannot fit, the line moves (G17). No home masjid, no banner. Only masjids have a Prayer times page (D32).'))
+notes['sFriday'] = dict(notes.get('sFriday', {}), w=640, x=-760, y=4400, fill='blue', text=(
+    'Fridays, Eid and Zakah. A masjid holds one Jumu’ah or several; each has the time its khutbah starts and the time of its iqamah (D6, D7). With one, there is nothing more to fill in: the Jumu’ahs tweak on D6 shows it. '
+    'The sample masjid holds three, at 1:30, 2:30 and 3:30 PM with each iqamah half an hour later; when the clocks go back on November 1 they become 12:30, 1:30 and 2:30. '
+    'Eid is its own occasion (D39): the place, which is often not the masjid, one or more prayer times, details and parking. People open A19, or G18 on a phone, and the masjid’s TVs say where to go (H13). The day can stay open until the moon is sighted and is confirmed with one press. '
+    'Zakah has its own button and page (A20) and its own fund, never mixed with other gifts; Zakat al-Fitr is offered there at the amount the masjid sets (D15).'))
 c['boards'] = boards; c['order'] = files; c['notes'] = notes
 json.dump(c, open(CJ, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 changed = 0

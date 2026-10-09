@@ -27,7 +27,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <main>
 <section class="sec s"><div class="wrap stack g32">
 <div class="row between bottom g24">
-<div class="stack g12"><p class="eyebrow">Columbus · Jumu’ah</p><h1 class="d2">Find your <em>Friday.</em></h1><p class="lede">Every Friday service the organizations on Husna have posted, in time order. Each masjid keeps its own times, khateebs and topics current.</p></div>
+<div class="stack g12"><p class="eyebrow">Columbus · Jumu’ah</p><h1 class="d2">Find your <em>Friday.</em></h1><p class="lede">Every Jumu’ah the masjids on Husna have posted, in time order. Where one hall cannot hold everyone, a masjid holds more than one: if you miss the first khutbah, go to the next.</p></div>
 <div class="seg" role="group" aria-label="Which Friday"><sc-for list="{{weeks}}" as="w" hint-placeholder-count="2"><button type="button" class="{{w.cls}}" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}">{{w.label}}</button></sc-for></div>
 </div>
 
@@ -35,11 +35,11 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <div class="col-main stack g16">
 <sc-if value="{{thisWeek}}" hint-placeholder-val="{{true}}">
 <div class="card p0"><div class="list in">
-<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">1:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">On Being There for One Another</span><span class="sm mut">Imam Adam Rahman · English</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span><span class="badge">Parking: north lot</span></span></span><span class="go" aria-hidden="true">↗</span></a>
-<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">2:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Finding Patience in a Noisy World</span><span class="sm mut">Shaykh Yusuf Ali · English and Arabic</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
-<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">3:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Raising a Community That Cares</span><span class="sm mut">Ustadh Hamza Malik · English and Somali</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li jmr" href="OrgProfile.dc.html#friday"><span class="jm-t"><small>Khutbah</small><b>1:30 PM</b></span><span class="jm-t iq"><small>Iqamah</small><b>2:00 PM</b></span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">On Being There for One Another</span><span class="sm mut">Imam Adam Rahman · English</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span><span class="badge">Parking: north lot</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li jmr" href="OrgProfile.dc.html#friday"><span class="jm-t"><small>Khutbah</small><b>2:30 PM</b></span><span class="jm-t iq"><small>Iqamah</small><b>3:00 PM</b></span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Finding Patience in a Noisy World</span><span class="sm mut">Shaykh Yusuf Ali · English and Arabic</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li jmr" href="OrgProfile.dc.html#friday"><span class="jm-t"><small>Khutbah</small><b>3:30 PM</b></span><span class="jm-t iq"><small>Iqamah</small><b>4:00 PM</b></span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Raising a Community That Cares</span><span class="sm mut">Ustadh Hamza Malik · English and Somali</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
 </div></div>
-<p class="sm sub">3 services at 1 masjid · updated Wednesday, October 7 · times are Eastern Time</p>
+<p class="sm sub">3 Jumu’ahs at 1 masjid · updated Wednesday, October 7 · times are Eastern Time</p>
 </sc-if>
 <sc-if value="{{nextWeek}}" hint-placeholder-val="{{false}}">
 <div class="card c stack g12" style="align-items: center; padding: 56px 24px">

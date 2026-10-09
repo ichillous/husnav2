@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Friday prayers</title>
+<title>Friday and Eid prayers</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./husna.css">
 </head>
@@ -25,7 +25,7 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
 <p class="grp">Publish</p>
 <a href="OrgEvents.dc.html">Events</a>
-<a class="on" href="OrgFriday.dc.html" aria-current="page">Friday prayers</a>
+<a class="on" href="OrgFriday.dc.html" aria-current="page">Friday and Eid</a>
 <a href="OrgPrayerTimes.dc.html">Prayer times</a>
 <a href="OrgAnnouncements.dc.html">Announcements</a>
 <a href="OrgProfileEdit.dc.html">Public profile</a>
@@ -46,9 +46,9 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </aside>
 
 <main class="work">
-<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Friday prayers</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Friday and Eid</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
 
-<div class="ph"><div><h1>Every service, <em>clear to everyone.</em></h1><p>Times, khateebs, topics and languages for each Friday. What you save here is what visitors see on your profile and in discovery.</p></div>
+<div class="ph"><div><h1>Every Jumu’ah, <em>clear to everyone.</em></h1><p>One Jumu’ah or several. Each has the time its khutbah starts and the time of its iqamah, with the khateeb, topic and language. What you save here is what people see on your profile, in discovery and on your TV displays.</p></div>
 <a class="btn" href="OrgProfile.dc.html">See it on your profile ↗</a></div>
 
 <div class="stack g16">
@@ -57,19 +57,19 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <button type="button" class="{{thisCls}}" aria-pressed="{{thisPressed}}" onClick="{{showThis}}">This Friday, October 9</button>
 <button type="button" class="{{nextCls}}" aria-pressed="{{nextPressed}}" onClick="{{showNext}}">Next Friday, October 16</button>
 </div>
-<a class="btn pri" href="OrgServiceSheet.dc.html">Add a service</a>
+<a class="btn pri" href="OrgServiceSheet.dc.html">{{addLabel}}</a>
 </div>
 
 <sc-if value="{{isThis}}" hint-placeholder-val="{{true}}">
 <div class="stack g16">
-<div class="row g12"><span class="badge ok">Live on your profile</span><span class="sm sub">Last updated Wednesday, October 7 by Imam Adam Rahman</span></div>
-<div class="tbl-wrap"><table class="tbl">
-<thead><tr><th>Time</th><th>Khutbah topic</th><th>Khateeb</th><th>Language</th><th>Where</th><th></th></tr></thead>
-<tbody>
-<tr><td class="serif nw" style="font-size: 26px">1:30 PM</td><td class="b">On Being There for One Another</td><td>Imam Adam Rahman</td><td>English</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-<tr><td class="serif nw" style="font-size: 26px">2:30 PM</td><td class="b">Finding Patience in a Noisy World</td><td>Shaykh Yusuf Ali</td><td>English and Arabic</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-<tr><td class="serif nw" style="font-size: 26px">3:30 PM</td><td class="b">Raising a Community That Cares</td><td>Ustadh Hamza Malik</td><td>English and Somali</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-</tbody></table></div>
+<div class="row g12"><span class="badge ok">Live on your profile</span><span class="sm sub">{{countText}} · last updated Wednesday, October 7 by Imam Adam Rahman</span></div>
+<div class="card p0"><div class="list in">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<div class="li jmr"><sc-if value="{{many}}" hint-placeholder-val="{{true}}"><span class="jm-n">{{r.ord}}</span></sc-if><span class="jm-t"><small>Khutbah starts</small><b>{{r.khutbah}}</b></span><span class="jm-t iq"><small>Iqamah</small><b>{{r.iqamah}}</b></span><span class="grow stack g4"><span class="b">{{r.topic}}</span><span class="sm mut">{{r.who}} · {{r.lang}} · {{r.where}}</span></span><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></div>
+</sc-for>
+</div></div>
+<sc-if value="{{many}}" hint-placeholder-val="{{true}}"><p class="sm sub">Three Jumu’ahs, because one hall cannot hold everyone. Anyone who misses the first khutbah can come to the second or the third.</p></sc-if>
+<sc-if value="{{single}}" hint-placeholder-val="{{false}}"><div class="note"><span><span class="b ink">One Jumu’ah is all there is to set.</span> If Fridays become crowded, add a second and people can choose between them. Nothing else on this page changes.</span></div></sc-if>
 </div>
 </sc-if>
 
@@ -84,20 +84,25 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 <sc-if value="{{nextCopied}}" hint-placeholder-val="{{false}}">
 <div class="stack g16">
 <div class="row between g12"><div class="row g12"><span class="badge warn">Draft, not public yet</span><span class="sm sub">Copied from October 9. Update the topics, then publish.</span></div><button type="button" class="btn pri" onClick="{{publish}}">{{publishLabel}}</button></div>
-<div class="tbl-wrap"><table class="tbl">
-<thead><tr><th>Time</th><th>Khutbah topic</th><th>Khateeb</th><th>Language</th><th>Where</th><th></th></tr></thead>
-<tbody>
-<tr><td class="serif nw" style="font-size: 26px">1:30 PM</td><td class="sub">Topic to be announced</td><td>Imam Adam Rahman</td><td>English</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-<tr><td class="serif nw" style="font-size: 26px">2:30 PM</td><td class="sub">Topic to be announced</td><td>Shaykh Yusuf Ali</td><td>English and Arabic</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-<tr><td class="serif nw" style="font-size: 26px">3:30 PM</td><td class="sub">Topic to be announced</td><td>Ustadh Hamza Malik</td><td>English and Somali</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
-</tbody></table></div>
+<div class="card p0"><div class="list in">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<div class="li jmr"><sc-if value="{{many}}" hint-placeholder-val="{{true}}"><span class="jm-n">{{r.ord}}</span></sc-if><span class="jm-t"><small>Khutbah starts</small><b>{{r.khutbah}}</b></span><span class="jm-t iq"><small>Iqamah</small><b>{{r.iqamah}}</b></span><span class="grow stack g4"><span class="sub">{{r.tba}}</span><span class="sm mut">{{r.who}} · {{r.lang}} · {{r.where}}</span></span><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></div>
+</sc-for>
+</div></div>
 </div>
 </sc-if>
+
+<div class="card stack g12">
+<div class="row between"><h2 class="t1">Eid prayers</h2><span class="badge warn">Draft, not public yet</span></div>
+<div class="row g16 nowrap start"><span class="date"><b>09</b><span>Tue · Mar</span></span><div class="stack g4"><p class="b">Eid al-Fitr 1448</p><p class="sm mut">Expected Tuesday, March 9 or Wednesday, March 10, 2027 · at Riverbend Fairgrounds, not at the masjid · 2 prayers</p></div></div>
+<p class="sm mut">Eid is often prayed somewhere larger than the masjid. Plan it as its own occasion, with its place, its prayer times, what people should know and where to park.</p>
+<div class="row g8"><a class="btn sm pri" href="OrgEidEdit.dc.html">Continue planning</a><a class="btn sm" href="Eid.dc.html">See the public page ↗</a></div>
+</div>
 
 <div class="cols c2">
 <div class="card stack g12">
 <h2 class="t1">Note for visitors</h2>
-<div class="field"><label class="label" for="fr-note">Shown under the schedule, every week</label><textarea class="textarea" id="fr-note" maxLength="280" defaultValue="Doors open 30 minutes before the first service. Overflow parking is in the north lot."></textarea><span class="hint">Up to 280 characters. Parking, entrances, where sisters pray, wheelchair access.</span></div>
+<div class="field"><label class="label" for="fr-note">Shown under the schedule, every week</label><textarea class="textarea" id="fr-note" maxLength="280" defaultValue="Doors open 30 minutes before the first khutbah. Overflow parking is in the north lot."></textarea><span class="hint">Up to 280 characters. Parking, entrances, where sisters pray, wheelchair access.</span></div>
 <div class="row end"><button type="button" class="btn" onClick="{{saveNote}}">{{noteLabel}}</button></div>
 </div>
 <div class="card stack g4">
@@ -111,14 +116,24 @@ a{color:#c8efa4}a:hover{color:#dbf7c1}
 </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"jumuahs":{"editor":"enum","options":["Three","One"],"default":"Three"},"$preview":{"width":1440,"height":1340}}'>
 class Component extends DCLogic {
   state = { week: 'this', copied: false, published: false, note: false };
   renderVals() {
     const s = this.state;
     const isThis = s.week === 'this';
+    const many = (this.props.jumuahs ?? 'Three') === 'Three';
+    const all = [
+      ['1st', '1:30 PM', '2:00 PM', 'On Being There for One Another', 'Imam Adam Rahman', 'English', 'Main hall'],
+      ['2nd', '2:30 PM', '3:00 PM', 'Finding Patience in a Noisy World', 'Shaykh Yusuf Ali', 'English and Arabic', 'Main hall'],
+      ['3rd', '3:30 PM', '4:00 PM', 'Raising a Community That Cares', 'Ustadh Hamza Malik', 'English and Somali', 'Main hall']
+    ];
+    const rows = (many ? all : all.slice(0, 1)).map(([ord, khutbah, iqamah, topic, who, lang, where]) => ({ ord, khutbah, iqamah, topic, who, lang, where, tba: 'Topic to be announced' }));
     return {
       isThis, nextEmpty: !isThis && !s.copied, nextCopied: !isThis && s.copied,
+      many, single: !many, rows,
+      addLabel: many ? 'Add another Jumu’ah' : 'Add a second Jumu’ah',
+      countText: many ? 'Three Jumu’ahs' : 'One Jumu’ah',
       thisCls: isThis ? 'on' : '', nextCls: isThis ? '' : 'on',
       thisPressed: isThis ? 'true' : 'false', nextPressed: isThis ? 'false' : 'true',
       showThis: () => this.setState({ week: 'this' }), showNext: () => this.setState({ week: 'next' }),

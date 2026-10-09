@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Eid prayer with Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}">
+<div>
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}">
+<div>
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<a class="back" href="OrgProfile.dc.html"><span aria-hidden="true">←</span> Crescent House Masjid</a>
+<div class="row between bottom g24">
+<div class="stack g12">
+<p class="eyebrow">Eid al-Fitr 1448 · Crescent House Masjid</p>
+<h1 class="d2">Eid prayer, <em>together.</em></h1>
+<sc-if value="{{confirmed}}" hint-placeholder-val="{{true}}"><div class="row g12"><span class="badge ok">Day confirmed</span><span class="mut">Tuesday, March 9, 2027. Confirmed on Monday evening, after the moon was sighted.</span></div></sc-if>
+<sc-if value="{{tentative}}" hint-placeholder-val="{{false}}"><div class="row g12"><span class="badge warn">Day not yet confirmed</span><span class="mut">Tuesday, March 9 or Wednesday, March 10, 2027. The masjid confirms the evening before, and this page changes at once.</span></div></sc-if>
+</div>
+<div class="row g8">
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn pri" href="Gate.dc.html">Remind me the evening before</a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><button type="button" class="btn {{remCls}}" aria-pressed="{{remPressed}}" onClick="{{remind}}">{{remLabel}}</button></sc-if>
+<button type="button" class="btn" onClick="{{cal}}">{{calLabel}}</button>
+<button type="button" class="btn" onClick="{{share}}">{{shareLabel}}</button>
+</div>
+</div>
+
+<div class="note warn"><span><span class="b ink">This prayer is not at the masjid.</span> It is at Riverbend Fairgrounds, about 15 minutes from Crescent House by car. The masjid itself is closed on Eid morning.</span></div>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12">
+<h2 class="d3">Prayer times</h2>
+<div class="card p0"><div class="list in">
+<div class="li jmr"><span class="jm-n">1st</span><span class="jm-t"><small>Takbir from</small><b>7:00 AM</b></span><span class="jm-t iq"><small>Prayer</small><b>7:30 AM</b></span><span class="grow stack g4"><span class="b">Imam Adam Rahman</span><span class="sm mut">Khutbah in English, after the prayer</span></span></div>
+<div class="li jmr"><span class="jm-n">2nd</span><span class="jm-t"><small>Takbir from</small><b>9:00 AM</b></span><span class="jm-t iq"><small>Prayer</small><b>9:30 AM</b></span><span class="grow stack g4"><span class="b">Shaykh Yusuf Ali</span><span class="sm mut">Khutbah in Arabic and English, after the prayer</span></span></div>
+</div></div>
+<p class="sm sub">Two prayers so that everyone has room. Come to either. Doors open at 6:30 AM.</p>
+</div>
+
+<div class="stack g12">
+<h2 class="d3">Where</h2>
+<div class="card stack g16">
+<div class="row between g16"><div class="stack g4"><p class="d4">Riverbend Fairgrounds</p><p class="mut">Exhibition Hall, enter at Gate 2<br>800 Sample Parkway, Columbus, OH 43219</p></div>
+<div class="row g8"><a class="btn pri" href="https://www.google.com/maps/search/?api=1&amp;query=800+Sample+Parkway+Columbus+OH+43219">Open in maps ↗</a><button type="button" class="btn" onClick="{{copy}}">{{copyLabel}}</button></div></div>
+<div class="row g8"><span class="badge">Indoors</span><span class="badge">Sisters’ section</span><span class="badge">Step-free entrance</span><span class="badge">Wudu area on site</span></div>
+</div>
+</div>
+
+<div class="stack g12" id="parking">
+<h2 class="d3">Parking</h2>
+<div class="card stack g4">
+<div class="set"><div class="stack g4"><span class="b">Lots A and B</span><span class="sm mut">Free. Enter from Gate 2 on Sample Parkway. Lot A fills about 20 minutes before each prayer</span></div><span class="badge ok">Closest</span></div>
+<div class="set"><div class="stack g4"><span class="b">Overflow: the north field</span><span class="sm mut">A six-minute walk to the hall. Opens when the lots fill</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Shuttle from Crescent House Masjid</span><span class="sm mut">Leaves the masjid at 6:30 AM and 8:30 AM and returns after each prayer</span></div><span class="badge">Free</span></div>
+<div class="set"><div class="stack g4"><span class="b">Drop-off for elders</span><span class="sm mut">The lane at Gate 2. Volunteers in yellow vests will wave you in</span></div></div>
+</div>
+<p class="sm sub">Share a ride if you can. Volunteers direct cars from 6:15 AM. Once you are through the gate, please follow them and not your maps app.</p>
+</div>
+
+<div class="stack g12">
+<h2 class="d3">Good to know</h2>
+<ul class="ul"><li>Come with wudu and bring a prayer mat; the hall floor is bare.</li><li>The khutbah follows the prayer.</li><li>A festival for children follows the second prayer, 10:30 AM to 1:00 PM, free.</li></ul>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card tint stack g12"><p class="eyebrow">Before the prayer</p><h2 class="d4">Zakat al-Fitr</h2><p class="sm mut">Crescent House asks that it be given before the Eid prayer: $12.00 for each person in your household.</p><div><a class="btn pri" href="Zakah.dc.html">Give Zakat al-Fitr →</a></div></div>
+<div class="card stack g12"><p class="eyebrow">On the day</p>
+<ol class="tl"><li><b>6:15 AM</b>Volunteers at the gates</li><li><b>6:30 AM</b>Doors open. The first shuttle leaves the masjid</li><li><b>7:30 AM</b>First prayer, then the khutbah</li><li><b>9:30 AM</b>Second prayer, then the khutbah</li><li><b>10:30 AM</b>Children’s festival, until 1:00 PM</li></ol></div>
+<div class="card stack g8"><p class="eyebrow q">A question about Eid?</p><p class="sm mut">The masjid’s own team answers.</p><a class="link sm" href="ContactOrg.dc.html">Message Crescent House →</a></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Visitor","Member"],"default":"Visitor"},"day":{"editor":"enum","options":["Confirmed","Not yet confirmed"],"default":"Confirmed"},"$preview":{"width":1440,"height":1880}}'>
+class Component extends DCLogic {
+  state = { remind: false, cal: false, share: false, copied: false };
+  renderVals() {
+    const s = this.state;
+    const member = (this.props.viewer ?? 'Visitor') === 'Member';
+    const confirmed = (this.props.day ?? 'Confirmed') === 'Confirmed';
+    return {
+      visitor: !member, member, confirmed, tentative: !confirmed,
+      remLabel: s.remind ? 'We will remind you. Undo' : 'Remind me the evening before', remCls: s.remind ? '' : 'pri', remPressed: s.remind ? 'true' : 'false',
+      remind: () => this.setState({ remind: !s.remind }),
+      calLabel: s.cal ? 'Added to your calendar' : 'Add to my calendar', cal: () => this.setState({ cal: true }),
+      shareLabel: s.share ? 'Link copied' : 'Share', share: () => this.setState({ share: true }),
+      copyLabel: s.copied ? 'Address copied' : 'Copy the address', copy: () => this.setState({ copied: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
