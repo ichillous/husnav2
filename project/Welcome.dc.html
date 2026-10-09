@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to Husna</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="row g12 push"><span class="badge ok">Email confirmed</span><a class="btn quiet" href="MyHusna.dc.html">Skip for now</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap mid stack g48">
+<div class="stack g12"><p class="eyebrow">Your account is ready</p><h1 class="d2">Welcome, <em>Amina.</em></h1><p class="lede">Three quick choices so your first week is not empty. You can change all of them later.</p></div>
+
+<div class="stack g16" role="group" aria-labelledby="wl-1">
+<div class="stack g4"><p class="eyebrow q">1 of 3</p><h2 class="d3" id="wl-1">What brings you here?</h2><p class="mut">Choose as many as you like. We use these to order your week.</p></div>
+<div class="row g8">
+<sc-for list="{{interests}}" as="i" hint-placeholder-count="6"><button type="button" class="chip {{i.cls}}" aria-pressed="{{i.pressed}}" onClick="{{i.toggle}}">{{i.label}}</button></sc-for>
+</div>
+</div>
+
+<div class="stack g16">
+<div class="stack g4"><p class="eyebrow q">2 of 3</p><h2 class="d3">Follow a few organizations.</h2><p class="mut">Their events, announcements and Friday schedule appear in My week. If one of them is the masjid you pray at most, make it your home masjid: its prayer times will stay at the top of every page.</p></div>
+<div class="card p0"><div class="list in">
+<sc-for list="{{orgs}}" as="o" hint-placeholder-count="3">
+<div class="li"><span class="av sq" aria-hidden="true">{{o.initial}}</span><span class="grow stack g4"><span class="b">{{o.name}}</span><span class="sm mut">{{o.kind}}</span></span><sc-if value="{{o.masjid}}" hint-placeholder-val="{{false}}"><button type="button" class="btn sm {{o.homeCls}}" aria-pressed="{{o.homePressed}}" onClick="{{o.setHome}}">{{o.homeLabel}}</button></sc-if><button type="button" class="btn sm {{o.cls}}" aria-pressed="{{o.pressed}}" onClick="{{o.toggle}}">{{o.label}}</button></div>
+</sc-for>
+</div></div>
+<p><a class="link sm" href="Organizations.dc.html">See all organizations in Columbus →</a></p>
+</div>
+
+<div class="stack g16">
+<div class="stack g4"><p class="eyebrow q">3 of 3</p><h2 class="d3">Do you have children to enroll in classes?</h2><p class="mut">Add each child once. Their details are reused for every class and stay private to your family and the schools you choose.</p></div>
+<div class="cols c2">
+<a class="pick" href="ChildForm.dc.html"><span class="grow stack g4"><span class="b">Yes, add a child now</span><span class="sm mut">Name, date of birth and what a teacher should know. About two minutes each.</span></span><span class="go" aria-hidden="true">→</span></a>
+<a class="pick" href="MyHusna.dc.html"><span class="grow stack g4"><span class="b">Not now</span><span class="sm mut">You can add children later from Family.</span></span><span class="go" aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<div class="row between g16" style="padding-top: 24px; border-top: 1px solid rgba(232,249,229,.13)">
+<p class="sm sub">{{summary}}</p>
+<a class="btn pri xl" href="MyHusna.dc.html">Finish and see my week <span aria-hidden="true">→</span></a>
+</div>
+</div></section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1380}}'>
+class Component extends DCLogic {
+  state = { picked: { 'Friday prayers': true, 'Weekend Qur’an school': true }, follow: { C: true }, home: null };
+  renderVals() {
+    const s = this.state;
+    const t = (on) => (on ? 'true' : 'false');
+    const interests = ['Friday prayers', 'Classes and learning', 'Family events', 'Youth', 'Community service', 'Weekend Qur’an school'].map((label) => ({
+      label, cls: s.picked[label] ? 'on' : '', pressed: t(!!s.picked[label]),
+      toggle: () => this.setState({ picked: { ...s.picked, [label]: !s.picked[label] } })
+    }));
+    const orgs = [['C', 'Crescent House Masjid', 'Masjid · Friday prayers · Weekend Qur’an School'], ['M', 'Mosaic Muslim Collective', 'Nonprofit · Youth and service'], ['L', 'Lantern Learning House', 'Education · Language classes']].map(([initial, name, kind]) => ({
+      initial, name, kind, masjid: kind.startsWith('Masjid'), homeCls: s.home === initial ? 'pri' : '', homePressed: t(s.home === initial), homeLabel: s.home === initial ? 'Home masjid' : 'Make it my home masjid',
+      setHome: () => this.setState({ home: s.home === initial ? null : initial, follow: { ...s.follow, [initial]: true } }),
+      cls: s.follow[initial] ? 'pri' : '', pressed: t(!!s.follow[initial]), label: s.follow[initial] ? 'Following' : 'Follow',
+      toggle: () => this.setState({ follow: { ...s.follow, [initial]: !s.follow[initial] } })
+    }));
+    const nI = Object.values(s.picked).filter(Boolean).length;
+    const nF = Object.values(s.follow).filter(Boolean).length;
+    return { interests, orgs, summary: nI + (nI === 1 ? ' interest' : ' interests') + ' chosen · following ' + nF + (nF === 1 ? ' organization' : ' organizations') + (s.home ? ' · home masjid: Crescent House' : ' · no home masjid yet') };
+  }
+}
+</script>
+</body>
+</html>

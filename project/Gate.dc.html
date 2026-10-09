@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in to continue</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">One quick step</p><h1 class="d3" id="gate-title">Create a free account <em>to continue.</em></h1></div>
+<a class="ibtn" href="Discover.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<div class="stack g20">
+<p class="mut">Browsing is open to everyone. An account lets organizations know who is coming and keeps your family’s details in one place.</p>
+<ul class="stack g12">
+<li class="row g12 nowrap start"><span class="count" aria-hidden="true">1</span><span><span class="b">RSVP and save events</span><br><span class="sm mut">Hosts see your name and how many places you need.</span></span></li>
+<li class="row g12 nowrap start"><span class="count" aria-hidden="true">2</span><span><span class="b">Follow organizations</span><br><span class="sm mut">Their announcements and Friday schedule show up in your week.</span></span></li>
+<li class="row g12 nowrap start"><span class="count" aria-hidden="true">3</span><span><span class="b">Enroll your children</span><br><span class="sm mut">Add each child once, then reuse their details for every class.</span></span></li>
+</ul>
+<div class="stack g8">
+<a class="btn pri xl block" href="SignUp.dc.html">Create account</a>
+<a class="btn block" href="SignIn.dc.html">I already have an account</a>
+</div>
+<p class="c"><a class="link sm" href="Discover.dc.html">Not now, keep browsing</a></p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

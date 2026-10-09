@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Team and roles</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a class="on" href="OrgTeam.dc.html" aria-current="page">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Team</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Team <em>and roles</em></h1><p>Give each person only the access their work needs. Everyone signs in with their own email; no shared passwords.</p></div>
+<a class="btn pri" href="OrgInviteSheet.dc.html">Invite a teammate</a></div>
+
+<div class="stack g24">
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Person</th><th>Role</th><th>Scope</th><th>Status</th><th></th></tr></thead>
+<tbody>
+<tr><td><span class="b">Khadija Osman</span> <span class="badge">You</span><small>khadija@crescenthouse.example</small></td><td>Owner</td><td class="mut">Everything</td><td><span class="badge ok">Active</span></td><td><a class="btn sm" href="OrgTransferSheet.dc.html">Transfer ownership</a></td></tr>
+<tr><td><span class="b">Imam Adam Rahman</span><small>imam@crescenthouse.example</small></td><td><select class="select" aria-label="Role for Imam Adam Rahman" style="min-height: 44px; padding-block: 8px"><option selected="">Admin</option><option>Editor</option><option>School director</option><option>Teacher</option><option>Finance</option></select></td><td class="mut">Everything except ownership</td><td><span class="badge ok">Active</span></td><td><button type="button" class="btn sm danger" onClick="{{rm1}}">{{rm1Label}}</button></td></tr>
+<tr><td><span class="b">Ustadha Noor Hassan</span><small>noor.hassan@example.com</small></td><td><select class="select" aria-label="Role for Ustadha Noor Hassan" style="min-height: 44px; padding-block: 8px"><option>Admin</option><option>Editor</option><option selected="">School director</option><option>Teacher</option><option>Finance</option></select></td><td class="mut">All programs · also teaches Level 4</td><td><span class="badge ok">Active</span></td><td><button type="button" class="btn sm danger" onClick="{{rm2}}">{{rm2Label}}</button></td></tr>
+<tr><td><span class="b">Ustadh Bilal Ahmed</span><small>bilal.ahmed@example.com</small></td><td><select class="select" aria-label="Role for Ustadh Bilal Ahmed" style="min-height: 44px; padding-block: 8px"><option>Admin</option><option>Editor</option><option>School director</option><option selected="">Teacher</option><option>Finance</option></select></td><td class="mut">Level 2 · Reading</td><td><span class="badge ok">Active</span></td><td><button type="button" class="btn sm danger" onClick="{{rm3}}">{{rm3Label}}</button></td></tr>
+<tr><td><span class="b">Ustadha Salma Idris</span><small>salma.idris@example.com</small></td><td><select class="select" aria-label="Role for Ustadha Salma Idris" style="min-height: 44px; padding-block: 8px"><option>Admin</option><option>Editor</option><option>School director</option><option selected="">Teacher</option><option>Finance</option></select></td><td class="mut">Level 1 · Foundations</td><td><span class="badge ok">Active</span></td><td><button type="button" class="btn sm danger" onClick="{{rm4}}">{{rm4Label}}</button></td></tr>
+<tr><td><span class="b">Ustadh Hamza Malik</span><small>hamza.malik@example.com</small></td><td><select class="select" aria-label="Role for Ustadh Hamza Malik" style="min-height: 44px; padding-block: 8px"><option>Admin</option><option>Editor</option><option>School director</option><option selected="">Teacher</option><option>Finance</option></select></td><td class="mut">Level 3 · Memorization</td><td><span class="badge ok">Active</span></td><td><button type="button" class="btn sm danger" onClick="{{rm5}}">{{rm5Label}}</button></td></tr>
+<tr><td><span class="b">Tariq Abdi</span><small>tariq.abdi@example.com</small></td><td>Finance</td><td class="mut">Donations, tuition and payouts</td><td><span class="badge info">Invited Oct 6</span></td><td class="nw"><button type="button" class="btn sm" onClick="{{resend}}">{{resendLabel}}</button> <button type="button" class="btn sm danger" onClick="{{rm6}}">{{rm6Label}}</button></td></tr>
+</tbody></table></div>
+<p class="sm sub">Role changes take effect at once and are emailed to the person. Removing someone signs them out of this workspace; their personal Husna account is untouched.</p>
+
+<div class="stack g12">
+<div class="row between g12"><h2 class="t1">What each role can do</h2><div class="row g16"><a class="link sm" href="TeacherHome.dc.html">See what a teacher sees →</a><a class="link sm" href="OrgActivity.dc.html">Activity log →</a></div></div>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Can…</th><th class="c">Owner</th><th class="c">Admin</th><th class="c">Editor</th><th class="c">School director</th><th class="c">Teacher</th><th class="c">Finance</th></tr></thead>
+<tbody>
+<tr><td>Publish events, Friday prayers and public announcements</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>Set prayer times and run TV displays, including messages on every screen</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>Edit the public profile</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>Set up programs and review applications</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>See rosters, family contacts and health notes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c acc">Yes</td><td class="c">Own class</td><td class="c sub">No</td></tr>
+<tr><td>Take attendance, write progress notes, message class families</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c acc">Yes</td><td class="c">Own class</td><td class="c sub">No</td></tr>
+<tr><td>See financial assistance requests</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>See donations, tuition and payouts; issue refunds</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c">Tuition only</td><td class="c sub">No</td><td class="c acc">Yes</td></tr>
+<tr><td>Answer the inbox</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c">Own class</td><td class="c sub">No</td></tr>
+<tr><td>Invite and remove people; change settings</td><td class="c acc">Yes</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+<tr><td>Connect payouts, transfer ownership, close the workspace</td><td class="c acc">Yes</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td><td class="c sub">No</td></tr>
+</tbody></table></div>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1640}}'>
+class Component extends DCLogic {
+  state = { removed: {}, resent: false };
+  renderVals() {
+    const s = this.state;
+    const out = { resendLabel: s.resent ? 'Sent again' : 'Resend', resend: () => this.setState({ resent: true }) };
+    [1, 2, 3, 4, 5, 6].forEach((i) => {
+      const gone = !!s.removed[i];
+      out['rm' + i + 'Label'] = gone ? 'Removed. Undo' : i === 6 ? 'Cancel invite' : 'Remove';
+      out['rm' + i] = () => this.setState({ removed: { ...s.removed, [i]: !gone } });
+    });
+    return out;
+  }
+}
+</script>
+</body>
+</html>

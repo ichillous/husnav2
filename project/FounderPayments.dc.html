@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Payments and coffee</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a class="on" href="FounderPayments.dc.html" aria-current="page">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Payments and coffee</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings">IC</a></div>
+
+<div class="ph"><div><h1>Payments <em>and coffee</em></h1><p>Husna charges nothing. This page shows the money organizations move through Stripe, and what people choose to give the developer.</p></div>
+<a class="btn" href="https://dashboard.stripe.com">Stripe dashboard ↗</a></div>
+
+<div class="stack g24">
+
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Husna charges</p><b>$0</b><span>on everything. Fixed</span></div>
+<div class="stat"><p class="eyebrow q">Coffees in October</p><b>14</b><span>$185.00 in all</span></div>
+<div class="stat"><p class="eyebrow q">From organizations</p><b>3</b><span>$110.00</span></div>
+<div class="stat"><p class="eyebrow q">From members and visitors</p><b>11</b><span>$75.00</span></div>
+</div>
+
+<div class="split">
+<div class="col-main stack g12">
+<div class="row between"><h2 class="t1">Recent coffees</h2><button type="button" class="btn sm" onClick="{{dl}}">{{dlLabel}}</button></div>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 560px">
+<thead><tr><th>Date</th><th>From</th><th>Note</th><th class="num">Amount</th></tr></thead>
+<tbody>
+<tr><td class="nw">Oct 8</td><td><span class="b">Crescent House Masjid</span><small>Organization · sent by Khadija Osman</small></td><td class="mut">“The attendance page gave us our Saturdays back.”</td><td class="num">$25.00</td></tr>
+<tr><td class="nw">Oct 7</td><td><span class="b">Name kept private</span><small>Member</small></td><td class="mut">“JazakAllahu khayran.”</td><td class="num">$10.00</td></tr>
+<tr><td class="nw">Oct 6</td><td><span class="b">Yasmin Noor</span><small>Member</small></td><td class="sub">No note</td><td class="num">$5.00</td></tr>
+<tr><td class="nw">Oct 5</td><td><span class="b">Mosaic Muslim Collective</span><small>Organization · sent by Bilal Hassan</small></td><td class="mut">“For the TV in our lobby.”</td><td class="num">$50.00</td></tr>
+</tbody></table></div>
+<p class="sm sub">Each coffee gets a thank-you email and a receipt automatically. They are paid to Husna’s own Stripe account and are separate from every organization’s payouts.</p>
+</div>
+<aside class="col-side w">
+<div class="card stack g16">
+<div class="stack g4"><h2 class="t1">The coffee button</h2><p class="sm mut">Where it appears and what it suggests. It never interrupts anyone: no pop-ups, no reminders.</p></div>
+<div class="set" style="padding-top: 0"><div class="stack g4"><span class="b">Show it to members and visitors</span><span class="sm mut">Footer, menu, account and help</span></div><input class="sw" type="checkbox" checked aria-label="Show the coffee button to members and visitors"></div>
+<div class="set"><div class="stack g4"><span class="b">Show it to organizations</span><span class="sm mut">Sidebar, settings and payouts</span></div><input class="sw" type="checkbox" checked aria-label="Show the coffee button to organizations"></div>
+<div class="field"><label class="label" for="fp-m">Amounts suggested to members</label><input class="input" id="fp-m" type="text" defaultValue="$5, $10, $25"></div>
+<div class="field"><label class="label" for="fp-o">Amounts suggested to organizations</label><input class="input" id="fp-o" type="text" defaultValue="$10, $25, $50, $100"></div>
+<div class="row between g12"><span class="sm {{saveCls}}" role="status">{{saveHint}}</span><button type="button" class="btn pri" onClick="{{save}}">{{saveLabel}}</button></div>
+</div>
+</aside>
+</div>
+
+<div class="stack g12">
+<h2 class="t1">Connected organizations</h2>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Organization</th><th>Stripe account</th><th>What is needed</th><th>Tuition waiting</th><th>Last payout</th><th></th></tr></thead>
+<tbody>
+<tr><td class="b">Crescent House Masjid</td><td><span class="badge ok">Active</span></td><td class="mut">Nothing</td><td>5 applications, charged on acceptance</td><td class="sub">Mon, Oct 5 · donations</td><td><a class="btn sm" href="FounderOrg.dc.html">Open</a></td></tr>
+<tr><td class="b">Mosaic Muslim Collective</td><td><span class="badge warn">Restricted</span></td><td>Stripe asked for a bank statement on Oct 6. Payouts pause on Oct 20 without it.</td><td class="sub">None</td><td class="sub">Mon, Oct 5 · donations</td><td><button type="button" class="btn sm" onClick="{{nudge}}">{{nudgeLabel}}</button></td></tr>
+<tr><td class="b">Lantern Learning House</td><td><span class="badge">Not connected</span></td><td class="mut">Giving and paid enrollment are off for them</td><td class="sub">None</td><td class="sub">Never</td><td><a class="btn sm" href="FounderOrg.dc.html">Open</a></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="split">
+<div class="col-main stack g12">
+<h2 class="t1">Moving through organizations, October so far</h2>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 520px">
+<thead><tr><th>Kind</th><th class="num">Payments</th><th class="num">Volume</th><th class="num">Husna keeps</th></tr></thead>
+<tbody>
+<tr><td class="b">Donations</td><td class="num">47</td><td class="num">$1,905.00</td><td class="num">$0.00</td></tr>
+<tr><td class="b">Tuition</td><td class="num">0</td><td class="num">$0.00</td><td class="num">$0.00</td></tr>
+<tr><td class="b">Payment links</td><td class="num">0</td><td class="num">$0.00</td><td class="num">$0.00</td></tr>
+</tbody></table></div>
+<p class="sm sub">Fall tuition is first charged when Crescent House accepts its applications, by October 21.</p>
+</div>
+<aside class="col-side w stack g16">
+<div class="card stack g8"><p class="eyebrow" style="color: #e0d3bd">Refunds and disputes</p><p class="b">None this month</p><p class="sm mut">Organizations refund their own payments. Card disputes appear here with a deadline, and the organization is asked for evidence.</p></div>
+<div class="card stack g8"><p class="eyebrow" style="color: #e0d3bd">A coffee is a gift</p><p class="sm mut">It buys nothing and unlocks nothing. Receipts name [COMPANY NAME AND MAILING ADDRESS] and say it is not a charitable donation.</p></div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1740}}'>
+class Component extends DCLogic {
+  state = { saved: false, nudged: false, dl: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      saveLabel: s.saved ? 'Saved' : 'Save', save: () => this.setState({ saved: true }),
+      saveHint: s.saved ? 'Saved. The buttons show the new amounts.' : 'Applies to every button at once.', saveCls: s.saved ? 'acc' : 'sub',
+      dlLabel: s.dl ? 'Downloaded (CSV)' : 'Download all (CSV)', dl: () => this.setState({ dl: true }),
+      nudgeLabel: s.nudged ? 'Reminder sent' : 'Remind the owner', nudge: () => this.setState({ nudged: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

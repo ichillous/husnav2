@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Friday prayers</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a class="on" href="OrgFriday.dc.html" aria-current="page">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Friday prayers</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Every service, <em>clear to everyone.</em></h1><p>Times, khateebs, topics and languages for each Friday. What you save here is what visitors see on your profile and in discovery.</p></div>
+<a class="btn" href="OrgProfile.dc.html">See it on your profile ↗</a></div>
+
+<div class="stack g16">
+<div class="row between g12">
+<div class="seg" role="group" aria-label="Which Friday">
+<button type="button" class="{{thisCls}}" aria-pressed="{{thisPressed}}" onClick="{{showThis}}">This Friday, October 9</button>
+<button type="button" class="{{nextCls}}" aria-pressed="{{nextPressed}}" onClick="{{showNext}}">Next Friday, October 16</button>
+</div>
+<a class="btn pri" href="OrgServiceSheet.dc.html">Add a service</a>
+</div>
+
+<sc-if value="{{isThis}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="row g12"><span class="badge ok">Live on your profile</span><span class="sm sub">Last updated Wednesday, October 7 by Imam Adam Rahman</span></div>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Time</th><th>Khutbah topic</th><th>Khateeb</th><th>Language</th><th>Where</th><th></th></tr></thead>
+<tbody>
+<tr><td class="serif nw" style="font-size: 26px">1:30 PM</td><td class="b">On Being There for One Another</td><td>Imam Adam Rahman</td><td>English</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+<tr><td class="serif nw" style="font-size: 26px">2:30 PM</td><td class="b">Finding Patience in a Noisy World</td><td>Shaykh Yusuf Ali</td><td>English and Arabic</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+<tr><td class="serif nw" style="font-size: 26px">3:30 PM</td><td class="b">Raising a Community That Cares</td><td>Ustadh Hamza Malik</td><td>English and Somali</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+</tbody></table></div>
+</div>
+</sc-if>
+
+<sc-if value="{{nextEmpty}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g12" style="align-items: center; padding: 48px 24px">
+<h2 class="d3">Nothing posted for October 16 yet.</h2>
+<p class="mut" style="max-width: 52ch">Until you post, your profile shows this Friday’s times with a note that next week is not confirmed.</p>
+<div class="row g8"><button type="button" class="btn pri" onClick="{{copy}}">Copy this Friday’s schedule</button><a class="btn" href="OrgServiceSheet.dc.html">Start from scratch</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{nextCopied}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="row between g12"><div class="row g12"><span class="badge warn">Draft, not public yet</span><span class="sm sub">Copied from October 9. Update the topics, then publish.</span></div><button type="button" class="btn pri" onClick="{{publish}}">{{publishLabel}}</button></div>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Time</th><th>Khutbah topic</th><th>Khateeb</th><th>Language</th><th>Where</th><th></th></tr></thead>
+<tbody>
+<tr><td class="serif nw" style="font-size: 26px">1:30 PM</td><td class="sub">Topic to be announced</td><td>Imam Adam Rahman</td><td>English</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+<tr><td class="serif nw" style="font-size: 26px">2:30 PM</td><td class="sub">Topic to be announced</td><td>Shaykh Yusuf Ali</td><td>English and Arabic</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+<tr><td class="serif nw" style="font-size: 26px">3:30 PM</td><td class="sub">Topic to be announced</td><td>Ustadh Hamza Malik</td><td>English and Somali</td><td>Main hall</td><td><a class="btn sm" href="OrgServiceSheet.dc.html">Edit</a></td></tr>
+</tbody></table></div>
+</div>
+</sc-if>
+
+<div class="cols c2">
+<div class="card stack g12">
+<h2 class="t1">Note for visitors</h2>
+<div class="field"><label class="label" for="fr-note">Shown under the schedule, every week</label><textarea class="textarea" id="fr-note" maxLength="280" defaultValue="Doors open 30 minutes before the first service. Overflow parking is in the north lot."></textarea><span class="hint">Up to 280 characters. Parking, entrances, where sisters pray, wheelchair access.</span></div>
+<div class="row end"><button type="button" class="btn" onClick="{{saveNote}}">{{noteLabel}}</button></div>
+</div>
+<div class="card stack g4">
+<h2 class="t1">Each week</h2>
+<div class="set"><div class="stack g4"><span class="b">Repeat times and khateebs automatically</span><span class="sm mut">Next Friday starts as a draft copy of this one</span></div><input class="sw" type="checkbox" aria-label="Repeat times and khateebs automatically"></div>
+<div class="set"><div class="stack g4"><span class="b">Remind me on Wednesday</span><span class="sm mut">Email owners and admins if next Friday is not posted</span></div><input class="sw" type="checkbox" checked="" aria-label="Remind me on Wednesday"></div>
+<div class="set"><div class="stack g4"><span class="b">Tell followers when topics are posted</span><span class="sm mut">One notification on Thursday evening</span></div><input class="sw" type="checkbox" checked="" aria-label="Tell followers when topics are posted"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  state = { week: 'this', copied: false, published: false, note: false };
+  renderVals() {
+    const s = this.state;
+    const isThis = s.week === 'this';
+    return {
+      isThis, nextEmpty: !isThis && !s.copied, nextCopied: !isThis && s.copied,
+      thisCls: isThis ? 'on' : '', nextCls: isThis ? '' : 'on',
+      thisPressed: isThis ? 'true' : 'false', nextPressed: isThis ? 'false' : 'true',
+      showThis: () => this.setState({ week: 'this' }), showNext: () => this.setState({ week: 'next' }),
+      copy: () => this.setState({ copied: true }),
+      publishLabel: s.published ? 'Published for October 16' : 'Publish for October 16',
+      publish: () => this.setState({ published: true }),
+      noteLabel: s.note ? 'Note saved' : 'Save note',
+      saveNote: () => this.setState({ note: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

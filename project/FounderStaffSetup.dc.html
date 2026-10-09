@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Set up console access</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<div class="stack g12"><p class="eyebrow" style="color: #e0d3bd">{{stepText}}</p><h1 class="d3">{{heading}}</h1><p class="mut">{{lede}}</p></div>
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="field"><label class="label" for="fs-em">Work email</label><input class="input" id="fs-em" type="email" readOnly defaultValue="[STAFF EMAIL]"><span class="hint">The invitation works only for this address, for 7 days.</span></div>
+<div class="field"><label class="label" for="fs-pw">Choose a password</label><input class="input" id="fs-pw" type="password" autoComplete="new-password"><span class="hint">At least 14 characters. Not one you use anywhere else.</span></div>
+<button type="button" class="btn pri xl block" onClick="{{next}}">Continue</button>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="row g16 nowrap start"><div class="drop" style="flex: 0 0 148px; height: 148px; padding: 12px; justify-content: center"><span class="xs">[QR CODE]</span></div>
+<ol class="ul sm" style="list-style: decimal"><li>Open an authenticator app on your phone.</li><li>Scan this code, or type the key: <span class="b ink tnum">[SETUP KEY]</span></li><li>Enter the 6-digit code the app shows.</li></ol></div>
+<div class="code" role="group" aria-label="6-digit code from your authenticator app">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 1" autoComplete="one-time-code"><input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 2"><input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 3"><input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 4"><input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 5"><input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 6">
+</div>
+<div class="row g8"><button type="button" class="btn" onClick="{{back}}"><span aria-hidden="true">←</span> Back</button><button type="button" class="btn pri grow" onClick="{{next}}">Verify the code</button></div>
+<p class="xs sub">Two-step sign-in cannot be turned off for console staff. Text-message codes are not offered.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="card flat" style="padding: 16px 18px"><div class="cols" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px"><span class="tnum b">[CODE 1]</span><span class="tnum b">[CODE 2]</span><span class="tnum b">[CODE 3]</span><span class="tnum b">[CODE 4]</span><span class="tnum b">[CODE 5]</span><span class="tnum b">[CODE 6]</span><span class="tnum b">[CODE 7]</span><span class="tnum b">[CODE 8]</span><span class="tnum b">[CODE 9]</span><span class="tnum b">[CODE 10]</span></div></div>
+<div class="row g8"><button type="button" class="btn grow" onClick="{{copy}}">{{copyLabel}}</button><button type="button" class="btn grow" onClick="{{dl}}">{{dlLabel}}</button></div>
+<label class="check"><input type="checkbox" checked="{{kept}}" onChange="{{toggleKept}}"><span>I have saved these somewhere other than this computer.</span></label>
+<a class="btn pri xl block {{doneCls}}" href="Founder.dc.html">Open the console</a>
+<p class="xs sub">Each code works once, when your phone is not to hand. Using one emails every console owner.</p>
+</div>
+</sc-if>
+
+<hr class="hr">
+<p class="mut">Not expecting this? <a class="link" href="Help.dc.html">Tell Husna</a> and do nothing else. Nothing is created until you finish.</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":680}}'>
+class Component extends DCLogic {
+state = { step: 1, copied: false, dl: false, kept: false };
+  renderVals() {
+    const s = this.state;
+    const H = { 1: 'You have been invited to the console.', 2: 'Add your authenticator.', 3: 'Keep your recovery codes.' };
+    const L = { 1: 'Isiah invited you as a Reviewer: approvals and moderation. Set a password first.', 2: 'Every console sign-in asks for a password and a code from your phone.', 3: 'Ten codes, shown once. They are the only way in if you lose your phone.' };
+    return {
+      s1: s.step === 1, s2: s.step === 2, s3: s.step === 3, stepText: 'Step ' + s.step + ' of 3', heading: H[s.step], lede: L[s.step],
+      next: () => this.setState({ step: Math.min(3, s.step + 1) }), back: () => this.setState({ step: Math.max(1, s.step - 1) }),
+      copyLabel: s.copied ? 'Copied' : 'Copy the codes', copy: () => this.setState({ copied: true }),
+      dlLabel: s.dl ? 'Downloaded' : 'Download as a file', dl: () => this.setState({ dl: true }),
+      kept: s.kept, toggleKept: () => this.setState({ kept: !s.kept }), doneCls: s.kept ? '' : 'off'
+    };
+  }
+}
+</script>
+</body>
+</html>

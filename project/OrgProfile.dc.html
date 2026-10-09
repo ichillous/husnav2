@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}">
+<div>
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}">
+<div>
+<dc-import name="PrayerBar" shown="{{home}}" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+
+<main>
+<section class="sec s" style="padding-bottom: 0"><div class="wrap stack g24">
+<a class="back" href="Organizations.dc.html"><span aria-hidden="true">←</span> All organizations</a>
+<div class="poster w p-mint" aria-hidden="true"><b style="font-family: 'Instrument Serif', Georgia, serif">C</b><i>Organization home · Columbus</i></div>
+
+<div class="row between bottom g24">
+<div class="stack g12">
+<p class="eyebrow">Masjid · Family · Education · Columbus, Ohio</p>
+<div class="row g16"><h1 class="d2">Crescent House Masjid</h1><span class="badge ok">Verified organization</span></div>
+<p class="mut">1200 Sample Avenue, Columbus, OH 43229</p>
+</div>
+<div class="row g8">
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn" href="Gate.dc.html">Follow</a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><button type="button" class="btn" aria-pressed="{{followPressed}}" onClick="{{toggleFollow}}">{{followLabel}}</button></sc-if>
+<a class="btn" href="ContactOrg.dc.html">Message</a>
+<a class="btn pri" href="Donate.dc.html">Donate</a>
+</div>
+</div>
+
+<nav class="tabs" aria-label="Sections of this profile">
+<a class="on" href="#about">About</a><a href="#prayers">Prayer times</a><a href="#friday">Friday prayer</a><a href="#events">Events</a><a href="#programs">Programs</a><a href="#news">Announcements</a><a href="#give">Give</a><a href="#contact">Contact</a>
+</nav>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap"><div class="split">
+<div class="col-main stack g16">
+<p class="eyebrow">01 · Who we are</p>
+<h2 class="d2">A home for faith<br>and <em>everyday life.</em></h2>
+<div class="prose"><p>A neighborhood space for prayer, learning and showing up for each other. From Friday khutbahs to weekend classes, this community brings people together throughout the week.</p></div>
+</div>
+<aside class="col-side w card stack g12">
+<p class="eyebrow">At a glance</p>
+<dl class="kv" style="grid-template-columns: 110px minmax(0, 1fr)">
+<dt>Open</dt><dd>Daily, for all five prayers</dd>
+<dt>Friday</dt><dd>Three services: 1:30, 2:30 and 3:30 PM</dd>
+<dt>Programs</dt><dd>Weekend Qur’an School, English Conversation Club, Qur’an Foundations</dd>
+<dt>Languages</dt><dd>English, Arabic, Somali</dd>
+</dl>
+</aside>
+</div></div></section>
+
+<section class="sec" id="prayers" style="padding-top: 0"><div class="wrap stack g16">
+<div class="row between bottom g16"><div class="stack g8"><p class="eyebrow">Prayer times · Thursday, October 8 · 27 Rabi’ al-Thani 1448</p><h2 class="d3">Today at <em>Crescent House.</em></h2></div><span class="badge ok">Next: Dhuhr · iqamah 1:45 PM</span></div>
+<div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 12px"><div class="stat"><p class="eyebrow q">Fajr</p><b>6:21 AM</b><span>Iqamah 6:45 AM</span></div><div class="stat"><p class="eyebrow q">Sunrise</p><b>7:36 AM</b><span>No prayer at sunrise</span></div><div class="stat"><p class="eyebrow q">Dhuhr</p><b>1:21 PM</b><span>Iqamah 1:45 PM</span></div><div class="stat"><p class="eyebrow q">Asr</p><b>4:32 PM</b><span>Iqamah 4:50 PM</span></div><div class="stat"><p class="eyebrow q">Maghrib</p><b>7:04 PM</b><span>Iqamah 7:09 PM</span></div><div class="stat"><p class="eyebrow q">Isha</p><b>8:17 PM</b><span>Iqamah 8:30 PM</span></div></div>
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><div class="card flat row between g16" style="padding: 14px 18px"><span class="sm mut" style="flex: 1 1 280px">Make Crescent House your home masjid and these times stay at the top of every page you open.</span><a class="btn sm" href="Gate.dc.html">Make it my home masjid</a></div></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><div class="card flat row between g16" style="padding: 14px 18px"><span class="sm mut" style="flex: 1 1 280px">{{homeText}}</span><button type="button" class="btn sm {{homeCls}}" aria-pressed="{{homePressed}}" onClick="{{toggleHome}}">{{homeLabel}}</button></div></sc-if>
+<p class="sm sub">The large time is the adhan, worked out for this address. The masjid sets each iqamah. From Sunday, October 18, Isha iqamah moves to 8:15 PM.</p>
+</div></section>
+
+<section class="sec" id="friday" style="padding-top: 0"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">02 · Friday prayer</p><h2 class="d2">Your Friday,<br><em>made clearer.</em></h2></div>
+<div class="split">
+<div class="col-main stack g12">
+<p class="eyebrow q">This Friday · October 9 · Eastern Time</p>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Time</th><th>Khutbah</th><th>Khateeb</th><th>Language</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td class="serif nw" style="font-size: 26px">1:30 PM</td><td class="b">On Being There for One Another</td><td>Imam Adam Rahman</td><td>English</td><td>Main hall</td></tr>
+<tr><td class="serif nw" style="font-size: 26px">2:30 PM</td><td class="b">Finding Patience in a Noisy World</td><td>Shaykh Yusuf Ali</td><td>English and Arabic</td><td>Main hall</td></tr>
+<tr><td class="serif nw" style="font-size: 26px">3:30 PM</td><td class="b">Raising a Community That Cares</td><td>Ustadh Hamza Malik</td><td>English and Somali</td><td>Main hall</td></tr>
+</tbody></table></div>
+</div>
+<aside class="col-side card stack g12">
+<p class="eyebrow">Plan your visit</p>
+<h3 class="d4">Every service. Every speaker. One place.</h3>
+<p class="sm mut">The masjid’s own team keeps this schedule current each week. Doors open 30 minutes before the first service. Overflow parking is in the north lot.</p>
+<p class="xs sub">Updated Wednesday, October 7</p>
+</aside>
+</div>
+</div></section>
+
+<section class="sec" id="events" style="padding-top: 0"><div class="wrap stack g24">
+<div class="row between bottom g24"><div class="stack g12"><p class="eyebrow">03 · Gatherings and events</p><h2 class="d2">Upcoming <em>together.</em></h2></div><a class="btn" href="Discover.dc.html">All Columbus events →</a></div>
+<div class="list">
+<a class="li" href="Event.dc.html"><span class="date"><b>09</b><span>Fri · Oct</span></span><span class="poster s p-mint" aria-hidden="true"><b>ج</b></span><span class="grow stack g4"><span class="eyebrow">Prayer · 1:30 PM</span><span class="li-t">Friday Prayer: Showing Up for One Another</span><span class="sm mut">At the masjid</span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li" href="Event.dc.html"><span class="date"><b>10</b><span>Sat · Oct</span></span><span class="poster s p-sand" aria-hidden="true"><b>ق</b></span><span class="grow stack g4"><span class="eyebrow">Learning · 10:00 AM</span><span class="li-t">Qur’an &amp; Coffee: Saturday Reflections</span><span class="sm mut">At the masjid</span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li" href="Event.dc.html"><span class="date"><b>13</b><span>Tue · Oct</span></span><span class="poster s p-rose" aria-hidden="true"><b>ل</b></span><span class="grow stack g4"><span class="eyebrow">Learning · 6:00 PM</span><span class="li-t">English Conversation Circle</span><span class="sm mut">Online</span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li" href="Event.dc.html"><span class="date"><b>17</b><span>Sat · Oct</span></span><span class="poster s p-mint" aria-hidden="true"><b>أ</b></span><span class="grow stack g4"><span class="eyebrow">Family · 9:30 AM</span><span class="li-t">Weekend Qur’an School Open House</span><span class="sm mut">At the masjid</span></span><span class="go" aria-hidden="true">↗</span></a>
+</div>
+</div></section>
+
+<section class="sec" id="programs" style="padding-top: 0"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">04 · More ways to learn and belong</p><h2 class="d2">Something for <em>everyone.</em></h2></div>
+<div class="stack g12">
+<div class="card tint"><div class="row between g20">
+<div class="stack g8 grow" style="min-width: 260px"><div class="row g12"><h3 class="d4">Weekend Qur’an School</h3><span class="badge ok">Enrollment open until Oct 18</span></div><p class="mut">Ages 5 to 15 · Saturday and Sunday, 9:00 AM to 12:30 PM · October 24 to December 20 · $240 per child for the term</p></div>
+<a class="btn pri" href="Program.dc.html">See classes and enroll →</a>
+</div></div>
+<div class="card"><div class="row between g20">
+<div class="stack g8 grow" style="min-width: 260px"><h3 class="d4">English Conversation Club</h3><p class="mut">Adults · Tuesdays, 6:00 to 7:00 PM · Online · Free, drop in any week</p></div>
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn" href="Gate.dc.html">Join the club</a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><button type="button" class="btn" aria-pressed="{{clubPressed}}" onClick="{{toggleClub}}">{{clubLabel}}</button></sc-if>
+</div></div>
+<div class="card"><div class="row between g20">
+<div class="stack g8 grow" style="min-width: 260px"><div class="row g12"><h3 class="d4">Qur’an Foundations</h3><span class="badge">Next term opens in January</span></div><p class="mut">Adults and teens · Saturdays, 1:30 to 3:00 PM · $60 for the term</p></div>
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn" href="Gate.dc.html">Tell me when it opens</a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><button type="button" class="btn" aria-pressed="{{remindPressed}}" onClick="{{toggleRemind}}">{{remindLabel}}</button></sc-if>
+</div></div>
+</div>
+</div></section>
+
+<section class="sec" id="news" style="padding-top: 0"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">05 · News from the community</p><h2 class="d2">Stay in <em>the loop.</em></h2></div>
+<div class="list">
+<div class="li start"><div class="grow stack g4"><h3 class="t1">Fall registration is open</h3><p class="mut">Weekend Qur’an School enrollment closes Sunday, October 18. Classes begin Saturday, October 24.</p><p><a class="link sm" href="Program.dc.html">See classes and enroll →</a></p></div><span class="sm sub nw">Oct 6</span></div>
+<div class="li start"><div class="grow stack g4"><h3 class="t1">Community volunteers needed</h3><p class="mut">Help welcome families at the open house on October 17 and set up classrooms the evening before.</p><p><a class="link sm" href="ContactOrg.dc.html">Offer to help →</a></p></div><span class="sm sub nw">Oct 4</span></div>
+</div>
+</div></section>
+
+<section class="sec" id="give" style="padding-top: 0"><div class="wrap">
+<div class="card tint lg"><div class="row between g24">
+<div class="stack g12 grow" style="min-width: 280px"><p class="eyebrow">06 · Support what matters</p><h2 class="d2">Good things grow<br><em>when we give.</em></h2><p class="lede">Give once or monthly to the general fund, weekend school scholarships or the building. Husna is free and takes nothing from your gift.</p></div>
+<a class="btn pri xl" href="Donate.dc.html">Make a contribution →</a>
+</div></div>
+</div></section>
+
+<section class="sec" id="contact" style="padding-top: 0"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">07 · Contact</p><h2 class="d3">Reach the people who run this place.</h2></div>
+<div class="cols">
+<div class="card stack g8"><p class="eyebrow q">Visit</p><p class="b">1200 Sample Avenue</p><p class="mut">Columbus, OH 43229</p></div>
+<div class="card stack g8"><p class="eyebrow q">Call or email</p><p><a class="link" href="tel:+16145550100">(614) 555-0100</a></p><p><a class="link" href="mailto:salaam@crescenthouse.example">salaam@crescenthouse.example</a></p></div>
+<div class="card stack g12"><p class="eyebrow q">Write to the office</p><p class="mut sm">Questions about the school, rentals or volunteering go straight to the team.</p><a class="btn" href="ContactOrg.dc.html">Message the organization</a></div>
+</div>
+<p><a class="link sm" href="Help.dc.html">Report a problem with this profile</a></p>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Visitor","Member"],"default":"Visitor"},"$preview":{"width":1440,"height":4900}}'>
+class Component extends DCLogic {
+  state = { follow: false, club: false, remind: false, home: true };
+  renderVals() {
+    const s = this.state;
+    const member = (this.props.viewer ?? 'Visitor') === 'Member';
+    const t = (on) => (on ? 'true' : 'false');
+    return {
+      visitor: !member, member,
+      home: s.home, homePressed: t(s.home), homeCls: s.home ? 'pri' : '', homeLabel: s.home ? 'Your home masjid' : 'Make it my home masjid',
+      homeText: s.home ? 'Crescent House is your home masjid. Its prayer times are at the top of every page you open. Press the button to stop.' : 'Make Crescent House your home masjid and these times stay at the top of every page you open.',
+      toggleHome: () => this.setState({ home: !s.home }),
+      followLabel: s.follow ? 'Following' : 'Follow', followPressed: t(s.follow),
+      toggleFollow: () => this.setState({ follow: !s.follow }),
+      clubLabel: s.club ? 'You are in. Leave the club' : 'Join the club', clubPressed: t(s.club),
+      toggleClub: () => this.setState({ club: !s.club }),
+      remindLabel: s.remind ? 'We will tell you. Undo' : 'Tell me when it opens', remindPressed: t(s.remind),
+      toggleRemind: () => this.setState({ remind: !s.remind })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Confirm your email</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g12"><p class="eyebrow">Step 2 of 2</p><h1 class="d3">Confirm your <em>email.</em></h1><p class="mut">Enter the 6-digit code we sent to <span class="b ink">amina.farah@example.com</span>. It expires in 15 minutes.</p></div>
+
+<div class="stack g8">
+<div class="code" role="group" aria-label="6-digit code">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 1" autoComplete="one-time-code" defaultValue="4">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 2" defaultValue="8">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 3" defaultValue="2">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 4" defaultValue="9">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 5">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 6">
+</div>
+<sc-if value="{{showError}}" hint-placeholder-val="{{false}}"><p class="err" role="alert">That code is not right, or it has expired. Check the newest email or send a new code.</p></sc-if>
+<p class="hint">Pasting the whole code fills every box.</p>
+</div>
+
+<a class="btn pri xl block" href="Welcome.dc.html">Confirm and continue</a>
+<sc-if value="{{resent}}" hint-placeholder-val="{{false}}"><div class="note ok" role="status">A new code is on its way. Earlier codes no longer work.</div></sc-if>
+<hr class="hr">
+<div class="stack g8">
+<p class="mut">No email yet? <button type="button" class="btn quiet sm" onClick="{{resend}}">Send a new code</button> or <a class="link" href="Emails.dc.html">open my email</a></p>
+<p class="mut">Wrong address? <a class="link" href="SignUpMember.dc.html">Change it</a></p>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"showError":{"editor":"boolean","default":false},"$preview":{"width":720,"height":600}}'>
+class Component extends DCLogic {
+  state = { resent: false };
+  renderVals() {
+    return {
+      showError: this.props.showError ?? false,
+      resent: this.state.resent,
+      resend: () => this.setState({ resent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

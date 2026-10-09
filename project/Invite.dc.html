@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Team invitation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g20">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+
+<sc-if value="{{open}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="stack g12"><p class="eyebrow">Team invitation</p><h1 class="d3">Join Crescent House Masjid <em>as a teacher.</em></h1><p class="mut">Khadija Osman invited <span class="b ink">bilal.ahmed@example.com</span> to the organization’s workspace on Husna.</p></div>
+<div class="card flat stack g8">
+<p class="eyebrow q">With the Teacher role you can</p>
+<ul class="ul sm"><li>See the roster for Level 2 · Reading</li><li>Take attendance and write progress notes</li><li>Message the families in your class</li></ul>
+<p class="xs sub">You will not see donations, payouts or other classes.</p>
+</div>
+<div class="stack g16">
+<div class="field"><label class="label" for="iv-name">Your full name</label><input class="input" id="iv-name" type="text" autoComplete="name" defaultValue="Bilal Ahmed"></div>
+<div class="field"><label class="label" for="iv-pw">Create a password</label><input class="input" id="iv-pw" type="password" autoComplete="new-password" placeholder="At least 10 characters, with a letter and a number"></div>
+</div>
+<div class="stack g8">
+<a class="btn pri xl block" href="TeacherHome.dc.html">Accept and open my class</a>
+<button type="button" class="btn block" onClick="{{decline}}">Decline invitation</button>
+</div>
+<p class="xs sub">Already have a Husna account with this email? <a class="link" href="SignIn.dc.html">Sign in</a> and the invitation is waiting. It expires October 22.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{declined}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="stack g12"><p class="eyebrow">Team invitation</p><h1 class="d3">Invitation declined.</h1><p class="mut">We have let Khadija Osman know. No account was created.</p></div>
+<button type="button" class="btn block" onClick="{{undo}}">I changed my mind</button>
+<a class="btn quiet block" href="Main.dc.html">Go to Husna</a>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":840}}'>
+class Component extends DCLogic {
+  state = { declined: false };
+  renderVals() {
+    return {
+      open: !this.state.declined, declined: this.state.declined,
+      decline: () => this.setState({ declined: true }),
+      undo: () => this.setState({ declined: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

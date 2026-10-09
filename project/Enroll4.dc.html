@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enroll, step 4: agreements</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack ctx" style="gap: 4px"><span class="eyebrow q">Enrolling in</span><span class="b">Weekend Qur’an School · Crescent House Masjid</span></div>
+<div class="row g12 push"><span class="sm sub">Saved 9:19 AM</span><a class="btn" href="MyHusna.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Fall term · October 24 to December 20</p><h1 class="d2">Read and <em>sign.</em></h1></div>
+<ol class="steps" aria-label="Enrollment progress"><li class="done"><small>Step 1 · Done</small>Children</li><li class="done"><small>Step 2 · Done</small>Classes</li><li class="done"><small>Step 3 · Done</small>Family and safety</li><li class="on" aria-current="step"><small>Step 4</small>Agreements</li><li><small>Step 5</small>Tuition</li></ol>
+
+<div class="split">
+<div class="col-main stack g16">
+<p class="mut">These are Crescent House Masjid’s own policies. Each has a short summary; open any one to read it in full.</p>
+
+<sc-for list="{{docs}}" as="d" hint-placeholder-count="3">
+<div class="card stack g12">
+<div class="row between"><h2 class="t1">{{d.title}}</h2><button type="button" class="btn sm" aria-expanded="{{d.expanded}}" onClick="{{d.toggle}}">{{d.toggleLabel}}</button></div>
+<p class="mut">{{d.summary}}</p>
+<sc-if value="{{d.open}}" hint-placeholder-val="{{false}}">
+<div class="note" style="max-height: 220px; overflow: auto"><div class="stack g8"><span class="b ink">{{d.title}}, fall 2026</span><span>{{d.full}}</span><span class="sub">[FULL POLICY TEXT SUPPLIED BY THE ORGANIZATION]</span></div></div>
+</sc-if>
+<button type="button" class="pick {{d.cls}}" aria-pressed="{{d.pressed}}" onClick="{{d.agree}}"><span class="dot sq" aria-hidden="true"></span><span>{{d.accept}}</span></button>
+</div>
+</sc-for>
+
+<div class="card stack g12" role="radiogroup" aria-labelledby="en-photo-h">
+<h2 class="t1" id="en-photo-h">Photos and video</h2>
+<p class="mut">The school sometimes shares class photos in its announcements. Your answer does not affect your children’s places.</p>
+<label class="pick"><input type="radio" name="photo"><span class="stack g4"><span class="b">Yes, my children may appear</span><span class="sm mut">First names only, never with other personal details</span></span></label>
+<label class="pick"><input type="radio" name="photo" checked=""><span class="stack g4"><span class="b">No photos of my children</span><span class="sm mut">Teachers are told before the first class</span></span></label>
+</div>
+
+<div class="card tint stack g16">
+<div class="stack g4"><h2 class="t1">Your signature</h2><p class="sm mut">Typing your full name here signs the agreements above for Yusuf Farah and Maryam Farah.</p></div>
+<div class="form">
+<div class="field"><label class="label" for="e4-sig">Type your full legal name</label><input class="input" id="e4-sig" type="text" autoComplete="off" placeholder="Amina Farah" value="{{sig}}" onInput="{{onSig}}" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px"></div>
+<div class="field"><label class="label" for="e4-date">Date</label><input class="input" id="e4-date" type="text" readonly="" defaultValue="October 8, 2026"></div>
+</div>
+<p class="xs sub">A signed copy is emailed to you and kept under Payments and receipts.</p>
+</div>
+
+<div class="savebar step">
+<a class="btn" href="Enroll3.dc.html"><span aria-hidden="true">←</span> Back</a>
+<p class="{{statusCls}}" role="status">{{statusText}}</p>
+<a class="btn pri xl {{nextCls}}" href="Enroll5.dc.html">Continue to tuition <span aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g16">
+<p class="eyebrow">Your enrollment</p>
+<ul class="list">
+<li class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">Yusuf</span><span class="sm mut">Level 2 · Reading</span></span><span class="tnum">$240.00</span></li>
+<li class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">Maryam</span><span class="sm mut">Level 1 · Foundations</span></span><span class="tnum">$204.00</span></li>
+</ul>
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)"><dt>Estimated total</dt><dd class="b">$444.00</dd></dl>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Questions about a policy?</p><p class="sm mut">The school office can explain anything before you sign.</p><a class="link sm" href="Messages.dc.html">Ask the school →</a></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Messages.dc.html">Ask the school a question</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1940}}'>
+class Component extends DCLogic {
+  state = { open: {}, agreed: {}, sig: '' };
+  renderVals() {
+    const s = this.state;
+    const defs = [
+      ['handbook', 'Family handbook and conduct', 'Arrive by 9:00 AM. Modest, comfortable dress. Phones stay in bags. Three unexplained absences lead to a call home.', 'Covers arrival and dismissal, dress, behavior, homework, absences and how concerns are raised with the school director.', 'I have read the family handbook and will go through it with my children.'],
+      ['safety', 'Pickup and safety', 'Children are released only to people on your pickup list. Late pickup after 12:45 PM is logged. Staff are background-checked.', 'Covers sign-in and release, late pickup, supervision ratios, incident reporting and emergency procedures.', 'I agree to the pickup and safety policy.'],
+      ['tuition', 'Tuition and refunds', 'Tuition is $240 per child per term. Full refund until October 24. After that, tuition is returned for the weekends that remain.', 'Covers what tuition includes, payment dates, failed payments, withdrawals, refunds and financial assistance.', 'I agree to the tuition and refund policy.']
+    ];
+    const docs = defs.map(([id, title, summary, full, accept]) => ({
+      title, summary, full, accept,
+      open: !!s.open[id], expanded: s.open[id] ? 'true' : 'false',
+      toggleLabel: s.open[id] ? 'Hide full policy' : 'Read full policy',
+      toggle: () => this.setState({ open: { ...s.open, [id]: !s.open[id] } }),
+      cls: s.agreed[id] ? 'on' : '', pressed: s.agreed[id] ? 'true' : 'false',
+      agree: () => this.setState({ agreed: { ...s.agreed, [id]: !s.agreed[id] } })
+    }));
+    const n = defs.filter((d) => s.agreed[d[0]]).length;
+    const signed = s.sig.trim().length > 2;
+    const ready = n === 3 && signed;
+    return {
+      docs, sig: s.sig,
+      onSig: (ev) => this.setState({ sig: ev.target.value }),
+      nextCls: ready ? '' : 'off',
+      statusCls: ready ? 'acc' : 'sub',
+      statusText: ready ? 'All three agreements accepted and signed.' : n + ' of 3 agreements accepted' + (signed ? '' : ' · signature needed')
+    };
+  }
+}
+</script>
+</body>
+</html>

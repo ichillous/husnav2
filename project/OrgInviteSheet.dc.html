@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Invite a teammate</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="iv-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Crescent House Masjid · Team</p><h1 class="d3" id="iv-title">Invite <em>a teammate.</em></h1></div>
+<a class="ibtn" href="OrgTeam.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<div class="stack g20">
+<div class="form">
+<div class="field"><label class="label" for="iv-email">Their email</label><input class="input" id="iv-email" type="email" placeholder="name@example.com"></div>
+<div class="field"><label class="label" for="iv-name">Their name <i>(optional)</i></label><input class="input" id="iv-name" type="text" placeholder="Used in the invitation"></div>
+</div>
+<div class="stack g8" role="group" aria-labelledby="iv-role">
+<span class="label" id="iv-role">Role</span>
+<sc-for list="{{roles}}" as="r" hint-placeholder-count="5">
+<button type="button" class="pick {{r.cls}}" aria-pressed="{{r.pressed}}" onClick="{{r.pick}}" style="padding: 12px 16px"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">{{r.title}}</span><span class="sm mut">{{r.detail}}</span></span></button>
+</sc-for>
+</div>
+<sc-if value="{{isTeacher}}" hint-placeholder-val="{{false}}">
+<div class="field"><label class="label" for="iv-class">Which class do they teach?</label><select class="select" id="iv-class"><option>Level 1 · Foundations</option><option>Level 2 · Reading</option><option>Level 3 · Memorization</option><option>Level 4 · Teens</option><option>English Conversation Club</option></select><span class="hint">They see this class only. Add more classes later from Team.</span></div>
+</sc-if>
+<div class="field"><label class="label" for="iv-note">Personal note <i>(optional)</i></label><input class="input" id="iv-note" type="text" maxLength="140" placeholder="Added to the invitation email"></div>
+<div class="row g8 end"><a class="btn" href="OrgTeam.dc.html">Cancel</a><a class="btn pri" href="OrgTeam.dc.html">Send invitation</a></div>
+<p class="xs sub">The invitation works for 14 days and only for this email address. <a class="link" href="OrgTeam.dc.html">See what each role can do</a></p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1020}}'>
+class Component extends DCLogic {
+  state = { role: 'teacher' };
+  renderVals() {
+    const s = this.state;
+    const roles = [
+      ['admin', 'Admin', 'Everything except ownership and payouts setup'],
+      ['editor', 'Editor', 'Events, Friday prayers, announcements and the public profile'],
+      ['director', 'School director', 'Programs, applications, rosters and assistance requests'],
+      ['teacher', 'Teacher', 'Roster, attendance and progress notes for their own class'],
+      ['finance', 'Finance', 'Donations, tuition, refunds and payouts']
+    ].map(([id, title, detail]) => ({ title, detail, cls: s.role === id ? 'on' : '', pressed: s.role === id ? 'true' : 'false', pick: () => this.setState({ role: id }) }));
+    return { roles, isTeacher: s.role === 'teacher' };
+  }
+}
+</script>
+</body>
+</html>

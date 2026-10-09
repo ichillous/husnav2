@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Founder console, two-step code</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<div class="stack g12"><p class="eyebrow" style="color: #e0d3bd">Step 2 of 2</p><h1 class="d3">Enter your <em>code.</em></h1><p class="mut">{{prompt}}</p></div>
+
+<sc-if value="{{useApp}}" hint-placeholder-val="{{true}}">
+<div class="code" role="group" aria-label="6-digit code from your authenticator app">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 1" autoComplete="one-time-code">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 2">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 3">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 4">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 5">
+<input type="text" inputMode="numeric" maxLength="1" aria-label="Digit 6">
+</div>
+</sc-if>
+<sc-if value="{{useRecovery}}" hint-placeholder-val="{{false}}">
+<div class="field"><label class="label" for="fc-rec">Recovery code</label><input class="input" id="fc-rec" type="text" autoComplete="off" placeholder="xxxx-xxxx-xxxx"><span class="hint">Each recovery code works once. Using one emails every console owner.</span></div>
+</sc-if>
+
+<a class="btn pri xl block" href="Founder.dc.html">Verify and open console</a>
+<label class="check"><input type="checkbox"><span>Trust this device for 12 hours</span></label>
+<hr class="hr">
+<div class="stack g8">
+<p class="mut"><button type="button" class="btn quiet sm" onClick="{{toggle}}">{{toggleLabel}}</button></p>
+<p class="mut"><a class="link" href="FounderSignIn.dc.html">← Use a different account</a></p>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":620}}'>
+class Component extends DCLogic {
+  state = { recovery: false };
+  renderVals() {
+    const r = this.state.recovery;
+    return {
+      useApp: !r, useRecovery: r,
+      prompt: r ? 'Enter one of the recovery codes you saved when you set up two-step sign-in.' : 'Open your authenticator app and enter the 6-digit code for Husna.',
+      toggleLabel: r ? 'Use my authenticator app instead' : 'I cannot use my authenticator. Use a recovery code',
+      toggle: () => this.setState({ recovery: !r })
+    };
+  }
+}
+</script>
+</body>
+</html>

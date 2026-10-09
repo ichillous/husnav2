@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Refund a payment</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="rf-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Tuition · Hana Yildiz · Level 2 · Reading</p><h1 class="d3" id="rf-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgPayouts.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{editing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<dl class="kv"><dt>Paid</dt><dd>$240.00 on October 20 · Visa ending 1881</dd><dt>Paid by</dt><dd>Elif Yildiz</dd><dt>Withdrawn</dt><dd>Sunday, November 15 · reported by the family: moving away</dd><dt>Your policy</dt><dd>After October 24, tuition is returned for the weekends that remain. 4 of 8 weekends remain.</dd></dl>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0">
+<legend class="label" style="padding: 0; margin-bottom: 8px">How much goes back?</legend>
+<sc-for list="{{options}}" as="o" hint-placeholder-count="3"><button type="button" class="pick {{o.cls}}" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}"><span class="dot" aria-hidden="true"></span><span class="grow stack g4"><span class="b">{{o.label}}</span><span class="sm mut">{{o.note}}</span></span><span class="serif nw" style="font-size: 26px; line-height: 1">{{o.amount}}</span></button></sc-for>
+</fieldset>
+<sc-if value="{{custom}}" hint-placeholder-val="{{false}}"><div class="field"><label class="label" for="rf-amt">Amount to refund</label><input class="input" id="rf-amt" type="text" inputMode="decimal" placeholder="$0.00" value="{{amt}}" onInput="{{onAmt}}"><span class="hint">Up to $240.00.</span></div></sc-if>
+<div class="field"><label class="label" for="rf-note">Note to the family <i>(optional)</i></label><textarea class="textarea" id="rf-note" style="min-height: 84px" placeholder="For example: We will miss Hana. She is welcome back any term."></textarea><span class="hint">Sent with the refund receipt.</span></div>
+<div class="note"><span>The money returns to Visa ending 1881 in 5 to 10 business days and comes out of your next payout. Husna charges nothing for a refund. Stripe’s processing charge on the original payment: [STRIPE REFUND RULE].</span></div>
+<div class="row g8 end"><a class="btn" href="OrgPayouts.dc.html">Cancel</a><button type="button" class="btn pri {{goCls}}" onClick="{{send}}">{{goLabel}}</button></div>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">{{doneTitle}}</span><span>Elif Yildiz gets a receipt by email. Hana is off the Level 2 roster from today. Late enrollment ended November 8, so her place stays empty this term.</span></div></div>
+<div class="row g8"><a class="btn pri" href="OrgPayouts.dc.html">Back to tuition and payouts</a><a class="btn" href="OrgRoster.dc.html">Open the roster</a></div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1000}}'>
+class Component extends DCLogic {
+state = { pick: 'policy', amt: '', done: false };
+  renderVals() {
+    const s = this.state;
+    const opts = [['policy', 'By your refund policy', '4 of 8 weekends remain', '$120.00'], ['full', 'Everything they paid', 'For a goodwill refund', '$240.00'], ['other', 'Another amount', 'You choose', '']];
+    const amount = s.pick === 'policy' ? '$120.00' : s.pick === 'full' ? '$240.00' : (s.amt.trim() ? (s.amt.trim().startsWith('$') ? s.amt.trim() : '$' + s.amt.trim()) : '');
+    return {
+      editing: !s.done, done: s.done,
+      heading: s.done ? 'Refund sent.' : 'Refund a payment.',
+      options: opts.map(([id, label, note, amount]) => ({ label, note, amount, cls: s.pick === id ? 'on' : '', pressed: s.pick === id ? 'true' : 'false', pick: () => this.setState({ pick: id }) })),
+      custom: s.pick === 'other', amt: s.amt, onAmt: (ev) => this.setState({ amt: ev.target.value }),
+      goLabel: amount ? 'Refund ' + amount : 'Enter an amount', goCls: amount ? '' : 'off',
+      send: () => this.setState({ done: true }),
+      doneTitle: amount + ' is on its way back to the Yildiz family.'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TV: no connection</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="tv ">
+<div class="tv-pad">
+<div class="tv-col" style="flex: 0 0 760px; gap: 20px">
+<div class="tv-org"><span class="tv-logo" aria-hidden="true">C</span><span>Crescent House Masjid</span><small>Columbus, Ohio</small></div>
+<div class="tv-col" style="gap: 10px; margin-top: 8px"><div class="tv-clock"><span>12:58</span><small>PM</small></div>
+<div><div class="tv-date">Thursday, October 8, 2026</div><div class="tv-hijri">27 Rabi’ al-Thani 1448</div></div></div>
+<div class="tv-tbl "><div class="tv-row hd" aria-hidden="true"><span></span><span>Adhan</span><span>Iqamah</span></div><div class="tv-row past"><span class="tv-n">Fajr<span class="ar" lang="ar" dir="rtl">الفجر</span></span><span class="tv-t">6:21</span><span class="tv-t iq">6:45</span></div><div class="tv-row sun past"><span class="tv-n">Sunrise<span class="ar" lang="ar" dir="rtl">الشروق</span></span><span class="tv-t">7:36</span><span class="tv-t iq"></span></div><div class="tv-row next"><span class="tv-n">Dhuhr<span class="ar" lang="ar" dir="rtl">الظهر</span></span><span class="tv-t">1:21</span><span class="tv-t iq">1:45</span></div><div class="tv-row "><span class="tv-n">Asr<span class="ar" lang="ar" dir="rtl">العصر</span></span><span class="tv-t">4:32</span><span class="tv-t iq">4:50</span></div><div class="tv-row "><span class="tv-n">Maghrib<span class="ar" lang="ar" dir="rtl">المغرب</span></span><span class="tv-t">7:04</span><span class="tv-t iq">7:09</span></div><div class="tv-row "><span class="tv-n">Isha<span class="ar" lang="ar" dir="rtl">العشاء</span></span><span class="tv-t">8:17</span><span class="tv-t iq">8:30</span></div></div>
+</div>
+<div class="tv-col" style="flex: 1 1 0; gap: 20px">
+<div style="display: flex; justify-content: flex-end"><span class="tv-pill warn"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0M3 3l18 18"></path><circle cx="12" cy="19.5" r="1" fill="currentColor"></circle></svg>No connection since 12:31 PM</span></div>
+<div class="tv-panel" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px">
+<div class="tv-col" style="gap: 12px"><p class="tv-eb">Next prayer</p><div class="tv-big">Dhuhr <span lang="ar" dir="rtl" style="font: 400 84px/1 'Amiri', serif; color: #b4bfb7">الظهر</span></div><div style="font-size: 32px; color: #b4bfb7">Adhan 1:21 PM · Iqamah 1:45 PM</div></div>
+<div class="tv-col" style="align-items: flex-end; gap: 8px"><p class="tv-eb q">Adhan in</p><div class="tv-count">23:00</div></div>
+</div>
+<div class="tv-slide" style="flex-direction: column; justify-content: center; gap: 22px"><p class="tv-eb q">Still keeping time</p><h2 style="font-size: 76px">Prayer times are saved on this screen <em>for the next 30 days.</em></h2>
+<p>Slides, notices and messages from the office come back when the connection does. The office has been told that this screen is offline.</p></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

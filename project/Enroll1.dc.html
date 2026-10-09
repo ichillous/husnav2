@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enroll, step 1: children</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack ctx" style="gap: 4px"><span class="eyebrow q">Enrolling in</span><span class="b">Weekend Qur’an School · Crescent House Masjid</span></div>
+<div class="row g12 push"><span class="sm sub">Not saved yet</span><a class="btn" href="Program.dc.html">Cancel</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Fall term · October 24 to December 20</p><h1 class="d2">Who are you <em>enrolling?</em></h1></div>
+<ol class="steps" aria-label="Enrollment progress"><li class="on" aria-current="step"><small>Step 1</small>Children</li><li><small>Step 2</small>Classes</li><li><small>Step 3</small>Family and safety</li><li><small>Step 4</small>Agreements</li><li><small>Step 5</small>Tuition</li></ol>
+
+<div class="split">
+<div class="col-main stack g16">
+<p class="mut">Choose the children joining this term. This school takes ages 5 to 15.</p>
+<div class="stack g12" role="group" aria-label="Your children">
+<sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
+<button type="button" class="pick {{k.cls}}" aria-pressed="{{k.pressed}}" onClick="{{k.toggle}}"><span class="dot sq" aria-hidden="true"></span><span class="av lg" aria-hidden="true">{{k.initial}}</span><span class="grow stack g4"><span class="d4">{{k.name}}</span><span class="sm mut">{{k.meta}}</span><span><span class="badge ok">{{k.fit}}</span></span></span></button>
+</sc-for>
+</div>
+<a class="pick" href="ChildForm.dc.html"><span class="av lg" aria-hidden="true">+</span><span class="grow stack g4"><span class="b">Add another child</span><span class="sm mut">You come straight back here afterwards.</span></span><span class="go" aria-hidden="true">→</span></a>
+
+<sc-if value="{{none}}" hint-placeholder-val="{{false}}"><p class="err" role="alert">Choose at least one child to continue.</p></sc-if>
+
+<div class="savebar step">
+<a class="btn" href="Program.dc.html"><span aria-hidden="true">←</span> Back to the program</a>
+<a class="btn pri xl {{nextCls}}" href="Enroll2.dc.html">Continue to classes <span aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g16">
+<p class="eyebrow">Your enrollment</p>
+<p class="serif" style="font-size: 44px; line-height: 1">{{countText}}</p>
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)">
+<dt>Tuition</dt><dd>$240.00 per child</dd>
+<dt>Sibling discount</dt><dd>{{discountText}}</dd>
+<dt>Estimated total</dt><dd class="b">{{totalText}}</dd>
+</dl>
+<p class="xs sub">Nothing is charged until the school confirms each child’s place.</p>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Five short steps</p><p class="sm mut">About ten minutes. Every step saves, so you can stop and finish later from My week. Enrollment closes Sunday, October 18.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="ContactOrg.dc.html">Ask the school a question</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1040}}'>
+class Component extends DCLogic {
+  state = { sel: { y: true, m: true } };
+  renderVals() {
+    const s = this.state;
+    const kids = [
+      ['y', 'Y', 'Yusuf Farah', 'Age 9 · Grade 4 · Reads slowly · Peanut allergy on file', 'Fits Level 2 · Reading'],
+      ['m', 'M', 'Maryam Farah', 'Age 6 · Grade 1 · Knows the letters', 'Fits Level 1 · Foundations']
+    ].map(([id, initial, name, meta, fit]) => ({
+      initial, name, meta, fit, cls: s.sel[id] ? 'on' : '', pressed: s.sel[id] ? 'true' : 'false',
+      toggle: () => this.setState({ sel: { ...s.sel, [id]: !s.sel[id] } })
+    }));
+    const n = Object.values(s.sel).filter(Boolean).length;
+    const total = n === 0 ? 0 : 240 + (n - 1) * 204;
+    return {
+      kids, none: n === 0, nextCls: n === 0 ? 'off' : '',
+      countText: n === 0 ? 'No children yet' : n === 1 ? '1 child' : n + ' children',
+      discountText: n > 1 ? '15% off for ' + (n - 1) + ' sibling, −$36.00' : 'Applies from the second child',
+      totalText: '$' + total.toFixed(2)
+    };
+  }
+}
+</script>
+</body>
+</html>

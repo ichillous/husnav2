@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Payments and receipts</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="row between bottom g24">
+<div class="stack g12"><p class="eyebrow">Account · Sunday, November 15</p><h1 class="d2">Payments <em>and receipts</em></h1></div>
+<nav class="seg" aria-label="Account sections"><a class="on" href="Payments.dc.html" aria-current="page">Payments</a><a href="Account.dc.html">Settings</a></nav>
+</div>
+
+<sc-if value="{{failed}}" hint-placeholder-val="{{false}}">
+<div class="note bad" role="alert"><div class="stack g8"><span class="b ink">Your November 24 tuition payment did not go through.</span><span>Visa ending 4242 was declined. Yusuf and Maryam keep their places while you sort it out. We try the card again on November 27.</span><div class="row g8"><button type="button" class="btn sm pri" onClick="{{pay}}">Try again now</button><a class="btn sm" href="Stripe.dc.html#card">Use a different card</a></div></div></div>
+</sc-if>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12">
+<h2 class="d3">Coming up</h2>
+<sc-if value="{{due}}" hint-placeholder-val="{{true}}">
+<div class="card"><div class="row between g20">
+<div class="row g16 nowrap"><span class="date"><b>24</b><span>Tue · Nov</span></span><div class="stack g4"><p class="t1">Tuition, payment 2 of 2</p><p class="sm mut">Weekend Qur’an School · Crescent House Masjid · Yusuf and Maryam</p><p class="sm sub">Charged automatically to Visa ending 4242</p></div></div>
+<div class="row g16"><span class="serif" style="font-size: 38px">$222.00</span><button type="button" class="btn pri" onClick="{{pay}}">Pay now instead</button></div>
+</div></div>
+</sc-if>
+<sc-if value="{{paid}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Paid. Tuition for the fall term is complete.</span><span>$222.00 charged to Visa ending 4242 just now. The receipt is below and in your email.</span></div></div>
+</sc-if>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="d3">History</h2><a class="btn sm" href="DocStatement.dc.html">Giving statement for 2026 (PDF)</a></div>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Date</th><th>For</th><th>To</th><th class="num">Amount</th><th>Status</th><th>Receipt</th></tr></thead>
+<tbody>
+<sc-if value="{{paid}}" hint-placeholder-val="{{false}}"><tr><td class="nw">Nov 15, 2026</td><td><span class="b">Tuition, payment 2 of 2</span><small>Yusuf and Maryam · Fall term</small></td><td>Crescent House Masjid</td><td class="num">$222.00</td><td><span class="badge ok">Paid</span></td><td><a class="btn sm" href="DocReceipt.dc.html" aria-label="Open the tuition receipt (PDF)">PDF</a></td></tr></sc-if>
+<tr><td class="nw">Oct 20, 2026</td><td><span class="b">Tuition, payment 1 of 2</span><small>Yusuf and Maryam · Fall term</small></td><td>Crescent House Masjid</td><td class="num">$222.00</td><td><span class="badge ok">Paid</span></td><td><a class="btn sm" href="DocReceipt.dc.html" aria-label="Open the tuition receipt (PDF)">PDF</a></td></tr>
+<tr><td class="nw">Oct 12, 2026</td><td><span class="b">A coffee for Husna’s developer</span><small>A gift, not a donation</small></td><td>Husna</td><td class="num">$5.00</td><td><span class="badge ok">Paid</span></td><td><button type="button" class="btn sm" onClick="{{receipt}}">PDF</button></td></tr>
+<tr><td class="nw">Oct 8, 2026</td><td><span class="b">Donation</span><small>General fund · One time</small></td><td>Crescent House Masjid</td><td class="num">$50.00</td><td><span class="badge ok">Paid</span></td><td><button type="button" class="btn sm" onClick="{{receipt}}">PDF</button></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="stack g12">
+<h2 class="d3">Signed documents</h2>
+<div class="card p0"><div class="list in">
+<div class="li"><span class="grow stack g4"><span class="b">Enrollment agreements, fall 2026</span><span class="sm mut">Crescent House Masjid · Signed by Amina Farah on October 8 · Handbook, pickup and safety, tuition and refunds</span></span><a class="btn sm" href="DocEnrollment.dc.html" aria-label="Open the signed enrollment record (PDF)">PDF</a></div>
+</div></div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g16">
+<p class="eyebrow">Payment method</p>
+<div class="row g12 nowrap"><span class="av sq" aria-hidden="true">V</span><div class="stack g4"><span class="b">Visa ending 4242</span><span class="sm mut">Expires 08/28</span></div></div>
+<a class="btn sm" href="Stripe.dc.html#card">Replace on Stripe’s secure page</a>
+<p class="xs sub">Cards and bank accounts are stored by Stripe. Husna and organizations never see the full number.</p>
+</div>
+<div class="card stack g12">
+<p class="eyebrow">Monthly giving</p>
+<p class="b">No monthly gifts</p>
+<p class="sm mut">Set up a monthly donation from any organization’s page. It can be changed or stopped here at any time.</p>
+<a class="btn sm" href="Donate.dc.html">Give to Crescent House Masjid</a>
+</div>
+<div class="card stack g8"><p class="eyebrow q">A charge you do not recognize?</p><p class="sm mut">Message the organization first; they can refund you directly.</p><a class="link sm" href="Help.dc.html">Or contact Husna →</a></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a href="Workspaces.dc.html">Switch space</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"paymentFailed":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1280}}'>
+class Component extends DCLogic {
+  state = { paid: false, toast: '', card: false };
+  flash(text) {
+    this.setState({ toast: text });
+    clearTimeout(this.t);
+    this.t = setTimeout(() => this.setState({ toast: '' }), 2600);
+  }
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const s = this.state;
+    return {
+      failed: (this.props.paymentFailed ?? false) && !s.paid,
+      due: !s.paid, paid: s.paid,
+      pay: () => this.setState({ paid: true }),
+      receipt: () => this.flash('Receipt downloaded.'),
+      cardLabel: s.card ? 'Opening Stripe…' : 'Update on Stripe',
+      updateCard: () => { this.setState({ card: true }); this.flash('Opening Stripe’s secure page.'); },
+      hasToast: !!s.toast, toast: s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>

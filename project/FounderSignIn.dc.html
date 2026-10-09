@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Founder console sign-in</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<div class="stack g12"><p class="eyebrow" style="color: #e0d3bd">Restricted area</p><h1 class="d3">Founder console</h1><p class="mut">For Husna staff only. Sign-in attempts are recorded.</p></div>
+<div class="stack g16">
+<div class="field"><label class="label" for="fs-email">Staff email</label><input class="input" id="fs-email" type="email" autoComplete="username" placeholder="you@husna.app"></div>
+<div class="field"><label class="label" for="fs-pw">Password</label><input class="input" id="fs-pw" type="password" autoComplete="current-password"></div>
+</div>
+<a class="btn pri xl block" href="FounderCode.dc.html">Continue</a>
+<p class="sm sub">Step 1 of 2. Next you enter a code from your authenticator app. Email-link sign-in is switched off for this console.</p>
+<hr class="hr">
+<p class="mut">Not staff? <a class="link" href="SignIn.dc.html">Go to the regular sign-in</a></p>
+<p class="sm sub">Invited to the console? <a class="link" href="FounderStaffSetup.dc.html">Finish setting up your access</a></p>
+<p class="sm sub">Invited to the console? <a class="link" href="FounderStaffSetup.dc.html">Finish setting up your access</a></p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":740}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

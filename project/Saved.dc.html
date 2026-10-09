@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Saved and going</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a class="on" href="Saved.dc.html" aria-current="page">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap mid stack g32">
+<div class="stack g12"><p class="eyebrow">A little collection, all yours</p><h1 class="d2">Keep what<br><em>moves you.</em></h1></div>
+
+<div class="tabs" role="tablist" aria-label="Your events">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.selected}}" onClick="{{t.pick}}">{{t.label}} <span class="badge">{{t.n}}</span></button></sc-for>
+</div>
+
+<sc-if value="{{isGoing}}" hint-placeholder-val="{{true}}">
+<div class="list">
+<div class="li"><span class="date"><b>17</b><span>Sat · Oct</span></span><span class="poster s p-mint" aria-hidden="true"><b>أ</b></span><span class="grow stack g4"><span class="row g8"><span class="eyebrow">Family · 9:30 AM</span><span class="badge ok">Going · 3 places</span></span><a class="li-t" href="Event.dc.html" style="color: inherit; text-decoration: none">Weekend Qur’an School Open House</a><span class="sm mut">Crescent House Masjid · At the masjid</span></span><a class="btn sm" href="RsvpSheet.dc.html">Change</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isSaved}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="list">
+<sc-for list="{{saved}}" as="e" hint-placeholder-count="2">
+<div class="li"><span class="date"><b>{{e.day}}</b><span>{{e.dow}}</span></span><span class="poster s {{e.tint}}" aria-hidden="true"><b>{{e.glyph}}</b></span><span class="grow stack g4"><span class="eyebrow">{{e.cat}} · {{e.time}}</span><a class="li-t" href="Event.dc.html" style="color: inherit; text-decoration: none">{{e.title}}</a><span class="sm mut">{{e.org}}</span></span><a class="btn sm pri" href="RsvpSheet.dc.html">RSVP</a><button type="button" class="btn sm" onClick="{{e.remove}}">Remove</button></div>
+</sc-for>
+</div>
+<sc-if value="{{noSaved}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g12" style="align-items: center; padding: 56px 24px"><h2 class="d3">Your story starts with a discovery.</h2><p class="mut">Save an event you would like to return to, and it waits for you here.</p><a class="btn pri" href="Discover.dc.html">Explore Columbus →</a></div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isPast}}" hint-placeholder-val="{{false}}">
+<div class="list">
+<div class="li"><span class="date"><b>03</b><span>Sat · Oct</span></span><span class="poster s p-sand" aria-hidden="true"><b>ق</b></span><span class="grow stack g4"><span class="row g8"><span class="eyebrow q">Learning · 10:00 AM</span><span class="badge">Attended</span></span><a class="li-t" href="Event.dc.html" style="color: inherit; text-decoration: none">Qur’an &amp; Coffee: Saturday Reflections</a><span class="sm mut">Crescent House Masjid</span></span><a class="btn sm" href="OrgProfile.dc.html">See what is next</a></div>
+</div>
+</sc-if>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a href="Workspaces.dc.html">Switch space</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":740}}'>
+class Component extends DCLogic {
+  state = { tab: 'going', removed: {} };
+  renderVals() {
+    const s = this.state;
+    const all = [
+      { id: 'q', day: '10', dow: 'Sat · Oct', cat: 'Learning', time: '10:00 AM', title: 'Qur’an & Coffee: Saturday Reflections', org: 'Crescent House Masjid · At the masjid', glyph: 'ق', tint: 'p-sand' },
+      { id: 'w', day: '11', dow: 'Sun · Oct', cat: 'Family', time: '11:00 AM', title: 'Families in Nature: Autumn Walk', org: 'Mosaic Muslim Collective · Offsite, metro park meeting point', glyph: 'أ', tint: 'p-blue' }
+    ];
+    const saved = all.filter((e) => !s.removed[e.id]).map((e) => ({ ...e, remove: () => this.setState({ removed: { ...s.removed, [e.id]: true } }) }));
+    const tabs = [['going', 'Going', 1], ['saved', 'Saved', saved.length], ['past', 'Past', 1]].map(([id, label, n]) => ({
+      label, n, cls: s.tab === id ? 'on' : '', selected: s.tab === id ? 'true' : 'false', pick: () => this.setState({ tab: id })
+    }));
+    return { tabs, saved, isGoing: s.tab === 'going', isSaved: s.tab === 'saved', isPast: s.tab === 'past', noSaved: saved.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

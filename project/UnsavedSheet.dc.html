@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Leave without saving?</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="us-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Program setup · Weekend Qur’an School</p><h1 class="d3" id="us-title">Leave without <em>saving?</em></h1></div>
+<a class="ibtn" href="OrgProgramEdit.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<div class="stack g20">
+<p class="mut">You changed this page and have not saved. Families still see the old details.</p>
+<div class="card flat stack g8" style="padding: 16px 18px">
+<p class="eyebrow q">1 unsaved change</p>
+<div class="row between g12"><span><span class="b">Classes</span> <span class="mut">· Level 3 · Memorization, places</span></span><span class="tnum"><span class="sub">14</span> <span aria-hidden="true">→</span> <span class="b acc">16</span></span></div>
+</div>
+<div class="stack g8">
+<a class="btn pri block" href="OrgPrograms.dc.html">Save and leave</a>
+<a class="btn danger block" href="OrgPrograms.dc.html">Leave without saving</a>
+<a class="btn quiet block" href="OrgProgramEdit.dc.html">Keep editing</a>
+</div>
+<p class="xs sub">Saving offers the 2 new Level 3 places to the first families on its waitlist.</p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":600}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TV: Friday</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="tv ">
+<div class="tv-pad" style="flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div class="tv-col" style="gap: 14px"><div class="tv-org"><span class="tv-logo" aria-hidden="true">C</span><span>Crescent House Masjid</span></div><div style="display: flex; align-items: baseline; gap: 36px"><h1 style="margin: 0; font: 400 132px/.95 'Instrument Serif', serif; letter-spacing: -.03em">Jumu’ah, <em>today.</em></h1><span lang="ar" dir="rtl" style="font: 400 110px/1 'Amiri', serif; color: #b4bfb7">الجمعة</span></div></div>
+<div class="tv-col" style="align-items: flex-end; gap: 4px"><div class="tv-clock" style="font-size: 110px"><span>{{clock}}</span><small style="font-size: 34px">{{ap}}</small></div><div class="tv-date" style="font-size: 30px">Friday, October 9, 2026</div><div class="tv-hijri" style="font-size: 28px">28 Rabi’ al-Thani 1448</div></div>
+</div>
+<div style="display: flex; gap: 24px; flex: 1 1 0; min-height: 0">
+<div class="tv-panel tv-col" style="flex: 1 1 0; gap: 18px; padding: 40px 44px; background: #c8efa4; border-color: #c8efa4; color: #11190f"><div style="display: flex; justify-content: space-between; align-items: center"><span class="tv-eb" style="color: #11190f">Khutbah</span><span class="tv-pill" style="border-color: #11190f; color: #11190f">Starts in {{mins}} min</span></div><div style="font: 400 150px/.9 'Instrument Serif', serif; letter-spacing: -.03em">1:30<span style="font: 600 40px/1 'DM Sans', sans-serif; letter-spacing: 0; margin-left: 12px">PM</span></div><div style="font: 400 52px/1.08 'Instrument Serif', serif; font-style: italic; min-height: 168px">On Being There for One Another</div><div class="tv-col" style="gap: 12px; margin-top: auto"><div style="font: 600 38px/1.2 'DM Sans', sans-serif">Imam Adam Rahman</div><div style="font-size: 28px; color: #11190f">English · Main hall</div></div></div><div class="tv-panel tv-col" style="flex: 1 1 0; gap: 18px; padding: 40px 44px; "><div style="display: flex; justify-content: space-between; align-items: center"><span class="tv-eb" style="">Khutbah</span></div><div style="font: 400 150px/.9 'Instrument Serif', serif; letter-spacing: -.03em">2:30<span style="font: 600 40px/1 'DM Sans', sans-serif; letter-spacing: 0; margin-left: 12px">PM</span></div><div style="font: 400 52px/1.08 'Instrument Serif', serif; font-style: italic; min-height: 168px">Finding Patience in a Noisy World</div><div class="tv-col" style="gap: 12px; margin-top: auto"><div style="font: 600 38px/1.2 'DM Sans', sans-serif">Shaykh Yusuf Ali</div><div style="font-size: 28px; color: #b4bfb7">English and Arabic · Main hall</div></div></div><div class="tv-panel tv-col" style="flex: 1 1 0; gap: 18px; padding: 40px 44px; "><div style="display: flex; justify-content: space-between; align-items: center"><span class="tv-eb" style="">Khutbah</span></div><div style="font: 400 150px/.9 'Instrument Serif', serif; letter-spacing: -.03em">3:30<span style="font: 600 40px/1 'DM Sans', sans-serif; letter-spacing: 0; margin-left: 12px">PM</span></div><div style="font: 400 52px/1.08 'Instrument Serif', serif; font-style: italic; min-height: 168px">Raising a Community That Cares</div><div class="tv-col" style="gap: 12px; margin-top: auto"><div style="font: 600 38px/1.2 'DM Sans', sans-serif">Ustadh Hamza Malik</div><div style="font-size: 28px; color: #b4bfb7">English and Somali · Main hall</div></div></div>
+</div>
+<div style="display: flex; gap: 24px; align-items: center">
+<div style="flex: 1 1 0; display: flex; gap: 14px; flex-wrap: wrap"><span class="tv-chip">Sisters’ hall</span><span class="tv-chip">Step-free entrance</span><span class="tv-chip">Parking: north lot</span></div>
+<div style="display: flex; gap: 36px; font-size: 28px; color: #b4bfb7; white-space: nowrap"><span><b style="color: #f3f0e7; font-weight: 600">Asr</b> 4:31 · iqamah 4:50</span><span><b style="color: #f3f0e7; font-weight: 600">Maghrib</b> 7:03 · iqamah 7:08</span><span><b style="color: #f3f0e7; font-weight: 600">Isha</b> 8:16 · iqamah 8:30</span></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+state = { n: 0 };
+  componentDidMount() { this._t = setInterval(() => this.setState({ n: this.state.n + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const f2 = (x) => String(x).padStart(2, '0');
+    const clock = (s) => { const h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60; return ((h + 11) % 12 + 1) + ':' + f2(m); };
+    const ap = (s) => (Math.floor(s / 3600) % 24 < 12 ? 'AM' : 'PM');
+    const cd = (s) => { s = Math.max(0, s); const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? h + ':' + f2(m) : String(m)) + ':' + f2(x); };
+
+    const start = 46520, first = 48600, n = this.state.n % (first - start);
+    return { clock: clock(start + n), ap: ap(start + n), mins: String(Math.ceil((first - start - n) / 60)) };
+  }
+}
+</script>
+</body>
+</html>

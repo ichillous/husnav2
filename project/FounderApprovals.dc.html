@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization approvals</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a class="on" href="FounderApprovals.dc.html" aria-current="page">Approvals <span class="count">{{left}}</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Approvals</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings">IC</a></div>
+
+<div class="ph"><div><h1>Organization approvals</h1><p>Approve only when you are satisfied the applicant speaks for the organization. Approval opens their workspace in setup mode; nothing is public until they publish.</p></div></div>
+
+<div class="split" style="gap: 20px">
+<div class="col-side card p0" style="flex: 1 1 340px"><div class="list in">
+<sc-for list="{{apps}}" as="a" hint-placeholder-count="3">
+<button type="button" class="li start {{a.rowCls}}" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}"><span class="av sq" aria-hidden="true">{{a.initial}}</span><span class="grow stack g4"><span class="b">{{a.name}}</span><span class="sm mut">{{a.kind}} · {{a.city}}</span><span class="row g8"><span class="badge {{a.badgeCls}}">{{a.badge}}</span><span class="xs sub">{{a.waited}}</span></span></span></button>
+</sc-for>
+</div></div>
+
+<div class="col-main card stack g20">
+<div class="row between g16">
+<div class="row g16 nowrap"><span class="av lg sq" aria-hidden="true">{{d.initial}}</span><div class="stack g4"><h2 class="d3">{{d.name}}</h2><p class="sm mut">{{d.kind}} · {{d.address}} · Reference {{d.ref}}</p></div></div>
+<span class="badge {{d.badgeCls}}">{{d.badge}}</span>
+</div>
+
+<div class="cols" style="gap: 20px 24px; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr))">
+<div class="stack g8"><p class="eyebrow q">Applicant</p><p class="b">{{d.person}}</p><p class="sm mut">{{d.personContact}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Public contact</p><p class="b">{{d.web}}</p><p class="sm mut">{{d.publicContact}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Will use Husna for</p><p class="b">{{d.uses}}</p><p class="sm mut">EIN: {{d.ein}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Vouched for by</p><p class="b">{{d.voucher}}</p><p class="sm mut">{{d.voucherContact}}</p></div>
+</div>
+
+<div class="stack g8"><p class="eyebrow q">Their description</p><p class="mut">“{{d.about}}”</p></div>
+
+<div class="stack g12">
+<p class="eyebrow q">Verification</p>
+<div class="note {{d.verCls}}"><div class="stack g8 grow"><span class="b ink">{{d.verTitle}}</span><span>{{d.verText}}</span>
+<sc-if value="{{d.hasDoc}}" hint-placeholder-val="{{false}}"><div><button type="button" class="btn sm" onClick="{{d.openDoc}}">{{d.docLabel}}</button></div></sc-if>
+<sc-if value="{{d.needsCall}}" hint-placeholder-val="{{false}}"><div><button type="button" class="btn sm" onClick="{{d.logCall}}">{{d.callLabel}}</button></div></sc-if>
+</div></div>
+<ul class="stack g8 sm">
+<sc-for list="{{d.checks}}" as="c" hint-placeholder-count="4"><li class="row g8 nowrap start"><span class="badge {{c.cls}}">{{c.mark}}</span><span class="mut">{{c.text}}</span></li></sc-for>
+</ul>
+</div>
+
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0">
+<legend class="eyebrow q" style="padding: 0; margin-bottom: 6px">Before you approve</legend>
+<label class="check"><input type="checkbox"><span>I have confirmed the applicant’s role at the organization</span></label>
+<label class="check"><input type="checkbox"><span>The organization exists at this address and is not already on Husna</span></label>
+</fieldset>
+
+<div class="field"><label class="label" for="fa-note">Internal note <i>(never shown to the applicant)</i></label><textarea class="textarea" id="fa-note" style="min-height: 84px" placeholder="What you checked, who you spoke to."></textarea></div>
+
+<sc-if value="{{d.pending}}" hint-placeholder-val="{{true}}">
+<div class="stack g8">
+<div class="row g8"><button type="button" class="btn pri" onClick="{{d.approve}}">Approve and open workspace</button><a class="btn" href="FounderDecisionSheet.dc.html">Request information</a><a class="btn danger" href="FounderDecisionSheet.dc.html">Reject</a></div>
+<p class="xs sub">Approving emails {{d.personName}}, creates the workspace with them as owner, and marks the organization verified.</p>
+</div>
+</sc-if>
+<sc-if value="{{d.approved}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g8"><span><span class="b ink">Approved.</span> {{d.name}} is verified. The approval email is on its way to {{d.personName}} with a link to the setup guide.</span><div class="row g8"><a class="btn sm" href="FounderOrg.dc.html">Open organization</a><button type="button" class="btn sm" onClick="{{d.undo}}">Undo</button></div></div></div>
+</sc-if>
+</div>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1380}}'>
+class Component extends DCLogic {
+  state = { sel: 'river', approved: {}, doc: false, called: false };
+  renderVals() {
+    const s = this.state;
+    const ok = (text) => ({ mark: 'Pass', cls: 'ok', text }), flag = (text) => ({ mark: 'Check', cls: 'warn', text });
+    const base = [
+      { id: 'river', initial: 'R', name: 'Riverbend Community Masjid', kind: 'Masjid', city: 'Columbus, OH', address: '48 Sample Road, Columbus, OH 43204', ref: 'APP-2026-0151', waited: 'Waiting 1 day',
+        person: 'Yusuf Rahman, board member', personContact: 'yusuf@riverbendmasjid.example · (614) 555-0204', web: 'riverbendmasjid.example', publicContact: '(614) 555-0200 · info@riverbendmasjid.example',
+        uses: 'Friday prayers, events, donations', ein: 'provided', voucher: 'Imam Khalid Mansour, imam', voucherContact: 'imam@riverbendmasjid.example · not contacted',
+        about: 'A west-side masjid serving families since 2009, with five daily prayers and a Saturday youth circle.',
+        verCls: 'ok', verTitle: 'Organization email confirmed', verText: 'The applicant opened the link sent to yusuf@riverbendmasjid.example on October 7 at 4:12 PM.', hasDoc: false, needsCall: false,
+        checks: [ok('Email domain matches the website'), ok('Address is not used by another organization on Husna'), ok('No similar organization name found'), ok('EIN format is valid')] },
+      { id: 'amanah', initial: 'A', name: 'Amanah Youth Collective', kind: 'Nonprofit', city: 'Columbus, OH', address: '310 Sample Street, Columbus, OH 43215', ref: 'APP-2026-0148', waited: 'Waiting 2 days',
+        person: 'Samira Yusuf, director', personContact: 'samira.yusuf@example.com · (614) 555-0231', web: 'No website given', publicContact: '(614) 555-0230 · hello@amanahyouth.example',
+        uses: 'Events, youth programs, donations', ein: 'provided', voucher: 'Dr. Leila Hamdan, board chair', voucherContact: '(614) 555-0238 · not contacted',
+        about: 'Mentoring and weekend programs for Muslim teenagers, run by volunteers.',
+        verCls: 'info', verTitle: 'Document uploaded', verText: 'state-registration.pdf, 2 pages, uploaded October 6. Names the organization and lists Samira Yusuf as an officer. Not yet opened by a reviewer.', hasDoc: true, needsCall: false,
+        checks: [flag('Applicant email is a personal address, not an organization domain'), ok('Address is not used by another organization on Husna'), ok('No similar organization name found'), ok('EIN format is valid')] },
+      { id: 'cedar', initial: 'C', name: 'Cedar & Olive Academy', kind: 'School', city: 'Columbus, OH', address: '95 Sample Lane, Columbus, OH 43229', ref: 'APP-2026-0146', waited: 'Waiting 3 days',
+        person: 'Hassan Idris, volunteer', personContact: 'hassan.idris@example.com · (614) 555-0277', web: 'cedarolive.example', publicContact: '(614) 555-0270 · office@cedarolive.example',
+        uses: 'Weekend school enrollment, events', ein: 'not provided', voucher: 'Fatima Zahra, principal', voucherContact: 'principal@cedarolive.example · not contacted',
+        about: 'A weekend academy teaching Arabic and Qur’an to children ages 6 to 14.',
+        verCls: 'warn', verTitle: 'Phone call requested, not yet made', verText: 'Call the public line, (614) 555-0270, weekdays after 2:00 PM, and ask the office to confirm Hassan Idris may register the school.', hasDoc: false, needsCall: true,
+        checks: [flag('Applicant’s role is Volunteer'), flag('Applicant email is a personal address, not an organization domain'), flag('Address is 0.2 miles from Lantern Learning House. Confirm they are different organizations'), flag('No EIN. Needed before donations or tuition')] }
+    ];
+    const apps = base.map((a) => {
+      const done = !!s.approved[a.id];
+      return {
+        ...a, personName: a.person.split(',')[0], pending: !done, approved: done,
+        badge: done ? 'Approved' : a.id === 'river' ? 'Ready to approve' : a.id === 'amanah' ? 'Document to read' : 'Call needed',
+        badgeCls: done ? 'ok' : a.id === 'river' ? 'ok' : a.id === 'amanah' ? 'info' : 'warn',
+        rowCls: s.sel === a.id ? 'on' : '', pressed: s.sel === a.id ? 'true' : 'false',
+        pick: () => this.setState({ sel: a.id }),
+        approve: () => this.setState({ approved: { ...s.approved, [a.id]: true } }),
+        undo: () => this.setState({ approved: { ...s.approved, [a.id]: false } }),
+        docLabel: s.doc ? 'Opened in a new tab. Open again' : 'Open document',
+        openDoc: () => this.setState({ doc: true }),
+        callLabel: s.called ? 'Call logged today: office confirmed. Undo' : 'Log a call',
+        logCall: () => this.setState({ called: !s.called })
+      };
+    });
+    return { apps, d: apps.find((a) => a.id === s.sel), left: apps.filter((a) => a.pending).length };
+  }
+}
+</script>
+</body>
+</html>

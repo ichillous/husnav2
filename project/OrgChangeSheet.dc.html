@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Change your verified name or address</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="oc-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Crescent House Masjid · Verified October 1, 2026</p><h1 class="d3" id="oc-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgSettings.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{editing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<p class="mut">Your name and address were checked when you were verified, so a person at Husna looks at changes before they go live. Your profile keeps the current details until then.</p>
+<div class="field"><label class="label" for="oc-name">Organization name</label><input class="input" id="oc-name" type="text" defaultValue="Crescent House Masjid"></div>
+<div class="field"><label class="label" for="oc-addr">Address</label><input class="input" id="oc-addr" type="text" defaultValue="1200 Sample Avenue, Columbus, OH 43229"><span class="hint">Events set “At our location” follow the new address once it is approved.</span></div>
+<div class="field"><label class="label" for="oc-why">Why is it changing?</label><select class="select" id="oc-why"><option>We moved</option><option>We changed our name</option><option>The current details have a mistake</option><option>Another reason</option></select></div>
+<div class="drop"><span class="b ink">Add a document <i style="font-style: normal; font-weight: 400">(optional, speeds things up)</i></span><span class="sm">A lease, utility bill or registration showing the new details. PDF, JPG or PNG, up to 10 MB</span><button type="button" class="btn sm" onClick="{{pick}}">{{fileLabel}}</button></div>
+<div class="row g8 end"><a class="btn" href="OrgSettings.dc.html">Cancel</a><button type="button" class="btn pri" onClick="{{send}}">Send for review</button></div>
+<p class="xs sub">Reviews usually take [REVIEW TIME]. We email the owners when it is done.</p>
+</div>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Sent to Husna for review.</span><span>Nothing has changed on your profile yet. Settings shows the request as waiting, and you can cancel it there.</span></div></div>
+<a class="btn pri block" href="OrgSettings.dc.html">Back to settings</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":880}}'>
+class Component extends DCLogic {
+state = { sent: false, file: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      editing: !s.sent, sent: s.sent,
+      heading: s.sent ? 'Request sent.' : 'Change your name or address.',
+      fileLabel: s.file ? 'new-lease.pdf attached. Replace' : 'Choose a file', pick: () => this.setState({ file: !s.file }),
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

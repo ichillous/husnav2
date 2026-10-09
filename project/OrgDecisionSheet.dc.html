@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ask for information or decline</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ds-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Application · Zakariya Noor, 12 · Level 3</p><h1 class="d3" id="ds-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgApplications.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<div class="stack g20">
+<div><div class="seg" role="group" aria-label="What would you like to do">
+<button type="button" class="{{askCls}}" aria-pressed="{{askPressed}}" onClick="{{useAsk}}">Ask for information</button>
+<button type="button" class="{{decCls}}" aria-pressed="{{decPressed}}" onClick="{{useDecline}}">Decline</button>
+</div></div>
+
+<sc-if value="{{asking}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<p class="mut">The application stays open and keeps its place in line. The family replies from their Husna account or by email.</p>
+<div class="field"><label class="label" for="ds-q">Your question for Sahra Noor</label><textarea class="textarea" id="ds-q" defaultValue="Assalamu alaikum. Level 3 is full this term. Zakariya reads fluently, so would you like him on the Level 3 waitlist, or in Level 4 · Teens, which has places?"></textarea></div>
+<div class="row g8 end"><a class="btn" href="OrgApplications.dc.html">Cancel</a><a class="btn pri" href="OrgApplications.dc.html">Send question</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{declining}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note warn"><span>Consider the waitlist first. Declining closes the application; the family would need to apply again.</span></div>
+<div class="field"><label class="label" for="ds-why">Reason</label><select class="select" id="ds-why"><option>The class is full and there is no waitlist</option><option>Outside the age range for this program</option><option>Application is incomplete</option><option>Applied after the deadline</option><option>Another reason</option></select></div>
+<div class="field"><label class="label" for="ds-msg">Message to the family</label><textarea class="textarea" id="ds-msg" placeholder="A sentence or two, in your own words. The reason above is included."></textarea><span class="hint">Sent by email and shown on the family’s enrollment page.</span></div>
+<div class="row g8 end"><a class="btn" href="OrgApplications.dc.html">Cancel</a><a class="btn danger" href="OrgApplications.dc.html">Decline application</a></div>
+<p class="xs sub">No charge is made. The saved payment method is released.</p>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":600}}'>
+class Component extends DCLogic {
+  state = { mode: 'ask' };
+  renderVals() {
+    const ask = this.state.mode === 'ask';
+    return {
+      asking: ask, declining: !ask,
+      heading: ask ? 'Ask the family a question.' : 'Decline this application?',
+      askCls: ask ? 'on' : '', decCls: ask ? '' : 'on',
+      askPressed: ask ? 'true' : 'false', decPressed: ask ? 'false' : 'true',
+      useAsk: () => this.setState({ mode: 'ask' }), useDecline: () => this.setState({ mode: 'decline' })
+    };
+  }
+}
+</script>
+</body>
+</html>

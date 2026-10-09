@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization application, step 4: review and submit</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Organizations</small></a>
+<div class="row g8 push"><a class="btn quiet" href="Help.dc.html">Help</a><a class="btn" href="ForOrgs.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Register your organization</p><h1 class="d2">Check it over, <em>then send.</em></h1></div>
+<ol class="steps" aria-label="Application progress"><li class="done"><small>Step 1 · Done</small>About you</li><li class="done"><small>Step 2 · Done</small>Your organization</li><li class="done"><small>Step 3 · Done</small>Verification</li><li class="on" aria-current="step"><small>Step 4</small>Review and submit</li></ol>
+
+<div class="split">
+<div class="col-main stack g16">
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">About you</h2><a class="btn sm" href="OrgApply1.dc.html">Edit</a></div>
+<dl class="kv"><dt>Name</dt><dd>Khadija Osman</dd><dt>Role</dt><dd>Administrator or office manager</dd><dt>Work email</dt><dd>khadija@crescenthouse.example</dd><dt>Mobile phone</dt><dd>(614) 555-0131</dd></dl>
+</div>
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">Your organization</h2><a class="btn sm" href="OrgApply2.dc.html">Edit</a></div>
+<dl class="kv"><dt>Name</dt><dd>Crescent House Masjid</dd><dt>Type</dt><dd>Masjid</dd><dt>Using Husna for</dt><dd>Friday prayer schedule, events and RSVPs, classes or weekend school enrollment, donations</dd><dt>Address</dt><dd>1200 Sample Avenue, Columbus, OH 43229</dd><dt>Public phone</dt><dd>(614) 555-0100</dd><dt>Public email</dt><dd>salaam@crescenthouse.example</dd><dt>Website</dt><dd>crescenthouse.example</dd><dt>Description</dt><dd>A neighborhood space for prayer, learning and showing up for each other.</dd><dt>EIN</dt><dd class="sub">Not provided yet</dd></dl>
+</div>
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">Verification</h2><a class="btn sm" href="OrgApply3.dc.html">Edit</a></div>
+<dl class="kv"><dt>Method</dt><dd>Email at your organization’s domain</dd><dt>Link goes to</dt><dd>khadija@crescenthouse.example</dd><dt>Vouching for you</dt><dd>Imam Adam Rahman, Imam · imam@crescenthouse.example</dd></dl>
+</div>
+
+<div class="card stack g8">
+<h2 class="t1">Agreements</h2>
+<label class="check"><input type="checkbox"><span>I accept the <a class="link" href="OrgTerms.dc.html">Organization Terms</a>, version [TERMS VERSION], on behalf of Crescent House Masjid. Husna is free: there is no platform fee.</span></label>
+<label class="check"><input type="checkbox"><span>I have read the <a class="link" href="Privacy.dc.html">Privacy Policy</a> and understand that our organization is responsible for the information families give us.</span></label>
+</div>
+
+<div class="savebar step">
+<a class="btn" href="OrgApply3.dc.html"><span aria-hidden="true">←</span> Back</a>
+<a class="btn pri xl" href="OrgPending.dc.html">Submit application</a>
+</div>
+</div>
+
+<aside class="col-side w card stack g16">
+<p class="eyebrow">What happens next</p>
+<ol class="tl">
+<li class="now"><b>You submit</b>We email you a copy and a confirmation link.</li>
+<li><b>You confirm your email</b>Open the link sent to your organization address.</li>
+<li><b>A person at Husna reviews</b>Usually within [REVIEW TIME]. We may write with a question.</li>
+<li><b>You are approved</b>Your workspace opens with a short setup guide. Nothing is public until you publish.</li>
+</ol>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

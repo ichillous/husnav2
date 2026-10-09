@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Invitation to share a family</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g12"><p class="eyebrow">Invitation for idris.farah@example.com</p><h1 class="d3">Amina Farah invited you <em>to share your family.</em></h1>
+<p class="mut">On Husna, parents keep one record for each child and use it for every class. Amina added you as a guardian for Yusuf and Maryam.</p></div>
+<div class="card flat stack g12" style="padding: 16px 18px">
+<p class="eyebrow q">As a guardian you can</p>
+<ul class="ul sm"><li>See each child’s classes, attendance and progress notes</li><li>Report an absence and message the school</li><li>Get urgent school alerts by text message</li><li>Pay tuition and see receipts</li></ul>
+<p class="sm sub">You cannot remove Amina or delete the children’s records. Either of you can leave the family at any time.</p>
+</div>
+<div class="form">
+<div class="field full"><label class="label" for="gi-name">Your name</label><input class="input" id="gi-name" type="text" autoComplete="name" defaultValue="Idris Farah"></div>
+<div class="field full"><label class="label" for="gi-phone">Mobile phone <i>(for urgent school alerts)</i></label><input class="input" id="gi-phone" type="tel" autoComplete="tel" placeholder="(614) 555-0100"></div>
+<div class="field full"><label class="label" for="gi-pass">Choose a password</label><input class="input" id="gi-pass" type="password" autoComplete="new-password"><span class="hint">At least 10 characters.</span></div>
+</div>
+<label class="check"><input type="checkbox"><span>I agree to the <a class="link" href="Terms.dc.html">Terms of Service</a> and <a class="link" href="Privacy.dc.html">Privacy Policy</a>, and I am 18 or older.</span></label>
+<a class="btn pri xl block" href="MyHusna.dc.html">Accept and open my family</a>
+<hr class="hr">
+<div class="stack g8">
+<p class="mut">Already have a Husna account? <a class="link" href="SignIn.dc.html">Sign in</a> and the invitation is added to it.</p>
+<p class="mut">Not you, or not expecting this? <a class="link" href="Main.dc.html">Decline the invitation</a>. Amina is told it was declined, nothing else.</p>
+</div>
+<p class="xs sub">This invitation works for 14 days and only for this email address.</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

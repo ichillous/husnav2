@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reset your password</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g12"><p class="eyebrow">Forgot password</p><h1 class="d3">Let us get you <em>back in.</em></h1><p class="mut">Enter the email you use for Husna. We will send a link to choose a new password.</p></div>
+<div class="field"><label class="label" for="fp-email">Email</label><input class="input" id="fp-email" type="email" autoComplete="email" placeholder="you@example.com"></div>
+<a class="btn pri xl block" href="CheckEmail.dc.html">Send reset link</a>
+<p class="sm sub">If no account uses that address, no email is sent. We show the same screen either way to keep accounts private.</p>
+<hr class="hr">
+<p class="mut">Remembered it? <a class="link" href="SignIn.dc.html">Back to sign in</a></p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

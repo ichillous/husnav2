@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pair a TV</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dp-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">TV displays · Crescent House Masjid</p><h1 class="d3" id="dp-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgDisplays.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<ol class="tl">
+<li class="done"><b>On the TV, open husna.app/tv</b>Use the TV’s own browser, or a streaming stick or small computer plugged into it.</li>
+<li class="now"><b>Type the code the TV shows</b>Six letters and numbers. <a class="link" href="TvPair.dc.html">See what the TV shows ↗</a></li>
+</ol>
+<div class="field"><label class="label" for="dp-code">Code on the TV</label><input class="input" id="dp-code" type="text" autoComplete="off" maxLength="7" placeholder="HK7 2QM" value="{{code}}" onInput="{{onCode}}" style="font: 600 28px/1.2 'DM Sans', sans-serif; letter-spacing: .2em; text-transform: uppercase; min-height: 64px"><span class="hint">{{codeHint}}</span></div>
+<div class="form">
+<div class="field"><label class="label" for="dp-name">Name this screen</label><input class="input" id="dp-name" type="text" placeholder="For example: Classroom 2"></div>
+<div class="field"><label class="label" for="dp-where">Where it hangs</label><select class="select" id="dp-where"><option>A prayer hall</option><option>A lobby or hallway</option><option selected>A classroom</option><option>An office</option><option>Somewhere else</option></select></div>
+<div class="field"><label class="label" for="dp-layout">Start with the layout</label><select class="select" id="dp-layout"><option selected>Timetable</option><option>Slides first</option><option>Focus</option><option>Same as Main prayer hall</option></select></div>
+<div class="field"><label class="label" for="dp-turn">Which way up</label><select class="select" id="dp-turn"><option selected>Landscape</option><option>Portrait, turned on its side</option></select></div>
+</div>
+<div class="row g8 end"><a class="btn" href="OrgDisplays.dc.html">Cancel</a><button type="button" class="btn pri {{goCls}}" onClick="{{pair}}">Pair this screen</button></div>
+<p class="xs sub">A code lasts 10 minutes and works once. Pairing gives the TV read-only access to what you choose to show. It cannot open your workspace.</p>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Paired. The screen is showing your prayer times.</span><span>It took 4 seconds. Slides and the rest follow the layout you chose.</span></div></div>
+<a class="btn pri block" href="OrgDisplayEdit.dc.html">Set up this screen</a>
+<a class="btn block" href="OrgDisplays.dc.html">Back to TV displays</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":760}}'>
+class Component extends DCLogic {
+state = { code: '', done: false };
+  renderVals() {
+    const s = this.state, n = s.code.replace(/[^A-Za-z0-9]/g, '').length, ok = n === 6;
+    return {
+      heading: s.done ? 'Screen <em>paired.</em>'.replace(/<[^>]+>/g, '') : 'Pair a TV.',
+      form: !s.done, done: s.done, code: s.code, onCode: (ev) => this.setState({ code: ev.target.value.toUpperCase() }),
+      codeHint: ok ? 'That is a full code. Name the screen and pair it.' : n ? (6 - n) + ' more to go.' : 'It is on the TV in large letters.',
+      goCls: ok ? '' : 'off', pair: () => { if (ok) this.setState({ done: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

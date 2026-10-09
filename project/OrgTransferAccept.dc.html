@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Become the owner</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ta-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Crescent House Masjid · Request from Khadija Osman</p><h1 class="d3" id="ta-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgHome.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{deciding}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<p class="mut">Khadija Osman asked you, Imam Adam Rahman, to take over as owner. She stays on the team as an admin.</p>
+<div class="card flat stack g12" style="padding: 16px 18px">
+<p class="eyebrow q">As owner you will be able to</p>
+<ul class="ul sm"><li>Connect and change payouts, after confirming your identity with Stripe</li><li>Transfer ownership and close the workspace</li><li>Do everything an admin can do today</li></ul>
+</div>
+<label class="check"><input type="checkbox" checked="{{agreed}}" onChange="{{toggle}}"><span>I accept the <a class="link" href="OrgTerms.dc.html">Organization Terms</a>, version [TERMS VERSION], on behalf of Crescent House Islamic Society, Inc.</span></label>
+<div class="stack g8"><button type="button" class="btn pri xl block {{goCls}}" onClick="{{accept}}">Accept ownership</button><button type="button" class="btn quiet block" onClick="{{decline}}">Decline</button></div>
+<p class="xs sub">The request expires on October 15. Until you accept, nothing changes.</p>
+</div>
+</sc-if>
+<sc-if value="{{accepted}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">You are now the owner of Crescent House Masjid.</span><span>Khadija Osman is an admin. Stripe will email you to confirm your identity before the next payout.</span></div></div>
+<a class="btn pri block" href="OrgTeam.dc.html">Open the team page</a>
+</div>
+</sc-if>
+<sc-if value="{{declined}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note" role="status"><div class="stack g4"><span class="b ink">Request declined.</span><span>Khadija Osman has been told and remains the owner. Your admin role is unchanged.</span></div></div>
+<a class="btn pri block" href="OrgHome.dc.html">Back to the workspace</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":640}}'>
+class Component extends DCLogic {
+state = { step: 'deciding', agreed: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      deciding: s.step === 'deciding', accepted: s.step === 'accepted', declined: s.step === 'declined',
+      heading: s.step === 'accepted' ? 'Ownership accepted.' : s.step === 'declined' ? 'Declined.' : 'Become the owner?',
+      agreed: s.agreed, toggle: () => this.setState({ agreed: !s.agreed }), goCls: s.agreed ? '' : 'off',
+      accept: () => { if (s.agreed) this.setState({ step: 'accepted' }); }, decline: () => this.setState({ step: 'declined' })
+    };
+  }
+}
+</script>
+</body>
+</html>

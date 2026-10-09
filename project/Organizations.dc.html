@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organizations in Columbus</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}">
+<div>
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html" aria-current="page">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}">
+<div>
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html" aria-current="page">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+
+<div class="row between bottom g24">
+<div class="stack g12">
+<p class="eyebrow">The spaces that bring us together</p>
+<h1 class="d2">People make<br><em>the place.</em></h1>
+<p class="lede">More than names on a map. Each organization keeps its own home on Husna, with prayer times, programs, announcements and ways to get involved.</p>
+</div>
+<div class="r"><div class="serif" style="font-size: 76px; line-height: 1">{{count}}</div><div class="eyebrow q">{{countLabel}}</div></div>
+</div>
+
+<div class="row g8" role="group" aria-label="Type of organization">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="4"><button type="button" class="chip {{k.cls}}" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}">{{k.label}}</button></sc-for>
+</div>
+
+<div class="cols">
+<sc-for list="{{orgs}}" as="o" hint-placeholder-count="3">
+<a class="card lg" href="OrgProfile.dc.html"><span class="stack g16">
+<span class="row between nowrap"><span class="eyebrow">{{o.kind}} · Columbus</span><span class="badge ok">Verified</span></span>
+<span class="glyph lat" aria-hidden="true">{{o.initial}}</span>
+<span class="d4">{{o.name}}</span>
+<span class="mut">{{o.tagline}}</span>
+<span class="sm sub">{{o.offers}}</span>
+<span class="row between nowrap sm b acc" style="padding-top: 14px; border-top: 1px solid rgba(232,249,229,.13)"><span>Explore organization</span><span class="go" aria-hidden="true">↗</span></span>
+</span></a>
+</sc-for>
+</div>
+
+<div class="card lg"><div class="row between g24">
+<div class="stack g8"><h2 class="d4">Do not see your masjid, school or nonprofit?</h2><p class="mut">Organizations join by application, and each one is verified before it appears here.</p></div>
+<a class="btn" href="ForOrgs.dc.html">Bring your organization to Husna →</a>
+</div></div>
+
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Visitor","Member"],"default":"Visitor"},"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+  state = { kind: 'All' };
+  renderVals() {
+    const s = this.state;
+    const member = (this.props.viewer ?? 'Visitor') === 'Member';
+    const all = [
+      { kind: 'Masjid', initial: 'C', name: 'Crescent House Masjid', tagline: 'A home for faith and everyday life.', offers: 'Friday prayers · Weekend Qur’an School · 5 upcoming events' },
+      { kind: 'Nonprofit', initial: 'M', name: 'Mosaic Muslim Collective', tagline: 'A little more connection, everywhere.', offers: 'Youth programs · Volunteering · 4 upcoming events' },
+      { kind: 'Education', initial: 'L', name: 'Lantern Learning House', tagline: 'Curiosity brings us together.', offers: 'Language classes · Study circles · 1 upcoming event' }
+    ];
+    const orgs = all.filter((o) => s.kind === 'All' || o.kind === s.kind);
+    const kinds = [['All', 'All'], ['Masjid', 'Masjids'], ['Nonprofit', 'Nonprofits'], ['Education', 'Education']].map(([id, label]) => ({
+      label, cls: s.kind === id ? 'on' : '', pressed: s.kind === id ? 'true' : 'false', pick: () => this.setState({ kind: id })
+    }));
+    return {
+      visitor: !member, member, orgs, kinds,
+      count: String(orgs.length).padStart(2, '0'),
+      countLabel: orgs.length === 1 ? 'organization' : 'organizations'
+    };
+  }
+}
+</script>
+</body>
+</html>

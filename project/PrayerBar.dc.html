@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home masjid prayer times banner</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<sc-if value="{{shown}}" hint-placeholder-val="{{true}}">
+<div class="pbar {{mode}}" role="region" aria-label="Today’s prayer times at Crescent House Masjid, your home masjid">
+<div class="wrap">
+<a class="pbar-home" href="OrgProfile.dc.html#prayers" aria-label="Crescent House Masjid, your home masjid. Open its prayer times"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-7a7 7 0 0 1 14 0v7M3 20h18M12 3v3M10 20v-4a2 2 0 0 1 4 0v4"></path></svg><span>Crescent House Masjid</span></a>
+<div class="pbar-view">
+<ul class="pbar-track">
+<li class="org"><b>Crescent House Masjid</b></li>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="5"><li class="{{it.cls}}"><b>{{it.name}}</b><span>{{it.adhan}}</span><i>iqamah {{it.iqamah}}</i></li></sc-for>
+<li class="org dup" aria-hidden="true"><b>Crescent House Masjid</b></li>
+<sc-for list="{{dups}}" as="it" hint-placeholder-count="5"><li class="dup {{it.cls}}" aria-hidden="true"><b>{{it.name}}</b><span>{{it.adhan}}</span><i>iqamah {{it.iqamah}}</i></li></sc-for>
+</ul>
+</div>
+<span class="pbar-next" role="status">{{nextText}}</span>
+</div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"motion":{"editor":"enum","options":["Moves when it does not fit","Always moves","Never moves"],"default":"Moves when it does not fit"},"shown":{"editor":null},"$preview":{"width":1440,"height":45}}'>
+class Component extends DCLogic {
+state = { n: 0 };
+  componentDidMount() { this._t = setInterval(() => this.setState({ n: this.state.n + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    // Sample day: Thursday, October 8, 2026 at Crescent House Masjid. The clock starts at 12:48 PM and runs.
+    const T = [['Fajr', 381, 405], ['Dhuhr', 801, 825], ['Asr', 992, 1010], ['Maghrib', 1144, 1149], ['Isha', 1217, 1230]];
+    const now = 768 + this.state.n / 60;
+    const fmt = (m) => ((Math.floor(m / 60) + 11) % 12 + 1) + ':' + String(m % 60).padStart(2, '0');
+    const dur = (m) => (m >= 60 ? Math.floor(m / 60) + ' h ' + (m % 60) + ' min' : m + ' min');
+    const k = T.findIndex((t) => t[2] > now);
+    const items = T.map((t, i) => ({ name: t[0], adhan: fmt(t[1]), iqamah: fmt(t[2]), cls: k < 0 || i < k ? 'past' : i === k ? 'next' : '' }));
+    let nextText = 'Fajr tomorrow at 6:22 AM';
+    if (k >= 0) { const toAdhan = Math.ceil(T[k][1] - now), toIqamah = Math.ceil(T[k][2] - now); nextText = toAdhan > 0 ? T[k][0] + ' in ' + dur(toAdhan) : T[k][0] + ' iqamah in ' + dur(toIqamah); }
+    const motion = this.props.motion ?? 'Moves when it does not fit';
+    return { shown: (this.props.shown ?? true) !== false, items, dups: items, nextText, mode: motion === 'Always moves' ? 'always' : motion === 'Never moves' ? 'still' : 'auto' };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>System status</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a class="on" href="FounderHealth.dc.html" aria-current="page">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>System status</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings" style="border-color: #e0d3bd">IC</a></div>
+
+<div class="ph"><div><p class="eyebrow">Thursday, October 8 · 10:14 AM</p><h1>System status</h1><p>Whether people can sign in, pay and hear from Husna right now, and whether you would be told if they could not.</p></div>
+<div class="row g8"><button type="button" class="btn" onClick="{{testAlert}}">{{alertLabel}}</button></div></div>
+
+<div class="stack g20">
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Working now</p><b>8 of 8</b><span>nothing held back</span></div>
+<div class="stat"><p class="eyebrow q">Errors, last 24 hours</p><b>3</b><span>of 4,180 requests</span></div>
+<div class="stat"><p class="eyebrow q">Email delivered</p><b>99%</b><span>312 sent · 2 bounced</span></div>
+<div class="stat"><p class="eyebrow q">Last backup</p><b style="font-size: 34px; line-height: 1.35">3:00 AM</b><span>today · restore last rehearsed [DATE]</span></div>
+</div>
+
+<div class="split">
+<div class="col-main stack g16">
+<div class="card stack g4">
+<h2 class="t1">Services</h2>
+<div class="set"><div class="stack g4"><span class="b">Sign-in and accounts</span><span class="sm mut">148 sign-ins in the last 24 hours · 0 failed for system reasons</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Database</span><span class="sm mut">Reads and writes normal · backup at 3:00 AM today</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Payments: donations</span><span class="sm mut">Last successful donation today at 9:26 AM</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Payments: tuition and payment links</span><span class="sm mut">First tuition charges are due by October 21</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Stripe notifications</span><span class="sm mut">Last received 2 minutes ago · 0 failed in 24 hours</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Email</span><span class="sm mut">Sent from [SENDER ADDRESS] · 0 complaints</span></div><div class="row g8 nowrap"><button type="button" class="btn sm" onClick="{{testEmail}}">{{emailLabel}}</button><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Text messages</span><span class="sm mut">Sender registration: [TEXT SENDER REGISTRATION STATUS] · 0 sent in 24 hours</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">TV displays</span><span class="sm mut">3 screens paired at 1 organization · 2 online · prayer times saved on each screen for 30 days</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+<div class="set"><div class="stack g4"><span class="b">Scheduled jobs</span><span class="sm mut">Event reminders ran at 8:00 AM · next: Thursday roundup at 5:00 PM</span></div><div class="row g8 nowrap"><span class="badge ok">Working</span></div></div>
+
+</div>
+
+<div class="stack g12">
+<h2 class="t1">Recent errors</h2>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 560px">
+<thead><tr><th>When</th><th>Where</th><th>What the person saw</th><th>Reference</th></tr></thead>
+<tbody>
+<tr><td class="nw sub">Today, 9:02 AM</td><td>Discover</td><td>“That did not work, and it is on us.” Loaded on retry</td><td class="tnum">ERR-7F2K</td></tr>
+<tr><td class="nw sub">Today, 7:44 AM</td><td>Donation receipt email</td><td>Nothing. The email was sent on the second try</td><td class="tnum">ERR-7E9C</td></tr>
+<tr><td class="nw sub">Yesterday, 6:31 PM</td><td>Enrollment, step 5</td><td>“Stripe’s page did not open. Try again.”</td><td class="tnum">ERR-7D1A</td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12">
+<p class="eyebrow">Would you be told?</p>
+<dl class="kv" style="grid-template-columns: minmax(0,1fr) auto"><dt>Alerts go to</dt><dd>[ALERT EMAIL AND PHONE]</dd><dt>Last real alert</dt><dd>None yet</dd><dt>Last test alert</dt><dd>{{lastTest}}</dd><dt>Last restore rehearsal</dt><dd>[DATE]</dd></dl>
+<p class="sm mut">A test alert sends one email and one text message to the addresses above and records the result here.</p>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Planned work</p><p class="sm mut">Nothing scheduled. Announce maintenance with the site-wide notice in <a class="link" href="FounderSettings.dc.html">Settings</a>.</p></div>
+<div class="card stack g8"><p class="eyebrow q">What people see when something breaks</p><p class="sm mut">Each failure shows a plain message and a reference you can look up here.</p><a class="link sm" href="States.dc.html">See the error screens →</a></div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1740}}'>
+class Component extends DCLogic {
+state = { alert: false, email: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      alertLabel: s.alert ? 'Test alert sent. Check your phone' : 'Send a test alert', testAlert: () => this.setState({ alert: true }),
+      emailLabel: s.email ? 'Test sent' : 'Send a test', testEmail: () => this.setState({ email: true }),
+      lastTest: s.alert ? 'Just now · delivered' : '[DATE]'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Choose a space</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g12"><p class="eyebrow">You are signed in</p><h1 class="d3">Where <em>to?</em></h1><p class="mut">Your account can open more than one space. Switch at any time from the menu.</p></div>
+<div class="stack g12">
+<a class="pick" href="MyHusna.dc.html"><span class="av" aria-hidden="true">Me</span><span class="grow stack g4"><span class="b">Personal</span><span class="sm mut">My week, family, saved events and receipts</span></span><span class="go" aria-hidden="true">→</span></a>
+<a class="pick" href="OrgHome.dc.html"><span class="av sq" aria-hidden="true">C</span><span class="grow stack g4"><span class="b">Crescent House Masjid</span><span class="sm mut">Organization workspace · Owner</span></span><span class="go" aria-hidden="true">→</span></a>
+</div>
+<label class="check"><input type="checkbox"><span>Always open the space I used last</span></label>
+<hr class="hr">
+<p class="mut">Not you? <a class="link" href="SignIn.dc.html">Sign out</a></p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":620}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

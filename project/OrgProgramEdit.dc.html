@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Program setup</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a class="on" href="OrgPrograms.dc.html" aria-current="page">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div onInput="{{touch}}" onChange="{{touch}}">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgPrograms.dc.html">Programs</a><span aria-hidden="true">/</span><span>Weekend Qur’an School</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><div class="row g12"><p class="eyebrow">Program setup</p><span class="badge {{openCls}}">{{openBadge}}</span></div><h1>Weekend Qur’an School</h1><p>Everything families see and sign comes from this page. Changes to dates, tuition or agreements after enrollment opens are emailed to enrolled families.</p></div>
+<div class="row g8"><a class="btn" href="Program.dc.html">Preview public page ↗</a></div></div>
+
+<div class="subnav">
+<nav aria-label="Sections of this page"><a href="#basics"><b>1</b>Basics</a><a href="#term"><b>2</b>Term and schedule</a><a href="#classes"><b>3</b>Classes</a><a href="#tuition"><b>4</b>Tuition</a><a href="#enrollment"><b>5</b>Enrollment rules</a><a href="#forms"><b>6</b>Forms and agreements</a></nav>
+<span class="state {{stateCls}}" role="status">{{stateText}}</span>
+</div>
+
+<div class="stack g20">
+
+<div class="card row between g16" style="padding: 16px 24px">
+<div class="stack g8 grow" style="flex-basis: 420px"><span class="eyebrow">Ready to take enrollments</span><div class="row g8"><span class="badge ok">Payouts connected</span><span class="badge ok">Every class has a teacher</span><span class="badge ok">Agreements uploaded</span><span class="badge ok">Published on your profile</span></div></div>
+<div class="row g12"><span class="sm mut">{{statusText}}</span><button type="button" class="btn danger sm" onClick="{{toggleClose}}">{{closeLabel}}</button></div>
+</div>
+
+<div class="cols c2">
+<section class="card stack g16" id="basics" data-sec="Basics">
+<h2 class="t1">1. Basics</h2>
+<div class="form tight">
+<div class="field full"><label class="label" for="pg-name">Program name</label><input class="input" id="pg-name" type="text" defaultValue="Weekend Qur’an School"></div>
+<div class="field full"><label class="label" for="pg-sum">Short summary</label><textarea class="textarea" id="pg-sum" maxLength="200" style="min-height: 84px" defaultValue="Two mornings a week of Qur’an, Arabic and Islamic studies for children ages 5 to 15, taught in small classes by level."></textarea><span class="hint">Up to 200 characters. Shown at the top of the public page.</span></div>
+<div class="field"><label class="label" for="pg-kind">Kind of program</label><select class="select" id="pg-kind"><option selected>Weekend school</option><option>Evening school</option><option>Class or course</option><option>Club or circle</option><option>Camp</option></select></div>
+<div class="field"><label class="label" for="pg-who">Who enrolls?</label><select class="select" id="pg-who"><option selected>Parents, for children</option><option>Adults, for themselves</option><option>Both</option></select></div>
+<div class="field"><label class="label" for="pg-amin">Youngest age</label><input class="input" id="pg-amin" type="text" inputMode="numeric" defaultValue="5"></div>
+<div class="field"><label class="label" for="pg-amax">Oldest age</label><input class="input" id="pg-amax" type="text" inputMode="numeric" defaultValue="15"><span class="hint">Age is counted on the first day of term.</span></div>
+</div>
+</section>
+
+<section class="card stack g16" id="term" data-sec="Term and schedule">
+<h2 class="t1">2. Term and schedule</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="pg-term">Term name</label><input class="input" id="pg-term" type="text" defaultValue="Fall 2026"></div>
+<div class="field"><label class="label" for="pg-time">Class time</label><input class="input" id="pg-time" type="text" defaultValue="9:00 AM to 12:30 PM"></div>
+<div class="field"><label class="label" for="pg-start">First day</label><input class="input" id="pg-start" type="text" defaultValue="Saturday, October 24, 2026"></div>
+<div class="field"><label class="label" for="pg-end">Last day</label><input class="input" id="pg-end" type="text" defaultValue="Sunday, December 20, 2026"></div>
+</div>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">Meets on</legend>
+<div class="row g8"><label class="chip"><input type="checkbox" aria-label="Monday"><span>Mon</span></label><label class="chip"><input type="checkbox" aria-label="Tuesday"><span>Tue</span></label><label class="chip"><input type="checkbox" aria-label="Wednesday"><span>Wed</span></label><label class="chip"><input type="checkbox" aria-label="Thursday"><span>Thu</span></label><label class="chip"><input type="checkbox" aria-label="Friday"><span>Fri</span></label><label class="chip"><input type="checkbox" checked aria-label="Saturday"><span>Sat</span></label><label class="chip"><input type="checkbox" checked aria-label="Sunday"><span>Sun</span></label></div></fieldset>
+<div class="field"><label class="label" for="pg-off">Days with no class</label><input class="input" id="pg-off" type="text" defaultValue="November 28 and 29"><span class="hint">That leaves 8 weekends, 16 class days. Tuition refunds are worked out from this number.</span></div>
+</section>
+</div>
+
+<section class="card stack g16" id="classes" data-sec="Classes">
+<div class="row between"><h2 class="t1">3. Classes</h2><span class="sm mut">4 classes · 58 places · 47 enrolled</span></div>
+<div class="rows" style="--rw: minmax(0,2.2fr) 110px minmax(0,2fr) minmax(0,1.2fr) 86px minmax(0,1.3fr) 44px">
+<div class="rw hd" aria-hidden="true"><span>Class name</span><span>Ages</span><span>Teacher</span><span>Room</span><span>Places</span><span>Enrolled</span><span></span></div>
+<div class="rw"><div class="field"><label class="lbl" for="pc-n1">Class name</label><input class="input" id="pc-n1" type="text" defaultValue="Level 1 · Foundations"></div><div class="field"><label class="lbl" for="pc-a1">Ages</label><input class="input" id="pc-a1" type="text" defaultValue="5 to 7"></div><div class="field"><label class="lbl" for="pc-t1">Teacher</label><select class="select" id="pc-t1"><option selected>Ustadha Salma Idris</option><option>Ustadh Bilal Ahmed</option><option>Ustadh Hamza Malik</option><option>Ustadha Noor Hassan</option></select></div><div class="field"><label class="lbl" for="pc-r1">Room</label><input class="input" id="pc-r1" type="text" defaultValue="Room 2"></div><div class="field"><label class="lbl" for="pc-p1">Places</label><input class="input" id="pc-p1" type="text" inputMode="numeric" defaultValue="16"></div><span class="sm mut tnum">12 enrolled</span><button type="button" class="ibtn sq" aria-label="Remove Level 1 · Foundations" onClick="{{rm1}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div>
+<div class="rw"><div class="field"><label class="lbl" for="pc-n2">Class name</label><input class="input" id="pc-n2" type="text" defaultValue="Level 2 · Reading"></div><div class="field"><label class="lbl" for="pc-a2">Ages</label><input class="input" id="pc-a2" type="text" defaultValue="8 to 10"></div><div class="field"><label class="lbl" for="pc-t2">Teacher</label><select class="select" id="pc-t2"><option>Ustadha Salma Idris</option><option selected>Ustadh Bilal Ahmed</option><option>Ustadh Hamza Malik</option><option>Ustadha Noor Hassan</option></select></div><div class="field"><label class="lbl" for="pc-r2">Room</label><input class="input" id="pc-r2" type="text" defaultValue="Room 3"></div><div class="field"><label class="lbl" for="pc-p2">Places</label><input class="input" id="pc-p2" type="text" inputMode="numeric" defaultValue="16"></div><span class="sm mut tnum">14 enrolled</span><button type="button" class="ibtn sq" aria-label="Remove Level 2 · Reading" onClick="{{rm2}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div>
+<div class="rw"><div class="field"><label class="lbl" for="pc-n3">Class name</label><input class="input" id="pc-n3" type="text" defaultValue="Level 3 · Memorization"></div><div class="field"><label class="lbl" for="pc-a3">Ages</label><input class="input" id="pc-a3" type="text" defaultValue="11 to 13"></div><div class="field"><label class="lbl" for="pc-t3">Teacher</label><select class="select" id="pc-t3"><option>Ustadha Salma Idris</option><option>Ustadh Bilal Ahmed</option><option selected>Ustadh Hamza Malik</option><option>Ustadha Noor Hassan</option></select></div><div class="field"><label class="lbl" for="pc-r3">Room</label><input class="input" id="pc-r3" type="text" defaultValue="Room 4"></div><div class="field"><label class="lbl" for="pc-p3">Places</label><input class="input" id="pc-p3" type="text" inputMode="numeric" value="{{p3}}" onInput="{{onP3}}"></div><span class="sm mut tnum">14 enrolled · 3 waiting</span><button type="button" class="ibtn sq" aria-label="Remove Level 3 · Memorization" onClick="{{rm3}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div>
+<div class="rw"><div class="field"><label class="lbl" for="pc-n4">Class name</label><input class="input" id="pc-n4" type="text" defaultValue="Level 4 · Teens"></div><div class="field"><label class="lbl" for="pc-a4">Ages</label><input class="input" id="pc-a4" type="text" defaultValue="14 to 15"></div><div class="field"><label class="lbl" for="pc-t4">Teacher</label><select class="select" id="pc-t4"><option>Ustadha Salma Idris</option><option>Ustadh Bilal Ahmed</option><option>Ustadh Hamza Malik</option><option selected>Ustadha Noor Hassan</option></select></div><div class="field"><label class="lbl" for="pc-r4">Room</label><input class="input" id="pc-r4" type="text" defaultValue="Library"></div><div class="field"><label class="lbl" for="pc-p4">Places</label><input class="input" id="pc-p4" type="text" inputMode="numeric" defaultValue="12"></div><span class="sm mut tnum">7 enrolled</span><button type="button" class="ibtn sq" aria-label="Remove Level 4 · Teens" onClick="{{rm4}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div>
+<sc-if value="{{extraClass}}" hint-placeholder-val="{{false}}"><div class="rw">
+<div class="field"><label class="lbl" for="pc-n5">Class name</label><input class="input" id="pc-n5" type="text" placeholder="Class name"></div>
+<div class="field"><label class="lbl" for="pc-a5">Ages</label><input class="input" id="pc-a5" type="text" placeholder="5 to 7"></div>
+<div class="field"><label class="lbl" for="pc-t5">Teacher</label><select class="select" id="pc-t5"><option>Choose a teacher</option><option>Ustadha Salma Idris</option><option>Ustadh Bilal Ahmed</option><option>Ustadh Hamza Malik</option><option>Ustadha Noor Hassan</option></select></div>
+<div class="field"><label class="lbl" for="pc-r5">Room</label><input class="input" id="pc-r5" type="text" placeholder="Room"></div>
+<div class="field"><label class="lbl" for="pc-p5">Places</label><input class="input" id="pc-p5" type="text" inputMode="numeric" placeholder="0"></div>
+<span class="sm sub">New, not saved</span>
+<button type="button" class="ibtn sq" aria-label="Remove the new class" onClick="{{rm5}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button>
+</div></sc-if>
+<div class="rw" style="grid-template-columns: 1fr"><div class="row between g12"><button type="button" class="btn sm" onClick="{{addClass}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add a class</button><span class="hint">Teachers come from your team. <a class="link" href="OrgTeam.dc.html">Invite a teacher →</a></span></div></div>
+</div>
+<sc-if value="{{p3Up}}" hint-placeholder-val="{{true}}"><div class="note info" role="status"><span>Level 3 · Memorization goes from 14 to {{p3}} places. When you save, the first families on its waitlist are offered the new places and have 48 hours to accept.</span></div></sc-if>
+<sc-if value="{{p3Low}}" hint-placeholder-val="{{false}}"><div class="note bad" role="alert"><span>Level 3 · Memorization has 14 students. Places cannot go below the number enrolled.</span></div></sc-if>
+<sc-if value="{{rmNote}}" hint-placeholder-val="{{false}}"><div class="note warn" role="alert"><span>{{rmText}} Move them to another class from <a class="link" href="OrgRoster.dc.html">Classes and rosters</a> first, then remove it here.</span></div></sc-if>
+</section>
+
+<div class="cols c2">
+<section class="card stack g16" id="tuition" data-sec="Tuition">
+<h2 class="t1">4. Tuition</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="pg-fee">Tuition per child, per term</label><input class="input" id="pg-fee" type="text" inputMode="decimal" defaultValue="$240.00"><span class="hint">Enter 0 for a free program.</span></div>
+<div class="field"><label class="label" for="pg-sib">Sibling discount</label><input class="input" id="pg-sib" type="text" defaultValue="15% off each additional child"></div>
+</div>
+<div>
+<div class="set"><div class="stack g4"><span class="b">Offer two payments</span><span class="sm mut">Half when the place is confirmed, half on a date you choose. No extra cost to families</span></div><input class="sw" type="checkbox" checked aria-label="Offer two payments"></div>
+<div class="set-sub"><label for="pg-pay2">Second payment on</label><input class="input" id="pg-pay2" type="text" defaultValue="November 24"></div>
+<div class="set"><div class="stack g4"><span class="b">Accept financial assistance requests</span><span class="sm mut">Families can ask privately. Only people with the School director role see requests</span></div><input class="sw" type="checkbox" checked aria-label="Accept financial assistance requests"></div>
+<div class="set"><div class="stack g4"><span class="b">Charge when a place is confirmed</span><span class="sm mut">Families save a payment method when they apply and pay nothing until you accept them</span></div><span class="badge">Always on</span></div>
+</div>
+<div class="field"><label class="label" for="pg-refund">Refund policy, in one or two sentences</label><textarea class="textarea" id="pg-refund" style="min-height: 84px" defaultValue="Full refund until October 24. After that, tuition is returned for the weekends that remain."></textarea></div>
+<div class="note"><span>Husna is free and takes nothing from tuition. Stripe’s card processing comes out of your payout, never out of the family’s pocket: families see and pay only the tuition amount.</span></div>
+</section>
+
+<section class="card stack g16" id="enrollment" data-sec="Enrollment rules">
+<h2 class="t1">5. Enrollment rules</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="pg-open">Enrollment opens</label><input class="input" id="pg-open" type="text" defaultValue="October 6, 2026"></div>
+<div class="field"><label class="label" for="pg-close">Enrollment closes</label><input class="input" id="pg-close" type="text" defaultValue="October 18, 2026"></div>
+<div class="field"><label class="label" for="pg-answer">Promise an answer by</label><input class="input" id="pg-answer" type="text" defaultValue="October 21, 2026"></div>
+<p class="hint full" style="margin-top: -8px">Families see the answer date as soon as they apply.</p>
+</div>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">When a family applies</legend>
+<label class="pick"><input type="radio" name="mode" checked aria-label="We review each application"><span class="stack g4"><span class="b">We review each application</span><span class="sm mut">You accept, waitlist or decline. Best when placement matters.</span></span></label>
+<label class="pick"><input type="radio" name="mode" aria-label="Accept automatically until the class is full"><span class="stack g4"><span class="b">Accept automatically until the class is full</span><span class="sm mut">Families are confirmed and charged at once. You can still move a child later.</span></span></label>
+</fieldset>
+<div>
+<div class="set"><div class="stack g4"><span class="b">Keep a waitlist when a class is full</span><span class="sm mut">Families join in the order they apply. When a place opens, the next family gets this long to accept</span></div><input class="sw" type="checkbox" checked aria-label="Keep a waitlist when a class is full"></div>
+<div class="set-sub"><label for="pg-hold">Hold an open place for</label><select class="select" id="pg-hold"><option>24 hours</option><option selected>48 hours</option><option>72 hours</option></select></div>
+<div class="set"><div class="stack g4"><span class="b">Allow late enrollment</span><span class="sm mut">After the term starts, where a class has room. Tuition is reduced for weekends already taught</span></div><input class="sw" type="checkbox" checked aria-label="Allow late enrollment"></div>
+<div class="set-sub" style="margin-bottom: 0"><label for="pg-late">Until</label><input class="input" id="pg-late" type="text" defaultValue="November 8"></div>
+</div>
+</section>
+</div>
+
+<section class="card stack g16" id="forms" data-sec="Forms and agreements">
+<h2 class="t1">6. What families give you and sign</h2>
+<div class="cols c2" style="gap: 20px 40px">
+<div class="stack g16">
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 4px">Collected with every application</legend>
+<div class="cols" style="gap: 0 20px; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr))">
+<label class="check"><input type="checkbox" checked disabled><span>Child’s name and date of birth</span></label>
+<label class="check"><input type="checkbox" checked disabled><span>One parent or guardian</span></label>
+<label class="check"><input type="checkbox" checked aria-label="Collect an emergency contact who is not a parent"><span>Emergency contact who is not a parent</span></label>
+<label class="check"><input type="checkbox" checked aria-label="Collect a pickup list"><span>Pickup list</span></label>
+<label class="check"><input type="checkbox" checked aria-label="Collect allergies and medical notes"><span>Allergies and medical notes</span></label>
+<label class="check"><input type="checkbox" checked aria-label="Collect Qur’an reading level"><span>Qur’an reading level</span></label>
+<label class="check"><input type="checkbox" aria-label="Collect home address"><span>Home address</span></label>
+<label class="check"><input type="checkbox" checked aria-label="Collect emergency care consent"><span>Emergency care consent</span></label>
+</div></fieldset>
+<div class="set" style="border-top: 1px solid rgba(232,249,229,.13); padding-bottom: 0"><div class="stack g4"><span class="b">Ask about photos and video</span><span class="sm mut">Families choose yes or no. Teachers see who said no on the roster</span></div><input class="sw" type="checkbox" checked aria-label="Ask about photos and video"></div>
+</div>
+<div class="stack g8">
+<span class="label">Agreements to sign</span>
+<div class="list">
+<div class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">Family handbook and conduct</span><span class="sm mut">{{doc1}}</span></span><button type="button" class="btn sm" onClick="{{replace1}}">Replace file</button></div>
+<div class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">Pickup and safety</span><span class="sm mut">{{doc2}}</span></span><button type="button" class="btn sm" onClick="{{replace2}}">Replace file</button></div>
+<div class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">Tuition and refunds</span><span class="sm mut">Written from section 4</span></span><span class="badge">Automatic</span></div>
+<sc-if value="{{docAdded}}" hint-placeholder-val="{{false}}"><div class="li start" style="padding: 12px 0"><div class="grow stack g8"><label class="lbl" for="pg-newdoc" style="display: block; font: 600 13px/1.35 'DM Sans', system-ui, sans-serif; color: #f3f0e7">Name of the new agreement</label><input class="input" id="pg-newdoc" type="text" placeholder="For example: Field trip permission"><div class="row g8"><button type="button" class="btn sm" onClick="{{pickNew}}">{{newDocLabel}}</button><span class="sm sub">PDF, up to 10 MB</span></div></div><button type="button" class="ibtn sq" aria-label="Remove the new agreement" onClick="{{rmDoc}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div></sc-if>
+<div class="li" style="padding: 12px 0"><button type="button" class="btn sm" onClick="{{addDoc}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add an agreement</button></div>
+</div>
+<sc-if value="{{docNote}}" hint-placeholder-val="{{false}}"><div class="note info" role="status">A new version of a signed agreement goes to every enrolled family when you save. They sign again from their child’s page; class places are not affected.</div></sc-if>
+</div>
+</div>
+</section>
+
+<div class="row between g12">
+<sc-if value="{{clean}}" hint-placeholder-val="{{false}}"><a class="btn" href="OrgPrograms.dc.html">← Back to programs</a></sc-if>
+<sc-if value="{{dirty}}" hint-placeholder-val="{{true}}"><a class="btn" href="UnsavedSheet.dc.html">← Back to programs</a></sc-if>
+<span class="sm sub">Last saved Tuesday, October 6 at 4:12 PM by Khadija Osman</span>
+</div>
+</div>
+
+<sc-if value="{{dirty}}" hint-placeholder-val="{{true}}">
+<div class="savebar" role="region" aria-label="Unsaved changes">
+<p><b>{{dirtyText}}</b> {{dirtyWhere}}. Nothing changes for families until you save.</p>
+<div class="row g8"><button type="button" class="btn" onClick="{{discard}}">Discard</button><button type="button" class="btn pri" onClick="{{save}}">Save changes</button></div>
+</div>
+</sc-if>
+<sc-if value="{{justSaved}}" hint-placeholder-val="{{false}}">
+<div class="savebar ok" role="status">
+<p><b>Saved.</b> {{savedText}}</p>
+<div class="row g8"><a class="btn" href="Program.dc.html">See the public page ↗</a><button type="button" class="btn" onClick="{{dismiss}}">Done</button></div>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"unsaved":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":3100}}'>
+class Component extends DCLogic {
+  state = { changed: null, p3: null, justSaved: false, extraClass: false, docAdded: false, newDoc: false, docNote: false, closed: false, rm: '', r1: false, r2: false };
+  renderVals() {
+    const s = this.state;
+    const seeded = (this.props.unsaved ?? true);
+    const changed = s.changed ?? (seeded ? { 'pc-p3': 'Classes' } : {});
+    const p3 = s.p3 ?? (seeded ? '16' : '14');
+    const keys = Object.keys(changed);
+    const secs = [...new Set(keys.map((k) => changed[k]))];
+    const dirty = keys.length > 0;
+    const join = (xs) => xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+    const mark = (key, sec) => this.setState({ changed: Object.assign({}, changed, { [key]: sec }), justSaved: false });
+    const n3 = parseInt(p3, 10);
+    const names = { 1: ['Level 1 · Foundations', 12], 2: ['Level 2 · Reading', 14], 3: ['Level 3 · Memorization', 14], 4: ['Level 4 · Teens', 7] };
+    const rm = (i) => () => this.setState({ rm: names[i][0] + ' has ' + names[i][1] + ' students.' });
+    return {
+      touch: (ev) => {
+        const t = ev.target; if (!t || !t.closest) return;
+        const sec = t.closest('[data-sec]'); if (!sec) return;
+        mark(t.id || t.getAttribute('aria-label') || 'field', sec.getAttribute('data-sec'));
+      },
+      p3, onP3: (ev) => this.setState({ p3: ev.target.value }),
+      p3Up: n3 > 14, p3Low: n3 < 14,
+      dirty, clean: !dirty,
+      dirtyText: keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes',
+      dirtyWhere: 'in ' + join(secs),
+      stateCls: dirty ? 'dirty' : '',
+      stateText: dirty ? (keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes') : (s.justSaved ? 'All changes saved just now' : 'All changes saved'),
+      save: () => this.setState({ changed: {}, justSaved: true, rm: '' }),
+      discard: () => this.setState({ changed: {}, p3: '14', extraClass: false, docAdded: false, docNote: false, justSaved: false, rm: '', r1: false, r2: false }),
+      justSaved: s.justSaved && !dirty,
+      savedText: n3 > 14 ? 'Level 3 now has ' + p3 + ' places, and the first families on its waitlist have been offered a place.' : 'Families see the changes now.',
+      dismiss: () => this.setState({ justSaved: false }),
+      extraClass: s.extraClass,
+      addClass: () => this.setState({ extraClass: true, changed: Object.assign({}, changed, { 'new-class': 'Classes' }), justSaved: false }),
+      rm1: rm(1), rm2: rm(2), rm3: rm(3), rm4: rm(4),
+      rm5: () => { const c = Object.assign({}, changed); ['new-class', 'pc-n5', 'pc-a5', 'pc-t5', 'pc-r5', 'pc-p5'].forEach((k) => delete c[k]); this.setState({ extraClass: false, changed: c }); },
+      rmNote: !!s.rm, rmText: s.rm,
+      docAdded: s.docAdded,
+      addDoc: () => this.setState({ docAdded: true, changed: Object.assign({}, changed, { 'new-doc': 'Forms and agreements' }), justSaved: false }),
+      rmDoc: () => { const c = Object.assign({}, changed); ['new-doc', 'pg-newdoc', 'new-doc-file'].forEach((k) => delete c[k]); this.setState({ docAdded: false, newDoc: false, changed: c }); },
+      newDocLabel: s.newDoc ? 'field-trip-permission.pdf attached. Replace' : 'Choose a PDF',
+      pickNew: () => this.setState({ newDoc: true, changed: Object.assign({}, changed, { 'new-doc-file': 'Forms and agreements' }) }),
+      doc1: s.r1 ? 'handbook-fall-2026-v2.pdf · not saved yet' : 'handbook-fall-2026.pdf · updated October 2',
+      doc2: s.r2 ? 'pickup-safety-v2.pdf · not saved yet' : 'pickup-safety.pdf · updated October 2',
+      replace1: () => this.setState({ r1: true, docNote: true, changed: Object.assign({}, changed, { doc1: 'Forms and agreements' }), justSaved: false }),
+      replace2: () => this.setState({ r2: true, docNote: true, changed: Object.assign({}, changed, { doc2: 'Forms and agreements' }), justSaved: false }),
+      docNote: s.docNote,
+      openBadge: s.closed ? 'Enrollment closed' : 'Enrollment open', openCls: s.closed ? 'warn' : 'ok',
+      closeLabel: s.closed ? 'Reopen enrollment' : 'Close enrollment now',
+      toggleClose: () => this.setState({ closed: !s.closed }),
+      statusText: s.closed ? 'Closed. The public page says so and the Enroll button is hidden.' : 'Open until October 18.'
+    };
+  }
+}
+</script>
+</body>
+</html>

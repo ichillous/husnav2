@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My class: teacher workspace</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="TeacherHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Teacher · Level 2 · Reading</span></div></div>
+<a class="on" href="TeacherHome.dc.html" aria-current="page">My class</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<a href="OrgRoster.dc.html">Roster</a>
+<a href="OrgInbox.dc.html">Class messages <span class="count">1</span></a>
+<div class="side-foot"><a href="Program.dc.html">View public page ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>My class</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Ustadh Bilal Ahmed, Teacher. Switch space or sign out">BA</a></div>
+
+<div class="ph"><div><p class="eyebrow">Saturday, November 14 · 8:40 AM</p><h1>Assalamu alaikum, <em>Ustadh Bilal.</em></h1><p>Level 2 · Reading · Room 3 · class starts at 9:00 AM.</p></div>
+<div class="row g8"><a class="btn" href="OrgAttendanceTerm.dc.html">Attendance this term</a><a class="btn" href="OrgAttendanceTerm.dc.html">Attendance this term</a><a class="btn" href="DocSignIn.dc.html">Print sign-in sheet</a><a class="btn" href="OrgAnnouncements.dc.html">Message families</a><a class="btn pri" href="OrgAttendance.dc.html">Take attendance</a></div></div>
+
+<div class="stack g32">
+<div class="cols c4">
+<a class="stat" href="OrgRoster.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">Students</p><b>16</b><span>of 16 places</span></a>
+<a class="stat" href="OrgAttendance.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">Expected today</p><b>15</b><span>1 absence reported</span></a>
+<div class="stat"><p class="eyebrow q">Attendance this term</p><b>94%</b><span>6 class days held</span></div>
+<div class="stat"><p class="eyebrow q">Working on</p><b style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.35">Al-Bayyinah</b><span>Surah 98 · ayat 1 to 5</span></div>
+</div>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12">
+<h2 class="t1">Before class</h2>
+<div class="card p0"><div class="list in">
+<div class="li start"><span class="badge info" aria-hidden="true">Away</span><span class="grow stack g4"><span class="b">Safiya Hussein is absent today</span><span class="sm mut">Reported by her mother at 7:52 AM: sick. Already marked excused on the attendance sheet.</span></span></div>
+<a class="li start" href="OrgInbox.dc.html"><span class="count" aria-hidden="true">1</span><span class="grow stack g4"><span class="b">Tariq Abdi sent a message</span><span class="sm mut">“Ilyas will be about 15 minutes late this morning.”</span></span><span class="go" aria-hidden="true">→</span></a>
+<a class="li start" href="OrgStudent.dc.html"><span class="badge warn" aria-hidden="true">Care</span><span class="grow stack g4"><span class="b">Yusuf Farah · peanut allergy, carries no medication</span><span class="sm mut">Snacks in Room 3 are nut-free. Emergency contact: Amina Farah, (614) 555-0117.</span></span><span class="go" aria-hidden="true">→</span></a>
+<div class="li start"><span class="badge" aria-hidden="true">Photos</span><span class="grow stack g4"><span class="b">No photos: Yusuf Farah, Nura Warsame</span><span class="sm mut">Their parents said no to photos and video.</span></span></div>
+</div></div>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">This week’s practice</h2><span class="sm sub">Families see this on each child’s page</span></div>
+<sc-if value="{{posted}}" hint-placeholder-val="{{true}}">
+<div class="card stack g12">
+<p class="eyebrow q">{{postedWhen}}</p>
+<ul class="ul"><sc-for list="{{items}}" as="it" hint-placeholder-count="3"><li>{{it}}</li></sc-for></ul>
+<div><button type="button" class="btn sm" onClick="{{edit}}">Write this week’s practice</button></div>
+</div>
+</sc-if>
+<sc-if value="{{editing}}" hint-placeholder-val="{{false}}">
+<div class="card stack g16">
+<div class="field"><label class="label" for="th-practice">Practice for the week of November 14</label><textarea class="textarea" id="th-practice" placeholder="One task on each line. Keep each to a sentence a parent can follow." value="{{draft}}" onInput="{{onDraft}}"></textarea><span class="hint">Sent to the 16 families in Level 2 by notification and email when you post.</span></div>
+<div class="row g8 end"><button type="button" class="btn" onClick="{{cancel}}">Cancel</button><button type="button" class="btn pri {{postCls}}" onClick="{{post}}">Post to families</button></div>
+</div>
+</sc-if>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">Progress notes to write</h2><span class="sm sub">No note in the last three weeks</span></div>
+<div class="card p0"><div class="list in">
+<a class="li" href="OrgStudent.dc.html"><span class="av" aria-hidden="true">A</span><span class="grow stack g4"><span class="b">Amal Jama</span><span class="sm mut">Last note October 25 · working on Al-‘Adiyat</span></span><span class="btn sm" aria-hidden="true">Write a note</span></a>
+<a class="li" href="OrgStudent.dc.html"><span class="av" aria-hidden="true">Z</span><span class="grow stack g4"><span class="b">Zayd Karim</span><span class="sm mut">Last note October 25 · working on Az-Zalzalah</span></span><span class="btn sm" aria-hidden="true">Write a note</span></a>
+<a class="li" href="OrgStudent.dc.html"><span class="av" aria-hidden="true">M</span><span class="grow stack g4"><span class="b">Maryan Dahir</span><span class="sm mut">Joined November 1 · no note yet</span></span><span class="btn sm" aria-hidden="true">Write a note</span></a>
+</div></div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12">
+<p class="eyebrow">Term calendar</p>
+<ol class="tl">
+<li class="done"><b>Weekends 1 to 3</b>October 24 to November 8</li>
+<li class="now"><b>Weekend 4</b>Today and tomorrow</li>
+<li><b>Weekend 5</b>November 21 and 22</li>
+<li><b>No class</b>November 28 and 29</li>
+<li><b>Weekends 6 to 8</b>December 5 to 20 · family recital on the last day</li>
+</ol>
+</div>
+<div class="card stack g8"><p class="eyebrow q">What teachers see</p><p class="sm mut">Your own class: roster, family contacts, health notes, attendance and progress. Tuition, donations and other classes are not shown to teachers.</p><p class="sm mut">Need something else? Ask Ustadha Noor Hassan, the school director.</p></div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1540}}'>
+class Component extends DCLogic {
+state = { editing: false, draft: '', posted: null };
+  renderVals() {
+    const s = this.state;
+    const base = ['Recite Az-Zalzalah from memory with a parent before Saturday.', 'Read Al-Bayyinah, ayat 1 to 3, once a day. Listen first, then read.', 'Practice sheet 6: circle every shaddah in lines 1 and 2.'];
+    const items = s.posted ? s.posted : base;
+    return {
+      posted: !s.editing, editing: s.editing, items,
+      postedWhen: s.posted ? 'Posted just now by you' : 'Posted Sunday, November 8 by you',
+      edit: () => this.setState({ editing: true }), cancel: () => this.setState({ editing: false, draft: '' }),
+      draft: s.draft, onDraft: (ev) => this.setState({ draft: ev.target.value }),
+      postCls: s.draft.trim() ? '' : 'off',
+      post: () => { const lines = s.draft.split('\n').map((x) => x.trim()).filter(Boolean); if (lines.length) this.setState({ posted: lines, editing: false, draft: '' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

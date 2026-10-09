@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create an event</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a class="on" href="OrgEvents.dc.html" aria-current="page">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgEvents.dc.html">Events</a><span aria-hidden="true">/</span><span>New event</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Make something <em>happen.</em></h1><p>Tell the community what, when and where. You can save a draft at any point.</p></div><span class="state {{draftCls}}" role="status">{{draftLabel}}</span></div>
+
+<div class="split">
+<div class="col-main stack g16">
+
+<div class="card stack g16">
+<h2 class="t1">What</h2>
+<div class="form">
+<div class="field full"><label class="label" for="ev-title">Event title</label><input class="input" id="ev-title" type="text" maxLength="90" placeholder="For example: Family Game Night" value="{{title}}" onInput="{{onTitle}}"><span class="hint">{{titleCount}} of 90 characters</span></div>
+<div class="field"><label class="label" for="ev-cat">Category</label><select class="select" id="ev-cat"><option>Community</option><option>Prayer</option><option>Learning</option><option selected="">Family</option><option>Youth</option></select></div>
+<div class="field"><label class="label" for="ev-for">Who is it for?</label><select class="select" id="ev-for"><option>Everyone</option><option>Families with children</option><option>Youth, ages 12 to 18</option><option>Sisters</option><option>Brothers</option><option>Seniors</option></select></div>
+<div class="field full"><label class="label" for="ev-desc">Description</label><textarea class="textarea" id="ev-desc" maxLength="700" placeholder="What will happen? Who is it for? What should people bring?"></textarea><span class="hint">Up to 700 characters. The first sentence shows in search results.</span></div>
+</div>
+</div>
+
+<div class="card stack g16">
+<h2 class="t1">When</h2>
+<div class="form">
+<div class="field"><label class="label" for="ev-date">Date</label><input class="input" id="ev-date" type="text" defaultValue="Friday, October 23, 2026"></div>
+<div class="field"><label class="label" for="ev-start">Starts</label><input class="input" id="ev-start" type="text" defaultValue="6:30 PM"></div>
+<div class="field"><label class="label" for="ev-end">Ends</label><input class="input" id="ev-end" type="text" defaultValue="8:30 PM"></div>
+<div class="field"><label class="label" for="ev-rep">Repeats</label><select class="select" id="ev-rep"><option>Does not repeat</option><option>Every week</option><option>Every two weeks</option><option>Every month</option></select></div>
+</div>
+<p class="hint">Times are Eastern Time, the same as your organization.</p>
+</div>
+
+<div class="card stack g16" role="group" aria-labelledby="ev-where">
+<h2 class="t1" id="ev-where">Where</h2>
+<div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 10px">
+<sc-for list="{{places}}" as="p" hint-placeholder-count="3"><button type="button" class="pick {{p.cls}}" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}"><span class="dot" aria-hidden="true"></span><span class="b">{{p.label}}</span></button></sc-for>
+</div>
+<sc-if value="{{atHost}}" hint-placeholder-val="{{true}}"><div class="note ok"><span>Uses your organization’s address: <span class="b ink">1200 Sample Avenue, Columbus, OH 43229</span></span></div>
+</sc-if>
+<sc-if value="{{offsite}}" hint-placeholder-val="{{false}}"><div class="form"><div class="field full"><label class="label" for="ev-venue">Venue name</label><input class="input" id="ev-venue" type="text" placeholder="For example: Riverside Park, shelter 3"></div><div class="field full"><label class="label" for="ev-addr">Address</label><input class="input" id="ev-addr" type="text" placeholder="Street, city, ZIP"><span class="hint">A full address stops people going to the masjid by mistake.</span></div></div></sc-if>
+<sc-if value="{{online}}" hint-placeholder-val="{{false}}"><div class="form"><div class="field full"><label class="label" for="ev-link">Meeting link</label><input class="input" id="ev-link" type="url" placeholder="https://"><span class="hint">Shown only to people who RSVP, one hour before the start.</span></div></div></sc-if>
+<div class="field"><label class="label" for="ev-room">Room or detail <i>(optional)</i></label><input class="input" id="ev-room" type="text" placeholder="For example: community hall, enter from the north door"></div>
+</div>
+
+<div class="card stack g4">
+<h2 class="t1">RSVPs</h2>
+<div class="set"><div class="stack g4"><span class="b">Ask people to RSVP</span><span class="sm mut">You get a list and a count. Attending stays free.</span></div><input class="sw" type="checkbox" checked="" aria-label="Ask people to RSVP"></div>
+<div class="set"><div class="stack g4"><span class="b">Limit the number of places</span><span class="sm mut">When it fills, people can join a waiting list</span></div><input class="sw" type="checkbox" checked="" aria-label="Limit the number of places"></div>
+<div class="set-sub"><label for="ev-cap">Places</label><input class="input" id="ev-cap" type="text" inputMode="numeric" defaultValue="60" style="flex: 0 1 110px"><span>counting everyone in each RSVP</span></div>
+<div class="set"><div class="stack g4"><span class="b">Let people bring guests</span><span class="sm mut">Each RSVP can include family members and up to 8 guests</span></div><input class="sw" type="checkbox" checked="" aria-label="Let people bring guests"></div>
+<div class="set"><div class="stack g4"><span class="b">Send a reminder the day before</span><span class="sm mut">By email to everyone going</span></div><input class="sw" type="checkbox" checked="" aria-label="Send a reminder the day before"></div>
+</div>
+
+<div class="card stack g12" role="group" aria-labelledby="ev-art">
+<h2 class="t1" id="ev-art">Cover</h2>
+<p class="sm mut">Pick a color. The letter comes from your category. Uploading a photo is optional.</p>
+<div class="row g8">
+<sc-for list="{{tints}}" as="t" hint-placeholder-count="5"><button type="button" class="poster s {{t.cls}}" aria-label="{{t.label}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="{{t.style}}"><b>أ</b></button></sc-for>
+<button type="button" class="btn" onClick="{{upload}}">{{uploadLabel}}</button>
+</div>
+</div>
+
+<sc-if value="{{scheduling}}" hint-placeholder-val="{{false}}"><div class="card stack g12"><h2 class="t1">Publish later</h2><div class="form"><div class="field"><label class="label" for="ev-pubdate">Publish on</label><input class="input" id="ev-pubdate" type="text" defaultValue="Monday, October 12, 2026"></div><div class="field"><label class="label" for="ev-pubtime">At</label><input class="input" id="ev-pubtime" type="text" defaultValue="9:00 AM"></div></div><p class="hint">Until then the event is a draft that only your team can see.</p></div></sc-if>
+<div class="savebar" role="region" aria-label="Save or publish this event">
+<p style="flex: 1 1 120px"><b>{{barText}}</b></p>
+<div class="row g8"><a class="btn quiet" href="OrgEvents.dc.html">Cancel</a><button type="button" class="btn" onClick="{{saveDraft}}">Save draft</button><button type="button" class="btn" onClick="{{toggleSchedule}}">{{scheduleLabel}}</button><a class="btn pri" href="OrgEventManage.dc.html">{{publishLabel}}</a></div>
+</div>
+</div>
+
+<aside class="col-side w stack g16 stick">
+<div class="card stack g12">
+<p class="eyebrow">Preview in discovery</p>
+<div class="row g12 nowrap"><span class="date"><b>23</b><span>Fri · Oct</span></span><span class="poster s {{tint}}" aria-hidden="true"><b>أ</b></span></div>
+<p class="eyebrow">Family · 6:30 PM</p>
+<p class="li-t">{{previewTitle}}</p>
+<p class="sm mut">Crescent House Masjid · {{whereText}}</p>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Good to know</p><ul class="ul sm"><li>Events are always free. There is no ticketing</li><li>Editing a published event emails everyone who RSVP’d when the date, time or place changes</li><li>Friday prayers are managed on their own page</li></ul></div>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  state = { title: '', place: 'host', tint: 'p-mint', draft: false, scheduling: false, uploaded: false };
+  renderVals() {
+    const s = this.state;
+    const t = (on) => (on ? 'true' : 'false');
+    const places = [['host', 'At our location'], ['offsite', 'Somewhere else'], ['online', 'Online']].map(([id, label]) => ({ label, cls: s.place === id ? 'on' : '', pressed: t(s.place === id), pick: () => this.setState({ place: id }) }));
+    const tints = [['p-mint', 'Green cover'], ['p-sand', 'Sand cover'], ['p-lilac', 'Lilac cover'], ['p-blue', 'Blue cover'], ['p-rose', 'Rose cover']].map(([id, label]) => ({
+      cls: id, label, pressed: t(s.tint === id), pick: () => this.setState({ tint: id }),
+      style: s.tint === id ? 'outline: 2px solid #c8efa4; outline-offset: 3px; cursor: pointer' : 'cursor: pointer'
+    }));
+    return {
+      title: s.title, onTitle: (ev) => this.setState({ title: ev.target.value }),
+      titleCount: s.title.length,
+      previewTitle: s.title.trim() || 'Your event title',
+      places, atHost: s.place === 'host', offsite: s.place === 'offsite', online: s.place === 'online',
+      whereText: s.place === 'host' ? 'At the masjid' : s.place === 'online' ? 'Online' : 'Offsite',
+      tints, tint: s.tint,
+      draftLabel: s.draft ? 'Draft saved just now' : 'Not saved yet', draftCls: s.draft ? '' : 'dirty',
+      barText: s.draft ? 'Draft saved' : 'Not saved yet',
+      saveDraft: () => this.setState({ draft: true }),
+      scheduling: s.scheduling,
+      scheduleLabel: s.scheduling ? 'Publish now instead' : 'Schedule',
+      toggleSchedule: () => this.setState({ scheduling: !s.scheduling }),
+      publishLabel: s.scheduling ? 'Schedule event' : 'Publish event',
+      uploadLabel: s.uploaded ? 'Photo added. Remove' : 'Upload a photo',
+      upload: () => this.setState({ uploaded: !s.uploaded })
+    };
+  }
+}
+</script>
+</body>
+</html>

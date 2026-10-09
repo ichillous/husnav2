@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Event RSVPs and check-in</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a class="on" href="OrgEvents.dc.html" aria-current="page">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgEvents.dc.html">Events</a><span aria-hidden="true">/</span><span>Open House</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><div class="row g12"><p class="eyebrow">Saturday, October 17 · 9:30 to 11:30 AM · At the masjid</p><span class="badge ok">Published</span></div><h1>Weekend Qur’an School Open House</h1></div>
+<div class="row g8"><a class="btn" href="Event.dc.html">View public page ↗</a><a class="btn" href="OrgEventEdit.dc.html">Edit event</a></div></div>
+
+<div class="stack g24">
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Places taken</p><b>34 <span class="sub" style="font-size: 24px">of 80</span></b><div class="meter mt8" aria-hidden="true"><i style="width: 42%"></i></div></div>
+<div class="stat"><p class="eyebrow q">RSVPs</p><b>14</b><span>households</span></div>
+<div class="stat"><p class="eyebrow q">Checked in</p><b>{{inCount}}</b><span>of 34 expected</span></div>
+<div class="stat"><p class="eyebrow q">Public page views</p><b>212</b><span>since October 1</span></div>
+</div>
+
+<div class="row between g12">
+<div class="search grow" role="search" style="max-width: 420px; padding-right: 16px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg><input type="search" aria-label="Find a name" placeholder="Find a name" value="{{q}}" onInput="{{onQ}}"></div>
+<div class="row g8"><button type="button" class="btn" onClick="{{toggleMsg}}">Message everyone going</button><button type="button" class="btn" onClick="{{exportList}}">{{exportLabel}}</button></div>
+</div>
+
+<sc-if value="{{msgOpen}}" hint-placeholder-val="{{false}}">
+<div class="card stack g12">
+<h2 class="t1">Message the 14 households going</h2>
+<div class="field"><label class="label" for="em-msg">Message</label><textarea class="textarea" id="em-msg" style="min-height: 96px" placeholder="For example: parking is in the north lot. Please use the side entrance."></textarea><span class="hint">Sent by email and as a Husna notification, from Crescent House Masjid.</span></div>
+<div class="row g8 end"><button type="button" class="btn" onClick="{{toggleMsg}}">Cancel</button><button type="button" class="btn pri" onClick="{{sendMsg}}">Send to 14 households</button></div>
+</div>
+</sc-if>
+<sc-if value="{{msgSent}}" hint-placeholder-val="{{false}}"><div class="note ok" role="status">Message sent to 14 households.</div></sc-if>
+
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Name</th><th>Places</th><th>Note</th><th>RSVP’d</th><th>At the door</th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+<tr><td><span class="b">{{r.name}}</span><small>{{r.who}}</small></td><td class="tnum">{{r.places}}</td><td class="mut">{{r.note}}</td><td class="nw sub">{{r.when}}</td><td><button type="button" class="btn sm {{r.cls}}" aria-pressed="{{r.pressed}}" onClick="{{r.toggle}}">{{r.label}}</button></td></tr>
+</sc-for>
+</tbody></table></div>
+<sc-if value="{{noRows}}" hint-placeholder-val="{{false}}"><p class="mut c">No one by that name has RSVP’d.</p></sc-if>
+<p class="sm sub">Showing {{shown}} of 14 households. Check-in opens one hour before the start and works on a phone at the door.</p>
+
+<div class="card" style="border-color: rgba(255,159,142,.4)"><div class="row between g16">
+<div class="stack g4 grow" style="min-width: 260px"><h2 class="t1">Cancel this event</h2><p class="sm mut">Everyone who RSVP’d is emailed at once, and the event shows as cancelled on your profile for a week.</p></div>
+<sc-if value="{{cancelIdle}}" hint-placeholder-val="{{true}}"><button type="button" class="btn danger" onClick="{{askCancel}}">Cancel event</button></sc-if>
+<sc-if value="{{cancelAsk}}" hint-placeholder-val="{{false}}"><div class="row g8"><a class="btn danger" href="OrgEvents.dc.html">Yes, cancel and notify 14 households</a><button type="button" class="btn" onClick="{{keep}}">Keep the event</button></div></sc-if>
+</div></div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  state = { q: '', checked: {}, msg: 'closed', exported: false, cancel: false };
+  renderVals() {
+    const s = this.state;
+    const all = [
+      ['Amina Farah', 'With Yusuf and Maryam', 3, '', 'Oct 7'],
+      ['Hodan Ali', 'With 1 guest', 2, 'Coming with my niece', 'Oct 7'],
+      ['Yasmin Idris', 'With Sumaya and Adam', 3, 'Happy to help set up chairs', 'Oct 6'],
+      ['Tariq Abdi', 'With Ilyas', 2, '', 'Oct 6'],
+      ['Leila Haddad', 'With Layla and 2 guests', 4, 'We may arrive closer to 10', 'Oct 5'],
+      ['Mustafa Karim', 'With Zayd', 2, '', 'Oct 5'],
+      ['Sahra Noor', 'With Fatima and Zakariya', 3, 'Interested in Level 3', 'Oct 4'],
+      ['Rahma Abdi', 'With Hafsa', 2, '', 'Oct 4'],
+      ['Imran Siddiqui', 'With Adam and Nura', 3, '', 'Oct 3'],
+      ['Khadra Jama', 'With 1 guest', 2, '', 'Oct 3'],
+      ['Omar Bakr', 'With Musa', 2, '', 'Oct 2'],
+      ['Zeynep Yildiz', 'With Hana', 2, 'Is there parking?', 'Oct 2'],
+      ['Nasra Warsame', 'With Idris', 2, '', 'Oct 1'],
+      ['Dahir Mohamud', 'With Maryan', 2, '', 'Oct 1']
+    ];
+    const q = s.q.trim().toLowerCase();
+    const rows = all.filter((r) => !q || (r[0] + ' ' + r[1]).toLowerCase().includes(q)).map(([name, who, places, note, when]) => ({
+      name, who, places, note, when,
+      cls: s.checked[name] ? 'pri' : '', pressed: s.checked[name] ? 'true' : 'false',
+      label: s.checked[name] ? 'Checked in' : 'Check in',
+      toggle: () => this.setState({ checked: { ...s.checked, [name]: !s.checked[name] } })
+    }));
+    const inCount = all.filter((r) => s.checked[r[0]]).reduce((a, r) => a + r[2], 0);
+    return {
+      q: s.q, onQ: (ev) => this.setState({ q: ev.target.value }),
+      rows, noRows: rows.length === 0, shown: rows.length, inCount,
+      msgOpen: s.msg === 'open', msgSent: s.msg === 'sent',
+      toggleMsg: () => this.setState({ msg: s.msg === 'open' ? 'closed' : 'open' }),
+      sendMsg: () => this.setState({ msg: 'sent' }),
+      exportLabel: s.exported ? 'List downloaded (CSV)' : 'Download list (CSV)',
+      exportList: () => this.setState({ exported: true }),
+      cancelIdle: !s.cancel, cancelAsk: s.cancel,
+      askCancel: () => this.setState({ cancel: true }), keep: () => this.setState({ cancel: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

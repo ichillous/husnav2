@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Withdraw from a class</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="wd-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Weekend Qur’an School</p><h1 class="d3" id="wd-title">Withdraw Yusuf from Level 2 · Reading?</h1></div>
+<a class="ibtn" href="Child.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+
+<sc-if value="{{asking}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<p class="mut">His place is released to the next family on the waitlist. His attendance and progress stay on his page.</p>
+<div class="form">
+<div class="field"><label class="label" for="wd-last">Last day in class</label><select class="select" id="wd-last"><option>Sunday, November 15 (already attended)</option><option>Sunday, November 22</option><option>Sunday, December 6</option></select></div>
+<div class="field"><label class="label" for="wd-why">Reason</label><select class="select" id="wd-why"><option>Schedule no longer works</option><option>Moving away</option><option>Cost</option><option>Class is not the right fit</option><option>Other</option></select></div>
+<div class="field full"><label class="label" for="wd-note">Anything the school should know <i>(optional)</i></label><textarea class="textarea" id="wd-note" style="min-height: 84px"></textarea></div>
+</div>
+<div class="note"><div class="stack g4"><span class="b ink">Estimated credit: $120.00</span><span>4 of 8 weekends remain. Under the school’s refund policy, tuition is returned for the weekends that remain. The school confirms the final amount and takes it off your November 24 payment.</span></div></div>
+<div class="row g8 end"><a class="btn" href="Child.dc.html">Keep his place</a><button type="button" class="btn danger" onClick="{{send}}">Request withdrawal</button></div>
+<p class="xs sub">If cost is the reason, you can <a class="link" href="Messages.dc.html">ask the school about financial assistance</a> instead.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Request sent to the school office.</span><span>They confirm within three days. Until then Yusuf keeps his place and may attend.</span></div></div>
+<a class="btn pri block" href="Child.dc.html">Back to Yusuf’s page</a>
+<button type="button" class="btn quiet block" onClick="{{undo}}">Cancel the request</button>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":700}}'>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return { asking: !this.state.sent, sent: this.state.sent, send: () => this.setState({ sent: true }), undo: () => this.setState({ sent: false }) };
+  }
+}
+</script>
+</body>
+</html>

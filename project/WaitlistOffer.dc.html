@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A waitlist place opened</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="wl-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Weekend Qur’an School · Crescent House Masjid</p><h1 class="d3" id="wl-title">{{heading}}</h1></div>
+<a class="ibtn" href="Family.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{deciding}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="note warn"><span><span class="b ink">Held for you until Saturday, October 10 at 10:00 AM.</span> After that it is offered to the next family and Zakariya goes back to the top of the waitlist.</span></div>
+<dl class="kv"><dt>Child</dt><dd>Zakariya Noor, 12</dd><dt>Class</dt><dd>Level 3 · Memorization · Ustadh Hamza Malik · Room 4</dd><dt>Meets</dt><dd>Saturday and Sunday, 9:00 AM to 12:30 PM</dd><dt>First day</dt><dd>Saturday, October 24</dd><dt>Tuition</dt><dd>$240.00 for the fall term</dd></dl>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">How would you like to pay?</legend>
+<label class="pick"><input type="radio" name="wlplan" checked><span class="grow stack g4"><span class="b">Two payments</span><span class="sm mut">$120.00 when you accept, $120.00 on November 24. No extra cost</span></span></label>
+<label class="pick"><input type="radio" name="wlplan"><span class="grow stack g4"><span class="b">One payment</span><span class="sm mut">$240.00 when you accept</span></span></label>
+</fieldset>
+<div class="row between g12"><div class="row g12 nowrap"><span class="av sq" aria-hidden="true">V</span><div class="stack g4"><span class="b">Visa ending 7731</span><span class="sm mut">Saved when you applied</span></div></div><a class="btn sm" href="Stripe.dc.html#card">Change</a></div>
+<div class="stack g8">
+<button type="button" class="btn pri xl block" onClick="{{accept}}">Accept the place</button>
+<a class="btn quiet block" href="Family.dc.html">Decide later</a>
+</div>
+<sc-if value="{{notLeaving}}" hint-placeholder-val="{{true}}"><p class="sm sub c">No longer need it? <button type="button" class="btn quiet sm" onClick="{{askLeave}}">Leave the waitlist</button></p></sc-if>
+<sc-if value="{{leaving}}" hint-placeholder-val="{{false}}"><div class="note bad"><div class="stack g12"><span>Leave the Level 3 waitlist? The place goes to the next family now, and Zakariya’s application is closed. You can apply again next term.</span><div class="row g8"><button type="button" class="btn danger sm" onClick="{{leave}}">Yes, leave the waitlist</button><button type="button" class="btn sm" onClick="{{cancelLeave}}">Stay on it</button></div></div></div></sc-if>
+<p class="xs sub">The agreements you signed when you applied cover this class. Refunds follow the school’s policy: full refund until October 24.</p>
+</div>
+</sc-if>
+<sc-if value="{{accepted}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Zakariya has his place in Level 3 · Memorization.</span><span>We charged $120.00 to Visa ending 7731. The receipt is in your email and under Payments. The first day is Saturday, October 24 at 9:00 AM in Room 4.</span></div></div>
+<div class="row g8"><a class="btn pri" href="Child.dc.html">Open his class page</a><a class="btn" href="Payments.dc.html">View receipt</a></div>
+</div>
+</sc-if>
+<sc-if value="{{left}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note" role="status"><div class="stack g4"><span class="b ink">You left the waitlist.</span><span>Nothing was charged and the saved card is no longer attached to this application.</span></div></div>
+<a class="btn pri block" href="Family.dc.html">Back to my family</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":980}}'>
+class Component extends DCLogic {
+state = { step: 'deciding', leaving: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      deciding: s.step === 'deciding', accepted: s.step === 'accepted', left: s.step === 'left',
+      heading: s.step === 'accepted' ? 'Place accepted.' : s.step === 'left' ? 'Waitlist left.' : 'A place opened in Level 3.',
+      accept: () => this.setState({ step: 'accepted' }),
+      leaving: s.leaving, notLeaving: !s.leaving,
+      askLeave: () => this.setState({ leaving: true }), cancelLeave: () => this.setState({ leaving: false }),
+      leave: () => this.setState({ step: 'left' })
+    };
+  }
+}
+</script>
+</body>
+</html>

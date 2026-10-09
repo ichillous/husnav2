@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Start the next term</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="nt-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Weekend Qur’an School</p><h1 class="d3" id="nt-title">Set up the <em>winter term.</em></h1></div>
+<a class="ibtn" href="OrgPrograms.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<div class="stack g20">
+<p class="mut">Start from the fall setup and change only what is different. Nothing is public until you review it and open enrollment.</p>
+<div class="form">
+<div class="field full"><label class="label" for="nt-name">Term name</label><input class="input" id="nt-name" type="text" defaultValue="Winter 2027"></div>
+<div class="field"><label class="label" for="nt-start">First day</label><input class="input" id="nt-start" type="text" defaultValue="Saturday, January 9, 2027"></div>
+<div class="field"><label class="label" for="nt-end">Last day</label><input class="input" id="nt-end" type="text" defaultValue="Sunday, March 7, 2027"></div>
+</div>
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 4px">Copy from Fall 2026</legend>
+<label class="check"><input type="checkbox" checked><span><span class="ink b">Classes, rooms and teachers</span> · 4 classes, 58 places</span></label>
+<label class="check"><input type="checkbox" checked><span><span class="ink b">Tuition and payment plan</span> · $240, 15% sibling discount, two payments</span></label>
+<label class="check"><input type="checkbox" checked><span><span class="ink b">Enrollment form and agreements</span> · families sign again for the new term</span></label>
+<label class="check"><input type="checkbox"><span><span class="ink b">Class lists</span> · move every current student into the same level</span></label>
+</fieldset>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">Who can enroll first?</legend>
+<label class="pick"><input type="radio" name="ntwho" checked><span class="stack g4"><span class="b">Current families first</span><span class="sm mut">The 38 enrolled families get one week to keep their places, then enrollment opens to everyone.</span></span></label>
+<label class="pick"><input type="radio" name="ntwho"><span class="stack g4"><span class="b">Everyone at once</span><span class="sm mut">Places go in the order families apply.</span></span></label>
+</fieldset>
+<div class="form">
+<div class="field"><label class="label" for="nt-open">Current families from</label><input class="input" id="nt-open" type="text" defaultValue="Monday, December 7, 2026"></div>
+<div class="field"><label class="label" for="nt-all">Everyone from</label><input class="input" id="nt-all" type="text" defaultValue="Monday, December 14, 2026"></div>
+</div>
+<div class="row g8 end"><a class="btn" href="OrgPrograms.dc.html">Cancel</a><a class="btn pri" href="OrgProgramEdit.dc.html">Create the term and review it</a></div>
+<p class="xs sub">Current families are told by email and on each child’s page when their week opens.</p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

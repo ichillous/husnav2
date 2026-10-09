@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Activity log</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a class="on" href="OrgSettings.dc.html" aria-current="page">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgSettings.dc.html">Settings</a><span aria-hidden="true">/</span><span>Activity log</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Activity log</h1><p>Who did what in this workspace, including every time a child’s health notes or family contacts were opened. Kept for [RETENTION PERIOD]. It cannot be edited.</p></div>
+<div class="row g8"><button type="button" class="btn" onClick="{{exportCsv}}">{{exportLabel}}</button></div></div>
+
+<div class="stack g16">
+<div class="row g12">
+<div class="search grow" role="search" style="min-width: 260px; padding-right: 16px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg><input type="search" aria-label="Search by person, student or action" placeholder="Search by person, student or action" value="{{q}}" onInput="{{onQ}}"></div>
+<div class="row g8" role="group" aria-label="Kind of activity"><sc-for list="{{kinds}}" as="k" hint-placeholder-count="5"><button type="button" class="chip {{k.cls}}" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}">{{k.label}}</button></sc-for></div>
+</div>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>When</th><th>Who</th><th>What</th><th>Kind</th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12"><tr><td class="nw sub">{{r.when}}</td><td><span class="b">{{r.who}}</span><small>{{r.role}}</small></td><td>{{r.what}}</td><td><span class="badge {{r.cls}}">{{r.kind}}</span></td></tr></sc-for>
+</tbody></table></div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}"><div class="card c stack g12" style="align-items: center; padding: 40px 24px"><h2 class="d4">Nothing matches.</h2><button type="button" class="btn" onClick="{{reset}}">Clear search and filter</button></div></sc-if>
+<p class="sm sub">Showing {{count}} of 214 entries since October 1. Husna staff who open this workspace appear here too, with the reason they gave.</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+state = { q: '', kind: 'All', exported: false };
+  renderVals() {
+    const s = this.state;
+    const all = [
+      ['Today, 10:05 AM', 'Khadija Osman', 'Owner', 'Replied to Amina Farah in the inbox', 'Messages'],
+      ['Today, 9:58 AM', 'Ustadha Noor Hassan', 'School director', 'Opened health notes for Yusuf Farah', 'Records viewed'],
+      ['Today, 9:57 AM', 'Ustadha Noor Hassan', 'School director', 'Opened the application for Yusuf and Maryam Farah', 'Records viewed'],
+      ['Today, 8:31 AM', 'Khadija Osman', 'Owner', 'Published the event Weekend Qur’an School Open House', 'Changes'],
+      ['Yesterday, 4:12 PM', 'Khadija Osman', 'Owner', 'Changed Level 4 · Teens from 10 to 12 places', 'Changes'],
+      ['Yesterday, 2:40 PM', 'Imam Adam Rahman', 'Admin', 'Posted Friday services for October 9', 'Changes'],
+      ['Oct 6, 4:12 PM', 'Khadija Osman', 'Owner', 'Opened enrollment for Weekend Qur’an School', 'Changes'],
+      ['Oct 6, 11:20 AM', 'Khadija Osman', 'Owner', 'Invited Tariq Abdi as Finance', 'Team'],
+      ['Oct 5, 4:30 PM', 'Khadija Osman', 'Owner', 'Created the payment link Community hall booking deposit, $150.00', 'Money'],
+      ['Oct 2, 3:05 PM', 'Khadija Osman', 'Owner', 'Connected payouts with Stripe', 'Money'],
+      ['Oct 2, 1:18 PM', 'Isiah, Husna staff', 'Read-only view', 'Viewed this workspace for 12 minutes. Reason given: helping with payout setup', 'Records viewed'],
+      ['Oct 1, 9:02 AM', 'Husna', 'System', 'Verified Crescent House Masjid', 'Changes']
+    ];
+    const cls = { 'Records viewed': 'info', 'Money': 'warn', 'Team': '', 'Changes': 'ok', 'Messages': '' };
+    const q = s.q.trim().toLowerCase();
+    const rows = all.filter((r) => (s.kind === 'All' || r[4] === s.kind) && (!q || r.join(' ').toLowerCase().includes(q))).map(([when, who, role, what, kind]) => ({ when, who, role, what, kind, cls: cls[kind] }));
+    return {
+      rows, count: rows.length, empty: rows.length === 0,
+      q: s.q, onQ: (ev) => this.setState({ q: ev.target.value }),
+      kinds: ['All', 'Records viewed', 'Changes', 'Money', 'Team'].map((label) => ({ label, cls: s.kind === label ? 'on' : '', pressed: s.kind === label ? 'true' : 'false', pick: () => this.setState({ kind: label }) })),
+      reset: () => this.setState({ q: '', kind: 'All' }),
+      exportLabel: s.exported ? 'Downloaded (CSV)' : 'Export (CSV)', exportCsv: () => this.setState({ exported: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

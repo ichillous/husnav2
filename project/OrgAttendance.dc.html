@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Take attendance</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications</a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a class="on" href="OrgAttendance.dc.html" aria-current="page">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgRoster.dc.html">Level 2 · Reading</a><span aria-hidden="true">/</span><span>Attendance</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><p class="eyebrow">Saturday, November 14 · 9:04 AM</p><h1>Level 2 · Reading</h1><p>Ustadh Bilal Ahmed · Room 3. Tap once for each student. It saves as you go, and works on a phone.</p></div>
+<div class="row g8">
+<div class="field"><label class="label xs" for="at-class">Class</label><select class="select" id="at-class" style="min-height: 44px; padding-block: 8px"><option>Level 1 · Foundations</option><option selected="">Level 2 · Reading</option><option>Level 3 · Memorization</option><option>Level 4 · Teens</option></select></div>
+<div class="field"><label class="label xs" for="at-day">Day</label><select class="select" id="at-day" style="min-height: 44px; padding-block: 8px"><option>Sun, Nov 8</option><option selected="">Sat, Nov 14 (today)</option><option>Sun, Nov 15</option></select></div>
+<a class="btn" href="DocSignIn.dc.html" style="align-self: flex-end">Print sign-in sheet</a><a class="btn" href="OrgAttendanceTerm.dc.html" style="align-self: flex-end">See the whole term</a><a class="btn" href="OrgAttendanceTerm.dc.html" style="align-self: flex-end">See the whole term</a>
+</div></div>
+
+<div class="stack g16">
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Present</p><b>{{nPresent}}</b><span>including late</span></div>
+<div class="stat"><p class="eyebrow q">Late</p><b>{{nLate}}</b><span>after 9:10 AM</span></div>
+<div class="stat"><p class="eyebrow q">Absent</p><b>{{nAbsent}}</b><span>{{excusedText}}</span></div>
+<div class="stat"><p class="eyebrow q">Not marked</p><b>{{nBlank}}</b><span>of 16 students</span></div>
+</div>
+
+<div class="row between g12">
+<div class="row g8"><button type="button" class="btn" onClick="{{allPresent}}">Mark the rest present</button><button type="button" class="btn quiet" onClick="{{clear}}">Clear all</button></div>
+<span class="sm {{saveCls}}" role="status">{{saveText}}</span>
+</div>
+
+<div class="card p0"><div class="list in">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="16">
+<div class="li" style="flex-wrap: wrap"><span class="av" aria-hidden="true">{{r.initial}}</span><span class="grow stack g4" style="min-width: 180px"><a class="b" href="OrgStudent.dc.html" style="color: inherit; text-decoration: none">{{r.name}}</a><span class="sm {{r.noteCls}}">{{r.note}}</span></span>
+<span class="seg" role="group" aria-label="{{r.groupLabel}}"><button type="button" class="{{r.pCls}}" aria-pressed="{{r.pPressed}}" onClick="{{r.setP}}">Present</button><button type="button" class="{{r.lCls}}" aria-pressed="{{r.lPressed}}" onClick="{{r.setL}}">Late</button><button type="button" class="{{r.aCls}}" aria-pressed="{{r.aPressed}}" onClick="{{r.setA}}">Absent</button></span></div>
+</sc-for>
+</div></div>
+
+<div class="card"><div class="row between g16">
+<div class="stack g4 grow" style="min-width: 260px"><h2 class="t1">When you finish</h2><p class="sm mut">Families of students marked absent without an excuse get a text and an email at 9:30 AM asking them to confirm. Excused absences reported by parents are already filled in.</p></div>
+<button type="button" class="btn pri xl {{doneCls}}" onClick="{{finish}}">{{doneLabel}}</button>
+</div></div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2120}}'>
+class Component extends DCLogic {
+  state = { marks: { 'Yusuf Farah': 'P', 'Ilyas Abdi': 'P', 'Aisha Rahman': 'P', 'Safiya Hussein': 'A', 'Omar Abdi': 'L', 'Layla Haddad': 'P' }, finished: false };
+  renderVals() {
+    const s = this.state;
+    const names = 'Yusuf Farah,Ilyas Abdi,Aisha Rahman,Safiya Hussein,Omar Abdi,Layla Haddad,Sami Salim,Amal Jama,Yahya Bakr,Hana Yildiz,Zayd Karim,Sumaya Ali,Adam Siddiqui,Nura Warsame,Idris Khan,Maryan Dahir'.split(',');
+    const notes = { 'Yusuf Farah': ['Peanut allergy · no photos', 'warn-t'], 'Safiya Hussein': ['Excused · parent reported: sick', 'sub'], 'Sami Salim': ['Wears glasses, sits near the front', 'sub'] };
+    const set = (name, v) => () => this.setState({ marks: { ...s.marks, [name]: s.marks[name] === v ? undefined : v }, finished: false });
+    const on = (b) => (b ? 'on' : ''), pr = (b) => (b ? 'true' : 'false');
+    const rows = names.map((name) => {
+      const m = s.marks[name];
+      return {
+        name, initial: name[0], groupLabel: 'Attendance for ' + name,
+        note: (notes[name] || ['', ''])[0], noteCls: (notes[name] || ['', 'sub'])[1],
+        pCls: on(m === 'P'), lCls: on(m === 'L'), aCls: on(m === 'A'),
+        pPressed: pr(m === 'P'), lPressed: pr(m === 'L'), aPressed: pr(m === 'A'),
+        setP: set(name, 'P'), setL: set(name, 'L'), setA: set(name, 'A')
+      };
+    });
+    const count = (v) => names.filter((n) => s.marks[n] === v).length;
+    const nLate = count('L'), nAbsent = count('A'), nP = count('P');
+    const nBlank = names.length - nLate - nAbsent - nP;
+    const excused = s.marks['Safiya Hussein'] === 'A' ? 1 : 0;
+    return {
+      rows, nPresent: nP + nLate, nLate, nAbsent, nBlank,
+      excusedText: nAbsent === 0 ? 'no one yet' : excused + ' excused',
+      allPresent: () => { const marks = { ...s.marks }; names.forEach((n) => { if (!marks[n]) marks[n] = 'P'; }); this.setState({ marks, finished: false }); },
+      clear: () => this.setState({ marks: {}, finished: false }),
+      saveText: s.finished ? 'Attendance complete at 9:06 AM' : 'Saved as you go',
+      saveCls: s.finished ? 'acc' : 'sub',
+      doneCls: nBlank > 0 ? 'off' : '',
+      doneLabel: s.finished ? 'Done. Reopen to edit' : nBlank > 0 ? nBlank + ' students left to mark' : 'Finish attendance',
+      finish: () => { if (nBlank === 0) this.setState({ finished: !s.finished }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

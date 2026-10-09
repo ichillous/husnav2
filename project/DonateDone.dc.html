@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Donation receipt</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet stack g20" role="dialog" aria-modal="true" aria-labelledby="dd-title">
+<div class="stack g8"><p class="eyebrow">Payment received</p><h1 class="d3" id="dd-title">Thank you. <em>Your gift is on its way.</em></h1><p class="mut">A receipt has been emailed to you. Crescent House Masjid has been told about your gift.</p></div>
+<div class="card flat">
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)">
+<dt>Amount</dt><dd class="b">$50.00</dd>
+<dt>To</dt><dd>Crescent House Masjid</dd>
+<dt>Fund</dt><dd>General fund</dd>
+<dt>Frequency</dt><dd>One time</dd>
+<dt>Paid with</dt><dd>Visa ending 4242</dd>
+<dt>Date</dt><dd>October 8, 2026, 10:42 AM</dd>
+<dt>Receipt</dt><dd class="tnum">HD-10482</dd>
+</dl>
+</div>
+<div class="stack g8">
+<button type="button" class="btn block" onClick="{{download}}">{{downloadLabel}}</button>
+<a class="btn pri block" href="OrgProfile.dc.html">Back to Crescent House Masjid</a>
+</div>
+<p class="sm sub c">Keep every receipt in one place. <a class="link" href="SignUp.dc.html">Create a free account</a></p>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":660}}'>
+class Component extends DCLogic {
+  state = { done: false };
+  renderVals() {
+    return {
+      downloadLabel: this.state.done ? 'Receipt downloaded (PDF)' : 'Download receipt (PDF)',
+      download: () => this.setState({ done: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

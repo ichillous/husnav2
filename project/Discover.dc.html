@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discover events in Columbus</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}">
+<div>
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a class="on" href="Discover.dc.html" aria-current="page">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}">
+<div>
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a class="on" href="Discover.dc.html" aria-current="page">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+
+<div class="row between bottom g24">
+<div class="stack g12">
+<p class="eyebrow">Columbus · October 2026</p>
+<h1 class="d2">The good stuff<br><em>is happening.</em></h1>
+<p class="lede">Everything on the Columbus calendar, soonest first. Every event on Husna is free to attend.</p>
+</div>
+<div class="r"><div class="serif" style="font-size: 76px; line-height: 1">{{count}}</div><div class="eyebrow q">{{countLabel}}</div></div>
+</div>
+
+<div class="stack g16">
+<div class="row g12">
+<div class="search grow" role="search" style="min-width: 260px; padding-right: 16px">
+<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg>
+<input type="search" aria-label="Search events, topics or hosts" placeholder="Search events, topics or hosts" value="{{q}}" onInput="{{onSearch}}">
+</div>
+<div class="seg" role="group" aria-label="When">
+<sc-for list="{{whens}}" as="w" hint-placeholder-count="3"><button type="button" class="{{w.cls}}" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}">{{w.label}}</button></sc-for>
+</div>
+</div>
+<div class="row g8" role="group" aria-label="Category">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="6"><button type="button" class="chip {{c.cls}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+</div>
+
+<div class="split">
+<div class="col-main stack g8">
+<div class="row between sm sub" style="padding-bottom: 10px; border-bottom: 1px solid rgba(232,249,229,.13)"><span role="status">{{count}} {{countLabel}}</span><span>Soonest first</span></div>
+<div class="list">
+<sc-for list="{{events}}" as="e" hint-placeholder-count="9">
+<a class="li" href="Event.dc.html"><span class="date"><b>{{e.day}}</b><span>{{e.dow}}</span></span><span class="poster s {{e.tint}}" aria-hidden="true"><b>{{e.glyph}}</b></span><span class="grow stack g4"><span class="eyebrow">{{e.cat}} · {{e.time}}</span><span class="li-t">{{e.title}}</span><span class="sm mut">{{e.org}} · {{e.where}}</span></span><span class="go" aria-hidden="true">↗</span></a>
+</sc-for>
+</div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g12" style="align-items: center; padding: 56px 24px">
+<h2 class="d3">Nothing quite matches.</h2>
+<p class="mut">Try another word, or widen the dates and category.</p>
+<button type="button" class="btn" onClick="{{reset}}">Clear search and filters</button>
+</div>
+</sc-if>
+</div>
+
+<aside class="col-side stack g16">
+<div class="card stack g16">
+<p class="eyebrow">This Friday · October 9</p>
+<h2 class="d3">Know your <em>Jumu’ah.</em></h2>
+<p class="sm mut">Three services at Crescent House Masjid. Pick the time that works.</p>
+<ul class="list">
+<li class="li" style="padding: 12px 0"><span class="serif nw" style="font-size: 24px; flex: 0 0 96px">1:30 PM</span><span class="sm mut">Imam Adam Rahman</span></li>
+<li class="li" style="padding: 12px 0"><span class="serif nw" style="font-size: 24px; flex: 0 0 96px">2:30 PM</span><span class="sm mut">Shaykh Yusuf Ali</span></li>
+<li class="li" style="padding: 12px 0"><span class="serif nw" style="font-size: 24px; flex: 0 0 96px">3:30 PM</span><span class="sm mut">Ustadh Hamza Malik</span></li>
+</ul>
+<a class="link" href="Friday.dc.html">See topics and languages →</a>
+</div>
+<a class="card tint" href="Program.dc.html"><span class="stack g12"><span class="eyebrow">Enrollment open until October 18</span><span class="d4">Weekend Qur’an School</span><span class="sm mut">Ages 5 to 15 at Crescent House Masjid. Saturday and Sunday mornings from October 24.</span><span class="sm b acc">See classes and enroll →</span></span></a>
+<div class="card stack g12">
+<p class="eyebrow">Keep the connection going</p>
+<h2 class="d4">Every event has people behind it.</h2>
+<p class="sm mut">Meet the organizations, their programs and the causes they care about.</p>
+<a class="link" href="Organizations.dc.html">Browse organizations →</a>
+</div>
+</aside>
+</div>
+
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Visitor","Member"],"default":"Visitor"},"$preview":{"width":1440,"height":1860}}'>
+class Component extends DCLogic {
+  state = { q: '', cat: 'All', when: 'any' };
+  renderVals() {
+    const s = this.state;
+    const member = (this.props.viewer ?? 'Visitor') === 'Member';
+    const all = [
+      { d: 9, day: '09', dow: 'Fri · Oct', cat: 'Prayer', time: '1:30 PM', title: 'Friday Prayer: Showing Up for One Another', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'ج', tint: 'p-mint' },
+      { d: 9, day: '09', dow: 'Fri · Oct', cat: 'Community', time: '6:30 PM', title: 'Newcomers & Neighbors Night', org: 'Mosaic Muslim Collective', where: 'At the community hub', glyph: 'م', tint: 'p-lilac' },
+      { d: 10, day: '10', dow: 'Sat · Oct', cat: 'Learning', time: '10:00 AM', title: 'Qur’an & Coffee: Saturday Reflections', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'ق', tint: 'p-sand' },
+      { d: 11, day: '11', dow: 'Sun · Oct', cat: 'Family', time: '11:00 AM', title: 'Families in Nature: Autumn Walk', org: 'Mosaic Muslim Collective', where: 'Offsite, metro park meeting point', glyph: 'أ', tint: 'p-blue' },
+      { d: 13, day: '13', dow: 'Tue · Oct', cat: 'Learning', time: '6:00 PM', title: 'English Conversation Circle', org: 'Crescent House Masjid', where: 'Online', glyph: 'ل', tint: 'p-rose' },
+      { d: 14, day: '14', dow: 'Wed · Oct', cat: 'Youth', time: '5:30 PM', title: 'Youth Makers Lab', org: 'Mosaic Muslim Collective', where: 'At the community hub', glyph: 'ش', tint: 'p-lilac' },
+      { d: 17, day: '17', dow: 'Sat · Oct', cat: 'Family', time: '9:30 AM', title: 'Weekend Qur’an School Open House', org: 'Crescent House Masjid', where: 'At the masjid', glyph: 'أ', tint: 'p-mint' },
+      { d: 17, day: '17', dow: 'Sat · Oct', cat: 'Learning', time: '1:00 PM', title: 'Arabic for Beginners: Welcome Session', org: 'Lantern Learning House', where: 'At the learning center', glyph: 'ع', tint: 'p-sand' },
+      { d: 18, day: '18', dow: 'Sun · Oct', cat: 'Community', time: '2:00 PM', title: 'Community Pantry Volunteer Day', org: 'Mosaic Muslim Collective', where: 'Offsite, partner pantry', glyph: 'م', tint: 'p-blue' }
+    ];
+    const q = s.q.trim().toLowerCase();
+    const inWhen = (e) => s.when === 'any' || (s.when === 'week' && e.d <= 14) || (s.when === 'weekend' && (e.d === 10 || e.d === 11));
+    const events = all.filter((e) => (s.cat === 'All' || e.cat === s.cat) && inWhen(e) && (!q || (e.title + ' ' + e.cat + ' ' + e.org + ' ' + e.where).toLowerCase().includes(q)));
+    const cats = ['All', 'Prayer', 'Learning', 'Community', 'Youth', 'Family'].map((label) => ({
+      label, cls: s.cat === label ? 'on' : '', pressed: s.cat === label ? 'true' : 'false', pick: () => this.setState({ cat: label })
+    }));
+    const whens = [['any', 'Any time'], ['week', 'This week'], ['weekend', 'This weekend']].map(([id, label]) => ({
+      label, cls: s.when === id ? 'on' : '', pressed: s.when === id ? 'true' : 'false', pick: () => this.setState({ when: id })
+    }));
+    return {
+      visitor: !member, member,
+      q: s.q,
+      onSearch: (ev) => this.setState({ q: ev.target.value }),
+      events, cats, whens,
+      count: String(events.length).padStart(2, '0'),
+      countLabel: events.length === 1 ? 'event found' : 'events found',
+      empty: events.length === 0,
+      reset: () => this.setState({ q: '', cat: 'All', when: 'any' })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Student record</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications</a>
+<a class="on" href="OrgRoster.dc.html" aria-current="page">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgRoster.dc.html">Level 2 · Reading</a><span aria-hidden="true">/</span><span>Yusuf Farah</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div class="row g20 nowrap"><span class="av lg" aria-hidden="true" style="width: 84px; height: 84px; font-size: 42px">Y</span><div><div class="row g12"><p class="eyebrow">Level 2 · Reading · Ustadh Bilal Ahmed</p><span class="badge ok">Enrolled</span></div><h1>Yusuf Farah</h1><p>Age 9 · Born March 14, 2017 · Grade 4 · Enrolled October 20</p></div></div>
+<div class="row g8"><a class="btn" href="OrgInbox.dc.html">Message the family</a><a class="btn pri" href="OrgAttendance.dc.html">Take attendance</a></div></div>
+
+<div class="note warn" style="margin-bottom: 20px"><div class="stack g4"><span class="b ink">Peanut allergy. Carries an auto-injector in his backpack.</span><span>No photos or video of this student. Both notes show on the attendance sheet.</span></div></div>
+
+<div class="split">
+<div class="col-main stack g24">
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">Attendance</h2><span class="sm sub">7 of 8 class days · 1 late · 1 excused absence</span></div>
+<div class="row g8">
+<span class="badge ok">Oct 24 · Present</span><span class="badge ok">Oct 25 · Present</span><span class="badge ok">Oct 31 · Present</span><span class="badge warn">Nov 1 · Late 9:20</span><span class="badge info">Nov 7 · Excused, sick</span><span class="badge ok">Nov 8 · Present</span><span class="badge ok">Nov 14 · Present</span><span class="badge ok">Nov 15 · Present</span>
+</div>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">Memorization this term</h2><span class="sm sub">Tap a surah to change it. Parents see this.</span></div>
+<div class="card stack g12">
+<div class="row g8">
+<sc-for list="{{surahs}}" as="x" hint-placeholder-count="8"><button type="button" class="chip {{x.cls}}" aria-pressed="{{x.pressed}}" onClick="{{x.toggle}}">{{x.name}}</button></sc-for>
+</div>
+<div class="stack g8"><div class="row between sm"><span class="b">{{doneCount}} of 8 memorized</span><span class="mut">Juz ‘Amma, second half</span></div><div class="meter" aria-hidden="true"><i style="{{meter}}"></i></div></div>
+</div>
+</div>
+
+<div class="stack g12">
+<h2 class="t1">Progress notes</h2>
+<div class="card stack g12">
+<div class="field"><label class="label" for="st-note">Add a note for the family</label><textarea class="textarea" id="st-note" style="min-height: 84px" placeholder="What went well this week, and what to practice at home." value="{{draft}}" onInput="{{onDraft}}"></textarea></div>
+<div class="row between g8"><label class="check"><input type="checkbox"><span>Staff only. Do not show this note to the family</span></label><button type="button" class="btn pri {{postCls}}" onClick="{{post}}">Post note</button></div>
+</div>
+<div class="list">
+<sc-for list="{{notes}}" as="n" hint-placeholder-count="3">
+<div class="li start"><span class="date"><b>{{n.day}}</b><span>{{n.mon}}</span></span><div class="grow stack g4"><p class="b">{{n.title}}</p><p class="mut">{{n.body}}</p><p class="sm sub">{{n.by}}</p></div></div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12">
+<p class="eyebrow">Parents and guardians</p>
+<div class="stack g4"><span class="b">Amina Farah · Mother</span><a class="link sm" href="tel:+16145550117">(614) 555-0117</a><a class="link sm" href="mailto:amina.farah@example.com">amina.farah@example.com</a></div>
+<div class="stack g4"><span class="b">Idris Farah · Father</span><a class="link sm" href="tel:+16145550126">(614) 555-0126</a></div>
+<hr class="hr">
+<p class="eyebrow q">Emergency contact</p>
+<div class="stack g4"><span class="b">Hodan Ali · Aunt</span><a class="link sm" href="tel:+16145550142">(614) 555-0142</a></div>
+<hr class="hr">
+<p class="eyebrow q">May pick up</p>
+<p class="sm mut">Amina Farah, Idris Farah, Hodan Ali</p>
+</div>
+
+<div class="card stack g12">
+<div class="row between"><p class="eyebrow">Tuition</p><span class="badge info">1 of 2 paid</span></div>
+<dl class="kv" style="grid-template-columns: 110px minmax(0, 1fr)"><dt>Term</dt><dd>$240.00</dd><dt>Paid</dt><dd>$120.00 on October 20</dd><dt>Due</dt><dd>$120.00 on November 24</dd><dt>Family</dt><dd>Sibling Maryam in Level 1</dd></dl>
+<a class="link sm" href="OrgPayouts.dc.html">Open tuition and payouts →</a>
+</div>
+
+<div class="card stack g12">
+<p class="eyebrow">Documents</p>
+<p class="sm mut">Enrollment agreements signed by Amina Farah on October 8. Emergency care consent given.</p>
+<a class="btn sm" href="DocEnrollment.dc.html">Open signed agreements (PDF)</a>
+</div>
+
+<div class="card stack g12">
+<p class="eyebrow q">Change enrollment</p>
+<div class="field"><label class="label" for="st-move">Move to another class</label><select class="select" id="st-move"><option>Level 2 · Reading (current)</option><option>Level 1 · Foundations · 2 places</option><option>Level 4 · Teens · 4 places</option></select></div>
+<button type="button" class="btn sm" onClick="{{move}}">{{moveLabel}}</button>
+<sc-if value="{{wIdle}}" hint-placeholder-val="{{true}}"><button type="button" class="btn sm danger" onClick="{{askW}}">Withdraw student</button></sc-if>
+<sc-if value="{{wAsk}}" hint-placeholder-val="{{false}}"><div class="note bad"><div class="stack g8"><span>Withdraw Yusuf from Level 2? His place opens, the family is emailed, and $120.00 is credited for the 4 weekends that remain.</span><div class="row g8"><a class="btn sm danger" href="OrgRoster.dc.html">Withdraw and credit</a><button type="button" class="btn sm" onClick="{{keepW}}">Cancel</button></div></div></div></sc-if>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1520}}'>
+class Component extends DCLogic {
+  state = { done: { 'Al-Qari‘ah': true, 'Al-‘Adiyat': true, 'Az-Zalzalah': true }, draft: '', posted: [], dl: false, moved: false, w: false };
+  renderVals() {
+    const s = this.state;
+    const names = ['Al-Qari‘ah', 'Al-‘Adiyat', 'Az-Zalzalah', 'Al-Bayyinah', 'Al-Qadr', 'Al-‘Alaq', 'At-Tin', 'Ash-Sharh'];
+    const surahs = names.map((name) => ({
+      name, cls: s.done[name] ? 'on' : '', pressed: s.done[name] ? 'true' : 'false',
+      toggle: () => this.setState({ done: { ...s.done, [name]: !s.done[name] } })
+    }));
+    const doneCount = names.filter((n) => s.done[n]).length;
+    const fixed = [
+      { day: '15', mon: 'Nov', title: 'Reading with tajwid is steadier', body: 'Read ayat 1 to 5 of Al-Bayyinah with only two stops. Please keep practicing the long vowels at home.', by: 'Ustadh Bilal Ahmed · visible to family' },
+      { day: '01', mon: 'Nov', title: 'Az-Zalzalah memorized', body: 'Recited the whole surah from memory with one prompt. Well done, Yusuf.', by: 'Ustadh Bilal Ahmed · visible to family' },
+      { day: '25', mon: 'Oct', title: 'Placement confirmed: Level 2', body: 'Reads slowly but accurately. Level 2 is the right class.', by: 'Ustadh Bilal Ahmed · visible to family' }
+    ];
+    const mine = s.posted.map((body) => ({ day: '15', mon: 'Nov', title: 'Note from the office', body, by: 'Khadija Osman · just now' }));
+    return {
+      surahs, doneCount, meter: 'width: ' + Math.round((doneCount / 8) * 100) + '%',
+      draft: s.draft, onDraft: (ev) => this.setState({ draft: ev.target.value }),
+      postCls: s.draft.trim() ? '' : 'off',
+      post: () => { if (s.draft.trim()) this.setState({ posted: [s.draft.trim(), ...s.posted], draft: '' }); },
+      notes: [...mine, ...fixed],
+      moveLabel: s.moved ? 'Moved. Family and teachers notified' : 'Move and notify the family',
+      move: () => this.setState({ moved: true }),
+      wIdle: !s.w, wAsk: s.w, askW: () => this.setState({ w: true }), keepW: () => this.setState({ w: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

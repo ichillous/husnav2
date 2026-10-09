@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TV: time for prayer</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#14201c}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="tv ">
+<div class="tv-pad" style="flex-direction: column; justify-content: space-between; gap: 0">
+<div style="display: flex; justify-content: space-between; align-items: center"><div class="tv-org"><span class="tv-logo" aria-hidden="true">C</span><span>Crescent House Masjid</span></div><span class="tv-pill">1:21 PM · Thursday, October 8</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 60px">
+<div class="tv-col" style="gap: 20px"><p class="tv-eb" style="font-size: 30px">Adhan</p><h1 style="margin: 0; font: 400 200px/.92 'Instrument Serif', serif; letter-spacing: -.03em">It is time<br>for <em>Dhuhr.</em></h1></div>
+<span lang="ar" dir="rtl" aria-hidden="true" style="font: 400 330px/1 'Amiri', serif; color: #c8efa4">الظهر</span>
+</div>
+<div class="tv-panel" style="display: flex; justify-content: space-between; align-items: center; padding: 28px 44px"><div class="tv-col" style="gap: 6px"><p class="tv-eb q">Iqamah at 1:45 PM</p><div style="font-size: 36px; color: #b4bfb7">Make your way to the prayer hall. Please silence your phone.</div></div>
+<div style="display: flex; align-items: baseline; gap: 20px"><span style="font: 600 30px/1 'DM Sans', sans-serif; color: #8b9b93">in</span><span class="tv-count" style="font-size: 110px">{{count}}</span></div></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+state = { n: 0 };
+  componentDidMount() { this._t = setInterval(() => this.setState({ n: this.state.n + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const f2 = (x) => String(x).padStart(2, '0');
+    const clock = (s) => { const h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60; return ((h + 11) % 12 + 1) + ':' + f2(m); };
+    const ap = (s) => (Math.floor(s / 3600) % 24 < 12 ? 'AM' : 'PM');
+    const cd = (s) => { s = Math.max(0, s); const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? h + ':' + f2(m) : String(m)) + ':' + f2(x); };
+
+    const start = 48060, iq = 49500, n = this.state.n % 600;
+    return { count: cd(iq - start - n) };
+  }
+}
+</script>
+</body>
+</html>

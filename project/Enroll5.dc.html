@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enroll, step 5: tuition</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack ctx" style="gap: 4px"><span class="eyebrow q">Enrolling in</span><span class="b">Weekend Qur’an School · Crescent House Masjid</span></div>
+<div class="row g12 push"><span class="sm sub">Saved 9:23 AM</span><a class="btn" href="MyHusna.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Fall term · October 24 to December 20</p><h1 class="d2">Tuition, <em>your way.</em></h1></div>
+<ol class="steps" aria-label="Enrollment progress"><li class="done"><small>Step 1 · Done</small>Children</li><li class="done"><small>Step 2 · Done</small>Classes</li><li class="done"><small>Step 3 · Done</small>Family and safety</li><li class="done"><small>Step 4 · Done</small>Agreements</li><li class="on" aria-current="step"><small>Step 5</small>Tuition</li></ol>
+
+<div class="split">
+<div class="col-main stack g16">
+
+<div class="card stack g16">
+<h2 class="t1">What you owe for the term</h2>
+<div class="tbl-wrap" style="background: none"><table class="tbl" style="min-width: 0">
+<tbody>
+<tr><td><span class="b">Yusuf Farah</span><small>Level 2 · Reading</small></td><td class="num">$240.00</td></tr>
+<tr><td><span class="b">Maryam Farah</span><small>Level 1 · Foundations</small></td><td class="num">$240.00</td></tr>
+<tr><td><span class="b">Sibling discount</span><small>15% off the second child</small></td><td class="num acc">−$36.00</td></tr>
+<tr><td class="b">Total for the fall term</td><td class="num serif" style="font-size: 30px">$444.00</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="card stack g12" role="group" aria-labelledby="e5-plan">
+<h2 class="t1" id="e5-plan">How would you like to pay?</h2>
+<sc-for list="{{plans}}" as="p" hint-placeholder-count="2">
+<button type="button" class="pick {{p.cls}}" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}"><span class="dot" aria-hidden="true"></span><span class="grow stack g4"><span class="b">{{p.title}}</span><span class="sm mut">{{p.detail}}</span></span><span class="serif nw" style="font-size: 26px">{{p.amount}}</span></button>
+</sc-for>
+</div>
+
+<div class="card stack g12">
+<div class="set" style="padding: 0; border: 0"><div class="stack g4"><h2 class="t1">Ask for financial assistance</h2><p class="sm mut">Only the school director sees this. Your children’s places do not depend on it.</p></div><button type="button" class="btn sm {{aidBtnCls}}" aria-pressed="{{aidPressed}}" onClick="{{toggleAid}}">{{aidLabel}}</button></div>
+<sc-if value="{{aid}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="form">
+<div class="field"><label class="label" for="e5-can">What can you pay for the term?</label><input class="input" id="e5-can" type="text" inputMode="decimal" placeholder="$ amount, or 0"></div>
+<div class="field full"><label class="label" for="e5-why">Anything the director should know <i>(optional)</i></label><textarea class="textarea" id="e5-why" style="min-height: 84px" placeholder="You do not need to explain."></textarea></div>
+</div>
+<div class="note ok">With a request in, nothing is charged until the director replies with an amount and you accept it.</div>
+</div>
+</sc-if>
+</div>
+
+<div class="card stack g12">
+<h2 class="t1">Payment method</h2>
+<sc-if value="{{noCard}}" hint-placeholder-val="{{true}}">
+<div class="stack g12">
+<p class="mut">Add a card or bank account. You enter the details on Stripe’s secure page; Husna and the school never see the full number.</p>
+<div><button type="button" class="btn" onClick="{{addCard}}">Add card or bank account on Stripe</button></div>
+</div>
+</sc-if>
+<sc-if value="{{hasCard}}" hint-placeholder-val="{{false}}">
+<div class="row between g12"><div class="row g12 nowrap"><span class="av sq" aria-hidden="true">V</span><div class="stack g4"><span class="b">Visa ending 4242</span><span class="sm mut">Expires 08/28 · Saved to your account</span></div></div><button type="button" class="btn sm" onClick="{{removeCard}}">Change</button></div>
+</sc-if>
+</div>
+
+<div class="note"><div class="stack g4"><span class="b ink">{{dueTitle}}</span><span>{{dueText}}</span></div></div>
+
+<div class="savebar step">
+<a class="btn" href="Enroll4.dc.html"><span aria-hidden="true">←</span> Back</a>
+<p role="status">{{submitHint}}</p>
+<a class="btn pri xl {{nextCls}}" href="Enroll6.dc.html">Submit enrollment</a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g16">
+<p class="eyebrow">Charged today</p>
+<p class="serif" style="font-size: 60px; line-height: 1">$0.00</p>
+<ol class="tl">
+<li class="now"><b>Today</b>You submit. Nothing is charged.</li>
+<li><b>By October 21</b>The school confirms each child’s place.</li>
+<li><b>On confirmation</b>{{firstCharge}}</li>
+<sc-if value="{{split}}" hint-placeholder-val="{{false}}"><li><b>November 24</b>Second payment of $222.00.</li></sc-if>
+</ol>
+</div>
+<div class="card stack g8"><p class="eyebrow q">If a child is waitlisted</p><p class="sm mut">Their tuition is left out of the charge. You pay for them only if a place opens and you accept it.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="ContactOrg.dc.html">Ask the school a question</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1680}}'>
+class Component extends DCLogic {
+  state = { plan: 'split', aid: false, card: false };
+  renderVals() {
+    const s = this.state;
+    const split = s.plan === 'split';
+    const plans = [
+      ['full', 'Pay in full', 'One payment when the school confirms the places', '$444.00'],
+      ['split', 'Two payments', 'Half on confirmation, half on November 24. No extra cost', '2 × $222.00']
+    ].map(([id, title, detail, amount]) => ({ title, detail, amount, cls: s.plan === id ? 'on' : '', pressed: s.plan === id ? 'true' : 'false', pick: () => this.setState({ plan: id }) }));
+    return {
+      plans, split,
+      aid: s.aid, aidPressed: s.aid ? 'true' : 'false',
+      aidLabel: s.aid ? 'Remove request' : 'Ask for help',
+      aidBtnCls: s.aid ? '' : 'pri',
+      toggleAid: () => this.setState({ aid: !s.aid }),
+      noCard: !s.card, hasCard: s.card, needCard: !s.card,
+      submitHint: s.card ? 'Nothing is charged until the school confirms.' : 'Add a payment method to submit.',
+      addCard: () => this.setState({ card: true }),
+      removeCard: () => this.setState({ card: false }),
+      nextCls: s.card ? '' : 'off',
+      firstCharge: s.aid ? 'Charged only after the director replies and you accept.' : split ? 'First payment of $222.00 to your saved method.' : 'One payment of $444.00 to your saved method.',
+      dueTitle: 'Nothing is charged today.',
+      dueText: s.aid ? 'Your request goes to the school director with your enrollment. You hear back by email before any charge.' : split ? 'When the school confirms the places you pay $222.00, then $222.00 on November 24.' : 'When the school confirms the places you pay $444.00.'
+    };
+  }
+}
+</script>
+</body>
+</html>

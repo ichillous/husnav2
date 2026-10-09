@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Public profile editor</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a class="on" href="OrgProfileEdit.dc.html" aria-current="page">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div onInput="{{touch}}" onChange="{{touch}}">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Public profile</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><div class="row g12"><p class="eyebrow">husna.app/crescent-house</p><span class="badge {{pubCls}}">{{pubText}}</span></div><h1>Your space. <em>Your story.</em></h1><p>This is the page people land on. Events, the Friday schedule, programs and announcements fill in on their own.</p></div>
+<div class="row g16"><span class="state {{stateCls}}" role="status">{{stateText}}</span><a class="btn" href="OrgProfile.dc.html">View public profile ↗</a></div></div>
+
+<div class="split">
+<div class="col-main stack g16">
+
+<div class="card stack g16" data-sec="Name and introduction">
+<h2 class="t1">Name and introduction</h2>
+<div class="form">
+<div class="field full"><label class="label" for="pe-name">Organization name</label><input class="input" id="pe-name" type="text" readonly="" defaultValue="Crescent House Masjid"><span class="hint">Verified names can only be changed by Husna. <a class="link" href="OrgChangeSheet.dc.html">Request a change</a></span></div>
+<div class="field full"><label class="label" for="pe-tag">Tagline</label><input class="input" id="pe-tag" type="text" maxLength="60" value="{{tag}}" onInput="{{onTag}}"><span class="hint">{{tagCount}} of 60 characters. Shown as the headline of your About section.</span></div>
+<div class="field full"><label class="label" for="pe-about">About</label><textarea class="textarea" id="pe-about" maxLength="600" defaultValue="A neighborhood space for prayer, learning and showing up for each other. From Friday khutbahs to weekend classes, this community brings people together throughout the week."></textarea><span class="hint">Up to 600 characters. Write it the way you would say it to a newcomer.</span></div>
+</div>
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 4px">Describe yourselves <i>(up to three)</i></legend>
+<div class="row g8"><label class="chip"><input type="checkbox" checked aria-label="Masjid"><span>Masjid</span></label><label class="chip"><input type="checkbox" checked aria-label="Family"><span>Family</span></label><label class="chip"><input type="checkbox" checked aria-label="Education"><span>Education</span></label><label class="chip"><input type="checkbox" aria-label="Youth"><span>Youth</span></label><label class="chip"><input type="checkbox" aria-label="Service"><span>Service</span></label><label class="chip"><input type="checkbox" aria-label="Community"><span>Community</span></label></div></fieldset>
+</div>
+
+<div class="card stack g12" role="group" aria-labelledby="pe-cover" data-sec="Cover">
+<h2 class="t1" id="pe-cover">Cover</h2>
+<p class="sm mut">Your initial on a color, or a photo of your building or community. Photos with identifiable children need their parents’ consent.</p>
+<div class="row g8">
+<sc-for list="{{tints}}" as="t" hint-placeholder-count="5"><button type="button" class="poster s {{t.cls}}" aria-label="{{t.label}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="{{t.style}}"><b style="font-family: 'Instrument Serif', Georgia, serif">C</b></button></sc-for>
+<button type="button" class="btn" onClick="{{upload}}">{{uploadLabel}}</button>
+</div>
+</div>
+
+<div class="card stack g16" data-sec="Find and contact">
+<h2 class="t1">Find and contact</h2>
+<div class="form">
+<div class="field full"><label class="label" for="pe-addr">Address</label><input class="input" id="pe-addr" type="text" defaultValue="1200 Sample Avenue, Columbus, OH 43229"></div>
+<div class="field"><label class="label" for="pe-phone">Public phone</label><input class="input" id="pe-phone" type="tel" defaultValue="(614) 555-0100"></div>
+<div class="field"><label class="label" for="pe-email">Public email</label><input class="input" id="pe-email" type="email" defaultValue="salaam@crescenthouse.example"></div>
+<div class="field"><label class="label" for="pe-web">Website</label><input class="input" id="pe-web" type="url" defaultValue="https://crescenthouse.example"></div>
+<div class="field"><label class="label" for="pe-social">Another link <i>(optional)</i></label><input class="input" id="pe-social" type="url" placeholder="https://"></div>
+</div>
+</div>
+
+<div class="card stack g16" data-sec="At a glance">
+<h2 class="t1">At a glance</h2>
+<div class="form">
+<div class="field"><label class="label" for="pe-open">Open</label><input class="input" id="pe-open" type="text" defaultValue="Daily, for all five prayers"></div>
+<div class="field"><label class="label" for="pe-lang">Languages</label><input class="input" id="pe-lang" type="text" defaultValue="English, Arabic, Somali"></div>
+<div class="field full"><label class="label" for="pe-access">Access and facilities <i>(optional)</i></label><input class="input" id="pe-access" type="text" placeholder="For example: step-free entrance, sisters’ hall, wudu area, parking"></div>
+</div>
+</div>
+
+<div class="card stack g8" data-sec="Sections">
+<div class="stack g4"><h2 class="t1">Sections on your profile</h2><p class="sm mut">A section hides itself when it has nothing in it.</p></div>
+<div class="sets2">
+<div class="set"><div class="stack g4"><span class="b">Friday prayer</span><span class="sm mut">This week’s services</span></div><input class="sw" type="checkbox" checked="" aria-label="Show Friday prayer section"></div>
+<div class="set"><div class="stack g4"><span class="b">Events</span><span class="sm mut">Your upcoming published events</span></div><input class="sw" type="checkbox" checked="" aria-label="Show events section"></div>
+<div class="set"><div class="stack g4"><span class="b">Programs</span><span class="sm mut">Weekend school, classes and clubs</span></div><input class="sw" type="checkbox" checked="" aria-label="Show programs section"></div>
+<div class="set"><div class="stack g4"><span class="b">Announcements</span><span class="sm mut">Your public posts, newest first</span></div><input class="sw" type="checkbox" checked="" aria-label="Show announcements section"></div>
+<div class="set"><div class="stack g4"><span class="b">Give</span><span class="sm mut">Needs payouts connected</span></div><input class="sw" type="checkbox" checked="" aria-label="Show give section"></div>
+<div class="set"><div class="stack g4"><span class="b">Let people message you</span><span class="sm mut">Messages arrive in your inbox</span></div><input class="sw" type="checkbox" checked="" aria-label="Let people message you"></div>
+</div>
+</div>
+
+<div class="card"><div class="row between g16">
+<div class="stack g4 grow" style="min-width: 240px"><h2 class="t1">Visibility</h2><p class="sm mut">{{visText}}</p></div>
+<button type="button" class="btn {{visBtnCls}}" onClick="{{togglePub}}">{{visBtn}}</button>
+</div></div>
+</div>
+
+<aside class="col-side w stack g16 stick">
+<div class="card stack g12">
+<p class="eyebrow">Preview</p>
+<div class="poster {{tint}}" aria-hidden="true" style="aspect-ratio: 16 / 7"><b style="font-family: 'Instrument Serif', Georgia, serif; font-size: 80px">C</b></div>
+<p class="eyebrow">Masjid · Family · Education · Columbus, Ohio</p>
+<p class="d4">Crescent House Masjid</p>
+<p class="serif acc" style="font-size: 22px; line-height: 1.2">{{tagPreview}}</p>
+<p class="sm mut">1200 Sample Avenue, Columbus, OH 43229</p>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Last saved</p><p class="sm mut">{{lastSaved}} Changes are public the moment you save.</p></div>
+</aside>
+</div>
+<sc-if value="{{dirty}}" hint-placeholder-val="{{true}}">
+<div class="savebar" role="region" aria-label="Unsaved changes">
+<p><b>{{dirtyText}}</b> {{dirtyWhere}}. Your public profile stays as it is until you save.</p>
+<div class="row g8"><button type="button" class="btn" onClick="{{discard}}">Discard</button><button type="button" class="btn pri" onClick="{{save}}">Save and publish</button></div>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"unsaved":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  state = { tag: null, tint: 'p-mint', changed: null, justSaved: false, uploaded: false, published: true };
+  renderVals() {
+    const s = this.state;
+    const seeded = (this.props.unsaved ?? true);
+    const tag = s.tag ?? (seeded ? 'A home for faith, learning and everyday life.' : 'A home for faith and everyday life.');
+    const changed = s.changed ?? (seeded ? { 'pe-tag': 'Name and introduction' } : {});
+    const keys = Object.keys(changed);
+    const secs = [...new Set(keys.map((k) => changed[k]))];
+    const dirty = keys.length > 0;
+    const join = (xs) => xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+    const mark = (key, sec, more) => this.setState(Object.assign({ changed: Object.assign({}, changed, { [key]: sec }), justSaved: false }, more || {}));
+    const tints = [['p-mint', 'Green cover'], ['p-sand', 'Sand cover'], ['p-lilac', 'Lilac cover'], ['p-blue', 'Blue cover'], ['p-rose', 'Rose cover']].map(([id, label]) => ({
+      cls: id, label, pressed: s.tint === id ? 'true' : 'false', pick: () => mark('cover', 'Cover', { tint: id }),
+      style: s.tint === id ? 'outline: 2px solid #c8efa4; outline-offset: 3px; cursor: pointer' : 'cursor: pointer'
+    }));
+    return {
+      touch: (ev) => {
+        const t = ev.target; if (!t || !t.closest) return;
+        const sec = t.closest('[data-sec]'); if (!sec) return;
+        mark(t.id || t.getAttribute('aria-label') || 'field', sec.getAttribute('data-sec'), t.id === 'pe-tag' ? { tag: t.value } : null);
+      },
+      tag, onTag: (ev) => this.setState({ tag: ev.target.value }),
+      tagCount: tag.length, tagPreview: tag.trim() || 'Your tagline',
+      tints, tint: s.tint,
+      dirty,
+      dirtyText: keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes',
+      dirtyWhere: 'in ' + join(secs),
+      stateCls: dirty ? 'dirty' : '',
+      stateText: dirty ? (keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes') : (s.justSaved ? 'Saved and live just now' : 'All changes saved'),
+      lastSaved: s.justSaved && !dirty ? 'Just now by Khadija Osman.' : 'October 1 by Khadija Osman.',
+      save: () => this.setState({ changed: {}, justSaved: true }),
+      discard: () => this.setState({ changed: {}, tag: 'A home for faith and everyday life.', tint: 'p-mint', uploaded: false, justSaved: false }),
+      uploadLabel: s.uploaded ? 'Photo added. Remove' : 'Upload a photo',
+      upload: () => mark('cover-photo', 'Cover', { uploaded: !s.uploaded }),
+      pubCls: s.published ? 'ok' : 'warn', pubText: s.published ? 'Public' : 'Hidden',
+      visText: s.published ? 'Your profile is public and appears in the Columbus directory and in search.' : 'Your profile is hidden. Links to it show “This organization is not available right now.” Enrolled families keep access to their classes.',
+      visBtn: s.published ? 'Hide profile' : 'Make profile public',
+      visBtnCls: s.published ? 'danger' : 'pri',
+      togglePub: () => this.setState({ published: !s.published })
+    };
+  }
+}
+</script>
+</body>
+</html>

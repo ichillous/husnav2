@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TV: Ramadan layout</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="tv ">
+<div class="tv-pad">
+<div class="tv-col" style="flex: 1 1 0; gap: 22px; justify-content: space-between">
+<div class="tv-org"><span class="tv-logo" aria-hidden="true">C</span><span>Crescent House Masjid</span></div>
+<div class="tv-col" style="gap: 6px"><p class="tv-eb" style="font-size: 28px">Ramadan · day 13</p><h1 style="margin: 0; font: 400 120px/.95 'Instrument Serif', serif; letter-spacing: -.03em">Iftar <em>in</em></h1><div class="tv-count" style="font-size: 250px">{{count}}</div>
+<div style="font-size: 38px; color: #b4bfb7">Maghrib 6:14 PM · the fast opens with the adhan</div></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div class="tv-cell"><span class="k">Suhoor ends</span><b>6:02</b><span class="i">Fajr tomorrow</span></div>
+<div class="tv-cell"><span class="k">Isha</span><b>7:28</b><span class="i">Iqamah 7:45</span></div>
+<div class="tv-cell"><span class="k">Taraweeh</span><b>8:00</b><span class="i">After Isha · main hall</span></div>
+</div>
+</div>
+<div class="tv-col" style="flex: 0 0 760px; gap: 20px">
+<div class="tv-col" style="align-items: flex-end; gap: 4px"><div class="tv-clock" style="font-size: 110px"><span>{{clock}}</span><small style="font-size: 34px">{{ap}}</small></div><div class="tv-date" style="font-size: 30px">Saturday, February 20, 2027</div><div class="tv-hijri" style="font-size: 28px">13 Ramadan 1448</div></div>
+<div class="tv-tbl "><div class="tv-row hd" aria-hidden="true"><span></span><span>Adhan</span><span>Iqamah</span></div><div class="tv-row past"><span class="tv-n">Fajr<span class="ar" lang="ar" dir="rtl">الفجر</span></span><span class="tv-t">6:03</span><span class="tv-t iq">6:25</span></div><div class="tv-row sun past"><span class="tv-n">Sunrise<span class="ar" lang="ar" dir="rtl">الشروق</span></span><span class="tv-t">7:18</span><span class="tv-t iq"></span></div><div class="tv-row past"><span class="tv-n">Dhuhr<span class="ar" lang="ar" dir="rtl">الظهر</span></span><span class="tv-t">12:48</span><span class="tv-t iq">1:00</span></div><div class="tv-row past"><span class="tv-n">Asr<span class="ar" lang="ar" dir="rtl">العصر</span></span><span class="tv-t">3:47</span><span class="tv-t iq">4:05</span></div><div class="tv-row next"><span class="tv-n">Maghrib<span class="ar" lang="ar" dir="rtl">المغرب</span></span><span class="tv-t">6:14</span><span class="tv-t iq">6:19</span></div><div class="tv-row "><span class="tv-n">Isha<span class="ar" lang="ar" dir="rtl">العشاء</span></span><span class="tv-t">7:28</span><span class="tv-t iq">7:45</span></div></div>
+<div class="tv-tick" style="height: 64px; font-size: 26px"><b>Tonight</b><span>Community iftar in the main hall after Maghrib</span></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+state = { n: 0 };
+  componentDidMount() { this._t = setInterval(() => this.setState({ n: this.state.n + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const f2 = (x) => String(x).padStart(2, '0');
+    const clock = (s) => { const h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60; return ((h + 11) % 12 + 1) + ':' + f2(m); };
+    const ap = (s) => (Math.floor(s / 3600) % 24 < 12 ? 'AM' : 'PM');
+    const cd = (s) => { s = Math.max(0, s); const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? h + ':' + f2(m) : String(m)) + ':' + f2(x); };
+
+    const start = 61260, iftar = 65640, n = this.state.n % (iftar - start);
+    return { clock: clock(start + n), ap: ap(start + n), count: cd(iftar - start - n) };
+  }
+}
+</script>
+</body>
+</html>

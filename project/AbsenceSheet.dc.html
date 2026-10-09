@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Report an absence</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ab-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Yusuf · Level 2 · Reading</p><h1 class="d3" id="ab-title">Report <em>an absence.</em></h1></div>
+<a class="ibtn" href="Child.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+
+<sc-if value="{{writing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0">
+<legend class="label" style="padding: 0; margin-bottom: 8px">Which days?</legend>
+<div class="cols c2" style="gap: 10px">
+<label class="pick"><input type="checkbox" checked=""><span class="stack g4"><span class="b">Saturday, November 21</span><span class="sm mut">9:00 AM to 12:30 PM</span></span></label>
+<label class="pick"><input type="checkbox"><span class="stack g4"><span class="b">Sunday, November 22</span><span class="sm mut">9:00 AM to 12:30 PM</span></span></label>
+</div>
+</fieldset>
+<div class="field"><label class="label" for="ab-why">Reason</label><select class="select" id="ab-why"><option>Sick</option><option>Family travel</option><option>Appointment</option><option>Family event</option><option>Other</option></select></div>
+<div class="field"><label class="label" for="ab-note">Note for the teacher <i>(optional)</i></label><textarea class="textarea" id="ab-note" style="min-height: 84px" placeholder="For example: he will practice the week’s surah at home."></textarea></div>
+<label class="check"><input type="checkbox"><span>Maryam will be absent the same days · Level 1 · Foundations</span></label>
+<div class="row g8 end"><a class="btn" href="Child.dc.html">Cancel</a><button type="button" class="btn pri" onClick="{{send}}">Tell the teacher</button></div>
+<p class="xs sub">Send any time before 9:00 AM on the day. After that, please call the school office at (614) 555-0100.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Ustadh Bilal Ahmed has been told.</span><span>The absence shows as excused on the attendance sheet and on Yusuf’s page. The week’s practice will still appear there on Sunday.</span></div></div>
+<a class="btn pri block" href="Child.dc.html">Back to Yusuf’s page</a>
+<button type="button" class="btn quiet block" onClick="{{undo}}">Undo, he can come after all</button>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":800}}'>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return { writing: !this.state.sent, sent: this.state.sent, send: () => this.setState({ sent: true }), undo: () => this.setState({ sent: false }) };
+  }
+}
+</script>
+</body>
+</html>

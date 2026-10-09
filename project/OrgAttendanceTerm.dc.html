@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Attendance for the term</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a class="on" href="OrgAttendance.dc.html" aria-current="page">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgRoster.dc.html">Level 2 · Reading</a><span aria-hidden="true">/</span><a href="OrgAttendance.dc.html">Attendance</a><span aria-hidden="true">/</span><span>This term</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><p class="eyebrow">Fall term · 6 class days held · Saturday, November 14</p><h1>Attendance, <em>the whole term.</em></h1><p>Level 2 · Reading with Ustadh Bilal Ahmed. One row per student, one column per class day. Today fills in as attendance is taken.</p></div>
+<div class="row g8"><div class="field"><label class="label xs" for="att-class">Class</label><select class="select" id="att-class" style="min-height: 44px; padding-block: 8px"><option>Level 1 · Foundations</option><option selected>Level 2 · Reading</option><option>Level 3 · Memorization</option><option>Level 4 · Teens</option></select></div>
+<button type="button" class="btn" onClick="{{exp}}" style="align-self: flex-end">{{expLabel}}</button><a class="btn pri" href="OrgAttendance.dc.html" style="align-self: flex-end">Take today’s attendance</a></div></div>
+
+<div class="stack g20">
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Attendance this term</p><b>94%</b><span>present or late, of 96 marks</span></div>
+<div class="stat"><p class="eyebrow q">Unexplained absences</p><b>3</b><span>2 students</span></div>
+<div class="stat"><p class="eyebrow q">One absence from a call home</p><b>1</b><span>Hana Yildiz · 2 of 3</span></div>
+<div class="stat"><p class="eyebrow q">Today</p><b>6 of 16</b><span>marked so far</span></div>
+</div>
+
+<div class="note warn"><div class="stack g8"><span><span class="b ink">Hana Yildiz missed November 7 and 8 with no absence reported.</span> Your handbook calls for a call home at three, so one more reaches it. Her mother is Elif Yildiz, (614) 555-0171.</span><div class="row g8"><a class="btn sm" href="OrgStudent.dc.html">Open Hana’s record</a><a class="btn sm" href="OrgAnnouncements.dc.html">Message the family</a></div></div></div>
+
+<div class="tbl-wrap"><table class="tbl" style="min-width: 980px">
+<thead><tr><th>Student</th><th class="c">Sat<br><span class="sub">Oct 24</span></th><th class="c">Sun<br><span class="sub">Oct 25</span></th><th class="c">Sat<br><span class="sub">Oct 31</span></th><th class="c">Sun<br><span class="sub">Nov 1</span></th><th class="c">Sat<br><span class="sub">Nov 7</span></th><th class="c">Sun<br><span class="sub">Nov 8</span></th><th class="c">Sat<br><span class="acc">Today</span></th><th class="num">Here</th><th>Flag</th></tr></thead>
+<tbody>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Yusuf Farah</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge warn">Late</span></td><td class="c"><span class="badge info">Excused</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="num tnum nw">5 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Ilyas Abdi</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Aisha Rahman</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Safiya Hussein</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge bad">Absent</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge info">Excused</span></td><td class="num tnum nw">5 of 6</td><td class="nw"><span class="sm sub">1 unexplained</span></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Omar Abdi</a></td><td class="c"><span class="badge warn">Late</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge info">Excused</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge warn">Late</span></td><td class="num tnum nw">5 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Layla Haddad</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Sami Salim</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge warn">Late</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Amal Jama</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Yahya Bakr</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Hana Yildiz</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge bad">Absent</span></td><td class="c"><span class="badge bad">Absent</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">4 of 6</td><td class="nw"><span class="badge bad">2 unexplained</span></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Zayd Karim</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge info">Excused</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">5 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Sumaya Ali</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Adam Siddiqui</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Nura Warsame</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Idris Khan</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+<tr><td class="nw"><a class="link" href="OrgStudent.dc.html">Maryan Dahir</a></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c"><span class="badge ok">Present</span></td><td class="c sub nw">Not marked</td><td class="num tnum nw">6 of 6</td><td class="nw"></td></tr>
+</tbody></table></div>
+<p class="sm sub">Excused means the family reported the absence before class. Late is after 9:10 AM. Families see their own child’s row on the child’s page; teachers see only their own class.</p>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+state = { exp: false };
+  renderVals() { const s = this.state; return { expLabel: s.exp ? 'Downloaded (CSV)' : 'Export (CSV)', exp: () => this.setState({ exp: true }) }; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Application status</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Organizations</small></a>
+<div class="row g8 push"><span class="sm mut">Khadija Osman</span><a class="btn quiet" href="Help.dc.html">Help</a><a class="btn" href="SignIn.dc.html">Sign out</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+
+<sc-if value="{{isReview}}" hint-placeholder-val="{{true}}">
+<div class="stack g12"><div class="row g12"><p class="eyebrow">Crescent House Masjid</p><span class="badge info">Under review</span></div><h1 class="d2">Application received. <em>We are on it.</em></h1><p class="lede">A person at Husna is reviewing your application. There is nothing more you need to do right now. We will email khadija@crescenthouse.example the moment there is news.</p></div>
+</sc-if>
+<sc-if value="{{isInfo}}" hint-placeholder-val="{{false}}">
+<div class="stack g12"><div class="row g12"><p class="eyebrow">Crescent House Masjid</p><span class="badge warn">Waiting for you</span></div><h1 class="d2">We need <em>one more thing.</em></h1><p class="lede">Your application is paused until you reply. It keeps its place in line.</p></div>
+</sc-if>
+<sc-if value="{{isDeclined}}" hint-placeholder-val="{{false}}">
+<div class="stack g12"><div class="row g12"><p class="eyebrow">Crescent House Masjid</p><span class="badge bad">Not approved</span></div><h1 class="d2">We could not approve <em>this application.</em></h1><p class="lede">The reason is below. You are welcome to apply again once it is resolved.</p></div>
+</sc-if>
+
+<div class="split">
+<div class="col-main stack g16">
+
+<sc-if value="{{isInfo}}" hint-placeholder-val="{{false}}">
+<div class="card stack g16">
+<div class="note warn"><div class="stack g4"><span class="b ink">Message from the Husna review team · September 30</span><span>Thank you for applying. The confirmation link sent to khadija@crescenthouse.example has not been opened, so we could not verify by email. Could you open it, or upload a registration document instead?</span></div></div>
+<sc-if value="{{replying}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="field"><label class="label" for="op-reply">Your reply</label><textarea class="textarea" id="op-reply" placeholder="Answer the question or tell us what you have attached."></textarea></div>
+<div class="drop"><span class="b ink">Attach a document</span><span class="sm">PDF, JPG or PNG, up to 10 MB</span><button type="button" class="btn sm" onClick="{{pickFile}}">{{fileLabel}}</button></div>
+<div class="row g8"><button type="button" class="btn pri" onClick="{{sendReply}}">Send reply</button><button type="button" class="btn" onClick="{{resendLink}}">{{resendLabel}}</button></div>
+</div>
+</sc-if>
+<sc-if value="{{replied}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Reply sent.</span><span>Your application is back with the review team.</span></div></div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isDeclined}}" hint-placeholder-val="{{false}}">
+<div class="card stack g16">
+<div class="note bad"><div class="stack g4"><span class="b ink">Reason given · October 1</span><span>We could not confirm that the applicant represents this organization. The public phone line did not recognize the application and no document was provided.</span></div></div>
+<p class="mut">If this is a mistake, reply to the decision email or start again with a registration document or a letter from your board.</p>
+<div class="row g8"><a class="btn pri" href="OrgApply1.dc.html">Start a new application</a><a class="btn" href="Help.dc.html">Contact Husna</a></div>
+</div>
+</sc-if>
+
+<div class="card stack g16">
+<h2 class="t1">Where your application is</h2>
+<ol class="tl">
+<li class="done"><b>Submitted</b>Tuesday, September 29 at 11:02 AM</li>
+<li class="{{emailCls}}"><b>Email confirmed</b>{{emailText}}</li>
+<li class="{{reviewCls}}"><b>Review by the Husna team</b>{{reviewText}}</li>
+<li class="{{decisionCls}}"><b>Decision</b>{{decisionText}}</li>
+</ol>
+</div>
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">What you sent</h2><sc-if value="{{canEdit}}" hint-placeholder-val="{{true}}"><a class="btn sm" href="OrgApply2.dc.html">Edit application</a></sc-if></div>
+<dl class="kv"><dt>Organization</dt><dd>Crescent House Masjid · Masjid</dd><dt>Address</dt><dd>1200 Sample Avenue, Columbus, OH 43229</dd><dt>Applicant</dt><dd>Khadija Osman, Administrator</dd><dt>Verification</dt><dd>Email at crescenthouse.example</dd><dt>Reference</dt><dd class="tnum">APP-2026-0143</dd></dl>
+</div>
+
+<sc-if value="{{canEdit}}" hint-placeholder-val="{{true}}">
+<div class="row between g12">
+<sc-if value="{{notWithdrawing}}" hint-placeholder-val="{{true}}"><button type="button" class="btn danger" onClick="{{askWithdraw}}">Withdraw application</button></sc-if>
+<sc-if value="{{withdrawing}}" hint-placeholder-val="{{false}}">
+<div class="note bad grow"><div class="stack g12"><span>Withdraw the application for Crescent House Masjid? Your details are deleted and you can apply again later.</span><div class="row g8"><a class="btn danger sm" href="ForOrgs.dc.html">Yes, withdraw</a><button type="button" class="btn sm" onClick="{{cancelWithdraw}}">Keep my application</button></div></div></div>
+</sc-if>
+</div>
+</sc-if>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12">
+<p class="eyebrow">The three possible outcomes</p>
+<ul class="stack g12 sm mut">
+<li><span class="b ink">Approved.</span> Your workspace opens with a setup guide. Nothing is public until you publish.</li>
+<li><span class="b ink">More information needed.</span> We ask one specific question here and by email. You reply on this page.</li>
+<li><span class="b ink">Not approved.</span> We tell you why, and you can apply again.</li>
+</ul>
+</div>
+<sc-if value="{{isReview}}" hint-placeholder-val="{{true}}">
+<div class="card tint stack g12"><p class="eyebrow">While you wait</p><h2 class="d4">Draft your public profile.</h2><p class="sm mut">Write your description, add your Friday schedule and choose a cover. It stays private until you are approved and press Publish.</p><a class="btn" href="OrgProfileEdit.dc.html">Start my profile →</a></div>
+</sc-if>
+<div class="card stack g8"><p class="eyebrow q">Questions</p><p class="sm mut">Write to [SUPPORT EMAIL] and include your reference, APP-2026-0143.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"status":{"editor":"enum","options":["Under review","More information needed","Not approved"],"default":"Under review"},"$preview":{"width":1440,"height":1160}}'>
+class Component extends DCLogic {
+  state = { replied: false, file: false, resent: false, withdrawing: false };
+  renderVals() {
+    const s = this.state;
+    const st = this.props.status ?? 'Under review';
+    const isReview = st === 'Under review', isInfo = st === 'More information needed', isDeclined = st === 'Not approved';
+    return {
+      isReview, isInfo, isDeclined,
+      canEdit: !isDeclined,
+      emailCls: isInfo ? 'now' : 'done',
+      emailText: isInfo ? 'Not yet. The link sent to khadija@crescenthouse.example is unopened.' : 'Tuesday, September 29 at 11:09 AM',
+      reviewCls: isReview ? 'now' : isDeclined ? 'done' : '',
+      reviewText: isReview ? 'In progress. Usually within [REVIEW TIME].' : isDeclined ? 'Completed Thursday, October 1' : 'Paused until you reply',
+      decisionCls: isDeclined ? 'done' : '',
+      decisionText: isDeclined ? 'Not approved on Thursday, October 1' : 'We email you and update this page',
+      replying: !s.replied, replied: s.replied,
+      sendReply: () => this.setState({ replied: true }),
+      fileLabel: s.file ? 'registration-letter.pdf attached. Replace' : 'Choose a file',
+      pickFile: () => this.setState({ file: !s.file }),
+      resendLabel: s.resent ? 'Confirmation link sent again' : 'Send the confirmation link again',
+      resendLink: () => this.setState({ resent: true }),
+      withdrawing: s.withdrawing, notWithdrawing: !s.withdrawing,
+      askWithdraw: () => this.setState({ withdrawing: true }),
+      cancelWithdraw: () => this.setState({ withdrawing: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

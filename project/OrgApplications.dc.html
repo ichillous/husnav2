@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enrollment applications</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a class="on" href="OrgApplications.dc.html" aria-current="page">Applications <span class="count">{{left}}</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgPrograms.dc.html">Weekend Qur’an School</a><span aria-hidden="true">/</span><span>Applications</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><p class="eyebrow">Fall term · enrollment closes October 18</p><h1>Applications</h1><p>Accepting a child places them on the class roster, emails the family and charges their saved payment method. Families were promised an answer by October 21.</p></div></div>
+
+<div class="stack g16">
+<div class="tabs" role="tablist" aria-label="Applications by status">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.selected}}" onClick="{{t.pick}}">{{t.label}} <span class="badge">{{t.n}}</span></button></sc-for>
+</div>
+
+<sc-if value="{{isReview}}" hint-placeholder-val="{{true}}">
+<div class="split" style="gap: 20px">
+<div class="col-side card p0" style="flex: 1 1 340px"><div class="list in">
+<sc-for list="{{apps}}" as="a" hint-placeholder-count="5">
+<button type="button" class="li {{a.rowCls}}" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}"><span class="av" aria-hidden="true">{{a.initial}}</span><span class="grow stack g4"><span class="b">{{a.name}}, {{a.age}}</span><span class="sm mut">{{a.cls}}</span><span class="row g8"><span class="badge {{a.badgeCls}}">{{a.badge}}</span><span class="xs sub">{{a.when}}</span></span></span></button>
+</sc-for>
+</div></div>
+
+<div class="col-main card stack g20">
+<div class="row between g16">
+<div class="row g16 nowrap"><span class="av lg" aria-hidden="true">{{d.initial}}</span><div class="stack g4"><h2 class="d3">{{d.name}}</h2><p class="sm mut">Age {{d.age}} · Born {{d.dob}} · {{d.grade}}</p></div></div>
+<span class="badge {{d.badgeCls}}">{{d.badge}}</span>
+</div>
+
+<div class="cols" style="gap: 20px 24px; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr))">
+<div class="stack g8"><p class="eyebrow q">Asked for</p><p class="b">{{d.cls}}</p><p class="sm mut">{{d.seats}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Reading so far</p><p class="b">{{d.reading}}</p><p class="sm mut">{{d.prior}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Parent or guardian</p><p class="b">{{d.parent}}</p><p class="sm mut">{{d.contact}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Health and care</p><p class="b">{{d.health}}</p><p class="sm mut">Emergency contact and pickup list provided</p></div>
+<div class="stack g8"><p class="eyebrow q">Agreements</p><p class="b">All three signed</p><p class="sm mut">{{d.signed}} · Photos: {{d.photos}}</p></div>
+<div class="stack g8"><p class="eyebrow q">Tuition</p><p class="b">{{d.tuition}}</p><p class="sm mut">{{d.plan}}</p></div>
+</div>
+
+<sc-if value="{{d.aid}}" hint-placeholder-val="{{false}}">
+<div class="note warn"><div class="stack g12 grow"><div class="stack g4"><span class="b ink">Financial assistance requested</span><span>The family can pay $100.00 for the term. “Work has been short this fall. We will pay what we can.” Only school directors and owners see this.</span></div>
+<div class="row g8"><div class="field" style="flex: 0 1 220px"><label class="label" for="ap-aid">Tuition for this family</label><input class="input" id="ap-aid" type="text" inputMode="decimal" defaultValue="$100.00"></div><span class="sm" style="align-self: flex-end; padding-bottom: 14px">The rest, $140.00, comes from the scholarship fund.</span></div></div></div>
+</sc-if>
+
+<sc-if value="{{d.pending}}" hint-placeholder-val="{{true}}">
+<div class="stack g12">
+<div class="field" style="max-width: 360px"><label class="label" for="ap-class">Place in</label><select class="select" id="ap-class"><option>{{d.cls}}</option><option>Level 1 · Foundations · 4 places left</option><option>Level 2 · Reading · 2 places left</option><option>Level 4 · Teens · 5 places left</option></select></div>
+<div class="row g8">
+<sc-if value="{{d.canAccept}}" hint-placeholder-val="{{true}}"><button type="button" class="btn pri" onClick="{{d.accept}}">{{d.acceptLabel}}</button></sc-if>
+<button type="button" class="btn" onClick="{{d.waitlist}}">Add to waitlist</button>
+<a class="btn" href="OrgDecisionSheet.dc.html">Ask for information or decline</a>
+<a class="btn quiet" href="OrgInbox.dc.html">Message the family</a>
+</div>
+<p class="xs sub">{{d.acceptNote}}</p>
+</div>
+</sc-if>
+<sc-if value="{{d.accepted}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g8"><span><span class="b ink">Accepted.</span> {{d.acceptedText}}</span><div class="row g8"><a class="btn sm" href="OrgRoster.dc.html">Open the roster</a><button type="button" class="btn sm" onClick="{{d.undo}}">Undo</button></div></div></div>
+</sc-if>
+<sc-if value="{{d.waitlisted}}" hint-placeholder-val="{{false}}">
+<div class="note" role="status"><div class="stack g8"><span><span class="b ink">On the waitlist.</span> The family has been told. No charge is made unless a place opens and they accept it.</span><div><button type="button" class="btn sm" onClick="{{d.undo}}">Undo</button></div></div></div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isAccepted}}" hint-placeholder-val="{{false}}">
+<div class="card stack g12"><h2 class="t1">{{acceptedCount}} students accepted this term</h2><p class="mut">Accepted students live on their class roster, where you can move them, message families and see tuition.</p><div><a class="btn pri" href="OrgRoster.dc.html">Open classes and rosters</a></div></div>
+</sc-if>
+
+<sc-if value="{{isWait}}" hint-placeholder-val="{{false}}">
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Position</th><th>Child</th><th>Waiting for</th><th>Since</th><th></th></tr></thead>
+<tbody>
+<tr><td class="tnum">1</td><td><span class="b">Ibrahim Salim, 11</span><small>Parent: Leila Salim</small></td><td>Level 3 · Memorization</td><td>Oct 6</td><td><button type="button" class="btn sm off" disabled="">Offer a place</button></td></tr>
+<tr><td class="tnum">2</td><td><span class="b">Khadra Jama, 12</span><small>Parent: Nasra Jama</small></td><td>Level 3 · Memorization</td><td>Oct 6</td><td><button type="button" class="btn sm off" disabled="">Offer a place</button></td></tr>
+<tr><td class="tnum">3</td><td><span class="b">Musa Bakr, 13</span><small>Parent: Omar Bakr</small></td><td>Level 3 · Memorization</td><td>Oct 7</td><td><button type="button" class="btn sm off" disabled="">Offer a place</button></td></tr>
+</tbody></table></div>
+<p class="sm sub mt8">Level 3 is full, so no place can be offered yet. Raise its capacity in <a class="link" href="OrgProgramEdit.dc.html">program setup</a>, or a place opens when a student withdraws.</p>
+</sc-if>
+
+<sc-if value="{{isDeclined}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g8" style="align-items: center; padding: 48px 24px"><h2 class="d3">No one has been declined.</h2><p class="mut">Declined applications stay here for the term, with the reason you gave the family.</p></div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  state = { tab: 'review', sel: 'yusuf', decided: {} };
+  renderVals() {
+    const s = this.state;
+    const base = [
+      { id: 'yusuf', initial: 'Y', name: 'Yusuf Farah', age: 9, dob: 'March 14, 2017', grade: 'Grade 4', cls: 'Level 2 · Reading', seats: '2 places left of 16', reading: 'Reads slowly', prior: 'New to this school · sibling Maryam is also applying', parent: 'Amina Farah, mother', contact: '(614) 555-0117 · amina.farah@example.com', health: 'Peanut allergy, carries an auto-injector', signed: 'Signed October 8', photos: 'No', tuition: '$240.00', plan: 'Two payments · Visa ending 4242 saved', when: 'Applied Oct 8', aid: false, full: false, charge: 'First payment of $222.00 is charged for Yusuf and Maryam together once both are decided.' },
+      { id: 'maryam', initial: 'M', name: 'Maryam Farah', age: 6, dob: 'June 2, 2020', grade: 'Grade 1', cls: 'Level 1 · Foundations', seats: '4 places left of 16', reading: 'Knows the letters', prior: 'New to this school · sibling Yusuf is also applying', parent: 'Amina Farah, mother', contact: '(614) 555-0117 · amina.farah@example.com', health: 'Nothing reported', signed: 'Signed October 8', photos: 'No', tuition: '$204.00 after 15% sibling discount', plan: 'Two payments · Visa ending 4242 saved', when: 'Applied Oct 8', aid: false, full: false, charge: 'First payment of $222.00 is charged for Yusuf and Maryam together once both are decided.' },
+      { id: 'ilyas', initial: 'I', name: 'Ilyas Abdi', age: 8, dob: 'January 9, 2018', grade: 'Grade 3', cls: 'Level 2 · Reading', seats: '2 places left of 16', reading: 'Reads slowly', prior: 'Attended last term in Level 1', parent: 'Tariq Abdi, father', contact: '(614) 555-0163 · tariq.abdi@example.com', health: 'Nothing reported', signed: 'Signed October 7', photos: 'Yes', tuition: '$240.00', plan: 'Pay in full · bank account ending 3310 saved', when: 'Applied Oct 7', aid: false, full: false, charge: '$240.00 is charged to the family’s saved bank account.' },
+      { id: 'zak', initial: 'Z', name: 'Zakariya Noor', age: 12, dob: 'May 21, 2014', grade: 'Grade 7', cls: 'Level 3 · Memorization', seats: 'Full, 14 of 14 · 3 already waiting', reading: 'Reads fluently · has memorized Juz ‘Amma', prior: 'New to this school', parent: 'Sahra Noor, mother', contact: '(614) 555-0178 · sahra.noor@example.com', health: 'Nothing reported', signed: 'Signed October 6', photos: 'Yes', tuition: 'No charge while waitlisted', plan: 'Pay in full · Mastercard ending 0907 saved', when: 'Applied Oct 6', aid: false, full: true, charge: 'Level 3 is full. Waitlist him, or place him in another class.' },
+      { id: 'hafsa', initial: 'H', name: 'Hafsa Abdi', age: 14, dob: 'August 30, 2012', grade: 'Grade 9', cls: 'Level 4 · Teens', seats: '5 places left of 12', reading: 'Reads fluently', prior: 'Attended last term in Level 3', parent: 'Rahma Abdi, mother', contact: '(614) 555-0191 · rahma.abdi@example.com', health: 'Asthma, carries an inhaler', signed: 'Signed October 6', photos: 'Yes', tuition: '$240.00, assistance requested', plan: 'Visa ending 7718 saved', when: 'Applied Oct 6', aid: true, full: false, charge: 'The family is emailed the approved amount and must accept it before any charge.' }
+    ];
+    const apps = base.map((a) => {
+      const st = s.decided[a.id];
+      const set = (v) => () => this.setState({ decided: { ...s.decided, [a.id]: v } });
+      return {
+        ...a,
+        pending: !st, accepted: st === 'accepted', waitlisted: st === 'waitlisted',
+        badge: st === 'accepted' ? 'Accepted' : st === 'waitlisted' ? 'Waitlisted' : a.aid ? 'Assistance request' : a.full ? 'Class is full' : 'To review',
+        badgeCls: st === 'accepted' ? 'ok' : st === 'waitlisted' ? '' : a.aid || a.full ? 'warn' : 'info',
+        canAccept: !a.full,
+        acceptLabel: a.aid ? 'Approve amount and accept' : 'Accept into ' + a.cls.split(' · ')[0],
+        acceptNote: a.charge,
+        acceptedText: a.name.split(' ')[0] + ' is on the ' + a.cls + ' roster. The family has been emailed.',
+        accept: set('accepted'), waitlist: set('waitlisted'), undo: set(undefined),
+        rowCls: s.sel === a.id ? 'on' : '', pressed: s.sel === a.id ? 'true' : 'false',
+        pick: () => this.setState({ sel: a.id })
+      };
+    });
+    const nAcc = apps.filter((a) => a.accepted).length, nWait = apps.filter((a) => a.waitlisted).length;
+    const left = apps.length - nAcc - nWait;
+    const tabs = [['review', 'To review', left], ['accepted', 'Accepted', 47 + nAcc], ['wait', 'Waitlist', 3 + nWait], ['declined', 'Declined', 0]].map(([id, label, n]) => ({
+      label, n, cls: s.tab === id ? 'on' : '', selected: s.tab === id ? 'true' : 'false', pick: () => this.setState({ tab: id })
+    }));
+    return {
+      tabs, apps, left, d: apps.find((a) => a.id === s.sel),
+      isReview: s.tab === 'review', isAccepted: s.tab === 'accepted', isWait: s.tab === 'wait', isDeclined: s.tab === 'declined',
+      acceptedCount: 47 + nAcc
+    };
+  }
+}
+</script>
+</body>
+</html>

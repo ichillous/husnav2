@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Donate to Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<a class="back" href="OrgProfile.dc.html"><span aria-hidden="true">←</span> Crescent House Masjid</a>
+<div class="stack g12"><p class="eyebrow">Support Crescent House Masjid</p><h1 class="d2">Give where<br><em>you belong.</em></h1></div>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12" role="group" aria-labelledby="dn-amt">
+<h2 class="t1" id="dn-amt">1. Amount</h2>
+<div class="row g8">
+<sc-for list="{{amounts}}" as="a" hint-placeholder-count="5"><button type="button" class="chip {{a.cls}}" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}" style="min-width: 88px; justify-content: center; font-size: 16px">{{a.label}}</button></sc-for>
+</div>
+<sc-if value="{{isOther}}" hint-placeholder-val="{{false}}">
+<div class="field" style="max-width: 240px"><label class="label" for="dn-other">Other amount, in dollars</label><input class="input" id="dn-other" type="text" inputMode="decimal" value="{{otherVal}}" onInput="{{onOther}}"><span class="hint">Minimum $1.</span></div>
+</sc-if>
+</div>
+
+<div class="stack g12" role="group" aria-labelledby="dn-freq">
+<h2 class="t1" id="dn-freq">2. How often</h2>
+<div><div class="seg">
+<sc-for list="{{freqs}}" as="f" hint-placeholder-count="2"><button type="button" class="{{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}}</button></sc-for>
+</div></div>
+<sc-if value="{{monthly}}" hint-placeholder-val="{{false}}"><p class="hint">Charged today and on the 8th of each month. Cancel any time from Payments in your account or from any receipt email.</p></sc-if>
+</div>
+
+<div class="stack g12" role="group" aria-labelledby="dn-fund">
+<h2 class="t1" id="dn-fund">3. Where it goes</h2>
+<div class="cols c2" style="gap: 12px">
+<sc-for list="{{funds}}" as="f" hint-placeholder-count="4"><button type="button" class="pick {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">{{f.name}}</span><span class="sm mut">{{f.note}}</span></span></button></sc-for>
+</div>
+</div>
+
+<div class="stack g12">
+<h2 class="t1">4. Your details</h2>
+<div class="form">
+<div class="field"><label class="label" for="dn-name">Full name</label><input class="input" id="dn-name" type="text" autoComplete="name" placeholder="Name for the receipt"></div>
+<div class="field"><label class="label" for="dn-email">Email</label><input class="input" id="dn-email" type="email" autoComplete="email" placeholder="you@example.com"><span class="hint">Your receipt is sent here.</span></div>
+<div class="field full"><label class="label" for="dn-note">Note to the organization <i>(optional)</i></label><input class="input" id="dn-note" type="text" maxLength="140" placeholder="For example: in memory of a loved one"></div>
+</div>
+<label class="check"><input type="checkbox"><span>Give anonymously. The organization sees the gift but not my name.</span></label>
+<p class="sm sub">No account needed. <a class="link" href="SignIn.dc.html">Sign in</a> to keep every receipt in one place.</p>
+</div>
+</div>
+
+<aside class="col-side w card stack g16">
+<p class="eyebrow">Your gift</p>
+<p class="serif" style="font-size: 68px; line-height: 1">{{amountText}}</p>
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)">
+<dt>To</dt><dd>Crescent House Masjid</dd>
+<dt>Fund</dt><dd>{{fundName}}</dd>
+<dt>Frequency</dt><dd>{{freqText}}</dd>
+<dt>Husna keeps</dt><dd>$0.00. All of it goes to the masjid</dd>
+<dt>Charged today</dt><dd class="b">{{amountText}}</dd>
+</dl>
+<a class="btn pri xl block" href="Stripe.dc.html#checkout">Continue to secure payment <span aria-hidden="true">→</span></a>
+<p class="xs sub">You enter your card or bank details on Stripe’s payment page, not on Husna. For tax questions about your gift, ask Crescent House Masjid.</p>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  state = { amount: 50, other: '75', freq: 'once', fund: 'general' };
+  renderVals() {
+    const s = this.state;
+    const t = (on) => (on ? 'true' : 'false');
+    const isOther = s.amount === 'other';
+    const value = isOther ? Math.max(0, Number(s.other) || 0) : s.amount;
+    const money = '$' + value.toFixed(2);
+    const fundList = [
+      ['general', 'General fund', 'Prayer space, utilities and daily running costs'],
+      ['school', 'Weekend school scholarships', 'Covers tuition for families who ask for help'],
+      ['building', 'Building and maintenance', 'Repairs, heating and the new wudu area'],
+      ['zakat', 'Zakat', 'Distributed to eligible recipients by the zakat committee']
+    ];
+    return {
+      amounts: [25, 50, 100, 250, 'other'].map((a) => ({
+        label: a === 'other' ? 'Other' : '$' + a, cls: s.amount === a ? 'on' : '', pressed: t(s.amount === a), pick: () => this.setState({ amount: a })
+      })),
+      isOther, otherVal: s.other,
+      onOther: (ev) => this.setState({ other: ev.target.value }),
+      freqs: [['once', 'One time'], ['monthly', 'Monthly']].map(([id, label]) => ({ label, cls: s.freq === id ? 'on' : '', pressed: t(s.freq === id), pick: () => this.setState({ freq: id }) })),
+      monthly: s.freq === 'monthly',
+      funds: fundList.map(([id, name, note]) => ({ name, note, cls: s.fund === id ? 'on' : '', pressed: t(s.fund === id), pick: () => this.setState({ fund: id }) })),
+      fundName: fundList.find((f) => f[0] === s.fund)[1],
+      freqText: s.freq === 'monthly' ? 'Monthly, starting today' : 'One time',
+      amountText: money
+    };
+  }
+}
+</script>
+</body>
+</html>

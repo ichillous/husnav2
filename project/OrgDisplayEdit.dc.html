@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Set up a TV display</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a class="on" href="OrgDisplays.dc.html" aria-current="page">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgDisplays.dc.html">TV displays</a><span aria-hidden="true">/</span><span>Main prayer hall</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div onInput="{{touch}}" onChange="{{touch}}">
+<div class="ph"><div><div class="row g12"><p class="eyebrow">TV display</p><span class="badge ok">Online</span></div><h1>Main <em>prayer hall.</em></h1><p>What this screen shows through the day. The TV follows within a minute of saving, with no one touching it.</p></div>
+<div class="row g16"><span class="state {{stateCls}}" role="status">{{stateText}}</span><a class="btn" href="TvMain.dc.html">Open full preview ↗</a></div></div>
+
+<section class="card" aria-label="Preview">
+<div class="row g24 start" style="flex-wrap: wrap">
+<div class="stack g8" style="max-width: 100%">
+<sc-if value="{{v_a}}" hint-placeholder-val="{{true}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvMain" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_b}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvSlides" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_c}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvFocus" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_1}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvAdhan" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_2}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvIqamah" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_3}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvPrayer" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_4}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvFriday" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_5}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvRamadan" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_6}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; --ms: 0.28333; "><div><dc-import name="TvMessage" hint-size="1920px,1080px"></dc-import></div></div></sc-if>
+<sc-if value="{{v_7}}" hint-placeholder-val="{{false}}"><div class="tv-mini" style="--mw: 544px; display: grid; place-items: center"><span class="sm" style="color: rgba(243,240,231,.3)">Black until 5:51 AM</span></div></sc-if>
+<div class="row between"><p class="eyebrow q">On the TV</p><span class="sm sub">{{momentWhen}}</span></div>
+</div>
+<div class="grow stack g12" style="min-width: 280px">
+<div class="stack g4"><h2 class="t1">A day on this screen</h2><p class="sm mut">Pick a moment to see it. The preview is the real screen, running, and follows the layout you choose. The TV itself changes when you save.</p></div>
+<div class="cols" role="group" aria-label="Moment to preview" style="grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 8px">
+<sc-for list="{{moments}}" as="mo" hint-placeholder-count="8"><button type="button" class="pick {{mo.cls}}" aria-pressed="{{mo.pressed}}" onClick="{{mo.pick}}" style="padding: 10px 14px; gap: 10px"><span class="dot" aria-hidden="true"></span><span class="stack" style="gap: 2px"><span class="b sm">{{mo.label}}</span><span class="xs mut">{{mo.sub}}</span></span></button></sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<div class="cols c2w" style="margin-top: 16px; gap: 16px">
+<div class="stack g16">
+
+<section class="card stack g12" data-sec="Layout" role="radiogroup" aria-labelledby="de-h1">
+<h2 class="t1" id="de-h1">1. Layout</h2>
+<label class="pick"><input type="radio" name="layout" aria-label="Timetable layout" checked="{{lay_a}}" onChange="{{pick_a}}"><span class="wire" aria-hidden="true" style="position: relative; flex: 0 0 96px; width: 96px; height: 54px; border-radius: 7px; border: 1px solid rgba(232,249,229,.26); background: #0b100f"><span style="position: absolute; left: 6px; top: 6px; bottom: 6px; width: 34px; display: block; border-radius: 3px; background: rgba(200,239,164,.5)"></span><span style="position: absolute; left: 46px; right: 6px; top: 6px; bottom: 6px; display: block; border-radius: 3px; background: rgba(200,239,164,.5); background: rgba(243,240,231,.28)"></span></span><span class="grow stack g4"><span class="b">Timetable</span><span class="sm mut">Every prayer on the left, slides on the right. Made for the main hall.</span></span><a class="link sm nw" href="TvMain.dc.html">See it ↗</a></label><label class="pick"><input type="radio" name="layout" aria-label="Slides first layout" checked="{{lay_b}}" onChange="{{pick_b}}"><span class="wire" aria-hidden="true" style="position: relative; flex: 0 0 96px; width: 96px; height: 54px; border-radius: 7px; border: 1px solid rgba(232,249,229,.26); background: #0b100f"><span style="position: absolute; left: 6px; right: 6px; top: 6px; bottom: 20px; display: block; border-radius: 3px; background: rgba(200,239,164,.5); background: rgba(243,240,231,.28)"></span><span style="position: absolute; left: 6px; right: 6px; bottom: 6px; height: 10px; display: block; border-radius: 3px; background: rgba(200,239,164,.5)"></span></span><span class="grow stack g4"><span class="b">Slides first</span><span class="sm mut">Slides fill the screen and the times run along the bottom. Made for a lobby.</span></span><a class="link sm nw" href="TvSlides.dc.html">See it ↗</a></label><label class="pick"><input type="radio" name="layout" aria-label="Focus layout" checked="{{lay_c}}" onChange="{{pick_c}}"><span class="wire" aria-hidden="true" style="position: relative; flex: 0 0 96px; width: 96px; height: 54px; border-radius: 7px; border: 1px solid rgba(232,249,229,.26); background: #0b100f"><span style="position: absolute; left: 22px; right: 22px; top: 18px; height: 20px; display: block; border-radius: 3px; background: rgba(200,239,164,.5)"></span></span><span class="grow stack g4"><span class="b">Focus</span><span class="sm mut">Only the next prayer and its countdown, very large. Made for a far wall or a small room.</span></span><a class="link sm nw" href="TvFocus.dc.html">See it ↗</a></label>
+</section>
+
+<section class="card stack g16" data-sec="Slides">
+<div class="row between"><div class="stack g4"><h2 class="t1">2. Slides in rotation</h2><p class="sm mut">Shown in this order beside the prayer times.</p></div><a class="btn sm" href="OrgSlideSheet.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add a slide</a></div>
+<div class="rows sl" style="--rw: 18px minmax(0, 1fr) 140px 48px 44px">
+<div class="rw hd" aria-hidden="true"><span></span><span>Slide</span><span>Stays for</span><span>On</span><span></span></div>
+<sc-for list="{{slides}}" as="sl" hint-placeholder-count="5">
+<div class="rw"><span class="sm sub tnum">{{sl.n}}</span><div class="stack g4"><span class="b">{{sl.title}}</span><span class="sm mut">{{sl.src}}</span></div>
+<div class="field"><label class="lbl" for="{{sl.id}}">Stays for</label><select class="select" id="{{sl.id}}" value="{{sl.dur}}" onChange="{{sl.setDur}}"><option value="10">10 seconds</option><option value="15">15 seconds</option><option value="20">20 seconds</option><option value="30">30 seconds</option></select></div>
+<input class="sw" type="checkbox" checked="{{sl.on}}" onChange="{{sl.toggle}}" aria-label="{{sl.aria}}">
+<button type="button" class="ibtn sq {{sl.upCls}}" onClick="{{sl.up}}" aria-label="{{sl.upAria}}"><span aria-hidden="true">↑</span></button></div>
+</sc-for>
+</div>
+<p class="hint">Turn a slide off to rest it. A slide made from an event or a deadline takes itself down when the date passes.</p>
+<div class="field"><label class="label" for="de-ticker">Notices along the bottom <i>(optional)</i></label><input class="input" id="de-ticker" type="text" maxLength="160" defaultValue="Community Pantry Volunteer Day, Sunday at 2:00 PM"><span class="hint">Prayer time changes and enrollment deadlines are added to this line for you.</span></div>
+</section>
+
+<section class="card stack g16" data-sec="Look">
+<h2 class="t1">3. Look</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="de-lang">Prayer names</label><select class="select" id="de-lang"><option selected>English and Arabic</option><option>English only</option></select></div>
+<div class="field"><label class="label" for="de-size">Text size</label><select class="select" id="de-size"><option selected>Standard</option><option>Large, for a far wall</option></select></div>
+<div class="field"><label class="label" for="de-clock">Clock</label><select class="select" id="de-clock"><option selected>12-hour, AM and PM</option><option>24-hour</option></select></div>
+</div>
+<div class="sets2">
+<div class="set"><div class="stack g4"><span class="b">Hijri date</span><span class="sm mut">Under the day and month</span></div><input class="sw" type="checkbox" checked aria-label="Show the Hijri date"></div>
+<div class="set"><div class="stack g4"><span class="b">Sunrise</span><span class="sm mut">As a smaller row in the table</span></div><input class="sw" type="checkbox" checked aria-label="Show sunrise"></div>
+</div>
+<p class="hint">Your name and logo come from your <a class="link" href="OrgProfileEdit.dc.html">public profile</a>. Colors are fixed so the times stay readable from across the hall.</p>
+</section>
+</div>
+
+<div class="stack g16">
+<section class="card stack g4" data-sec="Around each prayer">
+<h2 class="t1">4. Around each prayer</h2>
+<div class="set"><div class="stack g4"><span class="b">Announce the adhan</span><span class="sm mut">At the adhan time the whole screen says which prayer it is</span></div><input class="sw" type="checkbox" checked aria-label="Announce the adhan"></div>
+<div class="set-sub"><label for="de-adhan">Keep it up for</label><select class="select" id="de-adhan"><option>1 minute</option><option selected>2 minutes</option><option>5 minutes</option><option>Until the countdown</option></select><a class="link sm" href="TvAdhan.dc.html">See it ↗</a></div>
+<div class="set"><div class="stack g4"><span class="b">Count down to the iqamah</span><span class="sm mut">Large enough to read from the back row</span></div><input class="sw" type="checkbox" checked aria-label="Count down to the iqamah"></div>
+<div class="set-sub"><label for="de-count">Start</label><select class="select" id="de-count"><option>2 minutes before</option><option selected>5 minutes before</option><option>10 minutes before</option><option>At the adhan</option></select><a class="link sm" href="TvIqamah.dc.html">See it ↗</a></div>
+<div class="set"><div class="stack g4"><span class="b">Go quiet during the prayer</span><span class="sm mut">Nothing moves and nothing glows while people pray</span></div><input class="sw" type="checkbox" checked aria-label="Go quiet during the prayer"></div>
+<div class="set-sub"><label for="de-quiet">For</label><select class="select" id="de-quiet"><option>8 minutes</option><option selected>12 minutes</option><option>15 minutes</option><option>20 minutes</option></select><label for="de-quiet2">showing</label><select class="select" id="de-quiet2"><option selected>A dim reminder</option><option>A black screen</option></select><a class="link sm" href="TvPrayer.dc.html">See it ↗</a></div>
+<div class="set"><div class="stack g4"><span class="b">Adhkar after the prayer</span><span class="sm mut">Your own slides, for a few minutes after each prayer. Add them as pictures and mark them “After prayer”</span></div><input class="sw" type="checkbox" aria-label="Adhkar after the prayer"></div>
+</section>
+
+<section class="card stack g4" data-sec="Fridays and Ramadan">
+<h2 class="t1">5. Fridays and Ramadan</h2>
+<div class="set"><div class="stack g4"><span class="b">Friday board</span><span class="sm mut">Each khutbah, its khateeb and topic, from Thursday’s Maghrib until the last service ends</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvFriday.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Friday board"></div></div>
+<div class="set"><div class="stack g4"><span class="b">Ramadan layout</span><span class="sm mut">Counts down to iftar and shows suhoor and taraweeh, for the whole month</span></div><div class="row g12 nowrap"><a class="link sm nw" href="TvRamadan.dc.html">See it ↗</a><input class="sw" type="checkbox" checked aria-label="Ramadan layout"></div></div>
+</section>
+
+<section class="card stack g4" data-sec="Overnight">
+<h2 class="t1">6. Overnight</h2>
+<div class="set"><div class="stack g4"><span class="b">Sleep when the building is empty</span><span class="sm mut">The screen goes black. Whether the TV itself powers down depends on the TV</span></div><input class="sw" type="checkbox" checked aria-label="Sleep overnight"></div>
+<div class="set-sub"><label for="de-sleep">From</label><select class="select" id="de-sleep"><option selected>30 min after Isha</option><option>1 hour after Isha</option><option>10:00 PM</option></select><label for="de-wake">until</label><select class="select" id="de-wake"><option selected>30 min before Fajr</option><option>1 hour before Fajr</option><option>5:00 AM</option></select></div>
+<p class="sm sub">Tonight that is 9:00 PM to 5:52 AM.</p>
+</section>
+
+<section class="card stack g16" data-sec="This screen">
+<h2 class="t1">7. This screen</h2>
+<div class="form tight">
+<div class="field"><label class="label" for="de-name">Name</label><input class="input" id="de-name" type="text" defaultValue="Main prayer hall"></div>
+<div class="field"><label class="label" for="de-turn">Which way up</label><select class="select" id="de-turn"><option selected>Landscape</option><option>Portrait</option></select></div>
+<div class="field"><label class="label" for="de-copy">Copy the setup of</label><select class="select" id="de-copy"><option selected>No other screen</option><option>Sisters’ hall</option><option>Lobby</option></select></div>
+</div>
+<p class="sm sub">Paired October 1 by Khadija Osman · 1920 by 1080 · last seen a moment ago. Restart or unpair it from <a class="link" href="OrgDisplays.dc.html">TV displays</a>.</p>
+</section>
+</div>
+</div>
+<sc-if value="{{dirty}}" hint-placeholder-val="{{false}}">
+<div class="savebar" role="region" aria-label="Unsaved changes">
+<p><b>{{dirtyText}}</b> {{dirtyWhere}}. The TV keeps showing the saved setup until you save.</p>
+<div class="row g8"><button type="button" class="btn" onClick="{{discard}}">Discard</button><button type="button" class="btn pri" onClick="{{save}}">Save and send to the TV</button></div>
+</div>
+</sc-if>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2560}}'>
+class Component extends DCLogic {
+state = { changed: {}, justSaved: false, moment: 0, layout: 'a', off: {}, dur: {}, order: [0, 1, 2, 3, 4] };
+  renderVals() {
+    const s = this.state;
+    const changed = s.changed, keys = Object.keys(changed), secs = [...new Set(keys.map((k) => changed[k]))], dirty = keys.length > 0;
+    const join = (xs) => xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+    const mark = (key, sec, more) => this.setState(Object.assign({ changed: Object.assign({}, changed, { [key]: sec }), justSaved: false }, more || {}));
+    const D = {
+      touch: (ev) => { const t = ev.target; if (!t || !t.closest) return; const sec = t.closest('[data-sec]'); if (!sec) return; mark(t.name || t.id || t.getAttribute('aria-label') || 'field', sec.getAttribute('data-sec')); },
+      dirty, dirtyText: keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes', dirtyWhere: 'in ' + join(secs),
+      stateCls: dirty ? 'dirty' : '', stateText: dirty ? (keys.length === 1 ? '1 unsaved change' : keys.length + ' unsaved changes') : (s.justSaved ? 'Saved just now' : 'All changes saved'),
+      save: () => this.setState({ changed: {}, justSaved: true }), discard: () => this.setState({ changed: {}, justSaved: false })
+    };
+
+    const SL = [
+      ['Isha iqamah moves to 8:15 PM on October 18', 'From Prayer times · until October 18', 15],
+      ['Weekend Qur’an School Open House', 'From your event · QR code to RSVP · until October 17', 20],
+      ['Enrollment closes Sunday, October 18', 'From Weekend Qur’an School · QR code to enroll · until October 18', 15],
+      ['Keep the doors open', 'Giving, General fund · QR code to give · until you turn it off', 20],
+      ['Community Pantry Volunteer Day', 'From your event · until October 18', 15]
+    ];
+    const slides = s.order.map((k, pos) => {
+      const x = SL[k];
+      return {
+        n: String(pos + 1), title: x[0], src: x[1], id: 'de-dur-' + k, aria: 'Show the slide ' + x[0],
+        dur: String(s.dur[k] || x[2]), setDur: (ev) => mark('slide-dur-' + k, 'Slides', { dur: Object.assign({}, s.dur, { [k]: ev.target.value }) }),
+        on: !s.off[k], toggle: () => mark('slide-on-' + k, 'Slides', { off: Object.assign({}, s.off, { [k]: !s.off[k] }) }),
+        upCls: pos === 0 ? 'off' : '', upAria: 'Move ' + x[0] + ' up',
+        up: () => { if (pos === 0) return; const o = s.order.slice(); o[pos] = s.order[pos - 1]; o[pos - 1] = k; mark('slide-order', 'Slides', { order: o }); }
+      };
+    });
+    const M = [
+      ['Most of the day', 'Prayer times beside your slides', 'Thursday, 12:48 PM'], ['At the adhan', 'Names the prayer for 2 minutes', 'Thursday, 1:21 PM'],
+      ['Before the iqamah', 'Counts down the last 5 minutes', 'Thursday, 1:42 PM'], ['During the prayer', 'Quiet for 12 minutes', 'Thursday, 1:46 PM'],
+      ['On Friday', 'Each khutbah and its khateeb', 'Friday, October 9'], ['In Ramadan', 'Counts down to iftar', 'Saturday, February 20, 2027'],
+      ['A message from the office', 'Covers the slides until it clears', 'Thursday, 12:52 PM'], ['Overnight', 'Black from 9:00 PM to 5:51 AM', 'Thursday, 11:30 PM']
+    ];
+    const moments = M.map((m, i) => ({ label: m[0], sub: m[1], cls: s.moment === i ? 'on' : '', pressed: s.moment === i ? 'true' : 'false', pick: () => this.setState({ moment: i }) }));
+    const v = { slides, moments, momentWhen: s.moment === 0 ? { a: 'Thursday, 12:48 PM', b: 'Thursday, 5:12 PM', c: 'Thursday, 6:42 PM' }[s.layout] : M[s.moment][2] };
+    ['a', 'b', 'c'].forEach((k) => { v['lay_' + k] = s.layout === k; v['pick_' + k] = () => this.setState({ layout: k, moment: 0 }); v['v_' + k] = s.moment === 0 && s.layout === k; });
+    [1, 2, 3, 4, 5, 6, 7].forEach((i) => { v['v_' + i] = s.moment === i; });
+    return Object.assign(D, v, { discard: () => this.setState({ changed: {}, justSaved: false, layout: 'a', off: {}, dur: {}, order: [0, 1, 2, 3, 4] }) });
+  }
+}
+</script>
+</body>
+</html>

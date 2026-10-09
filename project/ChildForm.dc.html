@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add a child</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a class="on" href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<a class="back" href="Family.dc.html"><span aria-hidden="true">←</span> My family</a>
+<div class="stack g12"><p class="eyebrow">Family · New child</p><h1 class="d2">Add <em>a child.</em></h1><p class="lede">You fill this in once. Every class you enroll them in starts from these details.</p></div>
+
+<div class="split">
+<div class="col-main stack g16">
+<div class="card lg stack g32">
+
+<div class="stack g16">
+<h2 class="t1">About your child</h2>
+<div class="form">
+<div class="field"><label class="label" for="cf-first">First name</label><input class="input" id="cf-first" type="text" autoComplete="off"></div>
+<div class="field"><label class="label" for="cf-last">Last name</label><input class="input" id="cf-last" type="text" autoComplete="off" defaultValue="Farah"></div>
+<div class="field"><label class="label" for="cf-nick">Name they go by <i>(optional)</i></label><input class="input" id="cf-nick" type="text" placeholder="What the teacher should call them"></div>
+<div class="field"><label class="label" for="cf-dob">Date of birth</label><input class="input" id="cf-dob" type="text" inputMode="numeric" placeholder="MM / DD / YYYY"><span class="hint">Used to suggest the right class level.</span></div>
+<div class="field"><label class="label" for="cf-grade">School grade this year</label><select class="select" id="cf-grade"><option>Not in school yet</option><option>Kindergarten</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option></select></div>
+<fieldset class="field" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">Boy or girl</legend>
+<div class="row g8 nowrap"><label class="pick" style="padding: 12px 16px"><input type="radio" name="cfsex"><span class="b">Boy</span></label><label class="pick" style="padding: 12px 16px"><input type="radio" name="cfsex"><span class="b">Girl</span></label></div>
+<span class="hint">Some schools group classes or prayer lines this way.</span></fieldset>
+</div>
+</div>
+
+<fieldset class="stack g12" style="border: 0; padding: 0; margin: 0">
+<legend class="t1" style="padding: 0; margin-bottom: 4px">Qur’an reading so far</legend>
+<p class="mut">An honest guess is fine. The teacher checks on the first weekend.</p>
+<div class="cols c2" style="gap: 10px">
+<label class="pick"><input type="radio" name="cfread"><span class="stack g4"><span class="b">Just starting</span><span class="sm mut">Does not know the Arabic letters yet</span></span></label>
+<label class="pick"><input type="radio" name="cfread"><span class="stack g4"><span class="b">Knows the letters</span><span class="sm mut">Recognizes letters and short vowels</span></span></label>
+<label class="pick"><input type="radio" name="cfread"><span class="stack g4"><span class="b">Reads slowly</span><span class="sm mut">Sounds out words from the mushaf</span></span></label>
+<label class="pick"><input type="radio" name="cfread"><span class="stack g4"><span class="b">Reads fluently</span><span class="sm mut">Reads a page with few mistakes</span></span></label>
+</div>
+<div class="field"><label class="label" for="cf-hifz">Surahs memorized <i>(optional)</i></label><input class="input" id="cf-hifz" type="text" placeholder="For example: Al-Fatihah to Al-Fil"></div>
+</fieldset>
+
+<div class="stack g16">
+<div class="stack g4"><h2 class="t1">Health and care</h2><p class="mut">Shared only with staff and the class teacher at schools you enroll with.</p></div>
+<label class="check"><input type="checkbox"><span>No allergies or medical conditions to report</span></label>
+<div class="form">
+<div class="field full"><label class="label" for="cf-allergy">Allergies</label><input class="input" id="cf-allergy" type="text" placeholder="For example: peanuts. Say if they carry medication"></div>
+<div class="field full"><label class="label" for="cf-med">Anything else a teacher should know <i>(optional)</i></label><textarea class="textarea" id="cf-med" placeholder="Medical conditions, learning support, what helps on a hard day"></textarea></div>
+<div class="field full"><label class="label" for="cf-lang">Languages spoken at home <i>(optional)</i></label><input class="input" id="cf-lang" type="text" placeholder="For example: English and Somali"></div>
+</div>
+</div>
+
+<div class="stack g8">
+<h2 class="t1">Photos</h2>
+<div class="set"><div class="stack g4"><span class="b">Schools may include my child in photos they share</span><span class="sm mut">Your default answer. Each school asks again when you enroll, and you can say no there.</span></div><input class="sw" type="checkbox" aria-label="Schools may include my child in photos they share"></div>
+</div>
+
+</div>
+<div class="savebar step">
+<a class="btn quiet" href="Family.dc.html">Cancel</a>
+<p>Saved to your family only. Nothing is shared until you enroll.</p>
+<div class="row g8"><a class="btn" href="ChildForm.dc.html">Save and add another</a><a class="btn pri xl" href="Family.dc.html">Save child</a></div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12"><p class="eyebrow">Why we ask</p><ul class="ul sm"><li>Date of birth places your child in the right age group</li><li>Reading level helps the teacher prepare</li><li>Health notes reach the teacher before the first class, not after</li></ul></div>
+<div class="card stack g8"><p class="eyebrow q">Private by default</p><p class="sm mut">Children do not get accounts and never appear publicly. You can edit or delete this record at any time from My family.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a href="Workspaces.dc.html">Switch space</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2340}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

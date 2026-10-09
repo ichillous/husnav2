@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Show a message now</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dm-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">TV displays · 2 of 3 screens online</p><h1 class="d3" id="dm-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgDisplays.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="stack g8" role="group" aria-label="Start from"><span class="label">Start from</span><div class="row g8">
+<sc-for list="{{presets}}" as="pr" hint-placeholder-count="5"><button type="button" class="chip {{pr.cls}}" aria-pressed="{{pr.pressed}}" onClick="{{pr.pick}}">{{pr.label}}</button></sc-for>
+</div></div>
+<div class="field"><label class="label" for="dm-h">Headline</label><input class="input" id="dm-h" type="text" maxLength="60" value="{{head}}" onInput="{{onHead}}"><span class="hint">{{headLeft}} characters left. It fills the screen, so keep it to one thought.</span></div>
+<div class="field"><label class="label" for="dm-d">Second line <i>(optional)</i></label><input class="input" id="dm-d" type="text" maxLength="90" value="{{detail}}" onInput="{{onDetail}}"></div>
+<div aria-hidden="true" style="border-radius: 14px; padding: 18px 20px; background: #f2c57c; color: #1f1606"><div style="font: 700 10px/1.3 'DM Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase">A message from the office</div><div style="margin-top: 8px; font: 400 30px/1.05 'Instrument Serif', serif">{{headShown}}</div><div style="margin-top: 6px; font: 500 14px/1.3 'DM Sans', sans-serif">{{detail}}</div></div>
+<div class="form">
+<fieldset class="field" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 4px">On which screens?</legend>
+<label class="check"><input type="checkbox" checked><span>Main prayer hall</span></label><label class="check"><input type="checkbox" checked><span>Sisters’ hall</span></label><label class="check"><input type="checkbox" disabled><span class="sub">Lobby · offline, cannot show it</span></label></fieldset>
+<div class="field"><label class="label" for="dm-t">For how long?</label><select class="select" id="dm-t"><option>5 minutes</option><option selected>15 minutes</option><option>Until the next adhan</option><option>Until I clear it</option></select><span class="hint">The adhan, the iqamah countdown and the prayer always come first. The message returns after them if its time is not up.</span></div>
+</div>
+<div class="row g8 end"><a class="btn" href="OrgDisplays.dc.html">Cancel</a><button type="button" class="btn pri {{goCls}}" onClick="{{send}}">Show on 2 screens</button></div>
+</div>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">On screen now in Main prayer hall and Sisters’ hall.</span><span>It clears by itself at 1:07 PM. The prayer times stay visible underneath it.</span></div></div>
+<a class="btn block" href="TvMessage.dc.html">See it on the TV ↗</a>
+<button type="button" class="btn danger block" onClick="{{clear}}">Clear the message now</button>
+<a class="btn quiet block" href="OrgDisplays.dc.html">Back to TV displays</a>
+</div>
+</sc-if>
+<sc-if value="{{cleared}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note" role="status"><span><span class="b ink">Message cleared.</span> Both screens are back to their usual rotation.</span></div>
+<a class="btn pri block" href="OrgDisplays.dc.html">Back to TV displays</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":920}}'>
+class Component extends DCLogic {
+state = { preset: 0, head: null, detail: null, step: 'form' };
+  renderVals() {
+    const s = this.state;
+    const P = [['A car is blocking an exit', 'A gray minivan is blocking the north exit.', 'Plate ending 4821. Please move it now.'], ['Janazah today', 'Janazah prayer after Dhuhr today.', 'Please stay and pray with the family.'],
+      ['Closing early', 'The building closes at 9:00 PM tonight.', 'Isha is prayed as usual at 8:30 PM.'], ['Lost and found', 'A set of keys was found by the wudu area.', 'Collect them from the office.'], ['Write my own', '', '']];
+    const head = s.head ?? P[s.preset][1], detail = s.detail ?? P[s.preset][2];
+    return {
+      heading: s.step === 'form' ? 'Show a message now.' : s.step === 'sent' ? 'It is on the screens.' : 'Cleared.',
+      form: s.step === 'form', sent: s.step === 'sent', cleared: s.step === 'cleared',
+      presets: P.map((p, i) => ({ label: p[0], cls: s.preset === i ? 'on' : '', pressed: s.preset === i ? 'true' : 'false', pick: () => this.setState({ preset: i, head: null, detail: null }) })),
+      head, detail, headShown: head || 'Your headline appears here.', headLeft: String(60 - head.length),
+      onHead: (ev) => this.setState({ head: ev.target.value }), onDetail: (ev) => this.setState({ detail: ev.target.value }),
+      goCls: head.trim() ? '' : 'off', send: () => { if (head.trim()) this.setState({ step: 'sent' }); }, clear: () => this.setState({ step: 'cleared' })
+    };
+  }
+}
+</script>
+</body>
+</html>

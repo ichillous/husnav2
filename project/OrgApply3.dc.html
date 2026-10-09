@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization application, step 3: verification</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Organizations</small></a>
+<div class="row g8 push"><a class="btn quiet" href="Help.dc.html">Help</a><a class="btn" href="ForOrgs.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Register your organization</p><h1 class="d2">Show us you <em>speak for it.</em></h1></div>
+<ol class="steps" aria-label="Application progress"><li class="done"><small>Step 1 · Done</small>About you</li><li class="done"><small>Step 2 · Done</small>Your organization</li><li class="on" aria-current="step"><small>Step 3</small>Verification</li><li><small>Step 4</small>Review and submit</li></ol>
+
+<div class="split">
+<div class="col-main card lg stack g32">
+
+<fieldset class="stack g12" style="border: 0; padding: 0; margin: 0">
+<legend class="t1" style="padding: 0; margin-bottom: 6px">Choose one way to verify</legend>
+<p class="mut">Any one of these is enough. Pick whichever is easiest for you.</p>
+
+<label class="pick"><input type="radio" name="verify" checked=""><span class="grow stack g8"><span class="b">An email address at your organization’s domain</span><span class="sm mut">After you submit, we send a confirmation link to <span class="ink b">khadija@crescenthouse.example</span>. It matches your website, crescenthouse.example.</span><span><span class="badge ok">Fastest</span></span></span></label>
+
+<label class="pick"><input type="radio" name="verify"><span class="grow stack g12"><span class="b">Upload a document</span><span class="sm mut">One of: an IRS determination letter, a state registration, or a letter on the organization’s letterhead signed by a board member and naming you.</span>
+<span class="drop"><span class="b ink">Drop a file here or choose one</span><span class="sm">PDF, JPG or PNG, up to 10 MB</span><button type="button" class="btn sm" onClick="{{pickFile}}">{{fileLabel}}</button></span></span></label>
+
+<label class="pick"><input type="radio" name="verify"><span class="grow stack g8"><span class="b">A call to your public phone line</span><span class="sm mut">We call <span class="ink b">(614) 555-0100</span>, the number on your website, and ask the office to confirm you. Tell us when someone is there to answer.</span>
+<input class="input" type="text" aria-label="Best days and times to call" placeholder="For example: weekdays after 2 PM"></span></label>
+</fieldset>
+
+<div class="stack g16">
+<div class="stack g4"><h2 class="t1">Someone who can vouch for you</h2><p class="mut">A second person at the organization, such as the imam or a board member. We contact them only if something is unclear.</p></div>
+<div class="form">
+<div class="field"><label class="label" for="a3-vname">Their full name</label><input class="input" id="a3-vname" type="text" defaultValue="Imam Adam Rahman"></div>
+<div class="field"><label class="label" for="a3-vrole">Their role</label><input class="input" id="a3-vrole" type="text" defaultValue="Imam"></div>
+<div class="field full"><label class="label" for="a3-vcontact">Their email or phone</label><input class="input" id="a3-vcontact" type="text" defaultValue="imam@crescenthouse.example"></div>
+</div>
+</div>
+
+<label class="check"><input type="checkbox" checked=""><span>I confirm that I am authorized to represent Crescent House Masjid and that the information I have given is true.</span></label>
+
+<div class="savebar step">
+<a class="btn" href="OrgApply2.dc.html"><span aria-hidden="true">←</span> Back</a>
+<a class="btn pri xl" href="OrgApply4.dc.html">Continue to review <span aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12"><p class="eyebrow">Why we ask</p><h2 class="d4">Families trust what they find on Husna.</h2><p class="sm mut">Verified organizations can collect enrollments and donations. Checking that each applicant really represents the organization protects your name as much as theirs.</p></div>
+<div class="card stack g8"><p class="eyebrow q">What we do with documents</p><p class="sm mut">Only the Husna review team sees what you upload. Documents are deleted [RETENTION PERIOD] after a decision.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  state = { file: false };
+  renderVals() {
+    return {
+      fileLabel: this.state.file ? 'registration-letter.pdf attached. Replace' : 'Choose a file',
+      pickFile: () => this.setState({ file: !this.state.file })
+    };
+  }
+}
+</script>
+</body>
+</html>

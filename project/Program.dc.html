@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Weekend Qur’an School at Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}">
+<div>
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}">
+<div>
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a class="on" href="Organizations.dc.html">Organizations</a><a href="Family.dc.html">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+</div>
+</sc-if>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<a class="back" href="OrgProfile.dc.html"><span aria-hidden="true">←</span> Crescent House Masjid</a>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 48px; align-items: center">
+<div class="stack g20">
+<div class="row g12"><p class="eyebrow">Program · Crescent House Masjid</p><span class="badge ok">Enrollment open · closes Sunday, October 18</span></div>
+<h1 class="d1">Weekend<br><em>Qur’an School</em></h1>
+<p class="lede">Two mornings a week of Qur’an, Arabic and Islamic studies for children ages 5 to 15, taught in small classes by level.</p>
+<div class="row g12">
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn pri xl" href="Gate.dc.html">Enroll a child <span aria-hidden="true">→</span></a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><a class="btn pri xl" href="Enroll1.dc.html">Enroll a child <span aria-hidden="true">→</span></a></sc-if>
+<a class="btn xl" href="Event.dc.html">Visit the open house, Oct 17</a>
+</div>
+</div>
+<div class="poster w p-mint" aria-hidden="true" style="height: clamp(300px, 34vw, 460px)"><div class="rings">ق</div></div>
+</div>
+
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Ages</p><b>5 to 15</b><span>Four levels, placed by reading</span></div>
+<div class="stat"><p class="eyebrow q">Days</p><b>Sat + Sun</b><span>9:00 AM to 12:30 PM</span></div>
+<div class="stat"><p class="eyebrow q">Fall term</p><b>Oct 24</b><span>to December 20 · 8 weekends</span></div>
+<div class="stat"><p class="eyebrow q">Tuition</p><b>$240</b><span>per child, per term</span></div>
+</div>
+</div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">01 · Classes</p><h2 class="d2">Four levels.<br><em>One for every child.</em></h2><p class="lede">Choose the level that fits your child’s age today. Teachers confirm placement with a short reading check on the first weekend and may suggest a move.</p></div>
+<div class="cols c2">
+<div class="card stack g12"><div class="row between"><p class="eyebrow">Level 1 · Ages 5 to 7</p><span class="badge ok">4 places left</span></div><h3 class="d3">Foundations</h3><p class="mut">Arabic letters and sounds, short surahs by heart, and daily du’as.</p><p class="sm sub">Ustadha Salma Idris · Room 2 · 12 of 16 enrolled</p><div class="meter" aria-hidden="true"><i style="width: 75%"></i></div></div>
+<div class="card stack g12"><div class="row between"><p class="eyebrow">Level 2 · Ages 8 to 10</p><span class="badge warn">2 places left</span></div><h3 class="d3">Reading</h3><p class="mut">Reading from the mushaf with tajwid, and the first half of Juz ‘Amma.</p><p class="sm sub">Ustadh Bilal Ahmed · Room 3 · 14 of 16 enrolled</p><div class="meter" aria-hidden="true"><i style="width: 88%"></i></div></div>
+<div class="card stack g12"><div class="row between"><p class="eyebrow">Level 3 · Ages 11 to 13</p><span class="badge bad">Full · waitlist open</span></div><h3 class="d3">Memorization</h3><p class="mut">A steady hifz track with weekly review and one-to-one listening.</p><p class="sm sub">Ustadh Hamza Malik · Room 4 · 14 of 14 enrolled</p><div class="meter" aria-hidden="true"><i style="width: 100%"></i></div></div>
+<div class="card stack g12"><div class="row between"><p class="eyebrow">Level 4 · Ages 14 to 15</p><span class="badge ok">5 places left</span></div><h3 class="d3">Teens</h3><p class="mut">Tafsir of selected surahs, confident recitation, and questions teens actually ask.</p><p class="sm sub">Ustadha Noor Hassan · Library · 7 of 12 enrolled</p><div class="meter" aria-hidden="true"><i style="width: 58%"></i></div></div>
+</div>
+</div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap"><div class="split">
+<div class="col-main stack g24">
+<div class="stack g12"><p class="eyebrow">02 · A weekend morning</p><h2 class="d2">What the day <em>looks like.</em></h2></div>
+<ul class="list">
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">9:00 AM</span><span class="mut">Arrival, sign-in at the front desk, morning du’a together</span></li>
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">9:15 AM</span><span class="mut">Qur’an recitation and tajwid in level groups</span></li>
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">10:30 AM</span><span class="mut">Break and snack. Please pack a nut-free snack</span></li>
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">10:50 AM</span><span class="mut">Islamic studies and Arabic</span></li>
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">12:00 PM</span><span class="mut">Review circle and the week’s practice sheet</span></li>
+<li class="li" style="padding: 14px 0"><span class="serif nw" style="font-size: 26px; flex: 0 0 120px">12:30 PM</span><span class="mut">Pickup. Children are released only to people on your pickup list</span></li>
+</ul>
+</div>
+<aside class="col-side w card stack g16">
+<p class="eyebrow">Key dates</p>
+<dl class="kv" style="grid-template-columns: 120px minmax(0, 1fr)">
+<dt>Oct 17</dt><dd>Open house, 9:30 AM</dd>
+<dt>Oct 18</dt><dd>Enrollment closes</dd>
+<dt>Oct 21</dt><dd>Placement emails sent</dd>
+<dt>Oct 24</dt><dd>First day of class</dd>
+<dt>Nov 28 to 29</dt><dd>No class</dd>
+<dt>Dec 20</dt><dd>Last day and family recital</dd>
+</dl>
+</aside>
+</div></div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">03 · Tuition and help</p><h2 class="d2">Clear costs.<br><em>No one turned away.</em></h2></div>
+<div class="cols">
+<div class="card stack g12"><h3 class="t1">Tuition</h3><p class="serif" style="font-size: 54px; line-height: 1">$240</p><p class="mut">per child for the fall term. Books and the practice folder are included.</p></div>
+<div class="card stack g12"><h3 class="t1">Siblings</h3><p class="serif" style="font-size: 54px; line-height: 1">15% off</p><p class="mut">each additional child in the same family. The discount is applied for you at checkout.</p></div>
+<div class="card stack g12"><h3 class="t1">Paying</h3><p class="serif" style="font-size: 54px; line-height: 1">Full or 2 parts</p><p class="mut">Pay in full, or half now and half on November 24. You are charged only after the school confirms your child’s place.</p></div>
+</div>
+<div class="note ok"><div class="stack g4"><span class="b ink">Financial assistance</span><span>Ask for a reduced or waived tuition inside the enrollment form. Only the school director sees the request, and your child’s place does not depend on it.</span></div></div>
+<p class="sm sub">Refunds: full refund until October 24. After that, tuition is returned for the weekends that remain.</p>
+</div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap"><div class="split">
+<div class="col-main stack g24">
+<div class="stack g12"><p class="eyebrow">04 · How enrollment works</p><h2 class="d2">About ten minutes, <em>from your phone.</em></h2></div>
+<ol class="stack g16">
+<li class="row g16 nowrap start"><span class="count" aria-hidden="true">1</span><span><span class="b">Create a Husna account.</span> <span class="mut">Free, with your email. One account covers the whole family.</span></span></li>
+<li class="row g16 nowrap start"><span class="count" aria-hidden="true">2</span><span><span class="b">Add your children.</span> <span class="mut">Name, date of birth and anything the teacher should know.</span></span></li>
+<li class="row g16 nowrap start"><span class="count" aria-hidden="true">3</span><span><span class="b">Choose a class for each child.</span> <span class="mut">If a class is full you can join its waitlist.</span></span></li>
+<li class="row g16 nowrap start"><span class="count" aria-hidden="true">4</span><span><span class="b">Confirm family and safety details.</span> <span class="mut">Guardians, an emergency contact and who may pick up.</span></span></li>
+<li class="row g16 nowrap start"><span class="count" aria-hidden="true">5</span><span><span class="b">Sign the agreements and choose how to pay.</span> <span class="mut">The school reviews applications within three days and emails you the result.</span></span></li>
+</ol>
+</div>
+<aside class="col-side w card stack g12">
+<p class="eyebrow">Have these ready</p>
+<ul class="ul"><li>Each child’s date of birth</li><li>An emergency contact who is not a parent</li><li>Names of everyone allowed to pick up</li><li>Allergies or medical notes, if any</li><li>A card or bank account for tuition</li></ul>
+</aside>
+</div></div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">05 · Questions parents ask</p><h2 class="d2">Good to <em>know.</em></h2></div>
+<div class="cols c2">
+<div class="stack g8"><h3 class="t1">My child has never read Arabic. Which level?</h3><p class="mut">Choose the level for their age. The teacher checks reading on the first weekend and places beginners in a starter group within the class.</p></div>
+<div class="stack g8"><h3 class="t1">What happens if a class is full?</h3><p class="mut">Join the waitlist at no cost. If a place opens you get an email and 48 hours to accept it before it passes to the next family.</p></div>
+<div class="stack g8"><h3 class="t1">Can we join after the term starts?</h3><p class="mut">Yes, until November 8 where a class has room. Tuition is reduced for the weekends already past.</p></div>
+<div class="stack g8"><h3 class="t1">How do I report an absence?</h3><p class="mut">From your child’s page on Husna, any time before 9:00 AM that day. The teacher sees it on the attendance sheet.</p></div>
+<div class="stack g8"><h3 class="t1">Who can see my child’s information?</h3><p class="mut">You, the guardians you add, and the school staff and teacher for the class. It is never shown publicly.</p></div>
+<div class="stack g8"><h3 class="t1">Who do I ask about something else?</h3><p class="mut">The school office answers messages on weekdays. <a class="link" href="ContactOrg.dc.html">Message Crescent House Masjid</a></p></div>
+</div>
+</div></section>
+
+<section class="sec" style="padding-top: 0"><div class="wrap">
+<div class="card tint lg"><div class="row between g24">
+<div class="stack g8 grow" style="min-width: 280px"><h2 class="d2">Ready when <em>you are.</em></h2><p class="lede">Enrollment for the fall term closes Sunday, October 18.</p></div>
+<sc-if value="{{visitor}}" hint-placeholder-val="{{true}}"><a class="btn pri xl" href="Gate.dc.html">Enroll a child <span aria-hidden="true">→</span></a></sc-if>
+<sc-if value="{{member}}" hint-placeholder-val="{{false}}"><a class="btn pri xl" href="Enroll1.dc.html">Enroll a child <span aria-hidden="true">→</span></a></sc-if>
+</div></div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Visitor","Member"],"default":"Visitor"},"$preview":{"width":1440,"height":4440}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const member = (this.props.viewer ?? 'Visitor') === 'Member';
+    return { visitor: !member, member };
+  }
+}
+</script>
+</body>
+</html>

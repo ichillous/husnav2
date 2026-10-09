@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Workspace overview</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a class="on" href="OrgHome.dc.html" aria-current="page">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><span>Crescent House Masjid</span><span aria-hidden="true">/</span><span>Overview</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<sc-if value="{{suspended}}" hint-placeholder-val="{{false}}">
+<div class="note bad" role="alert" style="margin-bottom: 20px"><div class="stack g8"><span><span class="b ink">This workspace is suspended.</span> Reason given by Husna: [REASON GIVEN BY HUSNA STAFF]. Your public profile is hidden and no new RSVPs, enrollments or payments are taken. You can still read everything, export your records and message Husna. Enrolled families keep their class pages.</span><div class="row g8"><a class="btn sm" href="Help.dc.html">Reply to Husna</a><a class="btn sm" href="OrgSettings.dc.html">Export records</a><a class="btn sm" href="OrgActivity.dc.html">See the activity log</a></div></div></div>
+</sc-if>
+<div class="ph"><div><p class="eyebrow">Thursday, October 8</p><h1>Good morning, <em>Khadija.</em></h1></div>
+<div class="row g8"><a class="btn" href="OrgAnnouncements.dc.html">Post announcement</a><a class="btn pri" href="OrgEventEdit.dc.html">Create event</a></div></div>
+
+<div class="stack g32">
+<div class="stack g12">
+<h2 class="t1">Needs your attention</h2>
+<div class="card p0"><div class="list in">
+<a class="li" href="OrgApplications.dc.html"><span class="count" aria-hidden="true">5</span><span class="grow stack g4"><span class="b">Enrollment applications to review</span><span class="sm mut">Weekend Qur’an School · the oldest has waited 2 days · families expect an answer by October 21</span></span><span class="go" aria-hidden="true">→</span></a>
+<a class="li" href="OrgInbox.dc.html"><span class="count" aria-hidden="true">2</span><span class="grow stack g4"><span class="b">New messages</span><span class="sm mut">Amina Farah asked about carpools · Yasmin Idris offered to volunteer</span></span><span class="go" aria-hidden="true">→</span></a>
+<a class="li" href="OrgFriday.dc.html"><span class="badge warn" aria-hidden="true">!</span><span class="grow stack g4"><span class="b">Next Friday’s schedule is not posted</span><span class="sm mut">October 16 has no services yet. Copy this week’s and change the topics.</span></span><span class="go" aria-hidden="true">→</span></a>
+</div></div>
+</div>
+
+<div class="cols c4">
+<a class="stat" href="OrgEvents.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">Events this month</p><b>5</b><span>published · 1 draft</span></a>
+<a class="stat" href="OrgEventManage.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">RSVPs this week</p><b>61</b><span>across 3 events</span></a>
+<a class="stat" href="OrgRoster.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">Enrolled, fall term</p><b>47 <span class="sub" style="font-size: 24px">of 58</span></b><span>4 classes · Level 3 is full</span></a>
+<a class="stat" href="OrgDonations.dc.html" style="text-decoration: none; color: inherit"><p class="eyebrow q">Donations in October</p><b>$1,240</b><span>31 gifts · 9 monthly donors</span></a>
+</div>
+
+<div class="split">
+<div class="col-main stack g12">
+<div class="row between"><h2 class="t1">Your next seven days</h2><a class="link sm" href="OrgEvents.dc.html">All events →</a></div>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 540px">
+<thead><tr><th>When</th><th>What</th><th>RSVPs</th><th></th></tr></thead>
+<tbody>
+<tr><td class="nw">Fri, Oct 9 · 1:30 PM</td><td><span class="b">Friday prayer, three services</span><small>Schedule posted Wednesday</small></td><td class="sub">Not used</td><td><a class="btn sm" href="OrgFriday.dc.html">Edit</a></td></tr>
+<tr><td class="nw">Sat, Oct 10 · 10:00 AM</td><td><span class="b">Qur’an &amp; Coffee: Saturday Reflections</span><small>At the masjid</small></td><td>18 going</td><td><a class="btn sm" href="OrgEventManage.dc.html">Manage</a></td></tr>
+<tr><td class="nw">Tue, Oct 13 · 6:00 PM</td><td><span class="b">English Conversation Circle</span><small>Online</small></td><td>9 going</td><td><a class="btn sm" href="OrgEventManage.dc.html">Manage</a></td></tr>
+<tr><td class="nw">Sat, Oct 17 · 9:30 AM</td><td><span class="b">Weekend Qur’an School Open House</span><small>At the masjid</small></td><td>34 of 80 places</td><td><a class="btn sm" href="OrgEventManage.dc.html">Manage</a></td></tr>
+</tbody></table></div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12">
+<p class="eyebrow">Recent activity</p>
+<ul class="list">
+<li class="li start" style="padding: 10px 0"><span class="grow sm"><span class="b">Amina Farah</span> <span class="mut">applied for Yusuf and Maryam</span><br><span class="xs sub">Today, 9:26 AM</span></span></li>
+<li class="li start" style="padding: 10px 0"><span class="grow sm"><span class="b">$50.00 donation</span> <span class="mut">to the General fund</span><br><span class="xs sub">Today, 8:41 AM</span></span></li>
+<li class="li start" style="padding: 10px 0"><span class="grow sm"><span class="b">Ustadh Bilal Ahmed</span> <span class="mut">accepted his invitation as Teacher</span><br><span class="xs sub">Yesterday</span></span></li>
+<li class="li start" style="padding: 10px 0"><span class="grow sm"><span class="b">Imam Adam Rahman</span> <span class="mut">updated the Friday schedule</span><br><span class="xs sub">Wednesday</span></span></li>
+</ul>
+</div>
+<div class="card stack g12"><div class="row between"><p class="eyebrow">Payouts</p><span class="badge ok">Active</span></div><p class="sm mut">Bank account ending 6789. Next payout on Monday, October 12.</p><a class="link sm" href="OrgPayouts.dc.html">Tuition and payouts →</a></div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"suspended":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() { return {
+      suspended: !!this.props.suspended,}; }
+}
+</script>
+</body>
+</html>

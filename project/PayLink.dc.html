@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Community hall booking deposit</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="row g8 push"><span class="sm mut">Secure payment to Crescent House Masjid</span></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap mid stack g24">
+<div class="row g16 nowrap"><span class="av lg sq" aria-hidden="true">C</span><div class="stack g4"><div class="row g8"><p class="eyebrow">Crescent House Masjid</p><span class="badge ok">Verified</span></div><h1 class="d3">Community hall <em>booking deposit</em></h1></div></div>
+
+<sc-if value="{{unpaid}}" hint-placeholder-val="{{true}}">
+<div class="split">
+<div class="col-main card lg stack g20">
+<p class="mut">Holds the community hall for your date. The deposit comes off the hall fee, or is returned in full if you cancel at least 14 days before.</p>
+<div class="form">
+<div class="field"><label class="label" for="pl-name">Your name</label><input class="input" id="pl-name" type="text" autoComplete="name" placeholder="Full name"></div>
+<div class="field"><label class="label" for="pl-email">Email for the receipt</label><input class="input" id="pl-email" type="email" autoComplete="email" placeholder="you@example.com"></div>
+<div class="field full"><label class="label" for="pl-note">Date and occasion</label><input class="input" id="pl-note" type="text" placeholder="For example: Saturday, December 12, family gathering"><span class="hint">Crescent House Masjid asked for this with every payment.</span></div>
+</div>
+<button type="button" class="btn pri xl block" onClick="{{pay}}">Continue to pay $150.00 <span aria-hidden="true">→</span></button>
+<p class="xs sub">You enter your card or bank details on <a class="link" href="Stripe.dc.html">Stripe’s payment page</a>, not on Husna. Questions about the booking go to Crescent House Masjid: <a class="link" href="ContactOrg.dc.html">send a message</a>.</p>
+</div>
+<aside class="col-side stack g16">
+<div class="card stack g12"><p class="eyebrow">You pay</p><p class="serif" style="font-size: 54px; line-height: 1">$150.00</p><p class="sm mut">One time. No extra fees are added for you.</p></div>
+<div class="card stack g8"><p class="eyebrow q">No account needed</p><p class="sm mut">The receipt goes to your email. <a class="link" href="SignIn.dc.html">Sign in</a> if you want it kept under Payments.</p></div>
+</aside>
+</div>
+</sc-if>
+
+<sc-if value="{{paid}}" hint-placeholder-val="{{false}}">
+<div class="card lg stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Paid. $150.00 to Crescent House Masjid.</span><span>Receipt HP-20418 is on its way to your email. The office will confirm your date by message.</span></div></div>
+<dl class="kv"><dt>For</dt><dd>Community hall booking deposit</dd><dt>Paid</dt><dd>Thursday, October 8, 2026 · Visa ending 4242</dd><dt>Receipt</dt><dd class="tnum">HP-20418</dd></dl>
+<div class="row g8"><button type="button" class="btn" onClick="{{dl}}">{{dlLabel}}</button><a class="btn" href="OrgProfile.dc.html">About Crescent House Masjid</a></div>
+</div>
+</sc-if>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>Payments on Husna are processed by Stripe</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":880}}'>
+class Component extends DCLogic {
+state = { paid: false, dl: false };
+  renderVals() {
+    const s = this.state;
+    return { unpaid: !s.paid, paid: s.paid, pay: () => this.setState({ paid: true }), dlLabel: s.dl ? 'Receipt downloaded (PDF)' : 'Download receipt (PDF)', dl: () => this.setState({ dl: true }) };
+  }
+}
+</script>
+</body>
+</html>

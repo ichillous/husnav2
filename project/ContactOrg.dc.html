@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Message Crescent House Masjid</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="co-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Message Crescent House Masjid</p><h1 class="d3" id="co-title">Reach out. <em>Say hello.</em></h1></div>
+<a class="ibtn" href="OrgProfile.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+
+<sc-if value="{{writing}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="form">
+<div class="field"><label class="label" for="co-name">Your name</label><input class="input" id="co-name" type="text" autoComplete="name" placeholder="Full name"></div>
+<div class="field"><label class="label" for="co-email">Email for the reply</label><input class="input" id="co-email" type="email" autoComplete="email" placeholder="you@example.com"></div>
+<div class="field full"><label class="label" for="co-topic">What is this about?</label>
+<select class="select" id="co-topic" defaultValue="general"><option value="general">A general question</option><option value="school">Weekend Qur’an School</option><option value="volunteer">Volunteering</option><option value="rental">Using the space</option><option value="other">Something else</option></select></div>
+<div class="field full"><label class="label" for="co-msg">Message</label><textarea class="textarea" id="co-msg" maxLength="1000" placeholder="How can the team help?"></textarea><span class="hint">Up to 1,000 characters. The office usually answers by email.</span></div>
+</div>
+<div class="row g8 end"><a class="btn" href="OrgProfile.dc.html">Cancel</a><button type="button" class="btn pri" onClick="{{send}}">Send message</button></div>
+<p class="xs sub">Your message goes to the organization’s inbox on Husna. They see your name and email, nothing else.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Message sent.</span><span>Crescent House Masjid will reply to the email address you gave. A copy is on its way to you now.</span></div></div>
+<a class="btn pri block" href="OrgProfile.dc.html">Back to Crescent House Masjid</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":680}}'>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return { writing: !this.state.sent, sent: this.state.sent, send: () => this.setState({ sent: true }) };
+  }
+}
+</script>
+</body>
+</html>

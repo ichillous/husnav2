@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Support inbox</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a class="on" href="FounderSupport.dc.html" aria-current="page">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Support</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings" style="border-color: #e0d3bd">IC</a></div>
+
+<div class="ph"><div><h1>Support</h1><p>Messages from the Help page, problem reports and privacy requests. Replies go to the person’s email.</p></div>
+<div class="row g8"><div class="seg" role="group" aria-label="Show"><sc-for list="{{filters}}" as="f" hint-placeholder-count="3"><button type="button" class="{{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}}</button></sc-for></div></div></div>
+
+<div class="split" style="gap: 20px">
+<div class="col-side card p0" style="flex: 1 1 340px"><div class="list in">
+<sc-for list="{{threads}}" as="t" hint-placeholder-count="4">
+<button type="button" class="li start {{t.rowCls}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}"><span class="av" aria-hidden="true">{{t.initials}}</span><span class="grow stack g4"><span class="row between nowrap g8"><span class="b">{{t.from}}</span><span class="xs sub nw">{{t.when}}</span></span><span class="sm ink">{{t.subject}}</span><span class="row g8"><span class="badge {{t.kindCls}}">{{t.kind}}</span><span class="badge {{t.badgeCls}}">{{t.status}}</span></span></span></button>
+</sc-for>
+</div>
+<sc-if value="{{none}}" hint-placeholder-val="{{false}}"><p class="mut" style="padding: 24px">Nothing here.</p></sc-if>
+</div>
+
+<div class="col-main card stack g20">
+<div class="row between g12">
+<div class="stack g4"><p class="eyebrow">{{cur.kind}} · {{cur.who}}</p><h2 class="d4">{{cur.subject}}</h2><p class="sm mut">{{cur.from}} · {{cur.email}}</p></div>
+<div class="row g8"><a class="btn sm" href="{{cur.href}}">{{cur.linkLabel}}</a><button type="button" class="btn sm" onClick="{{cur.toggleDone}}">{{cur.doneLabel}}</button></div>
+</div>
+<sc-if value="{{cur.isPrivacy}}" hint-placeholder-val="{{false}}"><div class="note warn"><span><span class="b ink">Privacy request.</span> Answer by [DATA REQUEST DEADLINE]. Deleting an account withdraws its children from classes and tells each school. Confirm the person’s identity by replying to the address on the account before you act.</span></div></sc-if>
+<div class="stack g12">
+<sc-for list="{{cur.messages}}" as="m" hint-placeholder-count="2">
+<div class="note {{m.cls}}"><div class="stack g4 grow"><span class="row between g8"><span class="b ink">{{m.who}}</span><span class="xs sub">{{m.when}}</span></span><span>{{m.text}}</span></div></div>
+</sc-for>
+</div>
+<div class="stack g12">
+<div class="field"><label class="label" for="su-reply">Reply as Husna</label><textarea class="textarea" id="su-reply" style="min-height: 110px" placeholder="Write your reply" value="{{draft}}" onInput="{{onDraft}}"></textarea></div>
+<div class="row between g8"><div class="field" style="flex: 0 1 300px"><label class="label xs" for="su-saved">Saved replies</label><select class="select" id="su-saved" style="min-height: 44px; padding-block: 8px"><option>Choose one to start from</option><option>How refunds work</option><option>How long reviews take</option><option>How to delete an account</option><option>Who to ask about a class</option></select></div><button type="button" class="btn pri {{sendCls}}" style="align-self: flex-end" onClick="{{send}}">Send reply</button></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":840}}'>
+class Component extends DCLogic {
+state = { sel: 'tariq', filter: 'open', draft: '', replies: {}, done: {} };
+  renderVals() {
+    const s = this.state;
+    const data = [
+      { id: 'tariq', initials: 'TS', from: 'Tariq Siddiqui', email: 'tariq.siddiqui@example.com', who: 'Member', kind: 'Payments', kindCls: 'warn', subject: 'My tuition payment was returned', when: '9:20 AM', href: 'FounderUsers.dc.html', linkLabel: 'Open user',
+        messages: [{ who: 'Tariq Siddiqui', when: 'Today, 9:20 AM', text: 'My bank returned the tuition payment for Adam and I am not sure why. Does he lose his place in Level 2?', cls: '' }] },
+      { id: 'delete', initials: 'RK', from: 'Rania Khalil', email: 'rania.khalil@example.com', who: 'Member', kind: 'Privacy request', kindCls: 'info', subject: 'Please delete my account and my son’s record', when: 'Yesterday', href: 'FounderUsers.dc.html', linkLabel: 'Open user', isPrivacy: true,
+        messages: [{ who: 'Rania Khalil', when: 'Yesterday, 5:48 PM', text: 'We are moving out of state. Please remove my account and everything about my son. Do I need to tell the school separately?', cls: '' }] },
+      { id: 'cedar', initials: 'CO', from: 'Maryam Aziz, Cedar & Olive Academy', email: 'office@cedarolive.example', who: 'Organization applicant', kind: 'Application', kindCls: '', subject: 'How long does the review take?', when: 'Oct 6', href: 'FounderApprovals.dc.html', linkLabel: 'Open application',
+        messages: [
+          { who: 'Maryam Aziz', when: 'October 6, 11:40 AM', text: 'We applied this morning and hope to post our winter classes soon. When should we expect an answer?', cls: '' },
+          { who: 'Isiah, Husna', when: 'October 6, 1:05 PM', text: 'Thank you for applying. Reviews usually take [REVIEW TIME]. Your registration document is the last thing we are checking.', cls: 'ok' }
+        ] },
+      { id: 'bug', initials: 'HA', from: 'Hodan Ali', email: 'hodan.ali@example.com', who: 'Visitor', kind: 'Problem report', kindCls: 'bad', subject: 'The map link on an event opens the wrong place', when: 'Oct 5', href: 'FounderModeration.dc.html', linkLabel: 'Open the report',
+        messages: [
+          { who: 'Hodan Ali', when: 'October 5, 3:10 PM', text: 'The directions for Families in Nature took me to the masjid, not the park.', cls: '' },
+          { who: 'Isiah, Husna', when: 'October 5, 4:02 PM', text: 'Thank you. The organizer has been asked to correct the address, and the event page now shows a notice until they do.', cls: 'ok' }
+        ] }
+    ];
+    const threads = data.map((t) => {
+      const mine = (s.replies[t.id] || []).map((text) => ({ who: 'Isiah, Husna', when: 'Just now', text, cls: 'ok' }));
+      const answered = t.messages.length > 1 || mine.length > 0;
+      const done = s.done[t.id] ?? (t.id === 'bug');
+      return {
+        ...t, isPrivacy: !!t.isPrivacy, messages: [...t.messages, ...mine], done,
+        status: done ? 'Closed' : answered ? 'Replied' : 'New', badgeCls: done ? '' : answered ? 'info' : 'ok',
+        rowCls: s.sel === t.id ? 'on' : '', pressed: s.sel === t.id ? 'true' : 'false',
+        pick: () => this.setState({ sel: t.id, draft: '' }),
+        doneLabel: done ? 'Reopen' : 'Close',
+        toggleDone: () => this.setState({ done: { ...s.done, [t.id]: !done } })
+      };
+    });
+    const shown = threads.filter((t) => s.filter === 'all' || (s.filter === 'open' ? !t.done : t.done));
+    const cur = threads.find((t) => t.id === s.sel);
+    return {
+      threads: shown, none: shown.length === 0, cur,
+      filters: [['open', 'Open'], ['closed', 'Closed'], ['all', 'All']].map(([id, label]) => ({ label, cls: s.filter === id ? 'on' : '', pressed: s.filter === id ? 'true' : 'false', pick: () => this.setState({ filter: id }) })),
+      draft: s.draft, onDraft: (ev) => this.setState({ draft: ev.target.value }),
+      sendCls: s.draft.trim() ? '' : 'off',
+      send: () => { if (s.draft.trim()) this.setState({ replies: { ...s.replies, [s.sel]: [...(s.replies[s.sel] || []), s.draft.trim()] }, draft: '' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

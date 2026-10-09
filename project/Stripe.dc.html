@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hand-offs to Stripe</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Hand-offs</small></a>
+<div class="row g8 push"><span class="sm mut">Not a Husna screen</span></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">Hand-offs</p><h1 class="d2">Where Husna hands over <em>to Stripe.</em></h1><p class="lede">Four moments leave Husna for a page Stripe hosts. Each one returns to a Husna screen. The buttons below continue the prototype as if the person had finished on Stripe.</p></div>
+<section class="card lg stack g20" id="checkout">
+<div class="stack g8"><p class="eyebrow">1 · Checkout</p><h2 class="d3">Paying a donation or a payment link</h2><p class="mut">Opens from the Donate page and from an organization’s payment link.</p></div>
+<div class="drop" style="padding: 44px 24px"><span class="b ink">Stripe’s own page appears here</span><span class="sm">Hosted and designed by Stripe. Husna does not draw or control it, and never sees card or bank numbers.</span></div>
+<div class="cols c2" style="gap: 20px"><div class="stack g8"><p class="eyebrow q">What Husna sends</p><ul class="ul sm"><li>Amount and currency, for example $50.00</li><li>What it is for: “Donation to Crescent House Masjid · General fund”</li><li>One time or monthly</li><li>The email for the receipt, when the person is signed in</li><li>Statement text: [STATEMENT DESCRIPTOR]</li><li>Husna’s share: none. The whole amount is for the organization</li></ul></div><div class="stack g8"><p class="eyebrow q">What comes back</p><ul class="ul sm"><li>Paid: Husna shows the receipt and emails it</li><li>Cancelled: back to the form, nothing charged</li><li>Declined: Stripe explains why and the person can try another card there</li></ul></div></div>
+<div class="row g8"><a class="btn pri" href="DonateDone.dc.html">Donation paid →</a><a class="btn" href="Donate.dc.html">Donor cancels</a><a class="btn" href="PayLink.dc.html">Back to the payment link</a></div>
+</section>
+<section class="card lg stack g20" id="card">
+<div class="stack g8"><p class="eyebrow">2 · Saving a payment method</p><h2 class="d3">Adding or replacing a card or bank account</h2><p class="mut">Opens from step 5 of enrollment, from Payments, and from a waitlist offer. Nothing is charged here.</p></div>
+<div class="drop" style="padding: 44px 24px"><span class="b ink">Stripe’s own page appears here</span><span class="sm">Hosted and designed by Stripe. Husna does not draw or control it, and never sees card or bank numbers.</span></div>
+<div class="cols c2" style="gap: 20px"><div class="stack g8"><p class="eyebrow q">What Husna sends</p><ul class="ul sm"><li>The signed-in member’s Stripe customer record</li><li>Card and US bank account as allowed methods</li><li>Where to return: the screen the person came from</li></ul></div><div class="stack g8"><p class="eyebrow q">What comes back</p><ul class="ul sm"><li>Saved: Husna shows “Visa ending 4242” and uses it for the next scheduled payment</li><li>Cancelled: the previous method stays in place</li><li>A failed scheduled payment can be retried with the new method straight away</li></ul></div></div>
+<div class="row g8"><a class="btn pri" href="Payments.dc.html">Method saved, back to Payments →</a><a class="btn" href="Enroll5.dc.html">Back to enrollment, step 5</a><a class="btn" href="WaitlistOffer.dc.html">Back to the waitlist offer</a></div>
+</section>
+<section class="card lg stack g20" id="connect">
+<div class="stack g8"><p class="eyebrow">3 · Connecting payouts</p><h2 class="d3">An organization connects its bank account</h2><p class="mut">Opens from the setup guide and from Tuition and payouts. Only an owner can start it.</p></div>
+<div class="drop" style="padding: 44px 24px"><span class="b ink">Stripe’s own page appears here</span><span class="sm">Hosted and designed by Stripe. Husna does not draw or control it, and never sees card or bank numbers.</span></div>
+<div class="cols c2" style="gap: 20px"><div class="stack g8"><p class="eyebrow q">What Husna sends</p><ul class="ul sm"><li>Organization legal name, address and tax status from Settings</li><li>The owner’s name and email</li><li>Where to return: Tuition and payouts</li></ul></div><div class="stack g8"><p class="eyebrow q">What comes back</p><ul class="ul sm"><li>Active: donations and tuition can be taken, payouts follow Stripe’s schedule</li><li>More information needed: Husna shows what Stripe asked for and by when</li><li>Not finished: the Connect button stays, and the giving page and paid enrollment stay off</li></ul></div></div>
+<div class="row g8"><a class="btn pri" href="OrgPayouts.dc.html">Payouts connected →</a><a class="btn" href="OrgSetup.dc.html">Owner leaves before finishing</a></div>
+</section>
+<section class="card lg stack g20" id="coffee">
+<div class="stack g8"><p class="eyebrow">4 · A coffee for the developer</p><h2 class="d3">A member or an organization buys the developer a coffee</h2><p class="mut">Opens from the coffee button: in the footer and account for members, in the sidebar and settings for organizations. It is the only payment that goes to Husna.</p></div>
+<div class="drop" style="padding: 44px 24px"><span class="b ink">Stripe’s own page appears here</span><span class="sm">Hosted and designed by Stripe. Husna does not draw or control it, and never sees card or bank numbers.</span></div>
+<div class="cols c2" style="gap: 20px"><div class="stack g8"><p class="eyebrow q">What Husna sends</p><ul class="ul sm"><li>The amount, one time, for example $5.00</li><li>What it is for: “A coffee for Husna’s developer”</li><li>The email for the receipt, when the person is signed in</li><li>Paid to Husna’s own Stripe account, never an organization’s</li></ul></div><div class="stack g8"><p class="eyebrow q">What comes back</p><ul class="ul sm"><li>Paid: Husna says thank you and emails the receipt</li><li>Cancelled: back to the sheet, nothing charged</li><li>Declined: Stripe explains why and the person can try another card there</li></ul></div></div>
+<div class="row g8"><a class="btn pri" href="Coffee.dc.html">Back to a member’s coffee</a><a class="btn" href="OrgCoffee.dc.html">Back to an organization’s coffee</a></div>
+</section>
+
+</div></section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2740}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

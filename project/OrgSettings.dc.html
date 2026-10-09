@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization settings</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a class="on" href="OrgSettings.dc.html" aria-current="page">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Settings</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Organization settings</h1><p>Legal details, verification, what the team is told about, and the controls only an owner can use.</p></div></div>
+
+<div class="stack g16" style="max-width: 860px">
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">Verification</h2><span class="badge ok">Verified October 1, 2026</span></div>
+<dl class="kv"><dt>Verified name</dt><dd>Crescent House Masjid</dd><dt>Verified address</dt><dd>1200 Sample Avenue, Columbus, OH 43229</dd><dt>Method</dt><dd>Email at crescenthouse.example</dd><dt>Applied by</dt><dd>Khadija Osman</dd></dl>
+<p class="sm mut">Changing the name or address sends the change to Husna for a quick re-check. Your profile stays live with the old details until it is approved.</p>
+<div><a class="btn sm" href="OrgChangeSheet.dc.html">Request a name or address change</a></div>
+</div>
+
+<div class="card stack g16">
+<h2 class="t1">Legal and tax details</h2>
+<div class="form">
+<div class="field"><label class="label" for="os-legal">Legal name</label><input class="input" id="os-legal" type="text" defaultValue="Crescent House Islamic Society, Inc."></div>
+<div class="field"><label class="label" for="os-ein">EIN</label><input class="input" id="os-ein" type="text" defaultValue="••-•••6789"><span class="hint">Printed on donation receipts and year-end statements.</span></div>
+<div class="field"><label class="label" for="os-tz">Time zone</label><select class="select" id="os-tz"><option selected="">Eastern Time, Columbus</option><option>Central Time</option><option>Mountain Time</option><option>Pacific Time</option></select></div>
+<div class="field"><label class="label" for="os-status">Tax status</label><select class="select" id="os-status"><option selected="">501(c)(3) nonprofit</option><option>Religious organization, no determination letter</option><option>Other nonprofit</option><option>Not a nonprofit</option></select></div>
+</div>
+<div class="row end"><button type="button" class="btn pri" onClick="{{save}}">{{saveLabel}}</button></div>
+</div>
+
+<div class="card stack g4">
+<div class="stack g4"><h2 class="t1">What the team is told about</h2><p class="sm mut">Sent by email. Each person can also mute their own from their account.</p></div>
+<div class="set"><div class="stack g4"><span class="b">New enrollment applications</span><span class="sm mut">To school directors, once a day at 8:00 AM</span></div><input class="sw" type="checkbox" checked="" aria-label="Email about new enrollment applications"></div>
+<div class="set"><div class="stack g4"><span class="b">New inbox messages</span><span class="sm mut">To owners and admins, as they arrive</span></div><input class="sw" type="checkbox" checked="" aria-label="Email about new inbox messages"></div>
+<div class="set"><div class="stack g4"><span class="b">Failed tuition payments</span><span class="sm mut">To people with the Finance role</span></div><input class="sw" type="checkbox" checked="" aria-label="Email about failed tuition payments"></div>
+<div class="set"><div class="stack g4"><span class="b">Friday schedule not posted by Wednesday</span><span class="sm mut">To owners, admins and editors</span></div><input class="sw" type="checkbox" checked="" aria-label="Email when Friday schedule is not posted"></div>
+<div class="set"><div class="stack g4"><span class="b">A TV display offline for 30 minutes</span><span class="sm mut">To owners, admins and editors</span></div><input class="sw" type="checkbox" checked aria-label="Email when a TV display is offline"></div>
+<div class="set"><div class="stack g4"><span class="b">Weekly summary</span><span class="sm mut">RSVPs, enrollments and donations, every Monday</span></div><input class="sw" type="checkbox" aria-label="Weekly summary email"></div>
+</div>
+
+<div class="card stack g12">
+<h2 class="t1">Husna terms and cost</h2>
+<dl class="kv"><dt>Organization Terms</dt><dd>Version [TERMS VERSION], accepted by Khadija Osman on September 29, 2026</dd><dt>What Husna costs</dt><dd>Nothing. No plan, no platform fee</dd><dt>Tuition, donations, payment links</dt><dd>Husna keeps $0. Stripe’s card processing applies</dd><dt>Events, RSVPs, TV displays</dt><dd>Free</dd></dl>
+<div class="row between g12"><a class="link sm" href="OrgTerms.dc.html">Read the Organization Terms →</a><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></div>
+</div>
+
+<div class="card stack g4">
+<h2 class="t1">Your data</h2>
+<div class="set"><div class="stack g4"><span class="b">Activity log</span><span class="sm mut">Who did what, including every time a child’s health notes were opened</span></div><a class="btn sm" href="OrgActivity.dc.html">Open the log</a></div>
+<div class="set"><div class="stack g4"><span class="b">Export everything</span><span class="sm mut">Rosters, attendance, applications, donations and RSVPs as spreadsheet files</span></div><button type="button" class="btn sm" onClick="{{exportAll}}">{{exportLabel}}</button></div>
+<div class="set"><div class="stack g4"><span class="b">Student records after a term ends</span><span class="sm mut">Kept for returning families, then deleted</span></div><select class="select" aria-label="Keep student records for" style="width: 190px; min-height: 44px; padding-block: 8px"><option>Delete after 1 year</option><option selected="">Delete after 2 years</option><option>Delete after 5 years</option></select></div>
+</div>
+
+<div class="card stack g16" style="border-color: rgba(255,159,142,.4)">
+<h2 class="t1">Owner controls</h2>
+<div class="stack g8">
+<span class="b">Transfer ownership</span>
+<p class="sm mut">The new owner must already be an admin. You become an admin.</p>
+<div><a class="btn" href="OrgTransferSheet.dc.html">Transfer ownership</a></div>
+</div>
+<hr class="hr">
+<div class="stack g8">
+<span class="b">Close this workspace</span>
+<p class="sm mut">Your profile is removed, upcoming events are cancelled with notice, monthly donations stop, and enrolled families are told. Tuition for weekends not yet taught must be refunded first. Your records can be exported for 30 days.</p>
+<sc-if value="{{closeIdle}}" hint-placeholder-val="{{true}}"><div><button type="button" class="btn danger" onClick="{{askClose}}">Close workspace</button></div></sc-if>
+<sc-if value="{{closeAsk}}" hint-placeholder-val="{{false}}">
+<div class="stack g12">
+<div class="field" style="max-width: 420px"><label class="label" for="os-confirm">Type the organization name to confirm</label><input class="input" id="os-confirm" type="text" autoComplete="off" placeholder="Crescent House Masjid" value="{{confirm}}" onInput="{{onConfirm}}"></div>
+<div class="row g8"><a class="btn danger {{closeCls}}" href="States.dc.html">Close workspace permanently</a><button type="button" class="btn" onClick="{{cancelClose}}">Keep it open</button></div>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2660}}'>
+class Component extends DCLogic {
+  state = { req: false, saved: false, exported: false, transfer: false, closing: false, confirm: '' };
+  renderVals() {
+    const s = this.state;
+    return {
+      reqLabel: s.req ? 'Change request started. Check your email' : 'Request a name or address change',
+      reqChange: () => this.setState({ req: true }),
+      saveLabel: s.saved ? 'Saved' : 'Save details', save: () => this.setState({ saved: true }),
+      exportLabel: s.exported ? 'We will email a download link' : 'Start export', exportAll: () => this.setState({ exported: true }),
+      transferLabel: s.transfer ? 'Request sent to Imam Adam Rahman' : 'Ask them to accept ownership',
+      transfer: () => this.setState({ transfer: true }),
+      closeIdle: !s.closing, closeAsk: s.closing,
+      askClose: () => this.setState({ closing: true }),
+      cancelClose: () => this.setState({ closing: false, confirm: '' }),
+      confirm: s.confirm, onConfirm: (ev) => this.setState({ confirm: ev.target.value }),
+      closeCls: s.confirm.trim() === 'Crescent House Masjid' ? '' : 'off'
+    };
+  }
+}
+</script>
+</body>
+</html>

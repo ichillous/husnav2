@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Console settings</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a class="on" href="FounderSettings.dc.html" aria-current="page">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Settings</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner" aria-current="page" style="border-color: #e0d3bd">IC</a></div>
+
+<div class="ph"><div><h1>Console settings</h1><p>Who can use this console, what is switched on for everyone, and the documents people agree to.</p></div></div>
+
+<div class="stack g16" style="max-width: 900px">
+
+<div class="card stack g16">
+<div class="row between"><h2 class="t1">Console staff</h2><button type="button" class="btn sm" onClick="{{toggleAdd}}">{{addBtn}}</button></div>
+<div class="list">
+<div class="li" style="padding: 12px 0"><span class="av" aria-hidden="true">IC</span><span class="grow stack g4"><span class="b">Isiah <span class="badge">You</span></span><span class="sm mut">Console owner · two-step sign-in on · last sign-in today, 8:12 AM</span></span><span class="badge ok">Active</span></div>
+<sc-if value="{{invited}}" hint-placeholder-val="{{false}}"><div class="li" style="padding: 12px 0"><span class="av" aria-hidden="true">+</span><span class="grow stack g4"><span class="b">New staff member</span><span class="sm mut">Invitation sent · must set up two-step sign-in before first use</span></span><span class="badge info">Invited</span><button type="button" class="btn sm" onClick="{{revoke}}">Revoke</button></div></sc-if>
+</div>
+<sc-if value="{{adding}}" hint-placeholder-val="{{false}}">
+<div class="stack g12" style="padding-top: 16px; border-top: 1px solid rgba(232,249,229,.13)">
+<div class="form">
+<div class="field"><label class="label" for="fs-email">Email</label><input class="input" id="fs-email" type="email" placeholder="name@husna.app"></div>
+<div class="field"><label class="label" for="fs-role">Role</label><select class="select" id="fs-role"><option>Reviewer: approvals and moderation</option><option>Support: users and organizations, read-only money</option><option>Owner: everything, including payments and staff</option></select></div>
+</div>
+<div class="row end"><button type="button" class="btn pri" onClick="{{invite}}">Send invitation</button></div>
+</div>
+</sc-if>
+</div>
+
+<div class="card stack g4">
+<h2 class="t1">Console security</h2>
+<div class="set"><div class="stack g4"><span class="b">Two-step sign-in for all staff</span><span class="sm mut">Authenticator app. Cannot be turned off</span></div><span class="badge ok">Required</span></div>
+<div class="set"><div class="stack g4"><span class="b">Sign out after inactivity</span><span class="sm mut">Applies to this console only</span></div><select class="select" aria-label="Sign out after" style="width: 170px; min-height: 44px; padding-block: 8px"><option>15 minutes</option><option selected="">30 minutes</option><option>1 hour</option></select></div>
+<div class="set"><div class="stack g4"><span class="b">Email owners on every console sign-in</span><span class="sm mut">Including the device and approximate location</span></div><input class="sw" type="checkbox" checked="" aria-label="Email owners on every console sign-in"></div>
+<div class="set"><div class="stack g4"><span class="b">Workspace viewing</span><span class="sm mut">Read-only, needs a reason, 30 minutes at most, shown to the organization’s owner</span></div><span class="badge">Fixed</span></div>
+<div class="set"><div class="stack g4"><span class="b">Recovery codes</span><span class="sm mut">8 of 10 unused · generated September 20</span></div><button type="button" class="btn sm" onClick="{{regen}}">{{regenLabel}}</button></div>
+</div>
+
+<div class="card stack g4">
+<div class="stack g4"><h2 class="t1">What is switched on</h2><p class="sm mut">For every city and organization.</p></div>
+<div class="set"><div class="stack g4"><span class="b">New member sign-ups</span><span class="sm mut">Anyone can create a free account</span></div><input class="sw" type="checkbox" checked="" aria-label="New member sign-ups"></div>
+<div class="set"><div class="stack g4"><span class="b">Organization applications</span><span class="sm mut">The Register your organization form</span></div><input class="sw" type="checkbox" checked="" aria-label="Organization applications"></div>
+<div class="set"><div class="stack g4"><span class="b">Donations</span><span class="sm mut">Through each organization’s own Stripe account</span></div><input class="sw" type="checkbox" checked="" aria-label="Donations"></div>
+<div class="set"><div class="stack g4"><span class="b">Tuition and payment links</span><span class="sm mut">Through each organization’s own Stripe account</span></div><input class="sw" type="checkbox" checked="" aria-label="Tuition and payment links"></div>
+<div class="set"><div class="stack g4"><span class="b">The coffee button</span><span class="sm mut">Lets members and organizations buy the developer a coffee</span></div><a class="btn sm" href="FounderPayments.dc.html">Set up</a></div>
+<div class="set"><div class="stack g4"><span class="b">Text messages for urgent school alerts</span><span class="sm mut">Class cancelled, early pickup</span></div><input class="sw" type="checkbox" checked="" aria-label="Text messages for urgent school alerts"></div>
+<div class="set"><div class="stack g4"><span class="b">Thursday roundup email</span><span class="sm mut">Sent to members who opted in</span></div><input class="sw" type="checkbox" checked="" aria-label="Thursday roundup email"></div>
+</div>
+
+<div class="card stack g16">
+<h2 class="t1">Legal documents</h2>
+<div class="tbl-wrap" style="background: none"><table class="tbl" style="min-width: 560px">
+<thead><tr><th>Document</th><th>Current version</th><th>Effective</th><th></th></tr></thead>
+<tbody>
+<tr><td class="b">Terms of Service</td><td>[TERMS VERSION]</td><td class="sub">[DATE]</td><td><a class="btn sm" href="FounderLegalSheet.dc.html">Publish new version</a></td></tr>
+<tr><td class="b">Privacy Policy</td><td>[PRIVACY VERSION]</td><td class="sub">[DATE]</td><td><a class="btn sm" href="FounderLegalSheet.dc.html">Publish new version</a></td></tr>
+<tr><td class="b">Organization Terms</td><td>[TERMS VERSION]</td><td class="sub">[DATE]</td><td><a class="btn sm" href="FounderLegalSheet.dc.html">Publish new version</a></td></tr>
+</tbody></table></div>
+<sc-if value="{{verNote}}" hint-placeholder-val="{{false}}"><div class="note" role="status">Publishing asks for the new text, a version label and an effective date, then asks whether everyone must accept again at their next sign-in. Husna is free; any version that introduced a charge would always require owners to accept again.</div></sc-if>
+</div>
+
+<div class="card stack g16">
+<h2 class="t1">Messages from Husna</h2>
+<div class="form">
+<div class="field"><label class="label" for="fs-from">Emails are sent from</label><input class="input" id="fs-from" type="text" placeholder="[SENDER NAME AND ADDRESS]"></div>
+<div class="field"><label class="label" for="fs-support">Support address shown to people</label><input class="input" id="fs-support" type="email" placeholder="[SUPPORT EMAIL]"></div>
+<div class="field full"><label class="label" for="fs-banner">Site-wide notice <i>(optional)</i></label><input class="input" id="fs-banner" type="text" maxLength="140" placeholder="For example: Husna will be briefly unavailable Sunday at 2:00 AM for maintenance."><span class="hint">Shown as a thin bar at the top of every page until you clear it.</span></div>
+</div>
+<div class="row between g8"><a class="link sm" href="Emails.dc.html">See every email Husna sends →</a><button type="button" class="btn pri" onClick="{{save}}">{{saveLabel}}</button></div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  state = { adding: false, invited: false, regen: false, ver: false, saved: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      adding: s.adding, addBtn: s.adding ? 'Cancel' : 'Add staff',
+      toggleAdd: () => this.setState({ adding: !s.adding }),
+      invited: s.invited, invite: () => this.setState({ invited: true, adding: false }),
+      revoke: () => this.setState({ invited: false }),
+      regenLabel: s.regen ? 'New codes downloaded. Old ones no longer work' : 'Generate new codes',
+      regen: () => this.setState({ regen: true }),
+      verNote: s.ver, newVer: () => this.setState({ ver: true }),
+      saveLabel: s.saved ? 'Saved' : 'Save', save: () => this.setState({ saved: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

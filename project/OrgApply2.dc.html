@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organization application, step 2: your organization</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Organizations</small></a>
+<div class="row g8 push"><a class="btn quiet" href="Help.dc.html">Help</a><a class="btn" href="ForOrgs.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Register your organization</p><h1 class="d2">Now, <em>your organization.</em></h1></div>
+<ol class="steps" aria-label="Application progress"><li class="done"><small>Step 1 · Done</small>About you</li><li class="on" aria-current="step"><small>Step 2</small>Your organization</li><li><small>Step 3</small>Verification</li><li><small>Step 4</small>Review and submit</li></ol>
+
+<div class="split">
+<div class="col-main card lg stack g32">
+
+<div class="stack g16">
+<h2 class="t1">The basics</h2>
+<div class="form">
+<div class="field full"><label class="label" for="a2-name">Organization name</label><input class="input" id="a2-name" type="text" defaultValue="Crescent House Masjid"><span class="hint">The name your community uses. It becomes the title of your public profile.</span></div>
+<div class="field full"><label class="label" for="a2-legal">Legal name <i>(if different)</i></label><input class="input" id="a2-legal" type="text" placeholder="For example: Crescent House Islamic Society, Inc."></div>
+</div>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0">
+<legend class="label" style="padding: 0; margin-bottom: 8px">What kind of organization is it?</legend>
+<div class="cols c4" style="gap: 10px">
+<label class="pick"><input type="radio" name="kind" checked=""><span class="b">Masjid</span></label>
+<label class="pick"><input type="radio" name="kind"><span class="b">School</span></label>
+<label class="pick"><input type="radio" name="kind"><span class="b">Nonprofit</span></label>
+<label class="pick"><input type="radio" name="kind"><span class="b">Student group</span></label>
+</div>
+<p class="hint">Masjids also get Prayer times: you set each iqamah, and members who make you their home masjid see the times at the top of every page. Other kinds of organization do not have that page.</p>
+</fieldset>
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0">
+<legend class="label" style="padding: 0; margin-bottom: 4px">What will you use Husna for? <i>(choose all that apply)</i></legend>
+<div class="cols c2" style="gap: 0 20px">
+<label class="check"><input type="checkbox" checked=""><span>Friday prayer schedule</span></label>
+<label class="check"><input type="checkbox" checked=""><span>Events and RSVPs</span></label>
+<label class="check"><input type="checkbox" checked=""><span>Classes or weekend school enrollment</span></label>
+<label class="check"><input type="checkbox"><span>Youth programs</span></label>
+<label class="check"><input type="checkbox" checked=""><span>Donations</span></label>
+<label class="check"><input type="checkbox"><span>Announcements to our community</span></label>
+</div>
+</fieldset>
+</div>
+
+<div class="stack g16">
+<h2 class="t1">Where you are</h2>
+<div class="form">
+<div class="field full"><label class="label" for="a2-street">Street address</label><input class="input" id="a2-street" type="text" autoComplete="street-address" defaultValue="1200 Sample Avenue"><span class="hint">Events default to this address unless you say otherwise.</span></div>
+<div class="field"><label class="label" for="a2-city">City</label>
+<select class="select" id="a2-city"><option value="columbus" selected="">Columbus, Ohio</option><option value="other">A city not listed</option></select></div>
+<div class="field"><label class="label" for="a2-zip">ZIP code</label><input class="input" id="a2-zip" type="text" inputMode="numeric" autoComplete="postal-code" defaultValue="43229"></div>
+</div>
+</div>
+
+<div class="stack g16">
+<h2 class="t1">How the public reaches you</h2>
+<div class="form">
+<div class="field"><label class="label" for="a2-phone">Public phone</label><input class="input" id="a2-phone" type="tel" defaultValue="(614) 555-0100"></div>
+<div class="field"><label class="label" for="a2-email">Public email</label><input class="input" id="a2-email" type="email" defaultValue="salaam@crescenthouse.example"></div>
+<div class="field full"><label class="label" for="a2-web">Website <i>(optional)</i></label><input class="input" id="a2-web" type="url" defaultValue="https://crescenthouse.example"></div>
+<div class="field full"><label class="label" for="a2-about">One sentence about your organization</label><textarea class="textarea" id="a2-about" maxLength="160" style="min-height: 84px" defaultValue="A neighborhood space for prayer, learning and showing up for each other."></textarea><span class="hint">Up to 160 characters. Shown on your profile and in search. You can write more later.</span></div>
+</div>
+</div>
+
+<div class="stack g16">
+<h2 class="t1">Tax status <i class="sub" style="font-style: normal; font-weight: 400">(optional)</i></h2>
+<div class="form">
+<div class="field"><label class="label" for="a2-ein">EIN</label><input class="input" id="a2-ein" type="text" inputMode="numeric" placeholder="12-3456789"><span class="hint">Speeds up verification and is required later to receive donations.</span></div>
+</div>
+</div>
+
+<div class="savebar step">
+<a class="btn" href="OrgApply1.dc.html"><span aria-hidden="true">←</span> Back</a>
+<a class="btn pri xl" href="OrgApply3.dc.html">Continue to verification <span aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12"><p class="eyebrow">What becomes public</p><p class="sm mut">Your organization name, address, public phone, public email, website and description appear on your profile once you publish it. Your own name, mobile number and the EIN stay private.</p></div>
+<div class="card stack g8"><p class="eyebrow q">Not in Columbus?</p><p class="sm mut">Choose A city not listed. We keep your application and write to you when Husna opens there.</p></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2320}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

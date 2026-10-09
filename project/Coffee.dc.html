@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buy the developer a coffee</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cf-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Husna is free</p><h1 class="d3" id="cf-title">{{heading}}</h1></div>
+<a class="ibtn" href="MyHusna.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<p class="mut">Husna costs nothing: not for members, not for organizations, and nothing is taken from donations or tuition. It is built and looked after by one developer in Columbus. If it has been useful to you, a coffee helps keep it going.</p>
+<div class="stack g8" role="group" aria-labelledby="cf-amt"><span class="label" id="cf-amt">How much?</span>
+<div class="row g8"><sc-for list="{{amounts}}" as="a" hint-placeholder-count="5"><button type="button" class="chip {{a.cls}}" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}" style="min-width: 76px; justify-content: center; font-size: 16px">{{a.label}}</button></sc-for></div>
+<sc-if value="{{isOther}}" hint-placeholder-val="{{false}}"><div class="field" style="max-width: 240px"><label class="label" for="cf-other">Other amount, in dollars</label><input class="input" id="cf-other" type="text" inputMode="decimal" value="{{otherVal}}" onInput="{{onOther}}"><span class="hint">{{otherHint}}</span></div></sc-if>
+</div>
+<div class="field"><label class="label" for="cf-note">A note to the developer <i>(optional)</i></label><input class="input" id="cf-note" type="text" maxLength="140" placeholder="For example: what Husna has been useful for"></div>
+<label class="check"><input type="checkbox"><span>Keep my name private. The developer sees the coffee and the note, not who sent them.</span></label>
+<div class="card flat stack g8" style="padding: 16px 18px"><div class="row between"><span class="b">One time</span><span class="serif" style="font-size: 34px; line-height: 1">{{amountText}}</span></div><p class="sm mut">You pay on Stripe’s page. Husna never sees your card.</p></div>
+<div class="stack g8"><button type="button" class="btn pri xl block {{goCls}}" onClick="{{pay}}">{{payLabel}} <span aria-hidden="true">→</span></button><a class="btn quiet block" href="{{backHref}}">Not now</a></div>
+<p class="xs sub">This is a gift to the person who builds Husna. It is not a donation to a masjid or a charity, so there is no tax receipt, and it changes nothing about what you can do here. Everything stays free either way.</p>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">{{amountText}} is on its way. JazakAllahu khayran.</span><span>{{receiptLine}}</span></div></div>
+<p class="mut">Coffees are what keep Husna free for every family and every organization in Columbus.</p>
+<a class="btn pri block" href="{{backHref}}">{{backLabel}}</a>
+<sc-if value="{{member}}" hint-placeholder-val="{{true}}"><a class="btn quiet block" href="Payments.dc.html">See the receipt</a></sc-if>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"viewer":{"editor":"enum","options":["Member","Visitor"],"default":"Member"},"$preview":{"width":720,"height":860}}'>
+class Component extends DCLogic {
+state = { amount: 5, other: '', done: false };
+  renderVals() {
+    const s = this.state, t = (on) => (on ? 'true' : 'false');
+    const isOther = s.amount === 'other', raw = Number(String(s.other).replace(/[^0-9.]/g, '')) || 0;
+    const value = isOther ? raw : s.amount, ok = value >= 1, money = '$' + value.toFixed(2);
+    return {
+      form: !s.done, done: s.done, heading: s.done ? 'Thank you.' : 'Buy the developer a coffee.',
+      amounts: [5, 10, 25, 'other'].map((a) => ({ label: a === 'other' ? 'Other' : '$' + a, cls: s.amount === a ? 'on' : '', pressed: t(s.amount === a), pick: () => this.setState({ amount: a }) })),
+      isOther, otherVal: s.other, onOther: (ev) => this.setState({ other: ev.target.value }), otherHint: isOther && s.other && !ok ? 'The smallest amount is $1.' : 'Any amount from $1.',
+      amountText: ok ? money : '$0.00', payLabel: ok ? 'Continue to pay ' + money : 'Choose an amount', goCls: ok ? '' : 'off',
+      pay: () => { if (ok) this.setState({ done: true }); }, again: () => this.setState({ done: false }),
+      member: (this.props.viewer ?? 'Member') === 'Member',
+      backHref: (this.props.viewer ?? 'Member') === 'Member' ? 'MyHusna.dc.html' : 'Main.dc.html',
+      backLabel: (this.props.viewer ?? 'Member') === 'Member' ? 'Back to my week' : 'Back to Husna',
+      receiptLine: (this.props.viewer ?? 'Member') === 'Member' ? 'A receipt went to amina.farah@example.com. It is listed with your other receipts under Payments.' : 'Stripe emailed a receipt to the address you gave on its page.'
+
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My family</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<dc-import name="PrayerBar" hint-size="100%,45px"></dc-import>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="MyHusna.dc.html">My week</a><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a class="on" href="Family.dc.html" aria-current="page">Family</a><a href="Saved.dc.html">Saved</a></nav>
+<div class="row g8 push"><a class="ibtn" href="Messages.dc.html" aria-label="Messages"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5Z"></path></svg></a><a class="ibtn" href="Notifications.dc.html" aria-label="Notifications, 2 unread"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9ZM10 20a2 2 0 0 0 4 0"></path></svg><span class="pip"></span></a><a class="av" href="Account.dc.html" aria-label="Account, Amina Farah">AF</a><a class="ibtn menu-btn" href="MenuMember.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="row between bottom g24">
+<div class="stack g12"><p class="eyebrow">Family</p><h1 class="d2">The <em>Farah</em> family</h1><p class="lede">Add each person once. Schools you enroll with see only what they need, and nothing here is ever public.</p></div>
+<a class="btn pri" href="ChildForm.dc.html">Add a child</a>
+</div>
+
+<div class="split">
+<div class="col-main stack g32">
+
+<div class="stack g12">
+<h2 class="d3">Children</h2>
+<div class="cols c2">
+<div class="card stack g16">
+<div class="row g16 nowrap"><span class="av lg" aria-hidden="true">Y</span><div class="grow stack g4"><h3 class="d4">Yusuf Farah</h3><p class="sm mut">Age 9 · Born March 14, 2017 · Grade 4</p></div></div>
+<div class="row g8"><span class="badge {{stCls}}">{{stBadge}}</span><span class="badge">Allergy on file</span></div>
+<p class="sm mut">Weekend Qur’an School · Level 2 · Reading. {{stLine}}</p>
+<div class="row g8"><a class="btn sm pri" href="{{stHref}}">{{stCta}}</a><a class="btn sm" href="ChildForm.dc.html">Edit details</a><a class="btn sm" href="Child.dc.html">Open page</a></div>
+</div>
+<div class="card stack g16">
+<div class="row g16 nowrap"><span class="av lg" aria-hidden="true">M</span><div class="grow stack g4"><h3 class="d4">Maryam Farah</h3><p class="sm mut">Age 6 · Born June 2, 2020 · Grade 1</p></div></div>
+<div class="row g8"><span class="badge {{stCls}}">{{stBadge}}</span></div>
+<p class="sm mut">Weekend Qur’an School · Level 1 · Foundations. {{stLine}}</p>
+<div class="row g8"><a class="btn sm pri" href="{{stHref}}">{{stCta}}</a><a class="btn sm" href="ChildForm.dc.html">Edit details</a><a class="btn sm" href="Child.dc.html">Open page</a></div>
+</div>
+</div>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="d3">Parents and guardians</h2><sc-if value="{{gClosed}}" hint-placeholder-val="{{true}}"><button type="button" class="btn sm" onClick="{{gOpen}}">Add a guardian</button></sc-if></div>
+<div class="card p0"><div class="list in">
+<div class="li"><span class="av" aria-hidden="true">AF</span><span class="grow stack g4"><span class="b">Amina Farah <span class="badge">You</span></span><span class="sm mut">Mother · amina.farah@example.com · (614) 555-0117</span></span><span class="badge ok">Account owner</span></div>
+<div class="li"><span class="av" aria-hidden="true">IF</span><span class="grow stack g4"><span class="b">Idris Farah</span><span class="sm mut">Father · idris.farah@example.com · Can manage enrollment and payments</span></span><span class="badge info">Invitation sent</span><button type="button" class="btn sm" onClick="{{resend}}">{{resendLabel}}</button></div>
+<sc-if value="{{gAdded}}" hint-placeholder-val="{{false}}">
+<div class="li"><span class="av" aria-hidden="true">+</span><span class="grow stack g4"><span class="b">New guardian</span><span class="sm mut">They get an email to create their own sign-in.</span></span><span class="badge info">Invitation sent</span></div>
+</sc-if>
+</div></div>
+<sc-if value="{{gForm}}" hint-placeholder-val="{{false}}">
+<div class="card stack g16">
+<h3 class="t1">Add a parent or guardian</h3>
+<div class="form">
+<div class="field"><label class="label" for="fg-name">Full name</label><input class="input" id="fg-name" type="text"></div>
+<div class="field"><label class="label" for="fg-rel">Relationship to the children</label><select class="select" id="fg-rel"><option>Mother</option><option>Father</option><option>Grandparent</option><option>Legal guardian</option><option>Other relative</option></select></div>
+<div class="field full"><label class="label" for="fg-email">Their email</label><input class="input" id="fg-email" type="email" placeholder="They sign in with this address"></div>
+</div>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">What can they do?</legend>
+<label class="pick"><input type="radio" name="gperm" checked=""><span class="stack g4"><span class="b">Manage</span><span class="sm mut">Enroll children, sign forms, pay tuition, report absences</span></span></label>
+<label class="pick"><input type="radio" name="gperm"><span class="stack g4"><span class="b">View only</span><span class="sm mut">See classes, attendance and progress. Cannot pay or change anything</span></span></label>
+</fieldset>
+<div class="row g8 end"><button type="button" class="btn" onClick="{{gCancel}}">Cancel</button><button type="button" class="btn pri" onClick="{{gSave}}">Send invitation</button></div>
+</div>
+</sc-if>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="d3">Emergency contact</h2><button type="button" class="btn sm" onClick="{{eToggle}}">{{eLabel}}</button></div>
+<sc-if value="{{eView}}" hint-placeholder-val="{{true}}">
+<div class="card"><div class="row g16 nowrap"><span class="av" aria-hidden="true">HA</span><div class="grow stack g4"><p class="b">Hodan Ali</p><p class="sm mut">Aunt · (614) 555-0142 · Someone other than a parent, called if neither parent answers</p></div></div></div>
+</sc-if>
+<sc-if value="{{eEdit}}" hint-placeholder-val="{{false}}">
+<div class="card"><div class="form">
+<div class="field"><label class="label" for="fe-name">Full name</label><input class="input" id="fe-name" type="text" defaultValue="Hodan Ali"></div>
+<div class="field"><label class="label" for="fe-rel">Relationship</label><input class="input" id="fe-rel" type="text" defaultValue="Aunt"></div>
+<div class="field"><label class="label" for="fe-phone">Mobile phone</label><input class="input" id="fe-phone" type="tel" defaultValue="(614) 555-0142"></div>
+</div></div>
+</sc-if>
+</div>
+
+<div class="stack g12">
+<div class="stack g4"><h2 class="d3">Who may pick up</h2><p class="mut">Schools release your children only to the people on this list. Staff may ask for photo ID.</p></div>
+<div class="card stack g4">
+<label class="check"><input type="checkbox" checked="" disabled=""><span><span class="ink b">Amina Farah</span> · Mother</span></label>
+<label class="check"><input type="checkbox" checked=""><span><span class="ink b">Idris Farah</span> · Father</span></label>
+<label class="check"><input type="checkbox" checked=""><span><span class="ink b">Hodan Ali</span> · Aunt</span></label>
+<sc-if value="{{pAdded}}" hint-placeholder-val="{{false}}"><label class="check"><input type="checkbox" checked=""><span><span class="ink b">{{pName}}</span> · Added just now</span></label></sc-if>
+<div class="row g8 mt8"><input class="input grow" type="text" aria-label="Name of another person who may pick up" placeholder="Full name and relationship, for example: Sahra Noor, neighbor" value="{{pDraft}}" onInput="{{pInput}}" style="min-width: 220px"><button type="button" class="btn" onClick="{{pAdd}}">Add to list</button></div>
+</div>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12"><p class="eyebrow">Who can see this page</p><ul class="ul sm"><li>You and the guardians you add</li><li>Staff and the class teacher at a school, only after you enroll a child there</li><li>No one else. Children never appear in search or on public pages</li></ul></div>
+<div class="card stack g12"><p class="eyebrow q">Your records</p><p class="sm mut">Download everything Husna holds about your family, or remove a child and their history.</p><div class="row g8"><button type="button" class="btn sm" onClick="{{dl}}">{{dlLabel}}</button><a class="btn sm" href="Account.dc.html">Privacy settings</a></div></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a href="Workspaces.dc.html">Switch space</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"enrollment":{"editor":"enum","options":["In progress","Under review","Enrolled","On the waitlist","Place offered","Not accepted"],"default":"In progress"},"$preview":{"width":1440,"height":1940}}'>
+class Component extends DCLogic {
+  state = { g: 'closed', gAdded: false, resent: false, eEdit: false, pDraft: '', pName: '', dl: false };
+  renderVals() {
+    const s = this.state;
+    const ST = {
+      'In progress': ['warn', 'Enrollment in progress', 'Steps 1 and 2 of 5 are saved.', 'Continue enrollment', 'Enroll3.dc.html'],
+      'Under review': ['info', 'Under review', 'Submitted October 8. The school answers by October 21. Nothing has been charged.', 'See the application', 'Enroll6.dc.html'],
+      'Enrolled': ['ok', 'Enrolled', 'Saturday and Sunday, 9:00 AM to 12:30 PM. Next class Saturday, November 21.', 'Open class page', 'Child.dc.html'],
+      'On the waitlist': ['info', 'On the waitlist · 2nd in line', 'Nothing is charged while you wait. A place that opens is held for you for 48 hours.', 'Message the school', 'Messages.dc.html'],
+      'Place offered': ['warn', 'Place offered · until Saturday, 10:00 AM', 'A place opened. Accept it before then, or it goes to the next family.', 'Accept the place', 'WaitlistOffer.dc.html'],
+      'Not accepted': ['', 'Not accepted', 'The school could not offer a place this term: “This class is full and its waitlist is closed.” Nothing was charged.', 'Message the school', 'Messages.dc.html']
+    };
+    const st = ST[this.props.enrollment] || ST['In progress'];
+    return {
+      stCls: st[0], stBadge: st[1], stLine: st[2], stCta: st[3], stHref: st[4],
+      gClosed: s.g === 'closed', gForm: s.g === 'form', gAdded: s.gAdded,
+      gOpen: () => this.setState({ g: 'form' }),
+      gCancel: () => this.setState({ g: 'closed' }),
+      gSave: () => this.setState({ g: 'closed', gAdded: true }),
+      resendLabel: s.resent ? 'Sent again' : 'Resend',
+      resend: () => this.setState({ resent: true }),
+      eView: !s.eEdit, eEdit: s.eEdit,
+      eLabel: s.eEdit ? 'Save' : 'Edit',
+      eToggle: () => this.setState({ eEdit: !s.eEdit }),
+      pDraft: s.pDraft,
+      pInput: (ev) => this.setState({ pDraft: ev.target.value }),
+      pAdded: !!s.pName, pName: s.pName,
+      pAdd: () => { if (s.pDraft.trim()) this.setState({ pName: s.pDraft.trim(), pDraft: '' }); },
+      dlLabel: s.dl ? 'Download started' : 'Download my family’s data',
+      dl: () => this.setState({ dl: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

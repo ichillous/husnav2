@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>We updated our terms</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g12"><p class="eyebrow">Before you continue</p><h1 class="d3">We updated <em>our terms.</em></h1>
+<p class="mut">The Terms of Service changed to version [TERMS VERSION], effective [DATE]. Here is what is different:</p></div>
+<div class="card flat" style="padding: 16px 18px"><p class="mut">[SUMMARY OF CHANGES]</p></div>
+<div class="row g16"><a class="link" href="Terms.dc.html">Read the Terms of Service →</a><a class="link" href="Privacy.dc.html">Read the Privacy Policy →</a></div>
+<label class="check"><input type="checkbox" checked="{{agreed}}" onChange="{{toggle}}"><span>I agree to the Terms of Service, version [TERMS VERSION].</span></label>
+<a class="btn pri xl block {{goCls}}" href="Workspaces.dc.html">Agree and continue</a>
+<hr class="hr">
+<div class="stack g8">
+<p class="mut">Not ready? <a class="link" href="Main.dc.html">Sign out for now</a>. Your account and your family’s records stay as they are.</p>
+<p class="mut">Do not agree? You can <a class="link" href="Account.dc.html">download your data or delete your account</a>.</p>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":700}}'>
+class Component extends DCLogic {
+state = { agreed: false };
+  renderVals() {
+    return { agreed: this.state.agreed, toggle: () => this.setState({ agreed: !this.state.agreed }), goCls: this.state.agreed ? '' : 'off' };
+  }
+}
+</script>
+</body>
+</html>

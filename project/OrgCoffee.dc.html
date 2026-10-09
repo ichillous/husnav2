@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buy the developer a coffee</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="oc-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Crescent House Masjid · Husna is free</p><h1 class="d3" id="oc-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgHome.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<p class="mut">Husna charges your organization nothing. There is no plan to upgrade to, no platform fee, and nothing is taken from tuition, donations or payment links. If it saves your team time, Crescent House can buy the developer a coffee.</p>
+<div class="stack g8" role="group" aria-labelledby="cf-amt"><span class="label" id="cf-amt">How much?</span>
+<div class="row g8"><sc-for list="{{amounts}}" as="a" hint-placeholder-count="5"><button type="button" class="chip {{a.cls}}" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}" style="min-width: 76px; justify-content: center; font-size: 16px">{{a.label}}</button></sc-for></div>
+<sc-if value="{{isOther}}" hint-placeholder-val="{{false}}"><div class="field" style="max-width: 240px"><label class="label" for="cf-other">Other amount, in dollars</label><input class="input" id="cf-other" type="text" inputMode="decimal" value="{{otherVal}}" onInput="{{onOther}}"><span class="hint">{{otherHint}}</span></div></sc-if>
+</div>
+<div class="form">
+<div class="field"><label class="label" for="oc-from">From</label><select class="select" id="oc-from"><option selected>Crescent House Masjid</option><option>Me personally, Khadija Osman</option></select><span class="hint">The name the developer sees.</span></div>
+<div class="field"><label class="label" for="oc-note">A note to the developer <i>(optional)</i></label><input class="input" id="oc-note" type="text" maxLength="140" placeholder="For example: what saved you the most time"></div>
+</div>
+<div class="card flat stack g8" style="padding: 16px 18px"><div class="row between"><span class="b">One time</span><span class="serif" style="font-size: 34px; line-height: 1">{{amountText}}</span></div><p class="sm mut">Paid with a card on Stripe’s page. It is never taken from your donations, tuition or payouts.</p></div>
+<div class="stack g8"><button type="button" class="btn pri xl block {{goCls}}" onClick="{{pay}}">{{payLabel}} <span aria-hidden="true">→</span></button><a class="btn quiet block" href="OrgHome.dc.html">Not now</a></div>
+<p class="xs sub">A gift to the person who builds Husna. It is not a fee and not a charitable donation, and it changes nothing about your workspace. Owners and admins can send one, and each is written to your activity log.</p>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">{{amountText}} is on its way. JazakAllahu khayran.</span><span>The receipt went to khadija@crescenthouse.example and the coffee is written to your activity log.</span></div></div>
+<p class="mut">Coffees are what keep Husna free for every masjid, school and family in Columbus.</p>
+<a class="btn pri block" href="OrgHome.dc.html">Back to the workspace</a>
+<a class="btn quiet block" href="OrgActivity.dc.html">Open the activity log</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":840}}'>
+class Component extends DCLogic {
+state = { amount: 25, other: '', done: false };
+  renderVals() {
+    const s = this.state, t = (on) => (on ? 'true' : 'false');
+    const isOther = s.amount === 'other', raw = Number(String(s.other).replace(/[^0-9.]/g, '')) || 0;
+    const value = isOther ? raw : s.amount, ok = value >= 1, money = '$' + value.toFixed(2);
+    return {
+      form: !s.done, done: s.done, heading: s.done ? 'Thank you.' : 'Buy the developer a coffee.',
+      amounts: [10, 25, 50, 100, 'other'].map((a) => ({ label: a === 'other' ? 'Other' : '$' + a, cls: s.amount === a ? 'on' : '', pressed: t(s.amount === a), pick: () => this.setState({ amount: a }) })),
+      isOther, otherVal: s.other, onOther: (ev) => this.setState({ other: ev.target.value }), otherHint: isOther && s.other && !ok ? 'The smallest amount is $1.' : 'Any amount from $1.',
+      amountText: ok ? money : '$0.00', payLabel: ok ? 'Continue to pay ' + money : 'Choose an amount', goCls: ok ? '' : 'off',
+      pay: () => { if (ok) this.setState({ done: true }); }, again: () => this.setState({ done: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

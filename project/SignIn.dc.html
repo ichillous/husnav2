@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in to Husna</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+
+<div class="auth-art">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="rings" aria-hidden="true" style="margin: 110px auto">ح</div>
+<div class="stack g12"><h2 class="d2">Welcome back to<br><em>your people.</em></h2><p class="lede">Your week, your family’s classes and the organizations you follow are where you left them.</p></div>
+</div>
+
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand only-s" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack g8"><p class="eyebrow">Sign in</p><h1 class="d3">Good to see you again.</h1></div>
+
+<div><div class="seg" role="group" aria-label="How to sign in">
+<button type="button" class="{{pwCls}}" aria-pressed="{{pwPressed}}" onClick="{{usePassword}}">Password</button>
+<button type="button" class="{{linkCls}}" aria-pressed="{{linkPressed}}" onClick="{{useLink}}">Email me a link</button>
+</div></div>
+
+<sc-if value="{{showError}}" hint-placeholder-val="{{false}}">
+<div class="note bad" role="alert">That email and password do not match. Try again, or reset your password.</div>
+</sc-if>
+
+<sc-if value="{{byPassword}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+<div class="field"><label class="label" for="si-email">Email</label><input class="input" id="si-email" type="email" autoComplete="email" placeholder="you@example.com"></div>
+<div class="field">
+<div class="row between"><label class="label" for="si-pw">Password</label><a class="link sm" href="Forgot.dc.html">Forgot password?</a></div>
+<div class="row g8 nowrap"><input class="input grow" id="si-pw" type="{{pwType}}" autoComplete="current-password" placeholder="Your password"><button type="button" class="btn" aria-pressed="{{showPressed}}" onClick="{{toggleShow}}">{{showLabel}}</button></div>
+</div>
+<label class="check"><input type="checkbox" checked=""><span>Keep me signed in on this device</span></label>
+<a class="btn pri xl block" href="Workspaces.dc.html">Sign in</a>
+</div>
+</sc-if>
+
+<sc-if value="{{byLink}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="field"><label class="label" for="si-email2">Email</label><input class="input" id="si-email2" type="email" autoComplete="email" placeholder="you@example.com"><span class="hint">We send a link that signs you in. No password needed.</span></div>
+<a class="btn pri xl block" href="CheckEmail.dc.html">Email me a sign-in link</a>
+</div>
+</sc-if>
+
+<hr class="hr">
+<div class="stack g8">
+<p class="mut">New to Husna? <a class="link" href="SignUp.dc.html">Create an account</a></p>
+<p class="mut">Registering a masjid, school or nonprofit? <a class="link" href="OrgApply1.dc.html">Start an application</a></p>
+</div>
+<p class="xs sub"><a class="link" href="Help.dc.html">Help</a> · <a class="link" href="Terms.dc.html">Terms</a> · <a class="link" href="Privacy.dc.html">Privacy</a></p>
+</div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"showError":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":840}}'>
+class Component extends DCLogic {
+  state = { mode: 'password', show: false };
+  renderVals() {
+    const s = this.state;
+    const pw = s.mode === 'password';
+    return {
+      byPassword: pw, byLink: !pw,
+      pwCls: pw ? 'on' : '', linkCls: pw ? '' : 'on',
+      pwPressed: pw ? 'true' : 'false', linkPressed: pw ? 'false' : 'true',
+      usePassword: () => this.setState({ mode: 'password' }),
+      useLink: () => this.setState({ mode: 'link' }),
+      pwType: s.show ? 'text' : 'password',
+      showLabel: s.show ? 'Hide' : 'Show',
+      showPressed: s.show ? 'true' : 'false',
+      toggleShow: () => this.setState({ show: !s.show }),
+      showError: (this.props.showError ?? false) && pw
+    };
+  }
+}
+</script>
+</body>
+</html>

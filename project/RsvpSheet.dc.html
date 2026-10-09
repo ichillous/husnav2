@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RSVP</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="rs-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">RSVP · Free</p><h1 class="d3" id="rs-title">Weekend Qur’an School Open House</h1><p class="sm mut">Saturday, October 17 · 9:30 to 11:30 AM · Crescent House Masjid</p></div>
+<a class="ibtn" href="Event.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+
+<sc-if value="{{choosing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0">
+<legend class="label" style="padding: 0; margin-bottom: 6px">Who is coming?</legend>
+<sc-for list="{{people}}" as="p" hint-placeholder-count="3">
+<button type="button" class="pick {{p.cls}}" aria-pressed="{{p.pressed}}" onClick="{{p.toggle}}"><span class="dot sq" aria-hidden="true"></span><span class="grow"><span class="b">{{p.name}}</span> <span class="sm mut">{{p.note}}</span></span></button>
+</sc-for>
+</fieldset>
+<div class="row between">
+<div class="stack g4"><span class="label">Other guests</span><span class="hint">Family or friends without an account</span></div>
+<div class="row g8 nowrap"><button type="button" class="ibtn" aria-label="One fewer guest" onClick="{{less}}">−</button><span class="serif c" style="font-size: 30px; min-width: 40px" aria-live="polite">{{guests}}</span><button type="button" class="ibtn" aria-label="One more guest" onClick="{{more}}">+</button></div>
+</div>
+<div class="field"><label class="label" for="rs-note">Note for the host <i>(optional)</i></label><input class="input" id="rs-note" type="text" maxLength="140" placeholder="For example: we will arrive closer to 10"></div>
+<div class="stack g8">
+<button type="button" class="btn pri xl block {{confirmCls}}" onClick="{{confirm}}">{{confirmLabel}}</button>
+<p class="xs sub c">The host sees your name and the number of places. You can change or cancel any time.</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">You are going. {{total}} held.</span><span>A confirmation is in your email, and the event is in My week.</span></div></div>
+<div class="row g8"><button type="button" class="btn grow" onClick="{{addCal}}">{{calLabel}}</button><button type="button" class="btn grow" onClick="{{edit}}">Change RSVP</button></div>
+<a class="btn pri block" href="MyHusna.dc.html">See my week</a>
+<a class="btn quiet block" href="Event.dc.html">Back to the event</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":680}}'>
+class Component extends DCLogic {
+  state = { who: { a: true, y: true, m: true }, guests: 0, done: false, cal: false };
+  renderVals() {
+    const s = this.state;
+    const people = [['a', 'Amina Farah', '(you)'], ['y', 'Yusuf', 'age 9'], ['m', 'Maryam', 'age 6']].map(([id, name, note]) => ({
+      name, note, cls: s.who[id] ? 'on' : '', pressed: s.who[id] ? 'true' : 'false',
+      toggle: () => this.setState({ who: { ...s.who, [id]: !s.who[id] } })
+    }));
+    const n = Object.values(s.who).filter(Boolean).length + s.guests;
+    const places = n + (n === 1 ? ' place' : ' places');
+    return {
+      choosing: !s.done, done: s.done, people,
+      guests: s.guests,
+      less: () => this.setState({ guests: Math.max(0, s.guests - 1) }),
+      more: () => this.setState({ guests: Math.min(8, s.guests + 1) }),
+      confirmLabel: n === 0 ? 'Choose at least one person' : 'Confirm RSVP for ' + places,
+      confirmCls: n === 0 ? 'off' : '',
+      confirm: () => { if (n > 0) this.setState({ done: true }); },
+      total: places.charAt(0).toUpperCase() + places.slice(1),
+      edit: () => this.setState({ done: false }),
+      calLabel: s.cal ? 'Calendar file downloaded' : 'Add to calendar',
+      addCal: () => this.setState({ cal: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Empty and error states</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g24">
+<div class="stack g12"><p class="eyebrow">System pages</p><h1 class="d2">Every state, <em>not only the happy one.</em></h1></div>
+
+<div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr))">
+<div class="card lg stack g16"><p class="eyebrow q">Page not found · 404</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">؟</span><h2 class="d3">This page has <em>moved on.</em></h2><p class="mut">The link may be old, or the event may have ended and been removed.</p><div class="row g8"><a class="btn pri" href="Discover.dc.html">See what is on</a><a class="btn" href="Main.dc.html">Go home</a></div></div>
+
+<div class="card lg stack g16"><p class="eyebrow q">No access · 403</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">ق</span><h2 class="d3">This workspace is <em>not yours to open.</em></h2><p class="mut">You are signed in as amina.farah@example.com, which is not on Crescent House Masjid’s team. If you should be, ask an owner to invite this address.</p><div class="row g8"><a class="btn pri" href="MyHusna.dc.html">Back to my week</a><a class="btn" href="Workspaces.dc.html">Switch space</a></div></div>
+
+<div class="card lg stack g16"><p class="eyebrow q">Signed out</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">س</span><h2 class="d3">You were signed out <em>to keep things safe.</em></h2><p class="mut">It has been a while. Anything you were typing on a form with steps was saved up to the last step.</p><div class="row g8"><a class="btn pri" href="SignIn.dc.html">Sign in again</a></div></div>
+
+<div class="card lg stack g16"><p class="eyebrow q">Organization unavailable</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">م</span><h2 class="d3">This organization is <em>not available right now.</em></h2><p class="mut">Its page is hidden for the moment. If your child is enrolled there, your class pages still work from My family.</p><div class="row g8"><a class="btn pri" href="Organizations.dc.html">Other organizations</a><a class="btn" href="Family.dc.html">My family</a></div></div>
+
+<div class="card lg stack g16"><p class="eyebrow q">Something broke · 500</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">ع</span><h2 class="d3">That did not work, <em>and it is on us.</em></h2><p class="mut">Nothing was charged and nothing you entered was lost. Try again in a moment. If it keeps happening, tell us and include reference <span class="tnum ink">ERR-7F2K</span>.</p><div class="row g8"><button type="button" class="btn pri" onClick="{{retry}}">{{retryLabel}}</button><a class="btn" href="Help.dc.html">Contact Husna</a></div></div>
+
+<div class="card lg stack g16"><p class="eyebrow q">No connection</p><span class="glyph" aria-hidden="true" style="font-size: 72px; line-height: 1.5">و</span><h2 class="d3">You are <em>offline.</em></h2><p class="mut">Pages you already opened stay readable. Attendance you mark is kept on this device and sent when you are back online.</p><div class="row g8"><button type="button" class="btn pri" onClick="{{reconnect}}">{{reconnectLabel}}</button></div></div>
+</div>
+
+<div class="stack g12 mt40">
+<h2 class="d3">Empty states, by screen</h2>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Where</th><th>What it says</th><th>The one action</th></tr></thead>
+<tbody>
+<tr><td class="b">Discover, no results</td><td class="mut">Nothing quite matches. Try another word, or widen the dates and category.</td><td><a class="link" href="Discover.dc.html">Clear search and filters</a></td></tr>
+<tr><td class="b">Saved, nothing saved</td><td class="mut">Your story starts with a discovery. Save an event you would like to return to, and it waits for you here.</td><td><a class="link" href="Discover.dc.html">Explore Columbus</a></td></tr>
+<tr><td class="b">My family, no children</td><td class="mut">Add each child once. Their details are reused for every class and stay private.</td><td><a class="link" href="ChildForm.dc.html">Add a child</a></td></tr>
+<tr><td class="b">Notifications, none</td><td class="mut">You are all caught up. New messages from your organizations and schools appear here and in your email.</td><td><a class="link" href="Account.dc.html">Notification settings</a></td></tr>
+<tr><td class="b">Workspace events, none</td><td class="mut">Nothing on the calendar yet. Your first event takes about two minutes.</td><td><a class="link" href="OrgEventEdit.dc.html">Create event</a></td></tr>
+<tr><td class="b">Friday prayers, next week empty</td><td class="mut">Nothing posted for October 16 yet.</td><td><a class="link" href="OrgFriday.dc.html">Copy this Friday’s schedule</a></td></tr>
+<tr><td class="b">Applications, none to review</td><td class="mut">You are up to date. New applications arrive here and by email each morning.</td><td><a class="link" href="OrgRoster.dc.html">Open the roster</a></td></tr>
+<tr><td class="b">Home masjid, none chosen</td><td class="mut">No banner is shown at the top of the page. My week invites the member once: “Choose a home masjid to keep its prayer times in view.”</td><td><a class="link" href="Account.dc.html">Home masjid in Account</a></td></tr>
+<tr><td class="b">Prayer times, organization is not a masjid</td><td class="mut">Prayer times is not in the sidebar and cannot be opened. A school or nonprofit can still pair a TV; it shows slides, events and a clock, without a timetable.</td><td><a class="link" href="OrgApply2.dc.html">Where the kind is chosen</a></td></tr>
+<tr><td class="b">Prayer times, not set</td><td class="mut">Choose how your adhan times are worked out and set each iqamah. It takes about three minutes.</td><td><a class="link" href="OrgPrayerTimes.dc.html">Set prayer times</a></td></tr>
+<tr><td class="b">TV displays, none paired</td><td class="mut">No screens yet. Open husna.app/tv on a TV and type the code it shows.</td><td><a class="link" href="OrgDisplayPairSheet.dc.html">Pair a TV</a></td></tr>
+<tr><td class="b">Payouts, not connected</td><td class="mut">Connect payouts to receive donations and tuition.</td><td><a class="link" href="OrgPayouts.dc.html">Connect with Stripe</a></td></tr>
+<tr><td class="b">Founder moderation, none</td><td class="mut">Nothing to review. New reports appear here and on the overview.</td><td><a class="link" href="FounderModeration.dc.html">See closed reports</a></td></tr>
+</tbody></table></div>
+</div>
+<div class="stack g12 mt40">
+<div class="stack g4"><h2 class="d3">A child’s enrollment, state by state</h2><p class="mut" style="max-width: 80ch">One record moves through these states. The word in the first column is the word families and schools both see.</p></div>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 1040px">
+<thead><tr><th>State</th><th>What the parent sees</th><th>What the school sees</th><th>What moves it on</th><th>Message sent</th></tr></thead>
+<tbody>
+<tr><td><span class="badge warn">Enrollment in progress</span></td><td class="mut"><a class="link" href="Family.dc.html">My family</a>: Continue enrollment. Each finished step is saved.</td><td class="mut">Nothing yet.</td><td class="mut">The parent submits <a class="link" href="Enroll5.dc.html">step 5</a>.</td><td class="mut">None.</td></tr>
+<tr><td><span class="badge info">Under review</span></td><td class="mut"><a class="link" href="Enroll6.dc.html">Enrollment submitted</a>, with the date an answer is promised. Nothing is charged.</td><td class="mut"><a class="link" href="OrgApplications.dc.html">Applications</a>, under To review.</td><td class="mut">The school accepts, waitlists, asks a question or declines.</td><td class="mut">We have your enrollment.</td></tr>
+<tr><td><span class="badge warn">Waiting for you</span></td><td class="mut">The school’s question in <a class="link" href="Messages.dc.html">Messages</a>. The application keeps its place.</td><td class="mut">The application, marked Asked, with the date.</td><td class="mut">The parent replies, or the school decides anyway.</td><td class="mut">The school has a question.</td></tr>
+<tr><td><span class="badge info">On the waitlist</span></td><td class="mut">The child’s card on My family, with their place in line. Nothing is charged.</td><td class="mut">Applications, under Waitlist, in order.</td><td class="mut">A place opens in the class.</td><td class="mut">On the waitlist for the class.</td></tr>
+<tr><td><span class="badge warn">Place offered</span></td><td class="mut"><a class="link" href="WaitlistOffer.dc.html">Waitlist place offered</a>, with the time the offer ends.</td><td class="mut"><a class="link" href="OrgRoster.dc.html">The roster</a>, with the place held.</td><td class="mut">The parent accepts, declines, or the time runs out and the next family is offered it.</td><td class="mut">A place opened.</td></tr>
+<tr><td><span class="badge ok">Enrolled</span></td><td class="mut"><a class="link" href="Child.dc.html">The child’s page</a>: class, attendance, practice, progress.</td><td class="mut"><a class="link" href="OrgRoster.dc.html">The roster</a> and <a class="link" href="OrgStudent.dc.html">the student record</a>.</td><td class="mut">The term ends, or the parent or school withdraws the child.</td><td class="mut">Your children have their places, with the receipt.</td></tr>
+<tr><td><span class="badge">Not accepted</span></td><td class="mut">The child’s card on My family, with the school’s reason and Message the school. Nothing was charged.</td><td class="mut">Applications, under Declined, with <a class="link" href="OrgDecisionSheet.dc.html">the reason given</a>.</td><td class="mut">The parent may apply for another class or term.</td><td class="mut">About your application.</td></tr>
+<tr><td><span class="badge">Withdrawn</span></td><td class="mut">The child’s page, kept as history. Any refund appears in <a class="link" href="Payments.dc.html">Payments</a>.</td><td class="mut">The roster, marked withdrawn, and <a class="link" href="OrgRefundSheet.dc.html">the refund</a> if one is due.</td><td class="mut">Nothing. The parent can enroll again next term.</td><td class="mut">Withdrawal confirmed, and the refund if there is one.</td></tr>
+</tbody></table></div>
+</div>
+<div class="stack g12 mt40">
+<div class="stack g4"><h2 class="d3">A payment, state by state</h2><p class="mut" style="max-width: 80ch">Tuition, payment links and donations. A parent is never left unsure whether they were charged.</p></div>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 1040px">
+<thead><tr><th>State</th><th>What the payer sees</th><th>What the organization sees</th><th>What moves it on</th><th>Message sent</th></tr></thead>
+<tbody>
+<tr><td><span class="badge info">Scheduled</span></td><td class="mut">The amount and date in <a class="link" href="Payments.dc.html">Payments</a> and on the child’s page.</td><td class="mut"><a class="link" href="OrgPayouts.dc.html">Tuition and payouts</a>, under Still to come.</td><td class="mut">The date arrives, or the school confirms the place.</td><td class="mut">None.</td></tr>
+<tr><td><span class="badge ok">Paid</span></td><td class="mut">A row in Payments with <a class="link" href="DocReceipt.dc.html">the receipt</a>.</td><td class="mut">Counted in the next payout.</td><td class="mut">Nothing, unless it is refunded.</td><td class="mut">Receipt.</td></tr>
+<tr><td><span class="badge bad">Card declined</span></td><td class="mut">An alert at the top of Payments: Try again now, or Update on Stripe. Children keep their places.</td><td class="mut">Families to follow up, with Send reminder.</td><td class="mut">Husna retries after three days, or the parent pays.</td><td class="mut">Your tuition payment did not go through.</td></tr>
+<tr><td><span class="badge warn">Refund due</span></td><td class="mut">Nothing yet.</td><td class="mut">Families to follow up, after a withdrawal, with <a class="link" href="OrgRefundSheet.dc.html">Refund</a>.</td><td class="mut">The organization sends the refund.</td><td class="mut">None.</td></tr>
+<tr><td><span class="badge">Refunded</span></td><td class="mut">A row in Payments with the amount returned.</td><td class="mut">A line on the payout statement.</td><td class="mut">Nothing.</td><td class="mut">The refund is on its way back to you.</td></tr>
+</tbody></table></div>
+</div>
+<div class="stack g12 mt40">
+<div class="stack g4"><h2 class="d3">An organization, state by state</h2><p class="mut" style="max-width: 80ch">From application to a live profile, and the two ways it can stop.</p></div>
+<div class="tbl-wrap"><table class="tbl" style="min-width: 1040px">
+<thead><tr><th>State</th><th>What the organization sees</th><th>What Husna staff see</th><th>What moves it on</th><th>Message sent</th></tr></thead>
+<tbody>
+<tr><td><span class="badge info">Under review</span></td><td class="mut"><a class="link" href="OrgPending.dc.html">Application status</a>. The profile can be drafted meanwhile.</td><td class="mut"><a class="link" href="FounderApprovals.dc.html">Approvals</a>, oldest first.</td><td class="mut">Staff approve, ask for more, or do not approve.</td><td class="mut">We received your application.</td></tr>
+<tr><td><span class="badge warn">Waiting for you</span></td><td class="mut">Application status, with the question and a reply box.</td><td class="mut">Approvals, marked as waiting on the applicant.</td><td class="mut">The applicant replies.</td><td class="mut">One more thing for your application.</td></tr>
+<tr><td><span class="badge bad">Not approved</span></td><td class="mut">Application status, with the reason and Start a new application.</td><td class="mut"><a class="link" href="FounderOrgs.dc.html">Organizations</a>, filtered to Not approved.</td><td class="mut">A new application.</td><td class="mut">The decision and its reason.</td></tr>
+<tr><td><span class="badge ok">Verified</span></td><td class="mut"><a class="link" href="OrgSetup.dc.html">The setup guide</a>. Nothing is public yet.</td><td class="mut">Organizations, marked Setting up.</td><td class="mut">The owner publishes the profile.</td><td class="mut">Verified. Welcome.</td></tr>
+<tr><td><span class="badge ok">Live</span></td><td class="mut"><a class="link" href="OrgHome.dc.html">The workspace</a> and <a class="link" href="OrgProfile.dc.html">the public profile</a>.</td><td class="mut"><a class="link" href="FounderOrg.dc.html">The organization’s page</a>.</td><td class="mut">Suspension, or the owner closes the workspace.</td><td class="mut">None.</td></tr>
+<tr><td><span class="badge bad">Suspended</span></td><td class="mut">The workspace, read only, with the reason and how to reply. The public sees “not available right now”.</td><td class="mut"><a class="link" href="FounderSuspendSheet.dc.html">Suspend organization</a>, and the reason in the audit log.</td><td class="mut">Staff lift the suspension.</td><td class="mut">Your workspace has been suspended, with the reason.</td></tr>
+<tr><td><span class="badge">Closed</span></td><td class="mut">A 30-day window to export records from <a class="link" href="OrgSettings.dc.html">Settings</a>.</td><td class="mut">Organizations, marked Closed.</td><td class="mut">Nothing. A new application starts again.</td><td class="mut">Families and followers are told.</td></tr>
+</tbody></table></div>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+  state = { retry: false, online: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      retryLabel: s.retry ? 'Trying again…' : 'Try again', retry: () => this.setState({ retry: true }),
+      reconnectLabel: s.online ? 'Still offline. Try again' : 'Check connection', reconnect: () => this.setState({ online: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

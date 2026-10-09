@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Workspace events</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<a href="OrgSetup.dc.html">Setup guide <span class="badge ok">Done</span></a>
+<p class="grp">Publish</p>
+<a class="on" href="OrgEvents.dc.html" aria-current="page">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications <span class="count">5</span></a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Events</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><h1>Your calendar, <em>your community.</em></h1><p>Published events appear on your profile and in Columbus discovery straight away. Events on Husna are always free to attend.</p></div>
+<a class="btn pri" href="OrgEventEdit.dc.html">Create event</a></div>
+
+<div class="stack g16">
+<div class="tabs" role="tablist" aria-label="Events">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.selected}}" onClick="{{t.pick}}">{{t.label}} <span class="badge">{{t.n}}</span></button></sc-for>
+</div>
+
+<sc-if value="{{isUpcoming}}" hint-placeholder-val="{{true}}">
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Event</th><th>When</th><th>Where</th><th>RSVPs</th><th>Status</th><th></th></tr></thead>
+<tbody>
+<tr><td><span class="b">Qur’an &amp; Coffee: Saturday Reflections</span><small>Learning · repeats weekly</small></td><td class="nw">Sat, Oct 10 · 10:00 AM</td><td>At the masjid</td><td>18 going</td><td><span class="badge ok">Published</span></td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">Manage</a> <a class="btn sm" href="OrgEventEdit.dc.html">Edit</a></td></tr>
+<tr><td><span class="b">English Conversation Circle</span><small>Learning · repeats weekly</small></td><td class="nw">Tue, Oct 13 · 6:00 PM</td><td>Online</td><td>9 going</td><td><span class="badge ok">Published</span></td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">Manage</a> <a class="btn sm" href="OrgEventEdit.dc.html">Edit</a></td></tr>
+<tr><td><span class="b">Weekend Qur’an School Open House</span><small>Family</small></td><td class="nw">Sat, Oct 17 · 9:30 AM</td><td>At the masjid</td><td>34 of 80 places</td><td><span class="badge ok">Published</span></td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">Manage</a> <a class="btn sm" href="OrgEventEdit.dc.html">Edit</a></td></tr>
+<tr><td><span class="b">Qur’an &amp; Coffee: Saturday Reflections</span><small>Learning · repeats weekly</small></td><td class="nw">Sat, Oct 17 · 10:00 AM</td><td>At the masjid</td><td>6 going</td><td><span class="badge ok">Published</span></td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">Manage</a> <a class="btn sm" href="OrgEventEdit.dc.html">Edit</a></td></tr>
+<tr><td><span class="b">Family Game Night</span><small>Family</small></td><td class="nw">Fri, Oct 23 · 6:30 PM</td><td>At the masjid</td><td>RSVPs off</td><td><span class="badge info">Scheduled for Oct 12</span></td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">Manage</a> <a class="btn sm" href="OrgEventEdit.dc.html">Edit</a></td></tr>
+</tbody></table></div>
+<p class="sm sub mt8">Friday prayers have their own page so the three services stay together. <a class="link" href="OrgFriday.dc.html">Open Friday prayers →</a></p>
+</sc-if>
+
+<sc-if value="{{isDrafts}}" hint-placeholder-val="{{false}}">
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Event</th><th>When</th><th>Last edited</th><th></th></tr></thead>
+<tbody>
+<tr><td><span class="b">Winter coat drive drop-off</span><small>Community · missing a description</small></td><td class="nw">Sat, Nov 7 · 11:00 AM</td><td>Tuesday by Imam Adam Rahman</td><td class="nw"><a class="btn sm pri" href="OrgEventEdit.dc.html">Finish and publish</a></td></tr>
+</tbody></table></div>
+</sc-if>
+
+<sc-if value="{{isPast}}" hint-placeholder-val="{{false}}">
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Event</th><th>When</th><th>Came</th><th></th></tr></thead>
+<tbody>
+<tr><td><span class="b">Qur’an &amp; Coffee: Saturday Reflections</span><small>Learning</small></td><td class="nw">Sat, Oct 3 · 10:00 AM</td><td>15 checked in of 19</td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">See list</a> <a class="btn sm" href="OrgEventEdit.dc.html">Duplicate</a></td></tr>
+<tr><td><span class="b">English Conversation Circle</span><small>Learning</small></td><td class="nw">Tue, Oct 6 · 6:00 PM</td><td>8 joined of 11</td><td class="nw"><a class="btn sm" href="OrgEventManage.dc.html">See list</a> <a class="btn sm" href="OrgEventEdit.dc.html">Duplicate</a></td></tr>
+<tr><td><span class="b">Neighborhood Clean-up Morning</span><small>Community</small></td><td class="nw">Sun, Sep 27 · 9:00 AM</td><td>RSVPs off</td><td class="nw"><a class="btn sm" href="OrgEventEdit.dc.html">Duplicate</a></td></tr>
+</tbody></table></div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  state = { tab: 'upcoming' };
+  renderVals() {
+    const s = this.state;
+    const tabs = [['upcoming', 'Upcoming', 5], ['drafts', 'Drafts', 1], ['past', 'Past', 3]].map(([id, label, n]) => ({
+      label, n, cls: s.tab === id ? 'on' : '', selected: s.tab === id ? 'true' : 'false', pick: () => this.setState({ tab: id })
+    }));
+    return { tabs, isUpcoming: s.tab === 'upcoming', isDrafts: s.tab === 'drafts', isPast: s.tab === 'past' };
+  }
+}
+</script>
+</body>
+</html>

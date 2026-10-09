@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Publish a new legal version</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="fl-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Founder console · Legal documents</p><h1 class="d3" id="fl-title">{{heading}}</h1></div>
+<a class="ibtn" href="FounderSettings.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{editing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="form">
+<div class="field full"><label class="label" for="fl-doc">Document</label><select class="select" id="fl-doc"><option selected>Terms of Service</option><option>Privacy Policy</option><option>Organization Terms</option></select></div>
+<div class="field"><label class="label" for="fl-ver">Version label</label><input class="input" id="fl-ver" type="text" placeholder="[TERMS VERSION]"></div>
+<div class="field"><label class="label" for="fl-date">Effective date</label><input class="input" id="fl-date" type="text" placeholder="[DATE]"></div>
+<div class="field full"><label class="label" for="fl-text">Full text</label><textarea class="textarea" id="fl-text" style="min-height: 150px" placeholder="[TERMS OF SERVICE TEXT]"></textarea><span class="hint">Paste the reviewed text. Headings start with #.</span></div>
+<div class="field full"><label class="label" for="fl-sum">What changed, in plain words</label><textarea class="textarea" id="fl-sum" style="min-height: 84px" placeholder="[SUMMARY OF CHANGES]"></textarea><span class="hint">Shown to people when they are asked to accept, and in the email.</span></div>
+</div>
+<fieldset class="stack g8" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 8px">Who must accept it?</legend>
+<label class="pick"><input type="radio" name="flwho" checked><span class="stack g4"><span class="b">Everyone, at their next sign-in</span><span class="sm mut">People see the summary and cannot continue until they agree or sign out.</span></span></label>
+<label class="pick"><input type="radio" name="flwho"><span class="stack g4"><span class="b">New accounts only</span><span class="sm mut">Existing accounts stay on the version they accepted. Use for wording fixes.</span></span></label>
+</fieldset>
+<div class="note"><span>Husna is free. Organization Terms that introduced any charge would always require every owner to accept again before it applied.</span></div>
+<label class="check"><input type="checkbox" checked="{{reviewed}}" onChange="{{toggleReviewed}}"><span>This text has been reviewed and is ready to be binding.</span></label>
+<div class="row g8 end"><a class="btn" href="FounderSettings.dc.html">Cancel</a><button type="button" class="btn pri {{goCls}}" onClick="{{publish}}">Publish version</button></div>
+<p class="xs sub">Published versions cannot be edited or deleted. Earlier versions stay on file with who accepted them and when.</p>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Version published.</span><span>It takes effect on the date you set. Acceptance is counted on the settings page, and the action is in the audit log.</span></div></div>
+<div class="row g8"><a class="btn pri" href="FounderSettings.dc.html">Back to settings</a><a class="btn" href="TermsUpdate.dc.html">See what members will see</a></div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1260}}'>
+class Component extends DCLogic {
+state = { reviewed: false, done: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      editing: !s.done, done: s.done,
+      heading: s.done ? 'Published.' : 'Publish a new version.',
+      reviewed: s.reviewed, toggleReviewed: () => this.setState({ reviewed: !s.reviewed }),
+      goCls: s.reviewed ? '' : 'off',
+      publish: () => this.setState({ done: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

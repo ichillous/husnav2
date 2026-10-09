@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moderation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a href="FounderOrgs.dc.html">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a class="on" href="FounderModeration.dc.html" aria-current="page">Moderation <span class="count">{{openCount}}</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Moderation</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings">IC</a></div>
+
+<div class="ph"><div><h1>Moderation</h1><p>Reports from members about events, profiles and messages. Reporters stay anonymous to the organization they report.</p></div></div>
+
+<div class="stack g16" style="max-width: 980px">
+<div class="tabs" role="tablist" aria-label="Reports">
+<button type="button" role="tab" class="{{openCls}}" aria-selected="{{openSel}}" onClick="{{showOpen}}">Open <span class="badge">{{openCount}}</span></button>
+<button type="button" role="tab" class="{{closedCls}}" aria-selected="{{closedSel}}" onClick="{{showClosed}}">Closed <span class="badge">{{closedCount}}</span></button>
+</div>
+
+<sc-if value="{{isOpen}}" hint-placeholder-val="{{true}}">
+<div class="stack g16">
+
+<sc-if value="{{aOpen}}" hint-placeholder-val="{{true}}">
+<div class="card stack g16">
+<div class="row between g12"><div class="stack g4"><p class="eyebrow" style="color: #e0d3bd">Event · 2 reports · first on October 7</p><h2 class="d4">Newcomers &amp; Neighbors Night</h2><p class="sm mut">Mosaic Muslim Collective · Friday, October 9 at 6:30 PM · 27 RSVPs</p></div><span class="badge warn">Wrong date, time or place</span></div>
+<div class="note"><div class="stack g8"><span>“The address shown is their old hub. They moved in September. People will go to the wrong building.”</span><span class="xs sub">Sahra Noor · October 7 · a second member reported the same on October 8</span></div></div>
+<sc-if value="{{aAsked}}" hint-placeholder-val="{{false}}"><div class="note ok" role="status">Mosaic Muslim Collective’s owners have been asked to correct the address within 24 hours. The event stays visible with a “Details being confirmed” label.</div></sc-if>
+<div class="row g8">
+<button type="button" class="btn pri" onClick="{{aAsk}}">{{aAskLabel}}</button>
+<button type="button" class="btn" onClick="{{aHide}}">Hide the event until fixed</button>
+<button type="button" class="btn" onClick="{{aDismiss}}">Dismiss, nothing wrong</button>
+<a class="btn quiet" href="Event.dc.html">See the event ↗</a>
+<a class="btn quiet" href="FounderOrg.dc.html">Organization</a>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{bOpen}}" hint-placeholder-val="{{true}}">
+<div class="card stack g16">
+<div class="row between g12"><div class="stack g4"><p class="eyebrow" style="color: #e0d3bd">Organization profile · 1 report · October 6</p><h2 class="d4">Lantern Learning House</h2><p class="sm mut">Owner on Husna: Dr. Mariam Saleh · verified September 28 by document</p></div><span class="badge bad">Ownership dispute</span></div>
+<div class="note"><div class="stack g8"><span>“I chair the board. Dr. Saleh left the organization in August and registered this profile without the board’s approval. Please transfer it to us.”</span><span class="xs sub">Prof. Idris Kamal · idris.kamal@lanternlearning.example · October 6</span></div></div>
+<dl class="kv"><dt>What is at stake</dt><dd>1 published event, no enrollments, payouts not connected</dd><dt>Evidence so far</dt><dd>Reporter’s email is at the organization’s domain. The owner’s is too.</dd></dl>
+<sc-if value="{{bAsked}}" hint-placeholder-val="{{false}}"><div class="note ok" role="status">Both people have been emailed and asked for a board letter. The profile stays live while you wait. A reminder is set for October 13.</div></sc-if>
+<div class="row g8">
+<button type="button" class="btn pri" onClick="{{bAsk}}">{{bAskLabel}}</button>
+<a class="btn danger" href="FounderSuspendSheet.dc.html">Suspend while reviewing</a>
+<button type="button" class="btn" onClick="{{bDismiss}}">Dismiss</button>
+<a class="btn quiet" href="FounderOrg.dc.html">Organization</a>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{noneOpen}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g8" style="align-items: center; padding: 48px 24px"><h2 class="d3">Nothing to review.</h2><p class="mut">New reports appear here and on the overview.</p></div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isClosed}}" hint-placeholder-val="{{false}}">
+<div class="list">
+<sc-for list="{{closed}}" as="c" hint-placeholder-count="2">
+<div class="li start"><div class="grow stack g4"><div class="row g8"><span class="b">{{c.title}}</span><span class="badge">{{c.outcome}}</span></div><p class="mut">{{c.detail}}</p><p class="sm sub">{{c.meta}}</p></div><sc-if value="{{c.canReopen}}" hint-placeholder-val="{{false}}"><button type="button" class="btn sm" onClick="{{c.reopen}}">Reopen</button></sc-if></div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+  state = { tab: 'open', a: 'open', b: 'open', aAsked: false, bAsked: false };
+  renderVals() {
+    const s = this.state;
+    const isOpen = s.tab === 'open';
+    const mine = [];
+    if (s.a !== 'open') mine.push({ title: 'Newcomers & Neighbors Night', outcome: s.a === 'hidden' ? 'Event hidden' : 'Dismissed', detail: s.a === 'hidden' ? 'Hidden until the organization corrects the address. Everyone who RSVP’d was told.' : 'Closed with no action.', meta: 'Just now · Isiah', canReopen: true, reopen: () => this.setState({ a: 'open' }) });
+    if (s.b !== 'open') mine.push({ title: 'Lantern Learning House, ownership dispute', outcome: 'Dismissed', detail: 'Closed with no action. The reporter was told.', meta: 'Just now · Isiah', canReopen: true, reopen: () => this.setState({ b: 'open' }) });
+    const closed = [...mine,
+      { title: 'Messages from “Promo Deals”', outcome: 'Account suspended', detail: 'Four members reported advertising sent through organization contact forms.', meta: 'October 6 · Isiah', canReopen: false },
+      { title: 'Duplicate listing: Qur’an & Coffee', outcome: 'Fixed by organization', detail: 'Crescent House Masjid removed the duplicate after one report.', meta: 'October 2 · closed automatically', canReopen: false }
+    ];
+    const openCount = (s.a === 'open' ? 1 : 0) + (s.b === 'open' ? 1 : 0);
+    return {
+      isOpen, isClosed: !isOpen,
+      openCls: isOpen ? 'on' : '', closedCls: isOpen ? '' : 'on',
+      openSel: isOpen ? 'true' : 'false', closedSel: isOpen ? 'false' : 'true',
+      showOpen: () => this.setState({ tab: 'open' }), showClosed: () => this.setState({ tab: 'closed' }),
+      openCount, closedCount: closed.length, closed,
+      aOpen: s.a === 'open', bOpen: s.b === 'open', noneOpen: openCount === 0,
+      aAsked: s.aAsked, aAskLabel: s.aAsked ? 'Organization asked. Send a reminder' : 'Ask the organization to fix it',
+      aAsk: () => this.setState({ aAsked: true }),
+      aHide: () => this.setState({ a: 'hidden' }), aDismiss: () => this.setState({ a: 'dismissed' }),
+      bAsked: s.bAsked, bAskLabel: s.bAsked ? 'Both contacted. Send a reminder' : 'Contact both people for evidence',
+      bAsk: () => this.setState({ bAsked: true }),
+      bDismiss: () => this.setState({ b: 'dismissed' })
+    };
+  }
+}
+</script>
+</body>
+</html>

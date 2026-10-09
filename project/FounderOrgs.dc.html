@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>All organizations</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+<div class="strip">Founder console · every action here is written to the <a href="FounderAudit.dc.html">audit log</a></div>
+<div class="shell in">
+
+<aside class="side fd" aria-label="Founder console">
+<a class="brand" href="Founder.dc.html" aria-label="Founder console home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i><small>Founder</small></a>
+<a href="Founder.dc.html">Overview</a>
+<a href="FounderApprovals.dc.html">Approvals <span class="count">3</span></a>
+<a class="on" href="FounderOrgs.dc.html" aria-current="page">Organizations</a>
+<a href="FounderUsers.dc.html">Users</a>
+<a href="FounderModeration.dc.html">Moderation <span class="count">2</span></a>
+<a href="FounderSupport.dc.html">Support <span class="count">3</span></a>
+<p class="grp">Platform</p>
+<a href="FounderCities.dc.html">Cities and content</a>
+<a href="FounderPayments.dc.html">Payments and coffee</a>
+<a href="FounderHealth.dc.html">System status</a>
+<a href="FounderAudit.dc.html">Audit log</a>
+<a href="FounderSettings.dc.html">Settings</a>
+<div class="side-foot"><a href="Main.dc.html">Open husna.app ↗</a><a href="FounderSignIn.dc.html">Sign out</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="Founder.dc.html">Founder console</a><span aria-hidden="true">/</span><span>Organizations</span></nav><a class="av" href="FounderSettings.dc.html" aria-label="Isiah, console owner. Open settings">IC</a></div>
+
+<div class="ph"><div><h1>Organizations</h1><p>Every organization that has applied, live or not.</p></div>
+<button type="button" class="btn" onClick="{{exportIt}}">{{exportLabel}}</button></div>
+
+<div class="stack g16">
+<div class="row between g12">
+<div class="search grow" role="search" style="max-width: 420px; padding-right: 16px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg><input type="search" aria-label="Find an organization, owner or email" placeholder="Find an organization, owner or email" value="{{q}}" onInput="{{onQ}}"></div>
+<div class="row g8" role="group" aria-label="Status">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button type="button" class="chip {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}} · {{f.n}}</button></sc-for>
+</div>
+</div>
+
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Organization</th><th>Owner</th><th>Status</th><th>Payouts</th><th class="num">Events</th><th class="num">Enrolled</th><th>Since</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+<tr><td><span class="b">{{r.name}}</span><small>{{r.kind}} · {{r.city}}</small></td><td>{{r.owner}}<small>{{r.email}}</small></td><td><span class="badge {{r.statusCls}}">{{r.status}}</span></td><td><span class="badge {{r.payCls}}">{{r.pay}}</span></td><td class="num">{{r.events}}</td><td class="num">{{r.enrolled}}</td><td class="nw sub">{{r.since}}</td><td><a class="btn sm" href="{{r.href}}">{{r.action}}</a></td></tr>
+</sc-for>
+</tbody></table></div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}"><p class="mut c">No organization matches. <button type="button" class="btn quiet sm" onClick="{{reset}}">Clear search and filter</button></p></sc-if>
+<p class="sm sub">{{shown}} of 7 organizations.</p>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
+class Component extends DCLogic {
+  state = { q: '', filter: 'all', exported: false };
+  renderVals() {
+    const s = this.state;
+    const all = [
+      { name: 'Crescent House Masjid', kind: 'Masjid', city: 'Columbus', owner: 'Khadija Osman', email: 'khadija@crescenthouse.example', st: 'live', pay: 'Active', payCls: 'ok', events: 5, enrolled: 47, since: 'Oct 1', href: 'FounderOrg.dc.html', action: 'Open' },
+      { name: 'Mosaic Muslim Collective', kind: 'Nonprofit', city: 'Columbus', owner: 'Bilal Hussein', email: 'bilal@mosaiccollective.example', st: 'live', pay: 'Needs info', payCls: 'warn', events: 4, enrolled: 18, since: 'Sep 24', href: 'FounderOrg.dc.html', action: 'Open' },
+      { name: 'Lantern Learning House', kind: 'Education', city: 'Columbus', owner: 'Dr. Mariam Saleh', email: 'mariam@lanternlearning.example', st: 'live', pay: 'Not connected', payCls: '', events: 1, enrolled: 0, since: 'Sep 28', href: 'FounderOrg.dc.html', action: 'Open' },
+      { name: 'Riverbend Community Masjid', kind: 'Masjid', city: 'Columbus', owner: 'Yusuf Rahman', email: 'yusuf@riverbendmasjid.example', st: 'applying', pay: 'Not started', payCls: '', events: 0, enrolled: 0, since: 'Applied Oct 7', href: 'FounderApprovals.dc.html', action: 'Review' },
+      { name: 'Amanah Youth Collective', kind: 'Nonprofit', city: 'Columbus', owner: 'Samira Yusuf', email: 'samira.yusuf@example.com', st: 'applying', pay: 'Not started', payCls: '', events: 0, enrolled: 0, since: 'Applied Oct 6', href: 'FounderApprovals.dc.html', action: 'Review' },
+      { name: 'Cedar & Olive Academy', kind: 'School', city: 'Columbus', owner: 'Hassan Idris', email: 'hassan.idris@example.com', st: 'applying', pay: 'Not started', payCls: '', events: 0, enrolled: 0, since: 'Applied Oct 5', href: 'FounderApprovals.dc.html', action: 'Review' },
+      { name: 'Northside Halaqa Circle', kind: 'Student group', city: 'Columbus', owner: 'Omar Siddiqui', email: 'omar.siddiqui@example.com', st: 'rejected', pay: 'Not started', payCls: '', events: 0, enrolled: 0, since: 'Rejected Sep 30', href: 'FounderApprovals.dc.html', action: 'See decision' }
+    ];
+    const label = { live: ['Live', 'ok'], applying: ['Applying', 'info'], rejected: ['Rejected', 'bad'] };
+    const q = s.q.trim().toLowerCase();
+    const rows = all.filter((r) => (s.filter === 'all' || r.st === s.filter) && (!q || (r.name + ' ' + r.owner + ' ' + r.email).toLowerCase().includes(q)))
+      .map((r) => ({ ...r, status: label[r.st][0], statusCls: label[r.st][1] }));
+    const filters = [['all', 'All'], ['live', 'Live'], ['applying', 'Applying'], ['rejected', 'Rejected']].map(([id, text]) => ({
+      label: text, n: id === 'all' ? all.length : all.filter((r) => r.st === id).length,
+      cls: s.filter === id ? 'on' : '', pressed: s.filter === id ? 'true' : 'false', pick: () => this.setState({ filter: id })
+    }));
+    return {
+      q: s.q, onQ: (ev) => this.setState({ q: ev.target.value }),
+      rows, filters, shown: rows.length, empty: rows.length === 0,
+      reset: () => this.setState({ q: '', filter: 'all' }),
+      exportLabel: s.exported ? 'Downloaded (CSV)' : 'Export list (CSV)', exportIt: () => this.setState({ exported: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

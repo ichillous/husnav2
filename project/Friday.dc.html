@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Friday prayers in Columbus</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="row between bottom g24">
+<div class="stack g12"><p class="eyebrow">Columbus · Jumu’ah</p><h1 class="d2">Find your <em>Friday.</em></h1><p class="lede">Every Friday service the organizations on Husna have posted, in time order. Each masjid keeps its own times, khateebs and topics current.</p></div>
+<div class="seg" role="group" aria-label="Which Friday"><sc-for list="{{weeks}}" as="w" hint-placeholder-count="2"><button type="button" class="{{w.cls}}" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}">{{w.label}}</button></sc-for></div>
+</div>
+
+<div class="split">
+<div class="col-main stack g16">
+<sc-if value="{{thisWeek}}" hint-placeholder-val="{{true}}">
+<div class="card p0"><div class="list in">
+<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">1:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">On Being There for One Another</span><span class="sm mut">Imam Adam Rahman · English</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span><span class="badge">Parking: north lot</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">2:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Finding Patience in a Noisy World</span><span class="sm mut">Shaykh Yusuf Ali · English and Arabic</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+<a class="li start" href="OrgProfile.dc.html#friday"><span class="serif nw" style="font-size: 34px; line-height: 1.1; flex: 0 0 128px">3:30 PM</span><span class="grow stack g4"><span class="eyebrow">Crescent House Masjid · Main hall</span><span class="li-t">Raising a Community That Cares</span><span class="sm mut">Ustadh Hamza Malik · English and Somali</span><span class="row g8"><span class="badge">Sisters’ hall</span><span class="badge">Step-free entrance</span></span></span><span class="go" aria-hidden="true">↗</span></a>
+</div></div>
+<p class="sm sub">3 services at 1 masjid · updated Wednesday, October 7 · times are Eastern Time</p>
+</sc-if>
+<sc-if value="{{nextWeek}}" hint-placeholder-val="{{false}}">
+<div class="card c stack g12" style="align-items: center; padding: 56px 24px">
+<h2 class="d3">Not posted yet.</h2>
+<p class="mut">Topics for Friday, October 16 usually appear by Wednesday. Times rarely change from week to week.</p>
+<a class="btn" href="Gate.dc.html">Tell me when they are posted</a>
+</div>
+</sc-if>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g12"><p class="eyebrow">First time at a masjid?</p><h2 class="d4">You are welcome.</h2><p class="sm mut">Arrive ten minutes early, leave your shoes at the door, and sit wherever there is space. Each profile says where to park, which entrance to use and whom to ask.</p><a class="link" href="OrgProfile.dc.html">About Crescent House Masjid →</a></div>
+<div class="card stack g12"><p class="eyebrow q">Is your masjid missing?</p><p class="sm mut">Friday schedules are posted by the organizations themselves, free.</p><a class="link" href="ForOrgs.dc.html">Bring your organization to Husna →</a></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Help.dc.html">Help</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+state = { week: 'this' };
+  renderVals() {
+    const s = this.state;
+    return {
+      thisWeek: s.week === 'this', nextWeek: s.week === 'next',
+      weeks: [['this', 'This Friday, October 9'], ['next', 'October 16']].map(([id, label]) => ({ label, cls: s.week === id ? 'on' : '', pressed: s.week === id ? 'true' : 'false', pick: () => this.setState({ week: id }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

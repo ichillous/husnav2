@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Classes and rosters</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications</a>
+<a class="on" href="OrgRoster.dc.html" aria-current="page">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a href="OrgPayouts.dc.html">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><a href="OrgPrograms.dc.html">Weekend Qur’an School</a><span aria-hidden="true">/</span><span>Classes and rosters</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><p class="eyebrow">Fall term · week 4 of 8 · Saturday, November 14</p><h1>Classes and rosters</h1><p>52 students in four classes. Teachers see only their own class.</p></div>
+<div class="row g8"><button type="button" class="btn" onClick="{{exportRoster}}">{{exportLabel}}</button><a class="btn" href="OrgAnnouncements.dc.html">Message families</a><a class="btn pri" href="OrgAttendance.dc.html">Take attendance</a></div></div>
+
+<div class="stack g16">
+<div class="tabs" role="tablist" aria-label="Classes">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.selected}}" onClick="{{t.pick}}">{{t.label}} <span class="badge">{{t.n}}</span></button></sc-for>
+</div>
+
+<div class="card"><div class="row between g20">
+<div class="stack g4"><h2 class="d4">{{c.title}}</h2><p class="sm mut">{{c.meta}}</p></div>
+<div class="stack g8" style="flex: 0 1 280px"><div class="row between sm"><span class="b">{{c.count}} of {{c.cap}} places</span><span class="mut">{{c.wait}}</span></div><div class="meter" aria-hidden="true"><i style="{{c.meter}}"></i></div></div>
+</div></div>
+
+<div class="row between g12">
+<div class="search grow" role="search" style="max-width: 380px; padding-right: 16px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg><input type="search" aria-label="Find a student or parent" placeholder="Find a student or parent" value="{{q}}" onInput="{{onQ}}"></div>
+<span class="sm sub" role="status">Showing {{shown}} of {{c.count}}</span>
+</div>
+
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Student</th><th>Age</th><th>Parent or guardian</th><th>Tuition</th><th>Attendance</th><th>Notes for staff</th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<tr><td><a class="link" href="OrgStudent.dc.html">{{r.name}}</a></td><td class="tnum">{{r.age}}</td><td>{{r.parent}}<small>{{r.phone}}</small></td><td><span class="badge {{r.payCls}}">{{r.pay}}</span></td><td class="tnum">{{r.att}}</td><td class="mut">{{r.note}}</td></tr>
+</sc-for>
+</tbody></table></div>
+
+<div class="row between g12">
+<p class="sm sub">Tuition status comes from Tuition and payouts. Attendance counts late arrivals as present.</p>
+<button type="button" class="btn sm" onClick="{{copyLink}}">{{linkLabel}}</button>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  state = { cls: 'L2', q: '', exported: false, link: false };
+  renderVals() {
+    const s = this.state;
+    const classes = {
+      L1: { title: 'Level 1 · Foundations', meta: 'Ustadha Salma Idris · Room 2 · Ages 5 to 7', cap: 16, base: 5, wait: 'No waitlist', names: 'Maryam Farah,Isa Rahman,Zaynab Hussein,Anas Abdi,Ruqayya Ali,Iman Haddad,Khalid Noor,Salma Karim,Yunus Khan,Amina Dahir,Hud Siddiqui,Asma Warsame,Nuh Yildiz,Sara Jama' },
+      L2: { title: 'Level 2 · Reading', meta: 'Ustadh Bilal Ahmed · Room 3 · Ages 8 to 10', cap: 16, base: 8, wait: 'Full · no waitlist', names: 'Yusuf Farah,Ilyas Abdi,Aisha Rahman,Safiya Hussein,Omar Abdi,Layla Haddad,Sami Salim,Amal Jama,Yahya Bakr,Hana Yildiz,Zayd Karim,Sumaya Ali,Adam Siddiqui,Nura Warsame,Idris Khan,Maryan Dahir' },
+      L3: { title: 'Level 3 · Memorization', meta: 'Ustadh Hamza Malik · Room 4 · Ages 11 to 13', cap: 14, base: 11, wait: 'Full · 3 waiting', names: 'Fatima Noor,Harun Rahman,Bilqis Ali,Dawud Hussein,Hajar Abdi,Ismail Karim,Jannah Khan,Luqman Dahir,Mina Haddad,Nasir Siddiqui,Rania Warsame,Salman Yildiz,Tasnim Salim,Uthman Bakr' },
+      L4: { title: 'Level 4 · Teens', meta: 'Ustadha Noor Hassan · Library · Ages 14 to 15', cap: 12, base: 14, wait: '4 places open', names: 'Hafsa Abdi,Zubayr Noor,Yasmin Rahman,Ayub Hussein,Dina Ali,Faris Karim,Huda Khan,Jibril Dahir' }
+    };
+    const parents = ['Amina', 'Tariq', 'Leila', 'Mustafa', 'Sahra', 'Imran', 'Rahma', 'Omar', 'Zeynep', 'Nasra', 'Dahir', 'Yasmin', 'Hodan', 'Khalil', 'Samira', 'Jamal'];
+    const notes = { 'Yusuf Farah': 'Peanut allergy · no photos', 'Maryam Farah': 'No photos', 'Hafsa Abdi': 'Asthma, carries an inhaler', 'Sami Salim': 'Wears glasses, sits near the front' };
+    const ages = { 'Yusuf Farah': 9, 'Maryam Farah': 6, 'Ilyas Abdi': 8 };
+    const c = classes[s.cls];
+    const list = c.names.split(',');
+    const q = s.q.trim().toLowerCase();
+    const rows = list.map((name, i) => {
+      const last = name.split(' ')[1];
+      const parent = parents[(i * 3 + name.length) % parents.length] + ' ' + last;
+      const payKind = name === 'Hafsa Abdi' ? 2 : i % 7 === 5 ? 3 : i % 3 === 0 ? 1 : 0;
+      const pay = ['Paid in full', '1 of 2 paid', 'Assistance', 'Payment failed'][payKind];
+      const present = 8 - (i % 5 === 3 ? 2 : i % 4 === 2 ? 1 : 0);
+      return {
+        name, age: ages[name] || c.base + (i % (c.base === 14 ? 2 : 3)), parent: name === 'Yusuf Farah' || name === 'Maryam Farah' ? 'Amina Farah' : parent,
+        phone: '(614) 555-01' + String(17 + ((i * 7 + c.base) % 80)).padStart(2, '0'),
+        pay, payCls: ['ok', 'info', 'warn', 'bad'][payKind],
+        att: (name === 'Yusuf Farah' ? 7 : present) + ' of 8 days', note: notes[name] || ''
+      };
+    }).filter((r) => !q || (r.name + ' ' + r.parent).toLowerCase().includes(q));
+    const tabs = Object.keys(classes).map((id) => ({
+      label: classes[id].title.split(' · ')[0], n: classes[id].names.split(',').length + ' of ' + classes[id].cap,
+      cls: s.cls === id ? 'on' : '', selected: s.cls === id ? 'true' : 'false', pick: () => this.setState({ cls: id, q: '' })
+    }));
+    return {
+      tabs, rows, shown: rows.length,
+      c: { title: c.title, meta: c.meta, cap: c.cap, count: list.length, wait: c.wait, meter: 'width: ' + Math.round((list.length / c.cap) * 100) + '%' },
+      q: s.q, onQ: (ev) => this.setState({ q: ev.target.value }),
+      exportLabel: s.exported ? 'Roster downloaded (CSV)' : 'Export roster (CSV)',
+      exportRoster: () => this.setState({ exported: true }),
+      linkLabel: s.link ? 'Enrollment link copied' : 'Add a student: copy the enrollment link',
+      copyLink: () => this.setState({ link: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

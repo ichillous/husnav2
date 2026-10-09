@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Help, terms and privacy</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<div class="ribbon"><div class="wrap"><span><b>Husna</b> · Columbus, Ohio</span><span>A place to belong</span></div></div>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<nav class="nav" aria-label="Primary"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a></nav>
+<div class="row g8 push"><a class="btn" href="SignIn.dc.html">Sign in</a><a class="btn pri" href="SignUp.dc.html">Create account</a><a class="ibtn menu-btn" href="MenuVisitor.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Help</p><h1 class="d2">How can we <em>help?</em></h1></div>
+<nav class="tabs" aria-label="On this page"><a class="on" href="#members">Members and parents</a><a href="#orgs">Organizations</a><a href="#contact">Contact Husna</a><a href="#legal">Terms and privacy</a></nav>
+
+<div class="split" id="members">
+<div class="col-side"><h2 class="d3">Members and parents</h2></div>
+<div class="col-main cols c2">
+<div class="stack g8"><h3 class="t1">Do I need an account?</h3><p class="mut">No account is needed to browse events and organizations or to donate. You need one to RSVP, save events, follow organizations and enroll children.</p></div>
+<div class="stack g8"><h3 class="t1">Is anything on Husna paid?</h3><p class="mut">Husna itself is free, for everyone. Events are always free to attend. Some classes charge tuition, which is set by the organization, shown before you enroll, and goes to the organization.</p></div>
+<div class="stack g8"><h3 class="t1">What is a home masjid?</h3><p class="mut">The masjid you pray at most. Choose it from the masjid’s page and its adhan and iqamah times stay at the top of every page you open. Change or remove it in <a class="link" href="Account.dc.html">Account</a>.</p></div>
+<div class="stack g8"><h3 class="t1">How do I enroll my child in a class?</h3><p class="mut">Open the program page, choose Enroll a child, and follow the five steps. You can save and return at any point.</p></div>
+<div class="stack g8"><h3 class="t1">When am I charged tuition?</h3><p class="mut">Only after the school confirms your child’s place. Waitlisted children are never charged.</p></div>
+<div class="stack g8"><h3 class="t1">How do I change or cancel an RSVP?</h3><p class="mut">Open the event from Saved, then choose Change RSVP or Cancel RSVP. The host’s count updates at once.</p></div>
+<div class="stack g8"><h3 class="t1">I cannot sign in.</h3><p class="mut">Use Email me a link on the sign-in page, or <a class="link" href="Forgot.dc.html">reset your password</a>.</p></div>
+</div>
+</div>
+
+<hr class="hr">
+
+<div class="split" id="orgs">
+<div class="col-side"><h2 class="d3">Organizations</h2></div>
+<div class="col-main cols c2">
+<div class="stack g8"><h3 class="t1">How do we join?</h3><p class="mut">Apply from <a class="link" href="ForOrgs.dc.html">For organizations</a>. We verify every application before a profile goes live.</p></div>
+<div class="stack g8"><h3 class="t1">What does Husna charge?</h3><p class="mut">Nothing. Profiles, events, classes, tuition, donations, payment links and TV displays are all free, with no plan to upgrade to. When someone pays by card, Stripe charges its own processing; Husna adds nothing to it.</p></div>
+<div class="stack g8"><h3 class="t1">Then how is Husna paid for?</h3><p class="mut">By people who choose to. Husna is built by one developer, and members and organizations who find it useful can <a class="link" href="Coffee.dc.html">buy the developer a coffee</a>. It is a gift, never a condition.</p></div>
+<div class="stack g8"><h3 class="t1">Can we show prayer times on a TV?</h3><p class="mut">Yes. Open husna.app/tv in the browser of any TV, streaming stick or small computer, then type the code it shows under TV displays in your workspace. It is free.</p></div>
+<div class="stack g8"><h3 class="t1">How do payouts work?</h3><p class="mut">You connect a bank account through Stripe during setup. Tuition and donations are paid out on Stripe’s schedule.</p></div>
+<div class="stack g8"><h3 class="t1">Someone listed our organization without permission.</h3><p class="mut">Tell us using the form below and choose Report a listing. We will suspend the profile while we check.</p></div>
+</div>
+</div>
+
+<hr class="hr">
+
+<div class="split" id="contact">
+<div class="col-side stack g12"><h2 class="d3">Contact Husna</h2><p class="mut">A person reads every message. You can also write to [SUPPORT EMAIL].</p></div>
+<div class="col-main">
+<sc-if value="{{writing}}" hint-placeholder-val="{{true}}">
+<div class="card stack g16">
+<div class="form">
+<div class="field"><label class="label" for="hp-email">Your email</label><input class="input" id="hp-email" type="email" autoComplete="email" placeholder="you@example.com"></div>
+<div class="field"><label class="label" for="hp-topic">Topic</label>
+<select class="select" id="hp-topic" defaultValue="account"><option value="account">My account or sign-in</option><option value="enroll">Enrollment or tuition</option><option value="donation">A donation or receipt</option><option value="org">Joining as an organization</option><option value="report">Report a listing</option><option value="privacy">Privacy or my data</option><option value="other">Something else</option></select></div>
+<div class="field full"><label class="label" for="hp-msg">How can we help?</label><textarea class="textarea" id="hp-msg" placeholder="Include the organization or event name if this is about one."></textarea></div>
+</div>
+<div class="row end"><button type="button" class="btn pri" onClick="{{send}}">Send to Husna</button></div>
+</div>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Message received.</span><span>We reply by email, usually within [SUPPORT RESPONSE TIME].</span></div></div>
+</sc-if>
+</div>
+</div>
+
+<hr class="hr">
+
+<div class="split" id="legal">
+<div class="col-side stack g8"><h2 class="d3">Terms and privacy</h2><p class="sm sub">The full documents, each with its version and the date it took effect.</p></div>
+<div class="col-main stack g16">
+<div class="cols" style="gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr))">
+<a class="card stack g8" href="Terms.dc.html"><span class="eyebrow">Version [TERMS VERSION]</span><span class="d4">Terms of Service</span><span class="sm mut">The agreement with everyone who uses Husna.</span><span class="sm b acc">Read the terms →</span></a>
+<a class="card stack g8" href="Privacy.dc.html"><span class="eyebrow">Version [PRIVACY VERSION]</span><span class="d4">Privacy Policy</span><span class="sm mut">What Husna knows, who can see it, and how to take it back.</span><span class="sm b acc">Read the policy →</span></a>
+<a class="card stack g8" href="OrgTerms.dc.html"><span class="eyebrow">Version [TERMS VERSION]</span><span class="d4">Organization Terms</span><span class="sm mut">For organizations with a workspace, including fees.</span><span class="sm b acc">Read the terms →</span></a>
+</div>
+<div class="note ok"><div class="stack g4"><span class="b ink">Children’s information</span><span>Children never have their own accounts. A child’s record is created by a parent or guardian and is visible only to that family and to the staff of a school they enroll in. Parents can correct or delete it from My family.</span></div></div>
+</div>
+</div>
+
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+<div class="stack g4"><a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a><span>One city. Countless connections.</span></div>
+<nav class="row g20" aria-label="Footer"><a href="Discover.dc.html">Discover</a><a href="Organizations.dc.html">Organizations</a><a href="ForOrgs.dc.html">For organizations</a><a href="Terms.dc.html">Terms</a><a href="Privacy.dc.html">Privacy</a><a href="FounderSignIn.dc.html">Husna staff</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav>
+</div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2220}}'>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return { writing: !this.state.sent, sent: this.state.sent, send: () => this.setState({ sent: true }) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1652 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "Map.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 3360,
+   "h": 7480,
+   "title": "S1 · Every screen and where each click leads",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "System.dc.html": {
+   "x": 3440,
+   "y": 0,
+   "w": 1440,
+   "h": 7960,
+   "title": "S2 · Design system",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Main.dc.html": {
+   "x": 0,
+   "y": 8400,
+   "w": 1440,
+   "h": 4080,
+   "title": "A1 · Home",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Discover.dc.html": {
+   "x": 1520,
+   "y": 8400,
+   "w": 1440,
+   "h": 1860,
+   "title": "A2 · Discover",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Event.dc.html": {
+   "x": 3040,
+   "y": 8400,
+   "w": 1440,
+   "h": 2200,
+   "title": "A3 · Event",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Gate.dc.html": {
+   "x": 4560,
+   "y": 8400,
+   "w": 720,
+   "h": 600,
+   "title": "A4 · Sign-in gate",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Organizations.dc.html": {
+   "x": 5360,
+   "y": 8400,
+   "w": 1440,
+   "h": 1320,
+   "title": "A5 · Organizations",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgProfile.dc.html": {
+   "x": 6880,
+   "y": 8400,
+   "w": 1440,
+   "h": 4900,
+   "title": "A6 · Organization profile",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "ContactOrg.dc.html": {
+   "x": 8400,
+   "y": 8400,
+   "w": 720,
+   "h": 680,
+   "title": "A7 · Message an organization",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Program.dc.html": {
+   "x": 0,
+   "y": 13740,
+   "w": 1440,
+   "h": 4440,
+   "title": "A8 · Weekend Qur’an School",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Donate.dc.html": {
+   "x": 1520,
+   "y": 13740,
+   "w": 1440,
+   "h": 1600,
+   "title": "A9 · Donate",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "DonateDone.dc.html": {
+   "x": 3040,
+   "y": 13740,
+   "w": 720,
+   "h": 660,
+   "title": "A10 · Donation receipt",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "ForOrgs.dc.html": {
+   "x": 3840,
+   "y": 13740,
+   "w": 1440,
+   "h": 4020,
+   "title": "A11 · For organizations",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Help.dc.html": {
+   "x": 5360,
+   "y": 13740,
+   "w": 1440,
+   "h": 2220,
+   "title": "A12 · Help",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Coffee.dc.html": {
+   "x": 6880,
+   "y": 13740,
+   "w": 720,
+   "h": 860,
+   "title": "A18 · Buy the developer a coffee",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Friday.dc.html": {
+   "x": 0,
+   "y": 18620,
+   "w": 1440,
+   "h": 1000,
+   "title": "A13 · Friday prayers",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "PayLink.dc.html": {
+   "x": 1520,
+   "y": 18620,
+   "w": 1440,
+   "h": 880,
+   "title": "A14 · Payment link",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Terms.dc.html": {
+   "x": 3040,
+   "y": 18620,
+   "w": 1440,
+   "h": 2680,
+   "title": "A15 · Terms of Service",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Privacy.dc.html": {
+   "x": 4560,
+   "y": 18620,
+   "w": 1440,
+   "h": 2740,
+   "title": "A16 · Privacy Policy",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgTerms.dc.html": {
+   "x": 6080,
+   "y": 18620,
+   "w": 1440,
+   "h": 2480,
+   "title": "A17 · Organization Terms",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "SignIn.dc.html": {
+   "x": 0,
+   "y": 21800,
+   "w": 1440,
+   "h": 840,
+   "title": "B1 · Sign in",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "CheckEmail.dc.html": {
+   "x": 1520,
+   "y": 21800,
+   "w": 720,
+   "h": 600,
+   "title": "B2 · Check your email",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Workspaces.dc.html": {
+   "x": 2320,
+   "y": 21800,
+   "w": 720,
+   "h": 620,
+   "title": "B3 · Choose a space",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Forgot.dc.html": {
+   "x": 3120,
+   "y": 21800,
+   "w": 720,
+   "h": 600,
+   "title": "B4 · Forgot password",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "ResetPassword.dc.html": {
+   "x": 3920,
+   "y": 21800,
+   "w": 720,
+   "h": 620,
+   "title": "B5 · New password",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "SignUp.dc.html": {
+   "x": 4720,
+   "y": 21800,
+   "w": 1440,
+   "h": 1120,
+   "title": "B6 · Create account: choose type",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "SignUpMember.dc.html": {
+   "x": 6240,
+   "y": 21800,
+   "w": 1440,
+   "h": 1140,
+   "title": "B7 · Member sign-up",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Verify.dc.html": {
+   "x": 7760,
+   "y": 21800,
+   "w": 720,
+   "h": 600,
+   "title": "B8 · Verify email",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Welcome.dc.html": {
+   "x": 8560,
+   "y": 21800,
+   "w": 1440,
+   "h": 1380,
+   "title": "B9 · Welcome",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgApply1.dc.html": {
+   "x": 0,
+   "y": 23620,
+   "w": 1440,
+   "h": 1180,
+   "title": "B10 · Organization application 1 of 4: you",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgApply2.dc.html": {
+   "x": 1520,
+   "y": 23620,
+   "w": 1440,
+   "h": 2320,
+   "title": "B11 · Organization application 2 of 4: organization",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgApply3.dc.html": {
+   "x": 3040,
+   "y": 23620,
+   "w": 1440,
+   "h": 1800,
+   "title": "B12 · Organization application 3 of 4: verification",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgApply4.dc.html": {
+   "x": 4560,
+   "y": 23620,
+   "w": 1440,
+   "h": 1720,
+   "title": "B13 · Organization application 4 of 4: review",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgPending.dc.html": {
+   "x": 6080,
+   "y": 23620,
+   "w": 1440,
+   "h": 1160,
+   "title": "B14 · Application status",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Invite.dc.html": {
+   "x": 7600,
+   "y": 23620,
+   "w": 720,
+   "h": 840,
+   "title": "B15 · Team invitation",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "TermsUpdate.dc.html": {
+   "x": 8400,
+   "y": 23620,
+   "w": 720,
+   "h": 700,
+   "title": "B16 · Updated terms at sign-in",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "GuardianInvite.dc.html": {
+   "x": 9200,
+   "y": 23620,
+   "w": 720,
+   "h": 1240,
+   "title": "B17 · Guardian invitation",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Unsubscribe.dc.html": {
+   "x": 10000,
+   "y": 23620,
+   "w": 720,
+   "h": 600,
+   "title": "B18 · Unsubscribe from an email",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "MyHusna.dc.html": {
+   "x": 0,
+   "y": 26380,
+   "w": 1440,
+   "h": 1560,
+   "title": "C1 · My week",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "RsvpSheet.dc.html": {
+   "x": 1520,
+   "y": 26380,
+   "w": 720,
+   "h": 680,
+   "title": "C2 · RSVP",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Saved.dc.html": {
+   "x": 2320,
+   "y": 26380,
+   "w": 1440,
+   "h": 740,
+   "title": "C3 · Saved and going",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Notifications.dc.html": {
+   "x": 3840,
+   "y": 26380,
+   "w": 1440,
+   "h": 1140,
+   "title": "C4 · Notifications",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Family.dc.html": {
+   "x": 5360,
+   "y": 26380,
+   "w": 1440,
+   "h": 1940,
+   "title": "C5 · My family",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "ChildForm.dc.html": {
+   "x": 6880,
+   "y": 26380,
+   "w": 1440,
+   "h": 2340,
+   "title": "C6 · Add a child",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "PrayerBar.dc.html": {
+   "x": 8400,
+   "y": 26380,
+   "w": 1440,
+   "h": 45,
+   "title": "C20 · Home masjid banner, on top of every member page",
+   "is_interactive": true
+  },
+  "Enroll1.dc.html": {
+   "x": 0,
+   "y": 29160,
+   "w": 1440,
+   "h": 1040,
+   "title": "C7 · Enroll 1 of 5: children",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Enroll2.dc.html": {
+   "x": 1520,
+   "y": 29160,
+   "w": 1440,
+   "h": 1560,
+   "title": "C8 · Enroll 2 of 5: classes",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Enroll3.dc.html": {
+   "x": 3040,
+   "y": 29160,
+   "w": 1440,
+   "h": 2120,
+   "title": "C9 · Enroll 3 of 5: family and safety",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Enroll4.dc.html": {
+   "x": 4560,
+   "y": 29160,
+   "w": 1440,
+   "h": 1940,
+   "title": "C10 · Enroll 4 of 5: agreements",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Enroll5.dc.html": {
+   "x": 6080,
+   "y": 29160,
+   "w": 1440,
+   "h": 1680,
+   "title": "C11 · Enroll 5 of 5: tuition",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Enroll6.dc.html": {
+   "x": 7600,
+   "y": 29160,
+   "w": 1440,
+   "h": 1560,
+   "title": "C12 · Enrollment submitted",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Child.dc.html": {
+   "x": 0,
+   "y": 31720,
+   "w": 1440,
+   "h": 2060,
+   "title": "C13 · Child: class, attendance, progress",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "AbsenceSheet.dc.html": {
+   "x": 1520,
+   "y": 31720,
+   "w": 720,
+   "h": 800,
+   "title": "C14 · Report an absence",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "WithdrawSheet.dc.html": {
+   "x": 2320,
+   "y": 31720,
+   "w": 720,
+   "h": 700,
+   "title": "C15 · Withdraw from a class",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Payments.dc.html": {
+   "x": 3120,
+   "y": 31720,
+   "w": 1440,
+   "h": 1280,
+   "title": "C16 · Payments and receipts",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Account.dc.html": {
+   "x": 4640,
+   "y": 31720,
+   "w": 1440,
+   "h": 3000,
+   "title": "C17 · Account settings",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Messages.dc.html": {
+   "x": 6160,
+   "y": 31720,
+   "w": 1440,
+   "h": 1020,
+   "title": "C18 · Messages",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "WaitlistOffer.dc.html": {
+   "x": 7680,
+   "y": 31720,
+   "w": 720,
+   "h": 980,
+   "title": "C19 · Waitlist place offered",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgSetup.dc.html": {
+   "x": 0,
+   "y": 35160,
+   "w": 1440,
+   "h": 1460,
+   "title": "D1 · Setup guide",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgHome.dc.html": {
+   "x": 1520,
+   "y": 35160,
+   "w": 1440,
+   "h": 1300,
+   "title": "D2 · Overview",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgEvents.dc.html": {
+   "x": 3040,
+   "y": 35160,
+   "w": 1440,
+   "h": 1300,
+   "title": "D3 · Events",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgEventEdit.dc.html": {
+   "x": 4560,
+   "y": 35160,
+   "w": 1440,
+   "h": 2300,
+   "title": "D4 · Create event",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgEventManage.dc.html": {
+   "x": 6080,
+   "y": 35160,
+   "w": 1440,
+   "h": 1760,
+   "title": "D5 · Event RSVPs",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgFriday.dc.html": {
+   "x": 7600,
+   "y": 35160,
+   "w": 1440,
+   "h": 1300,
+   "title": "D6 · Friday prayers",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgServiceSheet.dc.html": {
+   "x": 9120,
+   "y": 35160,
+   "w": 720,
+   "h": 780,
+   "title": "D7 · Edit a service",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgPrograms.dc.html": {
+   "x": 0,
+   "y": 37900,
+   "w": 1440,
+   "h": 1320,
+   "title": "D8 · Programs",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgNewTermSheet.dc.html": {
+   "x": 1520,
+   "y": 37900,
+   "w": 720,
+   "h": 1080,
+   "title": "D24 · Start the next term",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgProgramEdit.dc.html": {
+   "x": 2320,
+   "y": 37900,
+   "w": 1440,
+   "h": 3100,
+   "title": "D9 · Program setup",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "UnsavedSheet.dc.html": {
+   "x": 3840,
+   "y": 37900,
+   "w": 720,
+   "h": 600,
+   "title": "D23 · Leave without saving?",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgApplications.dc.html": {
+   "x": 4640,
+   "y": 37900,
+   "w": 1440,
+   "h": 1300,
+   "title": "D10 · Applications",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDecisionSheet.dc.html": {
+   "x": 6160,
+   "y": 37900,
+   "w": 720,
+   "h": 600,
+   "title": "D11 · Decline or ask for info",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgRoster.dc.html": {
+   "x": 6960,
+   "y": 37900,
+   "w": 1440,
+   "h": 1800,
+   "title": "D12 · Classes and rosters",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgStudent.dc.html": {
+   "x": 8480,
+   "y": 37900,
+   "w": 1440,
+   "h": 1520,
+   "title": "D13 · Student record",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgAttendance.dc.html": {
+   "x": 10000,
+   "y": 37900,
+   "w": 1440,
+   "h": 2120,
+   "title": "D14 · Take attendance",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgAttendanceTerm.dc.html": {
+   "x": 11520,
+   "y": 37900,
+   "w": 1440,
+   "h": 1700,
+   "title": "D31 · Attendance for the term",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "TeacherHome.dc.html": {
+   "x": 13040,
+   "y": 37900,
+   "w": 1440,
+   "h": 1540,
+   "title": "D25 · Teacher’s workspace",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDonations.dc.html": {
+   "x": 0,
+   "y": 41440,
+   "w": 1440,
+   "h": 1260,
+   "title": "D15 · Donations",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgPayouts.dc.html": {
+   "x": 1520,
+   "y": 41440,
+   "w": 1440,
+   "h": 1620,
+   "title": "D16 · Tuition and payouts",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgRefundSheet.dc.html": {
+   "x": 3040,
+   "y": 41440,
+   "w": 720,
+   "h": 1000,
+   "title": "D26 · Refund a payment",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgAnnouncements.dc.html": {
+   "x": 3840,
+   "y": 41440,
+   "w": 1440,
+   "h": 1660,
+   "title": "D17 · Announcements",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgInbox.dc.html": {
+   "x": 5360,
+   "y": 41440,
+   "w": 1440,
+   "h": 1260,
+   "title": "D18 · Inbox",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgTeam.dc.html": {
+   "x": 6880,
+   "y": 41440,
+   "w": 1440,
+   "h": 1640,
+   "title": "D19 · Team and roles",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgInviteSheet.dc.html": {
+   "x": 8400,
+   "y": 41440,
+   "w": 720,
+   "h": 1020,
+   "title": "D20 · Invite a teammate",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgProfileEdit.dc.html": {
+   "x": 9200,
+   "y": 41440,
+   "w": 1440,
+   "h": 2500,
+   "title": "D21 · Public profile editor",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgSettings.dc.html": {
+   "x": 10720,
+   "y": 41440,
+   "w": 1440,
+   "h": 2660,
+   "title": "D22 · Organization settings",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgChangeSheet.dc.html": {
+   "x": 12240,
+   "y": 41440,
+   "w": 720,
+   "h": 880,
+   "title": "D27 · Change verified name or address",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgTransferSheet.dc.html": {
+   "x": 13040,
+   "y": 41440,
+   "w": 720,
+   "h": 740,
+   "title": "D28 · Transfer ownership",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgTransferAccept.dc.html": {
+   "x": 13840,
+   "y": 41440,
+   "w": 720,
+   "h": 640,
+   "title": "D29 · Accept ownership",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgActivity.dc.html": {
+   "x": 14640,
+   "y": 41440,
+   "w": 1440,
+   "h": 1320,
+   "title": "D30 · Activity log",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgCoffee.dc.html": {
+   "x": 16160,
+   "y": 41440,
+   "w": 720,
+   "h": 840,
+   "title": "D38 · Buy the developer a coffee, from an organization",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgPrayerTimes.dc.html": {
+   "x": 0,
+   "y": 44540,
+   "w": 1440,
+   "h": 3200,
+   "title": "D32 · Prayer times",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDisplays.dc.html": {
+   "x": 1520,
+   "y": 44540,
+   "w": 1440,
+   "h": 1940,
+   "title": "D33 · TV displays",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDisplayPairSheet.dc.html": {
+   "x": 3040,
+   "y": 44540,
+   "w": 720,
+   "h": 760,
+   "title": "D34 · Pair a TV",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDisplayEdit.dc.html": {
+   "x": 3840,
+   "y": 44540,
+   "w": 1440,
+   "h": 2560,
+   "title": "D35 · Set up a TV display",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgSlideSheet.dc.html": {
+   "x": 5360,
+   "y": 44540,
+   "w": 720,
+   "h": 1260,
+   "title": "D36 · Add a slide",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "OrgDisplayMessageSheet.dc.html": {
+   "x": 6160,
+   "y": 44540,
+   "w": 720,
+   "h": 920,
+   "title": "D37 · Show a message now",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderSignIn.dc.html": {
+   "x": 0,
+   "y": 48180,
+   "w": 720,
+   "h": 740,
+   "title": "E1 · Founder sign-in",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderCode.dc.html": {
+   "x": 800,
+   "y": 48180,
+   "w": 720,
+   "h": 620,
+   "title": "E2 · Two-step code",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Founder.dc.html": {
+   "x": 1600,
+   "y": 48180,
+   "w": 1440,
+   "h": 1560,
+   "title": "E3 · Founder overview",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderApprovals.dc.html": {
+   "x": 3120,
+   "y": 48180,
+   "w": 1440,
+   "h": 1380,
+   "title": "E4 · Organization approvals",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderDecisionSheet.dc.html": {
+   "x": 4640,
+   "y": 48180,
+   "w": 720,
+   "h": 680,
+   "title": "E5 · Reject or request info",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderOrgs.dc.html": {
+   "x": 5440,
+   "y": 48180,
+   "w": 1440,
+   "h": 1340,
+   "title": "E6 · Organizations",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderOrg.dc.html": {
+   "x": 6960,
+   "y": 48180,
+   "w": 1440,
+   "h": 1780,
+   "title": "E7 · Organization detail",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderSuspendSheet.dc.html": {
+   "x": 8480,
+   "y": 48180,
+   "w": 720,
+   "h": 880,
+   "title": "E8 · Suspend organization",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderUsers.dc.html": {
+   "x": 0,
+   "y": 50400,
+   "w": 1440,
+   "h": 1220,
+   "title": "E9 · Users",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderModeration.dc.html": {
+   "x": 1520,
+   "y": 50400,
+   "w": 1440,
+   "h": 1080,
+   "title": "E10 · Moderation",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderSupport.dc.html": {
+   "x": 3040,
+   "y": 50400,
+   "w": 1440,
+   "h": 840,
+   "title": "E15 · Support inbox",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderCities.dc.html": {
+   "x": 4560,
+   "y": 50400,
+   "w": 1440,
+   "h": 1380,
+   "title": "E11 · Cities and content",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderPayments.dc.html": {
+   "x": 6080,
+   "y": 50400,
+   "w": 1440,
+   "h": 1740,
+   "title": "E12 · Payments and coffee",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderHealth.dc.html": {
+   "x": 7600,
+   "y": 50400,
+   "w": 1440,
+   "h": 1740,
+   "title": "E16 · System status",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderAudit.dc.html": {
+   "x": 9120,
+   "y": 50400,
+   "w": 1440,
+   "h": 1260,
+   "title": "E13 · Audit log",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderSettings.dc.html": {
+   "x": 10640,
+   "y": 50400,
+   "w": 1440,
+   "h": 2500,
+   "title": "E14 · Console settings",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderLegalSheet.dc.html": {
+   "x": 12160,
+   "y": 50400,
+   "w": 720,
+   "h": 1260,
+   "title": "E17 · Publish a legal version",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "FounderStaffSetup.dc.html": {
+   "x": 12960,
+   "y": 50400,
+   "w": 720,
+   "h": 680,
+   "title": "E18 · Staff invitation and two-step setup",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "States.dc.html": {
+   "x": 0,
+   "y": 53340,
+   "w": 1440,
+   "h": 4400,
+   "title": "F1 · Empty and error states",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Emails.dc.html": {
+   "x": 1520,
+   "y": 53340,
+   "w": 1440,
+   "h": 5840,
+   "title": "F2 · Emails and text messages",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Stripe.dc.html": {
+   "x": 3040,
+   "y": 53340,
+   "w": 1440,
+   "h": 2740,
+   "title": "F3 · Hand-offs to Stripe",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "DocReceipt.dc.html": {
+   "x": 4560,
+   "y": 53340,
+   "w": 816,
+   "h": 1056,
+   "title": "F4 · Tuition receipt (PDF)"
+  },
+  "DocStatement.dc.html": {
+   "x": 5456,
+   "y": 53340,
+   "w": 816,
+   "h": 1056,
+   "title": "F5 · Year-end giving statement (PDF)"
+  },
+  "DocEnrollment.dc.html": {
+   "x": 6352,
+   "y": 53340,
+   "w": 816,
+   "h": 1056,
+   "title": "F6 · Signed enrollment record (PDF)"
+  },
+  "DocSignIn.dc.html": {
+   "x": 7248,
+   "y": 53340,
+   "w": 816,
+   "h": 1056,
+   "title": "F7 · Class sign-in sheet (PDF)"
+  },
+  "PhoneMain.dc.html": {
+   "x": 0,
+   "y": 59620,
+   "w": 390,
+   "h": 6060,
+   "title": "G1 · Home"
+  },
+  "MenuVisitor.dc.html": {
+   "x": 470,
+   "y": 59620,
+   "w": 390,
+   "h": 800,
+   "title": "G2 · Visitor menu",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "PhoneEvent.dc.html": {
+   "x": 940,
+   "y": 59620,
+   "w": 390,
+   "h": 2970,
+   "title": "G3 · Event"
+  },
+  "PhoneSignIn.dc.html": {
+   "x": 1410,
+   "y": 59620,
+   "w": 390,
+   "h": 750,
+   "title": "G4 · Sign in"
+  },
+  "PhoneMyHusna.dc.html": {
+   "x": 1880,
+   "y": 59620,
+   "w": 390,
+   "h": 2380,
+   "title": "G5 · My week"
+  },
+  "MenuMember.dc.html": {
+   "x": 2350,
+   "y": 59620,
+   "w": 390,
+   "h": 1000,
+   "title": "G6 · Member menu",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "PhoneEnroll2.dc.html": {
+   "x": 2820,
+   "y": 59620,
+   "w": 390,
+   "h": 2480,
+   "title": "G7 · Enroll: classes"
+  },
+  "PhoneEnroll5.dc.html": {
+   "x": 3290,
+   "y": 59620,
+   "w": 390,
+   "h": 2440,
+   "title": "G8 · Enroll: tuition"
+  },
+  "PhoneChild.dc.html": {
+   "x": 3760,
+   "y": 59620,
+   "w": 390,
+   "h": 3390,
+   "title": "G9 · Child"
+  },
+  "PhoneAbsence.dc.html": {
+   "x": 4230,
+   "y": 59620,
+   "w": 390,
+   "h": 780,
+   "title": "G10 · Report an absence"
+  },
+  "PhoneMessages.dc.html": {
+   "x": 4700,
+   "y": 59620,
+   "w": 390,
+   "h": 1600,
+   "title": "G11 · Messages"
+  },
+  "PhoneDonate.dc.html": {
+   "x": 5170,
+   "y": 59620,
+   "w": 390,
+   "h": 2270,
+   "title": "G12 · Donate"
+  },
+  "PhonePrayerBar.dc.html": {
+   "x": 5640,
+   "y": 59620,
+   "w": 390,
+   "h": 45,
+   "title": "G17 · Home masjid banner, moving",
+   "is_interactive": true
+  },
+  "PhoneTeacher.dc.html": {
+   "x": 0,
+   "y": 66120,
+   "w": 390,
+   "h": 2630,
+   "title": "G13 · Teacher’s workspace"
+  },
+  "PhoneAttendance.dc.html": {
+   "x": 470,
+   "y": 66120,
+   "w": 390,
+   "h": 3270,
+   "title": "G14 · Take attendance"
+  },
+  "PhoneOrgHome.dc.html": {
+   "x": 940,
+   "y": 66120,
+   "w": 390,
+   "h": 2100,
+   "title": "G15 · Workspace overview"
+  },
+  "MenuOrg.dc.html": {
+   "x": 1410,
+   "y": 66120,
+   "w": 390,
+   "h": 1440,
+   "title": "G16 · Workspace menu",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "TvPair.dc.html": {
+   "x": 0,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H1 · A new TV: pairing code",
+   "is_interactive": true
+  },
+  "TvMain.dc.html": {
+   "x": 2000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H2 · Timetable layout",
+   "is_interactive": true
+  },
+  "TvSlides.dc.html": {
+   "x": 4000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H3 · Slides-first layout",
+   "is_interactive": true
+  },
+  "TvFocus.dc.html": {
+   "x": 6000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H4 · Focus layout",
+   "is_interactive": true
+  },
+  "TvAdhan.dc.html": {
+   "x": 8000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H5 · At the adhan",
+   "is_interactive": true
+  },
+  "TvIqamah.dc.html": {
+   "x": 10000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H6 · Countdown to the iqamah",
+   "is_interactive": true
+  },
+  "TvPrayer.dc.html": {
+   "x": 12000,
+   "y": 69830,
+   "w": 1920,
+   "h": 1080,
+   "title": "H7 · During the prayer",
+   "is_interactive": true
+  },
+  "TvFriday.dc.html": {
+   "x": 0,
+   "y": 71350,
+   "w": 1920,
+   "h": 1080,
+   "title": "H8 · Friday board",
+   "is_interactive": true
+  },
+  "TvRamadan.dc.html": {
+   "x": 2000,
+   "y": 71350,
+   "w": 1920,
+   "h": 1080,
+   "title": "H9 · Ramadan: countdown to iftar",
+   "is_interactive": true
+  },
+  "TvMessage.dc.html": {
+   "x": 4000,
+   "y": 71350,
+   "w": 1920,
+   "h": 1080,
+   "title": "H10 · A message from the office",
+   "is_interactive": true
+  },
+  "TvOffline.dc.html": {
+   "x": 6000,
+   "y": 71350,
+   "w": 1920,
+   "h": 1080,
+   "title": "H11 · No connection",
+   "is_interactive": true
+  },
+  "TvPortrait.dc.html": {
+   "x": 8000,
+   "y": 71350,
+   "w": 1080,
+   "h": 1920,
+   "title": "H12 · Portrait screen",
+   "is_interactive": true
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-10-08T14:33:01Z",
+  "v": 1
+ },
+ "designSystems": [],
+ "launch": {
+  "view": "canvas"
+ },
+ "notes": {
+  "note-uqkmha": {
+   "text": "this page is too long, Maybe create a floating 'save changes' button when a user makes a change so they know how to use this page? Having the save button all the way at the bottom could make users forget its even there. ",
+   "w": 240,
+   "x": 3840,
+   "y": 38620
+  },
+  "sOpen": {
+   "fill": "orange",
+   "text": "Open decisions appear in [BRACKETS] on the screens. Yours to settle: the terms and privacy versions, dates and wording, which need counsel; review and support response times; the sender, support and alert addresses and the text-message number; how long records are kept; the company name and mailing address; which TV devices Husna tests and names, and the largest video a slide may carry.",
+   "w": 640,
+   "x": -760,
+   "y": 1500
+  },
+  "sRead": {
+   "text": "How to read this canvas. Start with S1, the map: every screen, what can be pressed on it, and where each press leads. Then press Play on A1 and click through. Rows A to F are the screens by role, at desktop width. Row G shows the same screens on a phone. Row H is what a TV in the masjid shows: each frame is a real 1920 by 1080 screen, so press Play and choose Fit, and the clock and countdowns run. S2 is the design system. Public pages open signed out; the Viewer tweak on A2, A3, A5, A6 and A8 shows the signed-in member, and every other tweak is listed on the map in amber. Screens that show the term under way (the child’s page, attendance, rosters, tuition and payouts, the teacher’s workspace) are dated mid-November; everything else is Thursday, October 8, 2026. All organizations, people, prices and counts are fictional sample data.",
+   "w": 640,
+   "x": -760,
+   "y": 0
+  },
+  "tA": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "A · Public site: home, discover, events, organizations",
+   "x": 0,
+   "y": 8100
+  },
+  "tA2": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "A · Public site: Qur’an school, giving, for organizations, help, a coffee for the developer",
+   "x": 0,
+   "y": 13440
+  },
+  "tB": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "B · Accounts: sign in, recover, create a member account",
+   "x": 0,
+   "y": 21500
+  },
+  "tB2": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "B · Accounts: organization application, invitations, updated terms",
+   "x": 0,
+   "y": 23320
+  },
+  "tC": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "C · Member and family: my week, saved, notifications, family, the home masjid banner",
+   "x": 0,
+   "y": 26080
+  },
+  "tC2": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "C · Parent enrolls children in Weekend Qur’an School",
+   "x": 0,
+   "y": 28860
+  },
+  "tC3": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "C · During the term: child, absences, payments, account, messages, waitlist",
+   "x": 0,
+   "y": 31420
+  },
+  "tD": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "D · Organization workspace: setup, overview, events, Friday prayers",
+   "x": 0,
+   "y": 34860
+  },
+  "tD2": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "D · Organization workspace: school programs, applications, rosters, attendance, teacher’s view",
+   "x": 0,
+   "y": 37600
+  },
+  "tD3": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "D · Organization workspace: money, announcements, inbox, team, profile, settings, activity",
+   "x": 0,
+   "y": 41140
+  },
+  "tE": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "E · Founder console: sign-in, overview, approvals, organizations",
+   "x": 0,
+   "y": 47880
+  },
+  "tE2": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "E · Founder console: users, moderation, support, cities, fees, system status, audit, settings",
+   "x": 0,
+   "y": 50100
+  },
+  "tF": {
+   "kind": "title1",
+   "maxW": 6000,
+   "text": "F · System: empty and error states, every message sent, hand-offs to Stripe, printed documents",
+   "x": 0,
+   "y": 53040
+  },
+  "tS": {
+   "kind": "title1",
+   "x": 0,
+   "y": -300,
+   "text": "Start here · the map of every screen and click, and the design system",
+   "maxW": 4880
+  },
+  "tG": {
+   "kind": "title1",
+   "x": 0,
+   "y": 59320,
+   "text": "G · On a phone: visitor and parent",
+   "maxW": 6000
+  },
+  "tG2": {
+   "kind": "title1",
+   "x": 0,
+   "y": 65820,
+   "text": "G · On a phone: teacher and organization",
+   "maxW": 1800
+  },
+  "sD9": {
+   "text": "Done on D9. Program setup is now two columns and about a third shorter. A save bar floats at the bottom of the window as soon as anything changes; it counts the changes and names the section they are in. The same bar is on Public profile, Create event and Add a child, and the step forms keep Back and Continue in view. Add a class moved to the end of the class list, and every settings row has one control in one column.",
+   "w": 400,
+   "x": 4120,
+   "y": 38620,
+   "fill": "green"
+  },
+  "tA3": {
+   "kind": "title1",
+   "x": 0,
+   "y": 18320,
+   "text": "A · Public site: Friday prayers, payment links, terms and privacy",
+   "maxW": 6000
+  },
+  "tD4": {
+   "kind": "title1",
+   "x": 0,
+   "y": 44240,
+   "text": "D · Organization workspace: prayer times and TV displays",
+   "maxW": 6000
+  },
+  "tH": {
+   "kind": "title1",
+   "x": 0,
+   "y": 69530,
+   "text": "H · On a TV in the masjid: pairing, the three layouts, and the minutes around a prayer",
+   "maxW": 6000
+  },
+  "tH2": {
+   "kind": "title1",
+   "x": 0,
+   "y": 71050,
+   "text": "H · On a TV in the masjid: Fridays, Ramadan, a message from the office, no connection, a screen on its side",
+   "maxW": 6000
+  },
+  "sTV": {
+   "w": 640,
+   "x": -760,
+   "y": 69830,
+   "fill": "blue",
+   "text": "New: TV displays. A masjid opens husna.app/tv on any screen with a browser, types the six-character code into its workspace (D34), and the screen follows the day by itself: the timetable or slides most of the day (H2 to H4), the adhan (H5), the countdown to the iqamah (H6), quiet during the prayer (H7), the Friday board from Thursday evening (H8), Ramadan (H9). The office can cover every screen with a message in seconds (D37, H10). If the connection drops the screen keeps the saved times for 30 days (H11). Times come from D32, Prayer times, which also feeds the public profile (A6). Each screen is set up on D35, where the preview is the real screen running. A school or nonprofit can pair a TV too; with no prayer times of its own, its screen shows slides, events and a clock."
+  },
+  "sFree": {
+   "w": 640,
+   "x": -760,
+   "y": 3000,
+   "fill": "green",
+   "text": "Husna is free. No plan, no platform fee, nothing taken from donations, tuition or payment links; the only charge anyone sees is Stripe’s own card processing, which goes to Stripe. In its place there is one quiet button, Buy the developer a coffee: for members and visitors in the footer, the phone menu and Account (A18), and for organizations at the foot of the workspace sidebar and in Settings (D38). It is one time, paid on Stripe’s page to Husna’s own account, and never interrupts anyone. The founder console shows what comes in on E12. Home masjid: a member chooses one masjid, from its page (A6), from Welcome (B9) or in Account (C17), and its adhan and iqamah times sit across the top of every page they open (C20). On a wide screen all five prayers are in view and only the countdown changes; on a phone, where they cannot fit, the line moves (G17). No home masjid, no banner. Only masjids have a Prayer times page (D32)."
+  }
+ },
+ "order": [
+  "Map.dc.html",
+  "System.dc.html",
+  "Main.dc.html",
+  "Discover.dc.html",
+  "Event.dc.html",
+  "Gate.dc.html",
+  "Organizations.dc.html",
+  "OrgProfile.dc.html",
+  "ContactOrg.dc.html",
+  "Program.dc.html",
+  "Donate.dc.html",
+  "DonateDone.dc.html",
+  "ForOrgs.dc.html",
+  "Help.dc.html",
+  "Coffee.dc.html",
+  "Friday.dc.html",
+  "PayLink.dc.html",
+  "Terms.dc.html",
+  "Privacy.dc.html",
+  "OrgTerms.dc.html",
+  "SignIn.dc.html",
+  "CheckEmail.dc.html",
+  "Workspaces.dc.html",
+  "Forgot.dc.html",
+  "ResetPassword.dc.html",
+  "SignUp.dc.html",
+  "SignUpMember.dc.html",
+  "Verify.dc.html",
+  "Welcome.dc.html",
+  "OrgApply1.dc.html",
+  "OrgApply2.dc.html",
+  "OrgApply3.dc.html",
+  "OrgApply4.dc.html",
+  "OrgPending.dc.html",
+  "Invite.dc.html",
+  "TermsUpdate.dc.html",
+  "GuardianInvite.dc.html",
+  "Unsubscribe.dc.html",
+  "MyHusna.dc.html",
+  "RsvpSheet.dc.html",
+  "Saved.dc.html",
+  "Notifications.dc.html",
+  "Family.dc.html",
+  "ChildForm.dc.html",
+  "PrayerBar.dc.html",
+  "Enroll1.dc.html",
+  "Enroll2.dc.html",
+  "Enroll3.dc.html",
+  "Enroll4.dc.html",
+  "Enroll5.dc.html",
+  "Enroll6.dc.html",
+  "Child.dc.html",
+  "AbsenceSheet.dc.html",
+  "WithdrawSheet.dc.html",
+  "Payments.dc.html",
+  "Account.dc.html",
+  "Messages.dc.html",
+  "WaitlistOffer.dc.html",
+  "OrgSetup.dc.html",
+  "OrgHome.dc.html",
+  "OrgEvents.dc.html",
+  "OrgEventEdit.dc.html",
+  "OrgEventManage.dc.html",
+  "OrgFriday.dc.html",
+  "OrgServiceSheet.dc.html",
+  "OrgPrograms.dc.html",
+  "OrgNewTermSheet.dc.html",
+  "OrgProgramEdit.dc.html",
+  "UnsavedSheet.dc.html",
+  "OrgApplications.dc.html",
+  "OrgDecisionSheet.dc.html",
+  "OrgRoster.dc.html",
+  "OrgStudent.dc.html",
+  "OrgAttendance.dc.html",
+  "OrgAttendanceTerm.dc.html",
+  "TeacherHome.dc.html",
+  "OrgDonations.dc.html",
+  "OrgPayouts.dc.html",
+  "OrgRefundSheet.dc.html",
+  "OrgAnnouncements.dc.html",
+  "OrgInbox.dc.html",
+  "OrgTeam.dc.html",
+  "OrgInviteSheet.dc.html",
+  "OrgProfileEdit.dc.html",
+  "OrgSettings.dc.html",
+  "OrgChangeSheet.dc.html",
+  "OrgTransferSheet.dc.html",
+  "OrgTransferAccept.dc.html",
+  "OrgActivity.dc.html",
+  "OrgCoffee.dc.html",
+  "OrgPrayerTimes.dc.html",
+  "OrgDisplays.dc.html",
+  "OrgDisplayPairSheet.dc.html",
+  "OrgDisplayEdit.dc.html",
+  "OrgSlideSheet.dc.html",
+  "OrgDisplayMessageSheet.dc.html",
+  "FounderSignIn.dc.html",
+  "FounderCode.dc.html",
+  "Founder.dc.html",
+  "FounderApprovals.dc.html",
+  "FounderDecisionSheet.dc.html",
+  "FounderOrgs.dc.html",
+  "FounderOrg.dc.html",
+  "FounderSuspendSheet.dc.html",
+  "FounderUsers.dc.html",
+  "FounderModeration.dc.html",
+  "FounderSupport.dc.html",
+  "FounderCities.dc.html",
+  "FounderPayments.dc.html",
+  "FounderHealth.dc.html",
+  "FounderAudit.dc.html",
+  "FounderSettings.dc.html",
+  "FounderLegalSheet.dc.html",
+  "FounderStaffSetup.dc.html",
+  "States.dc.html",
+  "Emails.dc.html",
+  "Stripe.dc.html",
+  "DocReceipt.dc.html",
+  "DocStatement.dc.html",
+  "DocEnrollment.dc.html",
+  "DocSignIn.dc.html",
+  "PhoneMain.dc.html",
+  "MenuVisitor.dc.html",
+  "PhoneEvent.dc.html",
+  "PhoneSignIn.dc.html",
+  "PhoneMyHusna.dc.html",
+  "MenuMember.dc.html",
+  "PhoneEnroll2.dc.html",
+  "PhoneEnroll5.dc.html",
+  "PhoneChild.dc.html",
+  "PhoneAbsence.dc.html",
+  "PhoneMessages.dc.html",
+  "PhoneDonate.dc.html",
+  "PhonePrayerBar.dc.html",
+  "PhoneTeacher.dc.html",
+  "PhoneAttendance.dc.html",
+  "PhoneOrgHome.dc.html",
+  "MenuOrg.dc.html",
+  "TvPair.dc.html",
+  "TvMain.dc.html",
+  "TvSlides.dc.html",
+  "TvFocus.dc.html",
+  "TvAdhan.dc.html",
+  "TvIqamah.dc.html",
+  "TvPrayer.dc.html",
+  "TvFriday.dc.html",
+  "TvRamadan.dc.html",
+  "TvMessage.dc.html",
+  "TvOffline.dc.html",
+  "TvPortrait.dc.html"
+ ],
+ "pages": [],
+ "title": "Husna Redesign"
+}

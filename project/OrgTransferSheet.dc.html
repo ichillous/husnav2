@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Transfer ownership</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ot-title">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Crescent House Masjid · Owner controls</p><h1 class="d3" id="ot-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgSettings.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{editing}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="field"><label class="label" for="ot-who">New owner</label><select class="select" id="ot-who"><option>Imam Adam Rahman · Admin</option></select><span class="hint">Only admins can become the owner. <a class="link" href="OrgTeam.dc.html">Change someone’s role</a></span></div>
+<div class="card flat stack g12" style="padding: 16px 18px">
+<p class="eyebrow q">What changes when they accept</p>
+<ul class="ul sm"><li>Imam Adam Rahman can connect payouts, transfer ownership and close the workspace</li><li>You become an admin and keep everything else you can do today</li><li>The payout bank account does not change. The new owner confirms their identity with Stripe</li><li>Both of you get an email, and the change is in the activity log</li></ul>
+</div>
+<div class="field"><label class="label" for="ot-confirm">Type the organization name to confirm</label><input class="input" id="ot-confirm" type="text" autoComplete="off" placeholder="Crescent House Masjid" value="{{text}}" onInput="{{onText}}"></div>
+<div class="row g8 end"><a class="btn" href="OrgSettings.dc.html">Cancel</a><button type="button" class="btn pri {{goCls}}" onClick="{{send}}">Send transfer request</button></div>
+<p class="xs sub">They have 7 days to accept. Until they do, nothing changes and you can cancel the request from Settings.</p>
+</div>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Request sent to Imam Adam Rahman.</span><span>You are still the owner. We will email you when he accepts or declines, or when the request expires on October 15.</span></div></div>
+<a class="btn pri block" href="OrgSettings.dc.html">Back to settings</a>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":740}}'>
+class Component extends DCLogic {
+state = { sent: false, text: '' };
+  renderVals() {
+    const s = this.state;
+    return {
+      editing: !s.sent, sent: s.sent,
+      heading: s.sent ? 'Transfer requested.' : 'Transfer ownership.',
+      text: s.text, onText: (ev) => this.setState({ text: ev.target.value }),
+      goCls: s.text.trim() === 'Crescent House Masjid' ? '' : 'off',
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enroll, step 2: classes</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="page">
+
+<header class="hdr"><div class="wrap">
+<a class="brand" href="MyHusna.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="stack ctx" style="gap: 4px"><span class="eyebrow q">Enrolling in</span><span class="b">Weekend Qur’an School · Crescent House Masjid</span></div>
+<div class="row g12 push"><span class="sm sub">Saved 9:08 AM</span><a class="btn" href="MyHusna.dc.html">Save and exit</a></div>
+</div></header>
+
+<main>
+<section class="sec s"><div class="wrap stack g32">
+<div class="stack g12"><p class="eyebrow">Fall term · October 24 to December 20</p><h1 class="d2">Choose a class <em>for each child.</em></h1></div>
+<ol class="steps" aria-label="Enrollment progress"><li class="done"><small>Step 1 · Done</small>Children</li><li class="on" aria-current="step"><small>Step 2</small>Classes</li><li><small>Step 3</small>Family and safety</li><li><small>Step 4</small>Agreements</li><li><small>Step 5</small>Tuition</li></ol>
+
+<div class="split">
+<div class="col-main stack g24">
+<p class="mut">We have suggested a level from each child’s age. All classes meet Saturday and Sunday, 9:00 AM to 12:30 PM. Teachers confirm placement on the first weekend.</p>
+
+<sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
+<div class="card stack g16" role="group" aria-label="{{k.groupLabel}}">
+<div class="row g16 nowrap"><span class="av lg" aria-hidden="true">{{k.initial}}</span><div class="grow stack g4"><h2 class="d4">{{k.name}}</h2><p class="sm mut">{{k.meta}}</p></div></div>
+<div class="stack g8">
+<sc-for list="{{k.options}}" as="o" hint-placeholder-count="3">
+<button type="button" class="pick {{o.cls}}" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}"><span class="dot" aria-hidden="true"></span><span class="grow stack g4"><span class="row g8"><span class="b">{{o.title}}</span><sc-if value="{{o.suggested}}" hint-placeholder-val="{{false}}"><span class="badge ok">Suggested for age {{k.age}}</span></sc-if></span><span class="sm mut">{{o.detail}}</span></span><span class="badge {{o.seatCls}}">{{o.seats}}</span></button>
+</sc-for>
+</div>
+<sc-if value="{{k.waitlisted}}" hint-placeholder-val="{{false}}">
+<div class="note warn" role="status"><div class="stack g4"><span class="b ink">{{k.first}} will join the waitlist for Level 3.</span><span>Waitlisting is free. If a place opens you get an email and 48 hours to accept. No tuition is charged unless you do.</span></div></div>
+</sc-if>
+<label class="check"><input type="checkbox"><span>{{k.first}} attended this school last term</span></label>
+</div>
+</sc-for>
+
+<div class="savebar step">
+<a class="btn" href="Enroll1.dc.html"><span aria-hidden="true">←</span> Back</a>
+<a class="btn pri xl" href="Enroll3.dc.html">Continue to family and safety <span aria-hidden="true">→</span></a>
+</div>
+</div>
+
+<aside class="col-side w stack g16">
+<div class="card stack g16">
+<p class="eyebrow">Your enrollment</p>
+<ul class="list">
+<sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
+<li class="li" style="padding: 12px 0"><span class="grow stack g4"><span class="b">{{k.first}}</span><span class="sm mut">{{k.chosenTitle}}</span></span><span class="tnum">{{k.price}}</span></li>
+</sc-for>
+</ul>
+<dl class="kv" style="grid-template-columns: 130px minmax(0, 1fr)">
+<dt>Sibling discount</dt><dd>{{discountText}}</dd>
+<dt>Estimated total</dt><dd class="b">{{totalText}}</dd>
+</dl>
+<p class="xs sub">Nothing is charged until the school confirms each child’s place.</p>
+</div>
+<div class="card stack g8"><p class="eyebrow q">Not sure about the level?</p><p class="sm mut">Pick the suggested one. Moving a child up or down after the reading check costs nothing.</p><a class="link sm" href="Messages.dc.html">Ask the school →</a></div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Husna · Columbus, Ohio</span><nav class="row g20" aria-label="Footer"><a href="Help.dc.html">Help</a><a href="Messages.dc.html">Ask the school a question</a><a class="coffee" href="Coffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a></nav></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1560}}'>
+class Component extends DCLogic {
+  state = { y: 'L2', m: 'L1' };
+  renderVals() {
+    const s = this.state;
+    const levels = {
+      L1: { title: 'Level 1 · Foundations', detail: 'Ages 5 to 7 · Ustadha Salma Idris · Room 2', seats: '4 places left', seatCls: 'ok', full: false },
+      L2: { title: 'Level 2 · Reading', detail: 'Ages 8 to 10 · Ustadh Bilal Ahmed · Room 3', seats: '2 places left', seatCls: 'warn', full: false },
+      L3: { title: 'Level 3 · Memorization', detail: 'Ages 11 to 13 · Ustadh Hamza Malik · Room 4', seats: 'Full · join waitlist', seatCls: 'bad', full: true }
+    };
+    const defs = [
+      { id: 'y', initial: 'Y', first: 'Yusuf', name: 'Yusuf Farah', age: 9, meta: 'Age 9 · Reads slowly', suggest: 'L2', choices: ['L1', 'L2', 'L3'] },
+      { id: 'm', initial: 'M', first: 'Maryam', name: 'Maryam Farah', age: 6, meta: 'Age 6 · Knows the letters', suggest: 'L1', choices: ['L1', 'L2'] }
+    ];
+    let paying = 0;
+    const kids = defs.map((d) => {
+      const chosen = s[d.id];
+      const wait = levels[chosen].full;
+      const price = wait ? 0 : (paying === 0 ? 240 : 204);
+      if (!wait) paying += 1;
+      return {
+        ...d, groupLabel: 'Class for ' + d.first, waitlisted: wait,
+        chosenTitle: levels[chosen].title + (wait ? ' · waitlist' : ''),
+        price: wait ? 'No charge' : '$' + price.toFixed(2), amount: price,
+        options: d.choices.map((lv) => ({
+          ...levels[lv], suggested: lv === d.suggest,
+          cls: chosen === lv ? 'on' : '', pressed: chosen === lv ? 'true' : 'false',
+          pick: () => this.setState({ [d.id]: lv })
+        }))
+      };
+    });
+    const total = kids.reduce((a, k) => a + k.amount, 0);
+    return {
+      kids,
+      discountText: paying > 1 ? '15% off the second child, already applied' : 'Applies from the second paying child',
+      totalText: '$' + total.toFixed(2)
+    };
+  }
+}
+</script>
+</body>
+</html>

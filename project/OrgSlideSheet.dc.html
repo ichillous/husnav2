@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add a slide</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060908}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="scrim">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sl-title" style="width: min(660px, 100%)">
+<div class="sheet-h">
+<div class="stack g8"><p class="eyebrow">Main prayer hall · Slides in rotation</p><h1 class="d3" id="sl-title">{{heading}}</h1></div>
+<a class="ibtn" href="OrgDisplayEdit.dc.html" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"></path></svg></a>
+</div>
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div class="stack g20">
+<div class="stack g8" role="group" aria-label="Kind of slide"><span class="label">What kind of slide?</span><div class="cols" style="grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 10px"><button type="button" class="pick {{c_event}}" aria-pressed="{{p_event}}" onClick="{{k_event}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">An event</span><span class="sm mut">Made from an event you published, with a code to RSVP</span></span></button><button type="button" class="pick {{c_announce}}" aria-pressed="{{p_announce}}" onClick="{{k_announce}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">An announcement</span><span class="sm mut">One you already posted, shortened to fit</span></span></button><button type="button" class="pick {{c_program}}" aria-pressed="{{p_program}}" onClick="{{k_program}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">A class or program</span><span class="sm mut">With its enrollment deadline and a code to enroll</span></span></button><button type="button" class="pick {{c_give}}" aria-pressed="{{p_give}}" onClick="{{k_give}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">Giving</span><span class="sm mut">A fund, a headline and a code to give</span></span></button><button type="button" class="pick {{c_notice}}" aria-pressed="{{p_notice}}" onClick="{{k_notice}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">A notice in words</span><span class="sm mut">A headline and one more line</span></span></button><button type="button" class="pick {{c_picture}}" aria-pressed="{{p_picture}}" onClick="{{k_picture}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">A picture</span><span class="sm mut">A flyer or photo you upload</span></span></button><button type="button" class="pick {{c_video}}" aria-pressed="{{p_video}}" onClick="{{k_video}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">A video</span><span class="sm mut">Plays without sound</span></span></button><button type="button" class="pick {{c_sponsor}}" aria-pressed="{{p_sponsor}}" onClick="{{k_sponsor}}"><span class="dot" aria-hidden="true"></span><span class="stack g4"><span class="b">A sponsor or community notice</span><span class="sm mut">Shown with a Sponsor label</span></span></button></div></div>
+<sc-if value="{{is_event}}" hint-placeholder-val="{{true}}">
+<div class="stack g16"><div class="field"><label class="label" for="sl-ev">Which event?</label><select class="select" id="sl-ev"><option selected>Qur’an &amp; Coffee: Saturday Reflections · Sat, Oct 10</option><option>Weekend Qur’an School Open House · Sat, Oct 17 (already a slide)</option><option>English Conversation Circle · Tue, Oct 13</option></select><span class="hint">Husna writes the slide from the event’s title, date and place, and takes it down when the event ends.</span></div><label class="check"><input type="checkbox" checked><span>Add a QR code so people can RSVP from their seat</span></label></div>
+</sc-if>
+<sc-if value="{{is_announce}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="field"><label class="label" for="sl-an">Which announcement?</label><select class="select" id="sl-an"><option selected>Parking on Fridays: please use the north lot · Oct 6</option><option>Winter coats drive, all of November · Oct 5</option><option>Weekend school supply list is ready · Oct 2</option></select><span class="hint">The headline and first line are used. Class messages to families never appear on a TV.</span></div><div class="field"><label class="label" for="sl-ah">Headline on the TV</label><input class="input" id="sl-ah" type="text" maxLength="60" defaultValue="Fridays: please park in the north lot."></div></div>
+</sc-if>
+<sc-if value="{{is_program}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="field"><label class="label" for="sl-pg">Which program?</label><select class="select" id="sl-pg"><option selected>Weekend Qur’an School · enrollment closes Oct 18 (already a slide)</option><option>English Conversation Club</option><option>Qur’an Foundations</option></select></div><label class="check"><input type="checkbox" checked><span>Add a QR code to the program page</span></label></div>
+</sc-if>
+<sc-if value="{{is_give}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="form"><div class="field"><label class="label" for="sl-fund">Fund</label><select class="select" id="sl-fund"><option selected>General fund</option><option>Weekend school scholarships</option><option>Building and maintenance</option><option>Zakat</option></select></div><div class="field"><label class="label" for="sl-gh">Headline</label><input class="input" id="sl-gh" type="text" maxLength="40" defaultValue="Keep the doors open."></div></div><p class="hint">The code opens your giving page with this fund chosen. Husna keeps nothing from donations.</p></div>
+</sc-if>
+<sc-if value="{{is_notice}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="field"><label class="label" for="sl-nh">Headline</label><input class="input" id="sl-nh" type="text" maxLength="60" placeholder="For example: Winter coats drive, all of November"></div><div class="field"><label class="label" for="sl-nd">One more line <i>(optional)</i></label><input class="input" id="sl-nd" type="text" maxLength="90" placeholder="Where, when, or who to ask"></div><p class="hint">Short lines read from the back of the hall. Up to 60 and 90 characters.</p></div>
+</sc-if>
+<sc-if value="{{is_picture}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="drop"><span class="b ink">Add a picture</span><span class="sm">1920 by 1080 fills the screen. JPG or PNG, up to 10 MB</span><button type="button" class="btn sm" onClick="{{pickFile}}">{{fileLabel}}</button></div><div class="field"><label class="label" for="sl-alt">What it says, in a sentence</label><input class="input" id="sl-alt" type="text" placeholder="Shown if the picture cannot load, and read aloud on your profile"></div></div>
+</sc-if>
+<sc-if value="{{is_video}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="drop"><span class="b ink">Add a video</span><span class="sm">MP4, up to [VIDEO SIZE LIMIT], or paste a link</span><button type="button" class="btn sm" onClick="{{pickFile}}">{{fileLabel}}</button></div><p class="hint">Videos play without sound and stop for the adhan, the countdown and the prayer.</p></div>
+</sc-if>
+<sc-if value="{{is_sponsor}}" hint-placeholder-val="{{false}}">
+<div class="stack g16"><div class="form"><div class="field"><label class="label" for="sl-sn">Who it is from</label><input class="input" id="sl-sn" type="text" placeholder="Name of the business or group"></div><div class="field"><label class="label" for="sl-sl">One line</label><input class="input" id="sl-sl" type="text" maxLength="90" placeholder="What they want people to know"></div></div><div class="note"><span>Sponsor slides carry a “Sponsor” label and are off on prayer hall screens unless you choose those screens below. What a sponsor pays you is between you and them.</span></div></div>
+</sc-if>
+
+<fieldset class="stack g4" style="border: 0; padding: 0; margin: 0"><legend class="label" style="padding: 0; margin-bottom: 4px">Show it on</legend>
+<label class="check"><input type="checkbox" checked><span>Main prayer hall</span></label><label class="check"><input type="checkbox" checked><span>Sisters’ hall</span></label><label class="check"><input type="checkbox" checked><span>Lobby <span class="sub">· offline now, it will catch up</span></span></label></fieldset>
+<div class="form tight">
+<div class="field"><label class="label" for="sl-from">From</label><input class="input" id="sl-from" type="text" defaultValue="Today"></div>
+<div class="field"><label class="label" for="sl-until">Until</label><input class="input" id="sl-until" type="text" placeholder="Leave empty to keep it"></div>
+<div class="field"><label class="label" for="sl-dur">Stays for</label><select class="select" id="sl-dur"><option>10 seconds</option><option selected>15 seconds</option><option>20 seconds</option><option>30 seconds</option></select></div>
+</div>
+<div class="row g8 end"><a class="btn" href="OrgDisplayEdit.dc.html">Cancel</a><button type="button" class="btn pri" onClick="{{add}}">Add to the rotation</button></div>
+</div>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="stack g16">
+<div class="note ok" role="status"><div class="stack g4"><span class="b ink">Added as slide 6.</span><span>It is on Main prayer hall and Sisters’ hall now, and on Lobby when that screen is back online.</span></div></div>
+<a class="btn pri block" href="OrgDisplayEdit.dc.html">Back to the screen’s setup</a>
+<button type="button" class="btn quiet block" onClick="{{again}}">Add another slide</button>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":1260}}'>
+class Component extends DCLogic {
+state = { type: 'event', done: false, file: false };
+  renderVals() {
+    const s = this.state, v = { heading: s.done ? 'Slide added.' : 'Add a slide.', form: !s.done, done: s.done,
+      add: () => this.setState({ done: true }), again: () => this.setState({ done: false, file: false }),
+      fileLabel: s.file ? 'File added. Replace' : 'Choose a file', pickFile: () => this.setState({ file: !s.file }) };
+    ['event', 'announce', 'program', 'give', 'notice', 'picture', 'video', 'sponsor'].forEach((k) => {
+      v['is_' + k] = s.type === k; v['c_' + k] = s.type === k ? 'on' : ''; v['p_' + k] = s.type === k ? 'true' : 'false'; v['k_' + k] = () => this.setState({ type: k, file: false });
+    });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

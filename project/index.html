@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Husna redesign · every screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./husna.css">
+<style>
+/* This page is the front door of the exported design: a list of every screen, and a frame to open each one in.
+   It reads canvas.json, so it never needs rebuilding. It is not one of the design's screens. */
+html,body{margin:0;background:#0b100f;color:#f3f0e7;font:400 15px/1.5 'DM Sans',system-ui,sans-serif}
+a{color:#c8efa4}
+.ix{width:min(1240px,100% - 48px);margin-inline:auto;padding:48px 0 96px}
+.ix h1{margin:8px 0 12px;font:400 clamp(40px,6vw,64px)/1.02 'Instrument Serif',Georgia,serif;letter-spacing:-.01em}
+.ix h1 em{color:#c8efa4}
+.ix-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:28px 0 8px}
+.ix-top input{flex:1 1 280px;min-height:48px;padding:12px 16px;border-radius:12px;border:1px solid rgba(232,249,229,.26);background:#0f1715;color:#f3f0e7;font:400 15px/1.4 'DM Sans',system-ui,sans-serif}
+.ix-top input:focus{outline:2px solid #c8efa4;outline-offset:2px}
+.ix-row{margin-top:44px}
+.ix-row h2{margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid #c8efa4;font:400 27px/1.15 'Instrument Serif',Georgia,serif}
+.ix-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:10px}
+.ix-card{display:flex;gap:12px;align-items:flex-start;min-height:44px;padding:12px 14px;border-radius:14px;border:1px solid rgba(232,249,229,.13);background:#14201c;color:#f3f0e7;text-decoration:none}
+.ix-card:hover{border-color:rgba(200,239,164,.5);background:#1a2924;color:#f3f0e7}
+.ix-code{flex:0 0 auto;min-width:40px;padding:4px 7px;border-radius:7px;background:#22352d;color:#c8efa4;font:700 12px/1.3 'DM Sans',system-ui,sans-serif;text-align:center;font-variant-numeric:tabular-nums}
+.ix-card b{display:block;font-weight:600;line-height:1.3}
+.ix-card small{display:block;margin-top:3px;color:#8b9b93;font-size:12px}
+.ix-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px;margin-top:28px}
+.ix-note{padding:16px 18px;border-radius:14px;border:1px solid rgba(232,249,229,.13);background:#0f1715;color:#b4bfb7;font-size:14px;line-height:1.55}
+.ix-none{margin-top:32px;color:#8b9b93}
+.ix-card[hidden],.ix-row[hidden],.ix-none[hidden]{display:none}
+/* the frame a screen opens in */
+.vw{position:fixed;inset:0;z-index:10;display:none;flex-direction:column;background:#060908}
+.vw.on{display:flex}
+.vw-bar{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;border-bottom:1px solid rgba(232,249,229,.13);background:#0f1715}
+.vw-bar b{font-weight:600}
+.vw-bar .sp{flex:1 1 auto}
+.vw-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;min-width:40px;padding:6px 12px;border-radius:10px;border:1px solid rgba(232,249,229,.26);background:none;color:#f3f0e7;font:600 13px/1.2 'DM Sans',system-ui,sans-serif;text-decoration:none;cursor:pointer}
+.vw-btn:hover{border-color:#c8efa4;color:#f3f0e7}
+.vw-btn.on{background:#c8efa4;border-color:#c8efa4;color:#11190f}
+.vw-bar select{min-height:40px;padding:6px 10px;border-radius:10px;border:1px solid rgba(232,249,229,.26);background:#0b100f;color:#f3f0e7;font:500 13px/1.2 'DM Sans',system-ui,sans-serif}
+.vw-bar label{color:#8b9b93;font-size:12px}
+.vw-stage{flex:1 1 auto;min-height:0;position:relative;overflow:auto;display:grid;place-items:start center}
+.vw-stage.fit{place-items:center;overflow:hidden}
+.vw-stage iframe{border:0;background:#0b100f;display:block}
+@media (max-width:720px){.ix{width:calc(100% - 32px);padding-top:28px}.vw-hide-s{display:none}}
+</style>
+</head>
+<body>
+<main class="ix" id="ix">
+<p class="eyebrow">Husna redesign · exported from the Claude Design canvas</p>
+<h1>Every screen, <em>end to end.</em></h1>
+<p class="lede" style="max-width: 68ch">A high-fidelity, clickable prototype. Each card opens one screen; links inside a screen lead on to the next, the way they will in the product. Start with the map, or the home page.</p>
+<div class="ix-top">
+<a class="btn pri" href="#/Main">Start at the home page →</a><a class="btn" href="#/Map">Map of every screen and click</a><a class="btn" href="#/System">Design system</a>
+<input id="q" type="search" placeholder="Find a screen by name or code, for example “enroll” or “D9”" aria-label="Find a screen">
+</div>
+<p class="sm sub" id="count"></p>
+<div id="rows"></div>
+<p class="ix-none" id="none" hidden>No screen matches that.</p>
+<div class="ix-row"><h2>Notes beside the canvas</h2><div class="ix-notes" id="notes"></div></div>
+</main>
+
+<div class="vw" id="vw" role="dialog" aria-modal="true" aria-label="Screen">
+<div class="vw-bar">
+<a class="vw-btn" href="#" aria-label="Back to every screen">← <span class="vw-hide-s">&nbsp;All screens</span></a>
+<button type="button" class="vw-btn" id="prev" aria-label="Previous screen">‹</button><button type="button" class="vw-btn" id="next" aria-label="Next screen">›</button>
+<span><b id="vt"></b> <span class="sm sub vw-hide-s" id="vs"></span></span>
+<span class="sp"></span>
+<span id="tweaks" style="display: contents"></span>
+<span id="widths" style="display: contents"><button type="button" class="vw-btn" data-w="0">Full width</button><button type="button" class="vw-btn" data-w="1440">1440</button><button type="button" class="vw-btn" data-w="390">Phone</button></span>
+<a class="vw-btn" id="alone" href="#" target="_blank" rel="noopener">Open alone ↗</a>
+</div>
+<div class="vw-stage" id="stage"><iframe id="frame" title="Screen"></iframe></div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var boards = {}, order = [], state = { file: null, w: 0, props: {} };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var stem = function (f) { return f.replace(/\.dc\.html$/, ''); };
+  var kind = function (b) { return b.expand ? (b.w <= 800 ? 'A sheet over the page' : 'A page') : b.w === 390 ? 'On a phone' : b.w >= 1080 && (b.h === 1080 || b.h === 1920) ? 'On a TV' : b.h === 1056 ? 'A printed page' : 'A fixed frame'; };
+
+  fetch('canvas.json').then(function (r) { return r.json(); }).then(function (c) {
+    boards = c.boards; order = c.order && c.order.length ? c.order.filter(function (f) { return boards[f]; }) : Object.keys(boards);
+    var titles = Object.keys(c.notes || {}).map(function (k) { return c.notes[k]; }).filter(function (n) { return n.kind === 'title1'; });
+    var rows = {}; order.forEach(function (f) { (rows[boards[f].y] = rows[boards[f].y] || []).push(f); });
+    var html = Object.keys(rows).map(Number).sort(function (a, b) { return a - b; }).map(function (y) {
+      var t = titles.filter(function (n) { return Math.abs(n.y - (y - 300)) < 2; })[0];
+      var cards = rows[y].sort(function (a, b) { return boards[a].x - boards[b].x; }).map(function (f) {
+        var b = boards[f], parts = String(b.title || stem(f)).split(' · '), code = parts.length > 1 ? parts.shift() : '', name = parts.join(' · ');
+        return '<a class="ix-card" href="#/' + stem(f) + '" data-find="' + esc((code + ' ' + name + ' ' + stem(f)).toLowerCase()) + '"><span class="ix-code">' + esc(code || '·') + '</span><span><b>' + esc(name) + '</b><small>' + kind(b) + ' · ' + b.w + ' × ' + b.h + '</small></span></a>';
+      }).join('');
+      return '<section class="ix-row"><h2>' + esc(t ? t.text : 'More screens') + '</h2><div class="ix-grid">' + cards + '</div></section>';
+    }).join('');
+    $('rows').innerHTML = html;
+    $('count').textContent = order.length + ' screens. All organizations, people, prices and counts in them are fictional sample data.';
+    $('notes').innerHTML = Object.keys(c.notes || {}).map(function (k) { return c.notes[k]; }).filter(function (n) { return n.kind !== 'title1' && n.text; }).map(function (n) { return '<div class="ix-note">' + esc(n.text) + '</div>'; }).join('');
+    route();
+  }).catch(function () { $('rows').innerHTML = '<p class="ix-none">Open this page through a web server (node tools/serve.cjs), not as a file.</p>'; });
+
+  $('q').addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase(), any = false;
+    document.querySelectorAll('.ix-row').forEach(function (row) {
+      var cards = row.querySelectorAll('.ix-card'); if (!cards.length) return;
+      var shown = 0; cards.forEach(function (c) { var ok = !q || c.getAttribute('data-find').indexOf(q) >= 0; c.hidden = !ok; if (ok) shown++; });
+      row.hidden = !shown; if (shown) any = true;
+    });
+    $('none').hidden = any;
+  });
+
+  // ---------- one screen, in a frame the size of its artboard
+  function size() {
+    var b = boards[state.file]; if (!b) return;
+    var st = $('stage'), fr = $('frame'), W = st.clientWidth, H = st.clientHeight;
+    fr.style.transform = ''; fr.style.position = ''; fr.style.left = ''; fr.style.top = ''; st.classList.remove('fit');
+    $('widths').style.display = b.expand ? 'contents' : 'none';
+    if (b.expand) { var w = state.w ? Math.min(state.w, 4000) : W; fr.style.width = (state.w ? w + 'px' : '100%'); fr.style.height = H + 'px'; }
+    else if (b.h > 2400) { fr.style.width = b.w + 'px'; fr.style.height = H + 'px'; }
+    else { var k = Math.min(1, (W - 24) / b.w, (H - 24) / b.h); st.classList.add('fit'); fr.style.width = b.w + 'px'; fr.style.height = b.h + 'px'; fr.style.position = 'absolute'; fr.style.left = '50%'; fr.style.top = '50%'; fr.style.transform = 'translate(-50%, -50%) scale(' + k + ')'; }
+    document.querySelectorAll('#widths .vw-btn').forEach(function (x) { x.classList.toggle('on', Number(x.getAttribute('data-w')) === state.w); });
+  }
+  function label(file) {
+    var b = boards[file] || {}; $('vt').textContent = b.title || stem(file); $('vs').textContent = b.w ? b.w + ' × ' + b.h : '';
+    document.title = (b.title || stem(file)) + ' · Husna redesign';
+  }
+  function url(file) { var q = Object.keys(state.props).map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(state.props[k]); }).join('&'); return file + (q ? '?' + q : ''); }
+  function tweaks(file) {
+    // A screen can declare switchable states (for example signed out or signed in). Offer them here.
+    $('tweaks').innerHTML = '';
+    fetch(file).then(function (r) { return r.text(); }).then(function (src) {
+      if (file !== state.file) return;
+      var m = /data-props='([^']*)'/.exec(src); if (!m) return;
+      var ta = document.createElement('textarea'); ta.innerHTML = m[1]; var props = JSON.parse(ta.value), out = '';
+      Object.keys(props).forEach(function (k) {
+        var p = props[k]; if (k.charAt(0) === '$' || !p || !p.editor) return;
+        var opts = p.editor === 'enum' ? p.options : p.editor === 'boolean' ? ['false', 'true'] : null; if (!opts) return;
+        var name = k.replace(/([a-z])([A-Z])/g, '$1 $2'); name = name.charAt(0).toUpperCase() + name.slice(1);
+        out += '<label>' + esc(name) + ' <select data-prop="' + esc(k) + '">' + opts.map(function (o) { return '<option' + (String(state.props[k] === undefined ? p['default'] : state.props[k]) === String(o) ? ' selected' : '') + '>' + esc(o) + '</option>'; }).join('') + '</select></label>';
+      });
+      $('tweaks').innerHTML = out;
+    }).catch(function () {});
+  }
+  function show(file, keepProps) {
+    if (!boards[file]) { location.hash = ''; return; }
+    if (!keepProps) state.props = {};
+    state.file = file; label(file); tweaks(file);
+    $('vw').classList.add('on'); document.body.style.overflow = 'hidden';
+    $('frame').src = url(file); $('alone').href = url(file); size();
+  }
+  function route() {
+    var m = /^#\/(.+)$/.exec(location.hash);
+    if (m && Object.keys(boards).length) show(decodeURIComponent(m[1]) + '.dc.html');
+    else { $('vw').classList.remove('on'); document.body.style.overflow = ''; $('frame').src = 'about:blank'; state.file = null; document.title = 'Husna redesign · every screen'; }
+  }
+  window.addEventListener('hashchange', route);
+  window.addEventListener('resize', size);
+  $('frame').addEventListener('load', function () {
+    // A link inside the screen led somewhere else: follow it, and take that screen's size.
+    var f; try { f = decodeURIComponent(this.contentWindow.location.pathname.split('/').pop()); } catch (e) { return; }
+    if (!f || !boards[f] || f === state.file) return;
+    state.file = f; state.props = {}; label(f); tweaks(f); size(); $('alone').href = f;
+    history.replaceState(null, '', '#/' + stem(f));
+  });
+  $('widths').addEventListener('click', function (ev) { var b = ev.target.closest('[data-w]'); if (!b) return; state.w = Number(b.getAttribute('data-w')); size(); });
+  $('tweaks').addEventListener('change', function (ev) { var s = ev.target.closest('[data-prop]'); if (!s) return; state.props[s.getAttribute('data-prop')] = s.value; $('frame').src = url(state.file); $('alone').href = url(state.file); });
+  function step(d) { var i = order.indexOf(state.file); if (i < 0) return; location.hash = '#/' + stem(order[(i + d + order.length) % order.length]); }
+  $('prev').addEventListener('click', function () { step(-1); }); $('next').addEventListener('click', function () { step(1); });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && state.file) location.hash = ''; });
+})();
+</script>
+</body>
+</html>

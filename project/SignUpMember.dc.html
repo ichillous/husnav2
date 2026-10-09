@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create a member account</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="auth">
+
+<div class="auth-art">
+<a class="brand" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<div class="rings" aria-hidden="true" style="margin: 110px auto">م</div>
+<div class="stack g16">
+<h2 class="d2">A city to explore.<br><em>A place to belong.</em></h2>
+<ul class="stack g8 mut"><li>RSVP and save events across Columbus</li><li>Follow the organizations you care about</li><li>Enroll your children without paper forms</li></ul>
+</div>
+</div>
+
+<main class="auth-main">
+<div class="auth-card stack g24">
+<a class="brand only-s" href="Main.dc.html" aria-label="Husna home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="back" href="SignUp.dc.html"><span aria-hidden="true">←</span> Choose a different account type</a>
+<div class="stack g8"><p class="eyebrow">Member account · Free</p><h1 class="d3">Create your account.</h1></div>
+
+<div class="stack g16">
+<div class="field"><label class="label" for="su-name">Full name</label><input class="input" id="su-name" type="text" autoComplete="name" placeholder="As you would like organizations to see it"></div>
+<div class="field"><label class="label" for="su-email">Email</label><input class="input" id="su-email" type="email" autoComplete="email" placeholder="you@example.com"><span class="hint">We send a 6-digit code to confirm it is yours.</span></div>
+<div class="field"><label class="label" for="su-pw">Password</label>
+<div class="row g8 nowrap"><input class="input grow" id="su-pw" type="{{pwType}}" autoComplete="new-password" placeholder="At least 10 characters"><button type="button" class="btn" aria-pressed="{{showPressed}}" onClick="{{toggleShow}}">{{showLabel}}</button></div>
+<span class="hint">Use a letter and a number. Prefer no password? You can sign in by email link any time.</span></div>
+<div class="field"><label class="label" for="su-city">Your city</label>
+<select class="select" id="su-city" defaultValue="columbus"><option value="columbus">Columbus, Ohio</option><option value="other">Somewhere else</option></select>
+<span class="hint">Husna is open in Columbus. Elsewhere, you can still create an account and we will tell you when your city opens.</span></div>
+</div>
+
+<div class="stack g4">
+<label class="check"><input type="checkbox"><span>I am 18 or older. Children do not have their own accounts; a parent or guardian adds them.</span></label>
+<label class="check"><input type="checkbox"><span>I agree to the <a class="link" href="Terms.dc.html">Terms of Service</a> and <a class="link" href="Privacy.dc.html">Privacy Policy</a>.</span></label>
+<label class="check"><input type="checkbox" checked=""><span>Email me a short roundup of Columbus events each Thursday.</span></label>
+</div>
+
+<a class="btn pri xl block" href="Verify.dc.html">Create account</a>
+<p class="xs sub">This form is protected against automated sign-ups.</p>
+<hr class="hr">
+<p class="mut">Already have an account? <a class="link" href="SignIn.dc.html">Sign in</a></p>
+</div>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1140}}'>
+class Component extends DCLogic {
+  state = { show: false };
+  renderVals() {
+    const s = this.state;
+    return {
+      pwType: s.show ? 'text' : 'password',
+      showLabel: s.show ? 'Hide' : 'Show',
+      showPressed: s.show ? 'true' : 'false',
+      toggleShow: () => this.setState({ show: !s.show })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tuition and payouts</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="shell">
+
+<aside class="side" aria-label="Workspace">
+<a class="brand" href="OrgHome.dc.html" aria-label="Workspace home"><svg viewBox="0 0 39 44" aria-hidden="true"><path d="M6 37V19C6 7 17 7 19.5 19V37M19.5 37V19C22 7 33 7 33 19V37M3 41h33"></path><circle cx="19.5" cy="6" r="2" fill="currentColor" stroke="none"></circle></svg>husna<i>.</i></a>
+<a class="menu-btn" href="MenuOrg.dc.html" aria-label="Menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+<div class="side-org"><span class="av sq" aria-hidden="true">C</span><div class="stack" style="gap: 2px"><span class="b sm">Crescent House Masjid</span><span class="xs sub">Verified organization</span></div></div>
+<a href="OrgHome.dc.html">Overview</a>
+<p class="grp">Publish</p>
+<a href="OrgEvents.dc.html">Events</a>
+<a href="OrgFriday.dc.html">Friday prayers</a>
+<a href="OrgPrayerTimes.dc.html">Prayer times</a>
+<a href="OrgAnnouncements.dc.html">Announcements</a>
+<a href="OrgProfileEdit.dc.html">Public profile</a>
+<a href="OrgDisplays.dc.html">TV displays</a>
+<p class="grp">School</p>
+<a href="OrgPrograms.dc.html">Programs</a>
+<a href="OrgApplications.dc.html">Applications</a>
+<a href="OrgRoster.dc.html">Classes and rosters</a>
+<a href="OrgAttendance.dc.html">Attendance</a>
+<p class="grp">Money</p>
+<a href="OrgDonations.dc.html">Donations</a>
+<a class="on" href="OrgPayouts.dc.html" aria-current="page">Tuition and payouts</a>
+<p class="grp">Organization</p>
+<a href="OrgInbox.dc.html">Inbox <span class="count">2</span></a>
+<a href="OrgTeam.dc.html">Team</a>
+<a href="OrgSettings.dc.html">Settings</a>
+<div class="side-foot"><a class="coffee" href="OrgCoffee.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5ZM16 11h1.5a2.5 2.5 0 0 1 0 5h-1.9M8.5 3.5v3M12.5 3.5v3"></path></svg>Buy the developer a coffee</a><a href="OrgProfile.dc.html">View public profile ↗</a><a href="Workspaces.dc.html">Switch space</a></div>
+</aside>
+
+<main class="work">
+<div class="work-bar"><nav class="crumbs" aria-label="Breadcrumb"><a href="OrgHome.dc.html">Crescent House Masjid</a><span aria-hidden="true">/</span><span>Tuition and payouts</span></nav><a class="av" href="Workspaces.dc.html" aria-label="Khadija Osman, Owner. Switch space or sign out">KO</a></div>
+
+<div class="ph"><div><p class="eyebrow">Sunday, November 15 · Fall term</p><h1>Tuition and payouts</h1><p>What families owe, what has been paid, and what reaches your bank account.</p></div>
+<a class="btn" href="https://dashboard.stripe.com">Open Stripe dashboard ↗</a></div>
+
+<div class="stack g24">
+
+<sc-if value="{{notConnected}}" hint-placeholder-val="{{false}}">
+<div class="card tint lg stack g16">
+<div class="stack g8"><p class="eyebrow">Step 5 of setup</p><h2 class="d3">Connect payouts to receive donations and tuition.</h2><p class="mut" style="max-width: 68ch">Husna uses Stripe to move money to your bank. Stripe will ask for your organization’s legal name, EIN, address, a person responsible for the account and bank details. About ten minutes.</p></div>
+<div class="row g8"><button type="button" class="btn pri xl" onClick="{{connect}}">Connect with Stripe →</button><a class="btn xl" href="Stripe.dc.html#connect">What Stripe asks for</a></div>
+<p class="xs sub">Until this is done, your giving page and paid enrollment stay switched off. Events, Friday prayers and announcements work as normal.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{connected}}" hint-placeholder-val="{{true}}">
+<div class="stack g24">
+<div class="card"><div class="row between g16">
+<div class="row g16 nowrap"><span class="badge ok">Payouts active</span><div class="stack g4"><span class="b">Crescent House Islamic Society, Inc.</span><span class="sm mut">Bank account ending 6789 · Paid out every Monday · Next payout November 16</span></div></div>
+<a class="btn sm" href="https://dashboard.stripe.com">Change bank or schedule in Stripe ↗</a>
+</div></div>
+
+<div class="cols c4">
+<div class="stat"><p class="eyebrow q">Tuition collected</p><b>$8,214</b><span>fall term so far</span></div>
+<div class="stat"><p class="eyebrow q">Still to come</p><b>$2,886</b><span>second payments, November 24</span></div>
+<div class="stat"><p class="eyebrow q">Needs follow-up</p><b>2</b><span>failed payments · $360.00</span></div>
+<div class="stat"><p class="eyebrow q">Assistance given</p><b>$520</b><span>4 families · from scholarships</span></div>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">Families to follow up</h2><button type="button" class="btn sm" onClick="{{toggleCash}}">{{cashBtn}}</button></div>
+<sc-if value="{{cashOpen}}" hint-placeholder-val="{{false}}">
+<div class="card stack g12">
+<h3 class="t2">Record a payment made outside Husna</h3>
+<div class="form">
+<div class="field"><label class="label" for="py-fam">Family</label><select class="select" id="py-fam"><option>Haddad · Layla, Level 2</option><option>Siddiqui · Adam, Level 2</option><option>Farah · Yusuf and Maryam</option></select></div>
+<div class="field"><label class="label" for="py-amt">Amount</label><input class="input" id="py-amt" type="text" inputMode="decimal" defaultValue="$120.00"></div>
+<div class="field"><label class="label" for="py-how">Paid by</label><select class="select" id="py-how"><option>Cash</option><option>Check</option><option>Other</option></select></div>
+</div>
+<div class="row between g8"><span class="sm sub">Nothing is charged. The family gets a receipt by email.</span><button type="button" class="btn pri" onClick="{{toggleCash}}">Record payment</button></div>
+</div>
+</sc-if>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Family</th><th>For</th><th>Status</th><th class="num">Amount</th><th></th></tr></thead>
+<tbody>
+<tr><td><span class="b">Haddad</span><small>Yasmin Haddad · (614) 555-0160</small></td><td>Layla · Level 2 · payment 2 of 2</td><td><span class="badge bad">Card declined Nov 10</span></td><td class="num">$120.00</td><td><button type="button" class="btn sm" onClick="{{remindA}}">{{remindALabel}}</button></td></tr>
+<tr><td><span class="b">Siddiqui</span><small>Tariq Siddiqui · (614) 555-0129</small></td><td>Adam · Level 2 · full tuition</td><td><span class="badge bad">Bank payment returned Nov 6</span></td><td class="num">$240.00</td><td><button type="button" class="btn sm" onClick="{{remindB}}">{{remindBLabel}}</button></td></tr>
+<tr><td><span class="b">Yildiz</span><small>Elif Yildiz · (614) 555-0173</small></td><td>Hana · Level 2 · withdrew today</td><td><span class="badge warn">Refund due</span></td><td class="num">$120.00</td><td><a class="btn sm" href="OrgRefundSheet.dc.html">Refund</a></td></tr>
+<tr><td><span class="b">Farah</span><small>Amina Farah · (614) 555-0117</small></td><td>Yusuf and Maryam · payment 2 of 2</td><td><span class="badge info">Scheduled for Nov 24</span></td><td class="num">$222.00</td><td><a class="btn sm" href="OrgStudent.dc.html">Open</a></td></tr>
+<tr><td><span class="b">Abdi</span><small>Rahma Abdi · (614) 555-0191</small></td><td>Hafsa · Level 4 · assistance, pays $100 of $240</td><td><span class="badge ok">Paid Oct 22</span></td><td class="num">$100.00</td><td><a class="btn sm" href="OrgStudent.dc.html">Open</a></td></tr>
+</tbody></table></div>
+<p class="sm sub">Students keep their places while a payment is being sorted out. Husna retries a failed card after three days and emails the family each time.</p>
+</div>
+
+<div class="stack g12">
+<h2 class="t1">Payouts to your bank</h2>
+<div class="tbl-wrap"><table class="tbl">
+<thead><tr><th>Payout date</th><th>Covers</th><th class="num">Tuition</th><th class="num">Donations</th><th class="num">Husna keeps</th><th class="num">Card processing, to Stripe</th><th class="num">To your bank</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="nw">Mon, Nov 16</td><td>Nov 9 to 15</td><td class="num">$666.00</td><td class="num">$410.00</td><td class="num">$0.00</td><td class="num">−$34.50</td><td class="num b">$1,041.50</td><td><span class="badge info">Scheduled</span></td></tr>
+<tr><td class="nw">Mon, Nov 9</td><td>Nov 2 to 8</td><td class="num">$480.00</td><td class="num">$295.00</td><td class="num">$0.00</td><td class="num">−$24.88</td><td class="num b">$750.12</td><td><span class="badge ok">Paid</span></td></tr>
+<tr><td class="nw">Mon, Nov 2</td><td>Oct 26 to Nov 1</td><td class="num">$1,128.00</td><td class="num">$350.00</td><td class="num">$0.00</td><td class="num">−$46.46</td><td class="num b">$1,431.54</td><td><span class="badge ok">Paid</span></td></tr>
+</tbody></table></div>
+<p class="sm sub">Husna is free and keeps nothing from tuition, donations or payment links. Card processing is Stripe’s own charge, at the rate on your Stripe account. Each payout has a line-by-line statement in Stripe.</p>
+</div>
+
+<div class="stack g12">
+<div class="row between"><h2 class="t1">Payment links</h2><button type="button" class="btn sm" onClick="{{toggleLink}}">{{linkBtn}}</button></div>
+<p class="sm mut">For one-off payments that are not a donation or tuition, such as a hall booking or a trip.</p>
+<sc-if value="{{linkOpen}}" hint-placeholder-val="{{false}}">
+<div class="card stack g12">
+<div class="form">
+<div class="field"><label class="label" for="pl-name">What is it for?</label><input class="input" id="pl-name" type="text" placeholder="For example: Youth trip, December 12"></div>
+<div class="field"><label class="label" for="pl-amt">Amount</label><input class="input" id="pl-amt" type="text" inputMode="decimal" placeholder="$0.00"></div>
+<div class="field full"><label class="label" for="pl-desc">Note shown to the payer <i>(optional)</i></label><input class="input" id="pl-desc" type="text" maxLength="140"></div>
+</div>
+<div class="row between g8"><span class="sm sub">Free to create. Stripe’s card processing applies to each payment.</span><button type="button" class="btn pri" onClick="{{createLink}}">Create link</button></div>
+</div>
+</sc-if>
+<div class="card p0"><div class="list in">
+<sc-if value="{{linkMade}}" hint-placeholder-val="{{false}}"><div class="li"><span class="grow stack g4"><span class="b">New payment link</span><span class="sm mut">Created just now · link copied to your clipboard</span></span><span class="badge ok">Active</span></div></sc-if>
+<div class="li"><span class="grow stack g4"><span class="b">Community hall booking deposit</span><span class="sm mut">$150.00 · 3 paid · husna.app/pay/crescent-hall</span></span><span class="badge ok">Active</span><a class="btn sm" href="PayLink.dc.html">Open ↗</a><button type="button" class="btn sm" onClick="{{copyLink}}">{{copyLabel}}</button></div>
+</div></div>
+</div>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"stripe":{"editor":"enum","options":["Connected","Not connected"],"default":"Connected"},"$preview":{"width":1440,"height":1620}}'>
+class Component extends DCLogic {
+  state = { justConnected: false, cash: false, a: false, b: false, link: false, made: false, copied: false };
+  renderVals() {
+    const s = this.state;
+    const connected = (this.props.stripe ?? 'Connected') === 'Connected' || s.justConnected;
+    return {
+      connected, notConnected: !connected,
+      connect: () => this.setState({ justConnected: true }),
+      cashOpen: s.cash, cashBtn: s.cash ? 'Cancel' : 'Record cash or check',
+      toggleCash: () => this.setState({ cash: !s.cash }),
+      remindALabel: s.a ? 'Reminder sent' : 'Send reminder', remindA: () => this.setState({ a: true }),
+      remindBLabel: s.b ? 'Reminder sent' : 'Send reminder', remindB: () => this.setState({ b: true }),
+      linkOpen: s.link, linkBtn: s.link ? 'Cancel' : 'New payment link',
+      toggleLink: () => this.setState({ link: !s.link }),
+      linkMade: s.made, createLink: () => this.setState({ made: true, link: false }),
+      copyLabel: s.copied ? 'Copied' : 'Copy link', copyLink: () => this.setState({ copied: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

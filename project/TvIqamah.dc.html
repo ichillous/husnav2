@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TV: iqamah countdown</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./husna.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b100f}
+a{color:#c8efa4}a:hover{color:#dbf7c1}
+</style>
+</helmet>
+<div class="tv ">
+<div class="tv-pad" style="flex-direction: column; justify-content: space-between; align-items: center; gap: 0; text-align: center">
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%"><div class="tv-org"><span class="tv-logo" aria-hidden="true">C</span><span>Crescent House Masjid</span></div><span class="tv-pill">{{clock}} {{ap}}</span></div>
+<div class="tv-col" style="align-items: center; gap: 0">
+<p class="tv-eb" style="font-size: 34px">Iqamah for Dhuhr in</p>
+<div class="tv-count" style="font-size: 520px; line-height: .86">{{count}}</div>
+</div>
+<div style="font: 400 64px/1.1 'Instrument Serif', serif">Straighten the rows. <em>Silence your phone.</em></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+state = { n: 0 };
+  componentDidMount() { this._t = setInterval(() => this.setState({ n: this.state.n + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const f2 = (x) => String(x).padStart(2, '0');
+    const clock = (s) => { const h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60; return ((h + 11) % 12 + 1) + ':' + f2(m); };
+    const ap = (s) => (Math.floor(s / 3600) % 24 < 12 ? 'AM' : 'PM');
+    const cd = (s) => { s = Math.max(0, s); const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? h + ':' + f2(m) : String(m)) + ':' + f2(x); };
+
+    const start = 49333, iq = 49500, n = this.state.n % (iq - start);
+    return { clock: clock(start + n), ap: ap(start + n), count: cd(iq - start - n) };
+  }
+}
+</script>
+</body>
+</html>
